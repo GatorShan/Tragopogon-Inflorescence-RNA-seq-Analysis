@@ -18,10 +18,10 @@ IN=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/wublast
 module purge
 module load wublast/2.0
 
-#xdformat \
-#	-n \
-#	-o Tdu_SuperTranscript_DB \
-#	SuperTranscript_Tdu.fasta
+xdformat \
+	-n \
+	-o Tdu_SuperTranscript_DB \
+	SuperTranscript_Tdu.fasta
 
 blastn \
 	${IN}/Tdu_SuperTranscript_DB \
