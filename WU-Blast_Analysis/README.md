@@ -44,9 +44,13 @@ The single best hit from each wublast result is parsed (no filtering) using scri
 - Output:
   - **`reciprocated_blast_hits.txt`**
     - **this file will be used for downstream analysis**
+    - **42,595 reciprocal best-hit orthologs were identified**
     - Tpr_TRINITY_DN31201_c0_g1       Tdu_TRINITY_DN10064_c0_g1
       Tpr_TRINITY_DN11072_c2_g4       Tdu_TRINITY_DN7930_c0_g1
       Tpr_TRINITY_DN14318_c0_g1       Tdu_TRINITY_DN17012_c3_g3
       Tpr_TRINITY_DN13887_c2_g2       Tdu_TRINITY_DN23704_c6_g3
   - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed`
   - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed`
+  
+### Next
+The shared orthologs pairs between wu-blast and OrthoFinder will be isolated
