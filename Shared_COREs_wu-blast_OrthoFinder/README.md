@@ -26,7 +26,19 @@ Script `ExtractInfo_V1.0.py` was used. The description info is extracted from fi
 ## Histogram of 12,900 COREs
 The script `Histogram.R` was used to draw several histograms.
 
+Local pics are uploaded from [here](https://imggmi.com/)
+
 ![Query Length](https://cdn1.imggmi.com/uploads/2019/10/13/cc759b37a91fa67e5504d4e97acc3346-full.png)
+
+![Subject Length](https://cdn1.imggmi.com/uploads/2019/10/13/13c31364ef8f7ccf349a37eff7d397d5-full.png)
+
+![p-value](https://cdn1.imggmi.com/uploads/2019/10/13/379d1e81acef83b65beb66d18367c376-full.png)
+
+![Identity](https://cdn1.imggmi.com/uploads/2019/10/13/24ef2ba88bca517b54e00e322047e20c-full.png)
+
+![Alignment Length](https://cdn1.imggmi.com/uploads/2019/10/13/5e8d588661aeae962b7cbf412581eea1-full.png)
+
+
 
 
 
