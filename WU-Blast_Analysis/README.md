@@ -4,7 +4,7 @@ This analysis is used to find the reciprocal best-hit orthologs following the me
 ## Input
 `SuperTranscript_Tdu.fasta`
 
-`SuperTranscript_Tdu.fasta`
+`SuperTranscript_Tpr.fasta`
 ## Output
 The following scripts were used to perform wu-blast analysis
 - `wublast_Tdu_db_Tpr_query_1.0.sh`
