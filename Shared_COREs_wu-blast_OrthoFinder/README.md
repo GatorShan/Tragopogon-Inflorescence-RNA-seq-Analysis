@@ -26,7 +26,8 @@ Script `ExtractInfo_V1.0.py` was used. The description info is extracted from fi
 ## Histogram of 12,900 COREs
 The script `Histogram.R` was used to draw several histograms.
 
-![Query Length](/Users/shengchen/OneDrive/2nd_Chapter_TragFL_NewAnalysis/Histogram/Rplot_2.png)
+![Query Length](https://ibb.co/HtpXLhK)
+
 
 
 
