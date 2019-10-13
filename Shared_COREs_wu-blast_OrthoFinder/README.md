@@ -38,6 +38,11 @@ Local pics are uploaded from [here](https://imggmi.com/)
 
 ![Alignment Length](https://cdn1.imggmi.com/uploads/2019/10/13/5e8d588661aeae962b7cbf412581eea1-full.png)
 
+## Initial filternation generate 11,968 COREs
+The script `Filter_V1.0.py` is used, and generate a file **`Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered.txt`**
+  - **11,968 COREs**
+  - **P_VAL >= 1e-5 and Identity >= 0.8**
+
 
 
 
