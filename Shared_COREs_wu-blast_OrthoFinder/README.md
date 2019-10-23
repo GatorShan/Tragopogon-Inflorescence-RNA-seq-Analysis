@@ -1,4 +1,4 @@
-# Shared COREs (common orthologous regions) between wu-blast and OrthoFinder
+# Shared orthologous paris between wu-blast and OrthoFinder
 ## Description
 The overlap orthologous pairs between wu-blast and OrthoFinder are isolated
 ## Input
@@ -9,21 +9,21 @@ The overlap orthologous pairs between wu-blast and OrthoFinder are isolated
   - 18,341 orthologous pairs
 
 
-## Identify COREs
-The script `Comparison_V3.0.py` was used. The output file containing shared COREs is `Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser.txt`.
-  - there are 12,900 COREs
+## Identify shared/overlapping orthologous pairs
+The script `Comparison_V3.0.py` was used. The output file containing shared orthologous pairs is `Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser.txt`.
+  - there are 12,900 overlapping orthologous pairs
   - Tpr_TRINITY_DN14318_c0_g1	Tdu_TRINITY_DN17012_c3_g3
   
     Tpr_TRINITY_DN13887_c2_g3	Tdu_TRINITY_DN23158_c1_g4
     
     Tpr_TRINITY_DN13936_c2_g4	Tdu_TRINITY_DN24503_c1_g1
 
-## Add descritpions for COREs
+## Add descritpions for those shared orthologous pairs
 Script `ExtractInfo_V1.0.py` was used. The description info is extracted from file `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt`. The output file is **`Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription.txt`**.
-  - there are 12,900 COREs
+  - there are 12,900 shared orthologous pairs
   - Header line: QUERYNAME, QUERYLEN, SUBNAME, SUBLEN, SCORE, PVAL, ID, CONS, ALIG_LEN, QB, QE, SB, SE
 
-## Histogram of 12,900 COREs
+## Histogram of 12,900 shared orthologous pairs
 The script `Histogram.R` was used to draw several histograms.
 
 Local pics are uploaded from [here](https://imggmi.com/)
@@ -38,14 +38,14 @@ Local pics are uploaded from [here](https://imggmi.com/)
 
 ![Alignment Length](https://cdn1.imggmi.com/uploads/2019/10/13/5e8d588661aeae962b7cbf412581eea1-full.png)
 
-## Filternation COREs
+## Filternation shared orthologous pairs
 The script `Filter_V1.0.py` is used, and generate a file **`Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered.txt`**
-  - **11,968 COREs**
+  - **11,968 shared orthologous pairs**
   - **P_VAL >= 1e-5 and Identity >= 0.8**
 
 The script `Filter_V2.0.py` is used, and generate a file
 **`Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered_2.0.txt`**
-  - **11,863 COREs**
+  - **11,863 shared orthologous pairs**
   - **P_VAL >= 1e-10 and Identity >= 0.8 and AlignmentLength >= 200**
 
 
