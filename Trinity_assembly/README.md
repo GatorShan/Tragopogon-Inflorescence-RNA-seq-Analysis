@@ -97,6 +97,7 @@ Between Tdu_2613 and Tdu_2886
 | SNP | 81.1% | 94,701 | 116,828 |
 | Indel | 71.6% | 9,420 | 13,163 |
   
+
 Between Tdu_2886 and Tpr_2608
   - module load picard/2.19.1
   
@@ -114,6 +115,15 @@ Between Tdu_2886 and Tpr_2608
   - **Genotype concordance**:
     - **SNP: 0.402842**
     - **INDEL: 0.362677**
+
+### 2.6 Conclusion
+
+Since the genotype concordance between the two T.dubius populations is high, we combined reads of two Tdu populations for Trinity assembly
+
+## 3. Trinity assembly
+### 3.1 Read normalization
+
+
 
 
 
