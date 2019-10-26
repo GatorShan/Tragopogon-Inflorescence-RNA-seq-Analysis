@@ -91,5 +91,29 @@ Between Tdu_2613 and Tdu_2886
   - **Genotype concordance**:
     - **SNP: 0.810602**
     - **INDEL: 0.715642**
+
+| Variant Type | Genotype Cocordance (a/b) | Number of times the two populations' variant states match eactly (a) |  All variant states combinations between the two populations (b) |
+| -- | -- | -- | -- |
+| SNP | 81.1% | 94,701 | 116,828 |
+| Indel | 71.6% | 9,420 | 13,163 |
   
+Between Tdu_2886 and Tpr_2608
+  - module load picard/2.19.1
+  
+    java -jar $HPC_PICARD_DIR/picard.jar GenotypeConcordance \
+	
+    CALL_VCF=Tpr_2608_filtered_var.vcf \
+	
+    OUTPUT=Tdu-2886_Tpr-2608_compare \
+	
+    TRUTH_VCF=Tdu_2886_filtered_var.vcf
+  - Output:
+    - Tdu-2886_Tpr-2608_compare.genotype_concordance_contingency_metrics
+    - Tdu-2886_Tpr-2608_compare.genotype_concordance_detail_metrics
+    - Tdu-2886_Tpr-2608_compare.genotype_concordance_summary_metrics
+  - **Genotype concordance**:
+    - **SNP: 0.402842**
+    - **INDEL: 0.362677**
+
+
 
