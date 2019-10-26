@@ -1,5 +1,5 @@
 # Trinity assembly of T.dubius (Tdu) and T.pratensis (Tpr) transcriptome
-##1. Description
+## 1. Description
 For T. dubius, there are two populations (each with 3 biolgoical replicates); as the genotype concordance between the two populations are high (see analysis below), reads from these two populations were combined to generated a sigle transcriptome assembly.
 
   - 2613, Pullman
