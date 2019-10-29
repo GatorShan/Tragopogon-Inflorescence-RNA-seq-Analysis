@@ -175,7 +175,41 @@ Script `AbundanceEstimation_Tdu_trinity_norm_concat_denovo_1.0.sh` was used; res
   - ExN50.stats
   - ExN50.stats.plot.pdf
   - ![ExN50](https://cdn1.imggmi.com/uploads/2019/10/29/9438cff3d5cb728b280f1d562a7e5d28-full.png)
+
+### 3.2 Tpr transcriptome assembly
+#### 3.2.1 Read normalization
+Script `Trinity_normalization_Tpr_crop_2.0.sh` was used.
+  - input: `Tpr_2608_R1_crop_clean_cat.fastq` and `Tpr_2608_R2_crop_clean_cat.fastq`
+  - output: `Tpr_2608_R1_crop_clean_cat.fastq.normalized_K25_maxC50_minC2_pctSD10000.fq` and `Tpr_2608_R2_crop_clean_cat.fastq.normalized_K25_maxC50_minC2_pctSD10000.fq`
   
+#### 3.2.2 Runing de novo Trinity assembly
+Script `Trinity_Tpr_crop_separately_norm_2.0.sh` was used. Outputs are:
+  - **`Tpr_trinity_crop_separately_norm_1.Trinity.fasta`**
+  - Basic statistics:
+    - `TrinityStats.pl Tpr_trinity_crop_separately_norm_1.Trinity.fasta > Tpr_trinity_crop_separately_norm_1.Trinity.fasta.statistics.txt`
+    - Total trinity 'genes': 99228
+    - Total trinity transcripts: 239956
+    - Percent GC: 38.98
+    - Contig N50: 1481 (based on all transcripts)
+    - Contig N50: 1389 (based on longest isoform per 'gene')
+
+#### 3.2.3 Assembly evaluation -- BUSCO analysis (using all transcripts)
+Script `BUSCO_Tpr_crop_trinity_separatly_norm_1.0.sh` was used; results:
+  - **C:92.5%[S:34.5%,D:58.0%],F:6.0%,M:1.5%,n:1375**
+    - 1272 Complete BUSCOs (C)
+    - 474 Complete and single-copy BUSCOs (S)
+    - 798 Complete and duplicated BUSCOs (D)
+    - 83 Fragmented BUSCOs (F)
+    - 20 Missing BUSCOs (M)
+    - 1375 Total BUSCO groups searched
+
+#### 3.2.4 Assembly evaluation -- Read representation
+Script `ReadRepresent_Tpr_crop_trinity_separately_norm_1.0.sh` was used; **96.80%** overall alignment rate
+
+#### 3.2.5 Assembly evaluation -- ExN50 analysis
+Script `AbundanceEstimation_Tpr_trinity_denovo_2.0.sh` was used; results:
+  - **E90N50: 1663 bp**
+  - ![Tpr ExN50](https://cdn1.imggmi.com/uploads/2019/10/30/4973424bdea6d52f0cfb4acee4bbd9a9-full.png)
 
 
 
