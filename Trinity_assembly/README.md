@@ -211,11 +211,27 @@ Script `AbundanceEstimation_Tpr_trinity_denovo_2.0.sh` was used; results:
   - **E90N50: 1663 bp**
   - ![Tpr ExN50](https://cdn1.imggmi.com/uploads/2019/10/30/4973424bdea6d52f0cfb4acee4bbd9a9-full.png)
 
+## 4. Comparing different Trinity assembly approaches
+### 4.1 Tdu assembly
+**The best assembly results have been shown in Step 3**. Different assembly methods have been tested, including in the presence of Tdu draft reference genome, and PacBio long reads. The table summrized the results:
+![Tdu_diff_assembly](https://cdn1.imggmi.com/uploads/2019/10/31/920c6b8f44eba87d6b875ff049ecbef3-full.png)
 
+### 4.2 Tpr assembly
+**The best assembly results have been shown in Step 3**.
+![Tpr_diff_assembly](https://cdn1.imggmi.com/uploads/2019/10/31/ccbcdcb8e6ccfa05b67ca2e74239e2ad-full.png)
 
-
-
-
-
-
-
+### 4.3 PacBio long reads have been well-represented by Trinity de novo assemblies
+  - Tdu:
+    - 74.6% of PacBio long reads are represented in Trinity assemblies
+    - 175,986 out of 235,890 PacBio long reads are represented
+  - Tpr:
+    - 81.8% of PacBio long reads are represented in Trinity assemblies
+    - 84,670 out of 103,460 PacBio long reads are represented
+  - Method:
+    - Blastn was used
+    - Database: PacBio long reads from leaf transcriptome
+    - Query: Trinity de novo assemblies
+    - Parameter:
+      - 85% identity; 
+      - E-value: 1E-10;
+      - At least 50% of the query sequence has to align against the PacBio long reads
