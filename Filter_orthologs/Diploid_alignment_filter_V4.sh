@@ -1,16 +1,16 @@
 #!/bin/bash
 
-#SBATCH --job-name=Diploid_alignment_filter_V3.0
+#SBATCH --job-name=Diploid_alignment_filter_V4
 #SBATCH --mail-user=shan158538@ufl.edu
 #SBATCH --mail-type=FAIL,END
-#SBATCH --output=Diploid_alignment_filter_V3.0_%j.out
-#SBATCH --error=Diploid_alignment_filter_V3.0_%j.error
+#SBATCH --output=Diploid_alignment_filter_V4_%j.out
+#SBATCH --error=Diploid_alignment_filter_V4_%j.error
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=15gb
 #SBATCH --time=2-00:00:00
-#SBATCH --qos=soltis-b
+#SBATCH --qos=soltis
 
 date;hostname;pwd
 
