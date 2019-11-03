@@ -6,30 +6,25 @@ Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu
 
 ## 2. Mapping diploid reads to Tdu and Tpr supertranscripts
 ### 2.1 Using Bowtie2 for reads mapping
-Method: Bowtie2
+Method: Bowtie2; each replicate will be mapped to the reference separately
 
 Script:
-  - `Bowtie2_Tdu_reads_Tdu_ST_V1.0.sh`
-  - `Bowtie2_Tdu_reads_Tpr_ST_V1.0.sh`
-  - `Bowtie2_Tpr_reads_Tdu_ST_V1.0.sh`
-  - `Bowtie2_Tpr_reads_Tpr_ST_V1.0.sh`
+  - `Bowtie2_two_diploids_reads_parents_ST_V1.0.sh`
 
-Output:
-  - `Tdu_reads_Tdu_ST_V1.sam`
-  - `Tdu_reads_Tpr_ST_V1.sam`
-  - `Tpr_reads_Tdu_ST_V1.sam`
-  - `Tpr_reads_Tpr_ST_V1.sam`
+Output (e.g.):
+  - `Tdu_2613_11_reads_Tdu_ST_V1.sam`
+  - `Tdu_2613_12_reads_Tdu_ST_V1.sam`
+  - `Tdu_2613_41_reads_Tdu_ST_V1.sam`
 
 ### 2.2 Identify unique mappings, which will be used for downstream analysis
 Method is based on the description [here](https://hbctraining.github.io/Intro-to-ChIPseq/lessons/03_align_and_filtering.html)
 
-Script `Diploid_alignment_filter_V3.0.sh` was used.
+Script `Diploid_alignment_filter_V4.sh` was used.
 
-Output:
-  - `Tdu_reads_Tdu_ST_V1_uniq.sam`
-  - `Tdu_reads_Tpr_ST_V1_uniq.sam`
-  - `Tpr_reads_Tdu_ST_V1_uniq.sam`
-  - `Tpr_reads_Tpr_ST_V1_uniq.sam`
+Output (e.g.):
+  - `Tdu_2613_11_reads_Tdu_ST_V1_uniq.sam`
+  - `Tdu_2613_12_reads_Tdu_ST_V1_uniq.sam`
+  - `Tdu_2613_41_reads_Tdu_ST_V1_uniq.sam`
 
 
 
