@@ -26,6 +26,28 @@ Output (e.g.):
   - `Tdu_2613_12_reads_Tdu_ST_V1_uniq.sam`
   - `Tdu_2613_41_reads_Tdu_ST_V1_uniq.sam`
 
+## 3. Filter SAM files by bed files
+"In the previous step, we wanted to align to the entire transcriptome to prevent reads from mapping greedily to spurious locations in the transcriptome. Here, we isolate reads that map within our Common Orthologous REgions (COREs) so that we can make comparisons between reference mappings." -- Lucas
+
+### 3.1 Filter CORE_bed files to inlcude those only inlcuded in shared orthologs
+`Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered_2.0.txt` was used for downstream analysis. There are 11,863 shared orthologous pairs (P_VAL >= 1e-10 and Identity >= 0.8 and AlignmentLength >= 200), which is from section "Shared_COREs_wu-blast_OrthoFinder".
+
+Input bed files are generated from script BLAST_COREs.py from section "WU-Blast_Analysis".
+  - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed`
+  - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed`
+
+The following scripts were used to filter bed files to include only those shared orthologous pairs
+  - `FilterBedFile_V1.py`
+  - `FilterBedFile_V2.py`
+
+Output:
+  - `Tdu-tpr_overlaps_orthologs.bed`
+  - `Tpr-tdu_overlaps_orthologs.bed`
+
+### 3.2 Filter SAM files by using bed files including only those shared orthologs
+Script `SAM_filter_by_bed_V1.sh` was used
+
+
 
 
 
