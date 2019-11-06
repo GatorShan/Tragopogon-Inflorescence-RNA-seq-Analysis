@@ -51,10 +51,16 @@ Output (examples):
   - `Tdu_2613_11_uniq_2_TDU_filter_for_Tms.sam`
   - `Tdu_2613_11_uniq_2_TPR_filter_for_Tms.sam`
 
-### 4. Import BED files into SAS
-#### 4.1 Change BED files' delimiter from tab to ','
+## 4. Import BED files into SAS
+### 4.1 Change BED files' delimiter from tab to ','
 
 Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
+
+Output:
+  - `Tdu-tpr_overlaps_orthologs.csv`
+  - `Tpr-tdu_overlaps_orthologs.csv`
+
+
 
 
 
