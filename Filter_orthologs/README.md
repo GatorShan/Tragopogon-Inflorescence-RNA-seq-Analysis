@@ -47,6 +47,16 @@ Output:
 ### 3.2 Filter SAM files by using bed files including only those shared orthologs
 Script `SAM_filter_by_bed_V1.sh` was used
 
+Output (examples):
+  - `Tdu_2613_11_uniq_2_TDU_filter_for_Tms.sam`
+  - `Tdu_2613_11_uniq_2_TPR_filter_for_Tms.sam`
+
+### 4. Import BED files into SAS
+#### 4.1 Change BED files' delimiter from tab to ','
+
+Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
+
+
 
 
 
