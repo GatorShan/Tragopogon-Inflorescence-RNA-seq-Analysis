@@ -42,7 +42,13 @@ The following scripts were used to filter bed files to include only those shared
 
 Output:
   - `TDU-tpr_overlaps_orthologs.bed`
+    - ```
+      Tdu_TRINITY_DN17012_c3_g3	400	996	Tpr_TRINITY_DN14318_c0_g1,Tdu_TRINITY_DN17012_c3_g3	.	+
+      Tdu_TRINITY_DN23158_c1_g4	34	2093	Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4	.	+
+      Tdu_TRINITY_DN24503_c1_g1	1384	2349	Tpr_TRINITY_DN13936_c2_g4,Tdu_TRINITY_DN24503_c1_g1	.	+
+      ```    
   - `TPR-tdu_overlaps_orthologs.bed`
+
 
 ### 3.2 Filter SAM files by using bed files including only those shared orthologs
 Script `SAM_filter_by_bed_V1.sh` was used
