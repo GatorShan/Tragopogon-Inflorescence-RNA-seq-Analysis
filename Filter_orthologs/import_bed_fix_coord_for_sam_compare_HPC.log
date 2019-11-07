@@ -1,0 +1,487 @@
+1                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.48 seconds
+      cpu time            0.03 seconds
+      
+1          *libname trago 'S:\UFGI_Trago\sas_data';
+2          libname trago '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data';
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data
+3          
+4          /*
+5          bed files converted to csv in terminal window (using sed)
+6          import trago bed files containing commonID
+7          'fix' start and end so all starts are 0
+8          
+9          */
+10         
+11         
+12         %macro bed_in (ONE, TWO) ;
+13         
+2                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+14         data WORK.bed_&ONE._&TWO    ;
+15              %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+16              infile
+16       ! "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/&ONE.-&TWO._overlaps_orthologs.csv"
+16       !  delimiter = ','
+17          MISSOVER DSD lrecl=32767 ;
+18                 informat consensedID $36. ;
+19                 informat start best32. ;
+20                 informat end best32. ;
+21                 informat commonID $54. ;
+22                 informat  b_VAR5 best32. ;
+23                 informat strand $1. ;
+24                 format consensedID $36. ;
+25                 format start best32. ;
+26                 format end best32. ;
+27                 format commonID $54. ;
+28                 format  b_VAR5 best32. ;
+29                 format strand $1. ;
+30              input
+31                          consensedID $
+32                          start
+33                          end
+34                          commonID $
+35                          b_VAR5
+36                          strand $
+37              ;
+38              if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+39              run;
+40         
+41         
+42         %mend ;
+43         
+44         %bed_in (TDU, tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU-tpr_overlaps_orthologs.csv" is:
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU-tpr_overlaps_orthologs.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=07Nov2019:10:26:44,
+      File Size (bytes)=1072860
+
+NOTE: 11863 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU-tpr_overlaps_orthologs.csv".
+      The minimum record length was 81.
+      The maximum record length was 93.
+NOTE: The data set WORK.BED_TDU_TPR has 11863 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.03 seconds
+      
+
+45         %bed_in (TPR, tdu) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR-tdu_overlaps_orthologs.csv" is:
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR-tdu_overlaps_orthologs.csv,
+      Owner Name=shan158538,Group Name=soltis,
+3                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+      Access Permission=-rw-r--r--,
+      Last Modified=07Nov2019:10:27:30,
+      File Size (bytes)=1069408
+
+NOTE: 11863 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR-tdu_overlaps_orthologs.csv".
+      The minimum record length was 80.
+      The maximum record length was 93.
+NOTE: The data set WORK.BED_TPR_TDU has 11863 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+46         
+47         
+48         
+49         /* 'fix' the tdu coordinates in the bed file for sam compare between TDU and TPR */
+50         proc contents data = bed_tdu_tpr ;
+51         run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.03 seconds
+      
+NOTE: The PROCEDURE CONTENTS printed page 1.
+
+52         
+53         data modify_bed_TDU_tpr ;
+54         retain start_2 end_2  ;
+55         set bed_tdu_tpr ;
+56         if start > 0 then
+57         	do ;
+58         	start_2 = (start - start) and end_2;
+59             end_2 = (end - start) ;
+60         	end ;
+61         	else if start = 0 then
+62         		do ;
+63         		start_2 = start ;
+64         		end_2 = end;
+65         		end;
+66          run;
+
+NOTE: There were 11863 observations read from the data set WORK.BED_TDU_TPR.
+NOTE: The data set WORK.MODIFY_BED_TDU_TPR has 11863 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+67         
+68          data trago.TDU_tpr_bed_for_sam_compare ;
+69          retain commonID start_2 end_2 ;
+70          set modify_bed_TDU_tpr ;
+71         rename start_2 = start  end_2= end ;
+72         keep commonID start_2 end_2 ;
+73         run;
+
+4                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+NOTE: There were 11863 observations read from the data set WORK.MODIFY_BED_TDU_TPR.
+NOTE: The data set TRAGO.TDU_TPR_BED_FOR_SAM_COMPARE has 11863 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+74         
+75         proc export data = trago.TDU_tpr_bed_for_sam_compare
+76         outfile
+76       ! ='/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU_tpr_bed_for_sam_compare.bed'
+77         dbms=tab replace ;
+78         run;
+
+79          /**********************************************************************
+80          *   PRODUCT:   SAS
+81          *   VERSION:   9.4
+82          *   CREATOR:   External File Interface
+83          *   DATE:      07NOV19
+84          *   DESC:      Generated SAS Datastep Code
+85          *   TEMPLATE SOURCE:  (None Specified.)
+86          ***********************************************************************/
+87             data _null_;
+88             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+89             %let _EFIREC_ = 0;     /* clear export record count macro variable */
+90             file
+90       ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU_tpr_bed_for_sam_compare.bed'
+90       ! delimiter='09'x DSD DROPOVER lrecl=32767;
+91             if _n_ = 1 then        /* write column names or labels */
+92              do;
+93                put
+94                   "commonID"
+95                '09'x
+96                   "start"
+97                '09'x
+98                   "end"
+99                ;
+100             end;
+101           set  TRAGO.TDU_TPR_BED_FOR_SAM_COMPARE   end=EFIEOD;
+102               format commonID $54. ;
+103               format start best12. ;
+104               format end best12. ;
+105             do;
+106               EFIOUT + 1;
+107               put commonID $ @;
+108               put start @;
+109               put end ;
+110               ;
+111             end;
+112            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+113            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+114            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU_tpr_bed_for_sam_compare.bed' is:
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU_tpr_bed_for_sam_compare.bed,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+5                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+      Last Modified=07Nov2019:10:59:23
+
+NOTE: 11864 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU_tpr_bed_for_sam_compare.bed'.
+      The minimum record length was 18.
+      The maximum record length was 60.
+NOTE: There were 11863 observations read from the data set TRAGO.TDU_TPR_BED_FOR_SAM_COMPARE.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+11863 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU_tpr_bed_for_sam_compare.bed from 
+TRAGO.TDU_TPR_BED_FOR_SAM_COMPARE.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TDU_tpr_bed_for_sam_compare.bed" file 
+      was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.47 seconds
+      cpu time            0.07 seconds
+      
+
+115        
+116        
+117        
+118        /* 'fix' the tdu coordinates in the bed file for sam compare between TPR and TDU */
+119        proc contents data = bed_tpr_tdu ;
+120        run;
+
+NOTE: PROCEDURE CONTENTS used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+NOTE: The PROCEDURE CONTENTS printed page 2.
+
+121        
+122        data modify_bed_TPR_tdu ;
+123        retain start_2 end_2  ;
+124        set bed_tpr_tdu ;
+125        if start > 0 then
+126        	do ;
+127        	start_2 = (start - start) and end_2;
+128            end_2 = (end - start) ;
+129        	end ;
+130        	else if start = 0 then
+131        		do ;
+132        		start_2 = start ;
+133        		end_2 = end;
+134        		end;
+135         run;
+
+NOTE: There were 11863 observations read from the data set WORK.BED_TPR_TDU.
+NOTE: The data set WORK.MODIFY_BED_TPR_TDU has 11863 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.00 seconds
+6                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+      
+
+136        
+137         data trago.TPR_tdu_bed_for_sam_compare ;
+138         retain commonID start_2 end_2 ;
+139         set modify_bed_TPR_tdu ;
+140        rename start_2 = start  end_2= end ;
+141        keep commonID start_2 end_2 ;
+142        run;
+
+NOTE: There were 11863 observations read from the data set WORK.MODIFY_BED_TPR_TDU.
+NOTE: The data set TRAGO.TPR_TDU_BED_FOR_SAM_COMPARE has 11863 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.02 seconds
+      
+
+143        
+144        proc export data = trago.TPR_tdu_bed_for_sam_compare
+145        outfile
+145      ! ='/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR_tdu_bed_for_sam_compare.bed'
+146        dbms=tab replace ;
+147        run;
+
+148         /**********************************************************************
+149         *   PRODUCT:   SAS
+150         *   VERSION:   9.4
+151         *   CREATOR:   External File Interface
+152         *   DATE:      07NOV19
+153         *   DESC:      Generated SAS Datastep Code
+154         *   TEMPLATE SOURCE:  (None Specified.)
+155         ***********************************************************************/
+156            data _null_;
+157            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+158            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+159            file
+159      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR_tdu_bed_for_sam_compare.bed'
+159      ! delimiter='09'x DSD DROPOVER lrecl=32767;
+160            if _n_ = 1 then        /* write column names or labels */
+161             do;
+162               put
+163                  "commonID"
+164               '09'x
+165                  "start"
+166               '09'x
+167                  "end"
+168               ;
+169             end;
+170           set  TRAGO.TPR_TDU_BED_FOR_SAM_COMPARE   end=EFIEOD;
+171               format commonID $54. ;
+172               format start best12. ;
+173               format end best12. ;
+174             do;
+175               EFIOUT + 1;
+176               put commonID $ @;
+177               put start @;
+178               put end ;
+179               ;
+7                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+180             end;
+181            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+182            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+183            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR_tdu_bed_for_sam_compare.bed' is:
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR_tdu_bed_for_sam_compare.bed,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=07Nov2019:10:59:24
+
+NOTE: 11864 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR_tdu_bed_for_sam_compare.bed'.
+      The minimum record length was 18.
+      The maximum record length was 60.
+NOTE: There were 11863 observations read from the data set TRAGO.TPR_TDU_BED_FOR_SAM_COMPARE.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+11863 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR_tdu_bed_for_sam_compare.bed from 
+TRAGO.TPR_TDU_BED_FOR_SAM_COMPARE.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Filter_SAM_by_bed/TPR_tdu_bed_for_sam_compare.bed" file 
+      was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.03 seconds
+      
+
+184        
+185        
+186        
+187        /* identify commonIDs that are very different in length ...... */
+188        /*
+189        data tdu ;
+190        set A_tdu_tpo ;
+191        rename  b_VAR5 = b_VAR5_tdu
+192         consensedID = consensedID_tdu
+193         end = end_tdu
+194         start = start_tdu
+195         strand = strand_tdu ;
+196         run ;
+197        
+198        data tpo ;
+199        set A_tpo_tdu ;
+200        rename  b_VAR5 = b_VAR5_tpo
+201         consensedID = consensedID_tpo
+202         end = end_tpo
+203         start = start_tpo
+204         strand = strand_tpo ;
+205         run ;
+206         proc sort data = tdu ;
+207         by commonID ;
+8                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+208         proc sort data = tpo ;
+209         by commonID ;
+210         run;
+211        
+212         data tdu_plus_tpo ;
+213         merge tdu tpo ;
+214         by commonID ;
+215         run;
+216        
+217        data tdu_plus_tpo_2 ;
+218        retain commonID consensedID_tdu consensedID_tpo  start_tdu end_tdu start_tpo end_tpo strand_tdu strand_tpo ;
+219        set tdu_plus_tpo ;
+220        run;
+221        
+222        
+223        data modify_bed_TDU_tpo ;
+224        retain start_tdu_2 end_tdu_2  ;
+225        set tdu_plus_tpo_2 ;
+226        if start_tdu > 0 then
+227        	do ;
+228        	start_tdu_2 = (start_tdu - start_tdu) and end_tdu_2;
+229            end_tdu_2 = (end_tdu - start_tdu) ;
+230        	end ;
+231        	else if start_tdu = 0 then
+232        		do ;
+233        		start_tdu_2 = start_tdu ;
+234        		end_tdu_2 = end_tdu;
+235        		end;
+236         run;
+237        data check ;
+238        set modify_bed ;
+239        diff_tdu  = (end_tdu - start_tdu) ;
+240        diff_tpo  = (end_tpo - start_tpo) ;
+241        too_much = abs(diff_tdu - diff_tpo) ;
+242        if too_much ge 10 then flag_10 = 1;
+243        else flag_10 = 0;
+244        if too_much ge 500 then flag_500 = 1;
+245        else flag_500 = 0;
+246        if too_much ge 200 then flag_200 = 1;
+247        else flag_200 = 0;
+248        if too_much ge 500 then flag_500 = 1;
+249        else flag_500 = 0;
+250        if too_much ge 1 then flag_1 = 1;
+251        else flag_1 = 0;
+252        run;
+253        
+254        proc freq data = check ;
+255        tables flag_200 flag_500 flag_10 flag_1;
+256        run;
+257        
+258        proc export data  = check outfile='/ufrc/barbazuk/lboat/Old_World_New_BED/references/check_bed_files.csv'
+259        dbms=csv replace ;
+260        run;
+261        */
+262        
+263        
+264        
+
+9                                                          The SAS System                           10:59 Thursday, November 7, 2019
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.78 seconds
+      cpu time            0.24 seconds
+      
