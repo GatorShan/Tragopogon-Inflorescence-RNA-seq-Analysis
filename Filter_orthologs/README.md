@@ -114,6 +114,9 @@ Output:
       Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4	0	2064
       Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1	0	965
       ```
+  - `import_bed_fix_coord_for_sam_compare_HPC.log`
+  - `import_bed_fix_coord_for_sam_compare_HPC.prt`
+
 
 
 
