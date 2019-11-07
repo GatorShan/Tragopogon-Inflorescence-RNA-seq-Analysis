@@ -10,7 +10,7 @@ import sys,os,re
 
 InFileName1 = sys.argv[1]
 InFileName2 = sys.argv[2]
-OutFileName = 'Tpr-tdu_overlaps_orthologs.bed'
+OutFileName = 'TPR-tdu_overlaps_orthologs.bed'
 OutFile = open(OutFileName, 'w')
 Delimiter = '\t'
 
