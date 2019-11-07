@@ -48,7 +48,11 @@ Output:
       Tdu_TRINITY_DN24503_c1_g1	1384	2349	Tpr_TRINITY_DN13936_c2_g4,Tdu_TRINITY_DN24503_c1_g1	.	+
       ```    
   - `TPR-tdu_overlaps_orthologs.bed`
-
+    - ```
+      Tpr_TRINITY_DN14318_c0_g1	1464	2057	Tpr_TRINITY_DN14318_c0_g1,Tdu_TRINITY_DN17012_c3_g3	.	+
+      Tpr_TRINITY_DN13887_c2_g3	0	2064	Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4	.	+
+      Tpr_TRINITY_DN13936_c2_g4	40	1005	Tpr_TRINITY_DN13936_c2_g4,Tdu_TRINITY_DN24503_c1_g1	.	+
+      ```
 
 ### 3.2 Filter SAM files by using bed files including only those shared orthologs
 Script `SAM_filter_by_bed_V1.sh` was used
@@ -61,12 +65,37 @@ Output (examples):
 ### 4.1 Change BED files' delimiter from tab to ','
 
 Input:
+  - `TDU-tpr_overlaps_orthologs.bed`
+  - `TPR-tdu_overlaps_orthologs.bed`
 
+Using terminal window: `tr "," "|" < orthologs.bed > orthologs.pipe.bed`
+  - the purpose is to change the comma in the 4th column to piple "|"
+  - Output: `TDU-tpr_overlaps_orthologs.pipe.bed` and `TPR-tdu_overlaps_orthologs.pipe.bed`
+    - ```
+      Tdu_TRINITY_DN17012_c3_g3       400     996     Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3     .       +
+      Tdu_TRINITY_DN23158_c1_g4       34      2093    Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4     .       +
+      Tdu_TRINITY_DN24503_c1_g1       1384    2349    Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1     .       +
+      ```
+    - ```
+      Tpr_TRINITY_DN14318_c0_g1       1464    2057    Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3     .       +
+      Tpr_TRINITY_DN13887_c2_g3       0       2064    Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4     .       +
+      Tpr_TRINITY_DN13936_c2_g4       40      1005    Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1     .       +
+      ```
+      
 Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
+  - the purpose is to change tab to comma
+  - Output: `TDU-tpr_overlaps_orthologs.csv` and `TPR-tdu_overlaps_orthologs.csv`
+    - ```
+      Tdu_TRINITY_DN17012_c3_g3,400,996,Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3,.,+
+      Tdu_TRINITY_DN23158_c1_g4,34,2093,Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4,.,+
+      Tdu_TRINITY_DN24503_c1_g1,1384,2349,Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1,.,+
+      ```
+    - ```
+      Tpr_TRINITY_DN14318_c0_g1,1464,2057,Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3,.,+
+      Tpr_TRINITY_DN13887_c2_g3,0,2064,Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4,.,+
+      Tpr_TRINITY_DN13936_c2_g4,40,1005,Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1,.,+
+      ```
 
-Output:
-  - `Tdu-tpr_overlaps_orthologs.csv`
-  - `Tpr-tdu_overlaps_orthologs.csv`
 
 
 
