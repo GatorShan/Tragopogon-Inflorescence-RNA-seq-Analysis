@@ -1,0 +1,88 @@
+                                                           The SAS System                       10:59 Thursday, November 7, 2019   1
+
+                                                       The CONTENTS Procedure
+
+             Data Set Name        WORK.BED_TDU_TPR                                         Observations          11863
+             Member Type          DATA                                                     Variables             6    
+             Engine               V9                                                       Indexes               0    
+             Created              11/07/2019 10:59:23                                      Observation Length    120  
+             Last Modified        11/07/2019 10:59:23                                      Deleted Observations  0    
+             Protection                                                                    Compressed            NO   
+             Data Set Type                                                                 Sorted                NO   
+             Label                                                                                                    
+             Data Representation  SOLARIS_X86_64, LINUX_X86_64, ALPHA_TRU64, LINUX_IA64                               
+             Encoding             utf-8  Unicode (UTF-8)                                                              
+
+
+                                                 Engine/Host Dependent Information
+
+Data Set Page Size          65536                                                                                                   
+Number of Data Set Pages    22                                                                                                      
+First Data Page             1                                                                                                       
+Max Obs per Page            545                                                                                                     
+Obs in First Data Page      523                                                                                                     
+Number of Data Set Repairs  0                                                                                                       
+Filename                    /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data/sas_                                         
+                            temp/SAS_workA90B000057D8_login3.ufhpc/bed_tdu_tpr.sas7bdat                                             
+Release Created             9.0401M1                                                                                                
+Host Created                Linux                                                                                                   
+Inode Number                1.4414073E17                                                                                            
+Access Permission           rw-r--r--                                                                                               
+Owner Name                  shan158538                                                                                              
+File Size (bytes)           1507328                                                                                                 
+
+
+                                             Alphabetic List of Variables and Attributes
+ 
+                                       #    Variable       Type    Len    Format     Informat
+
+                                       5    b_VAR5         Num       8    BEST32.    BEST32. 
+                                       4    commonID       Char     54    $54.       $54.    
+                                       1    consensedID    Char     36    $36.       $36.    
+                                       3    end            Num       8    BEST32.    BEST32. 
+                                       2    start          Num       8    BEST32.    BEST32. 
+                                       6    strand         Char      1    $1.        $1.     
+                                                           The SAS System                       10:59 Thursday, November 7, 2019   2
+
+                                                       The CONTENTS Procedure
+
+             Data Set Name        WORK.BED_TPR_TDU                                         Observations          11863
+             Member Type          DATA                                                     Variables             6    
+             Engine               V9                                                       Indexes               0    
+             Created              11/07/2019 10:59:23                                      Observation Length    120  
+             Last Modified        11/07/2019 10:59:23                                      Deleted Observations  0    
+             Protection                                                                    Compressed            NO   
+             Data Set Type                                                                 Sorted                NO   
+             Label                                                                                                    
+             Data Representation  SOLARIS_X86_64, LINUX_X86_64, ALPHA_TRU64, LINUX_IA64                               
+             Encoding             utf-8  Unicode (UTF-8)                                                              
+
+
+                                                 Engine/Host Dependent Information
+
+Data Set Page Size          65536                                                                                                   
+Number of Data Set Pages    22                                                                                                      
+First Data Page             1                                                                                                       
+Max Obs per Page            545                                                                                                     
+Obs in First Data Page      523                                                                                                     
+Number of Data Set Repairs  0                                                                                                       
+Filename                    /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data/sas_                                         
+                            temp/SAS_workA90B000057D8_login3.ufhpc/bed_tpr_tdu.sas7bdat                                             
+Release Created             9.0401M1                                                                                                
+Host Created                Linux                                                                                                   
+Inode Number                1.4414073E17                                                                                            
+Access Permission           rw-r--r--                                                                                               
+Owner Name                  shan158538                                                                                              
+File Size (bytes)           1507328                                                                                                 
+
+
+                                             Alphabetic List of Variables and Attributes
+ 
+                                       #    Variable       Type    Len    Format     Informat
+
+                                       5    b_VAR5         Num       8    BEST32.    BEST32. 
+                                       4    commonID       Char     54    $54.       $54.    
+                                       1    consensedID    Char     36    $36.       $36.    
+                                       3    end            Num       8    BEST32.    BEST32. 
+                                       2    start          Num       8    BEST32.    BEST32. 
+                                       6    strand         Char      1    $1.        $1.     
