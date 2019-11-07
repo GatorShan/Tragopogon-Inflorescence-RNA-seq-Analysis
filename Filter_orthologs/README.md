@@ -41,8 +41,8 @@ The following scripts were used to filter bed files to include only those shared
   - `FilterBedFile_V2.py`
 
 Output:
-  - `Tdu-tpr_overlaps_orthologs.bed`
-  - `Tpr-tdu_overlaps_orthologs.bed`
+  - `TDU-tpr_overlaps_orthologs.bed`
+  - `TPR-tdu_overlaps_orthologs.bed`
 
 ### 3.2 Filter SAM files by using bed files including only those shared orthologs
 Script `SAM_filter_by_bed_V1.sh` was used
@@ -53,6 +53,8 @@ Output (examples):
 
 ## 4. Import BED files into SAS
 ### 4.1 Change BED files' delimiter from tab to ','
+
+Input:
 
 Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
 
