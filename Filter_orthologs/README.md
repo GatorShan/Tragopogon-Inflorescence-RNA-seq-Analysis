@@ -96,6 +96,25 @@ Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
       Tpr_TRINITY_DN13936_c2_g4,40,1005,Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1,.,+
       ```
 
+### 4.2 Import BED files into SAS
+The script `submit_sas_programs_4_sam_compare.bash` was used.
+
+Output:
+  - `TDU_tpr_bed_for_sam_compare.bed`
+    - ```
+      commonID	start	end
+      Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3	0	596
+      Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4	0	2059
+      Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1	0	965
+      ```
+  - `TPR_tdu_bed_for_sam_compare.bed`
+    - ```
+      commonID	start	end
+      Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3	0	593
+      Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4	0	2064
+      Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1	0	965
+      ```
+
 
 
 
