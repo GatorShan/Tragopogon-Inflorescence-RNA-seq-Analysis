@@ -69,7 +69,7 @@ Input:
   - `TPR-tdu_overlaps_orthologs.bed`
 
 Using terminal window: `tr "," "|" < orthologs.bed > orthologs.pipe.bed`
-  - the purpose is to change the comma in the 4th column to piple "|"
+  - the purpose is to change the comma in the 4th column to pipe "|"
   - Output: `TDU-tpr_overlaps_orthologs.pipe.bed` and `TPR-tdu_overlaps_orthologs.pipe.bed`
     - ```
       Tdu_TRINITY_DN17012_c3_g3       400     996     Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3     .       +
@@ -97,7 +97,7 @@ Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
       ```
 
 ### 4.2 Import BED files into SAS
-The script `submit_sas_programs_4_sam_compare.bash` was used.
+The scripts `submit_sas_programs_4_sam_compare.bash` and `import_bed_fix_coord_for_sam_compare_HPC.sas` was used.
 
 Output:
   - `TDU_tpr_bed_for_sam_compare.bed`
@@ -117,8 +117,8 @@ Output:
   - `import_bed_fix_coord_for_sam_compare_HPC.log`
   - `import_bed_fix_coord_for_sam_compare_HPC.prt`
 
-
-
+## 5. Add commonID to all SAM files
+### 
 
 
 
