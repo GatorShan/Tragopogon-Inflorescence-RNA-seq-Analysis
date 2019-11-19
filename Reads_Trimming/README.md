@@ -43,23 +43,23 @@ Output:
   - e.g. `Tms_2604_24_R1_adapter_trimmed.fastq`
   - e.g. `Tms_2604_24_R2_adapter_trimmed.fastq`
   - Reads with adapters: `grep "Reads with adapters" AdaptorTrimming_R1_Poly_V1_44198131.out`
-    - ```
+    ```
     Reads with adapters:                   217,924 (0.8%)
     Reads with adapters:                   197,689 (0.8%)
     Reads with adapters:                   129,024 (0.5%)
     Reads with adapters:                   134,401 (0.5%)
     Reads with adapters:                    77,902 (0.3%)
     Reads with adapters:                   116,780 (0.5%)
-      ```
+    ```
   - `grep "Reads with adapters" AdaptorTrimming_R2_Poly_V1_44199652.out`
-    - ```
+    ```
     Reads with adapters:                   140,747 (0.5%)
     Reads with adapters:                   129,975 (0.5%)
     Reads with adapters:                   111,835 (0.4%)
     Reads with adapters:                   119,766 (0.4%)
     Reads with adapters:                    74,434 (0.3%)
     Reads with adapters:                    93,509 (0.4%)
-      ```
+    ```
 
 
 
