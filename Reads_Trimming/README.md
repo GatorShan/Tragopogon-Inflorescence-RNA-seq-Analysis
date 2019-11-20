@@ -61,6 +61,60 @@ Output:
     Reads with adapters:                    93,509 (0.4%)
     ```
 
+### 3.3 Remove low quality bases by using Trimmomatic
+trimmomatic/0.36 was used; script `TrimmomaticCrop_Poly_1.0.sh` was used.
+
+```
+trimmomatic \
+    PE \
+    -threads 4 \
+    -phred33 \
+    ${IN}/Tms_${Pop}_${Rep}_R1_adapter_trimmed.fastq ${IN}/Tms_${Pop}_${Rep}_R2_adapter_trimmed.fastq \
+    ${OUT}/Tms_${Pop}_${Rep}_R1_trimmomatic-crop_paired.fastq ${OUT}/Tms_${Pop}_${Rep}_R1_trimmomatic-crop_unpaired.fastq \
+    ${OUT}/Tms_${Pop}_${Rep}_R2_trimmomatic-crop_paired.fastq ${OUT}/Tms_${Pop}_${Rep}_R2_trimmomatic-crop_unpaired.fastq \
+    HEADCROP:10 \
+    LEADING:3 \
+    TRAILING:3 \
+    SLIDINGWINDOW:4:15 \
+    MINLEN:60
+```
+
+Output: about 85% reads both survived. `grep "Both Surviving" TrimmomaticCrop_Poly_1.0_44222322.error`
+  - e.g. `Tml_2605_24_R1_trimmomatic-crop_paired.fastq` and `Tml_2605_24_R2_trimmomatic-crop_paired.fastq`
+  - e.g. `Tml_2605_24_R1_trimmomatic-crop_unpaired.fastq` and `Tml_2605_24_R2_trimmomatic-crop_unpaired.fastq`
+
+```
+Input Read Pairs: 25875630 Both Surviving: 22081317 (85.34%) Forward Only Surviving: 1909473 (7.38%) Reverse Only Surviving: 656407 (2.54%) Dropped: 1228433 (4.75%)
+Input Read Pairs: 25583468 Both Surviving: 21956619 (85.82%) Forward Only Surviving: 1866951 (7.30%) Reverse Only Surviving: 668913 (2.61%) Dropped: 1090985 (4.26%)
+Input Read Pairs: 27910493 Both Surviving: 23594224 (84.54%) Forward Only Surviving: 2320532 (8.31%) Reverse Only Surviving: 712613 (2.55%) Dropped: 1283124 (4.60%)
+Input Read Pairs: 29023629 Both Surviving: 24456695 (84.26%) Forward Only Surviving: 2668389 (9.19%) Reverse Only Surviving: 689323 (2.38%) Dropped: 1209222 (4.17%)
+Input Read Pairs: 27362115 Both Surviving: 22973097 (83.96%) Forward Only Surviving: 1970525 (7.20%) Reverse Only Surviving: 759902 (2.78%) Dropped: 1658591 (6.06%)
+Input Read Pairs: 25286876 Both Surviving: 21403388 (84.64%) Forward Only Surviving: 2153523 (8.52%) Reverse Only Surviving: 620456 (2.45%) Dropped: 1109509 (4.39%)
+```
+
+### 3.4 Remove reads with rRNA sequences
+Script `Remove_rRNA_Poly_V1.sh` was used; `sortmerna/2.1` was used.
+
+Reference `Tdu_18S-26S_rRNA.fasta`
+  - `>KT179662.1 Tragopogon dubius voucher Steele 1291 18S ribosomal RNA gene, partial sequence`
+  - `>AF036493.1 Tragopogon dubius large subunit 26S ribosomal RNA gene, partial sequence`
+
+Output:
+  - e.g. `Tms_2604_24_R1_crop_clean.fastq` and `Tms_2604_24_R2_crop_clean.fastq`
+  - e.g. `Tml_2605_9_R1_crop_clean.fastq` and `Tml_2605_9_R2_crop_clean.fastq`
+
+About 2-4% reads are derived from rRNA
+```
+Tml_2605_24_crop_rRNA_reads.log:    Total reads passing E-value threshold = 2056752 (4.48%)
+Tml_2605_42_crop_rRNA_reads.log:    Total reads passing E-value threshold = 1174748 (2.74%)
+Tml_2605_9_crop_rRNA_reads.log:    Total reads passing E-value threshold = 2343401 (4.79%)
+Tms_2604_24_crop_rRNA_reads.log:    Total reads passing E-value threshold = 1148765 (2.60%)
+Tms_2604_43_crop_rRNA_reads.log:    Total reads passing E-value threshold = 1803479 (4.11%)
+Tms_2604_48_crop_rRNA_reads.log:    Total reads passing E-value threshold = 2162065 (4.58%)
+```
+
+
+
 
 
 
