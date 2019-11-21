@@ -31,6 +31,15 @@ Output (e.g.):
 
 ### 3.1 Filter CORE_bed files to inlcude those only inlcuded in shared orthologs
 `Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered_2.0.txt` was used for downstream analysis. There are 11,863 shared orthologous pairs (P_VAL >= 1e-10 and Identity >= 0.8 and AlignmentLength >= 200), which is from section "Shared_COREs_wu-blast_OrthoFinder".
+  - ```
+    Tpr_TRINITY_DN14318_c0_g1       2973    Tdu_TRINITY_DN17012_c3_g3       2154    2798    0.      96.9    96.989966555184 598     2058    1465    401     997     -
+    Tpr_TRINITY_DN13887_c2_g3       2065    Tdu_TRINITY_DN23158_c1_g4       2112    10072   0.      98.8    98.838334946757 2066    2065    1       35      2094    -
+    Tpr_TRINITY_DN13936_c2_g4       2197    Tdu_TRINITY_DN24503_c1_g1       2378    4225    0.      93.7    93.7371663244353        974     1006    41      1385    2350    -
+    Tpr_TRINITY_DN13936_c2_g3       2635    Tdu_TRINITY_DN22881_c5_g1       3487    2389    4.2e-291        95.3    95.3934740882918
+        521     521     1       2962    3482    -
+    Tpr_TRINITY_DN13936_c2_g2       5116    Tdu_TRINITY_DN20656_c5_g1       5784    3220    0.      93.6    93.6742934051144        743     3695    4431    4376    5112    +
+    ...
+    ```
 
 Input bed files are generated from script BLAST_COREs.py from section "WU-Blast_Analysis".
   - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed`
