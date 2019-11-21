@@ -32,13 +32,43 @@ Output:
   ```
 
 ## 3. Filter the sam files
+Script `Polyploid_alignment_filter_V1.sh` was used. The process comprises:
+  - changing file format from SAM to BAM
+  - Sorting BAM file by genomic coordinates
+  - Filtering uniquely mapping reads
+  - Convert BAM file to SAM file
+
+Input:
+  - e.g. `Tml_2605_24_reads_Tdu_ST_V1.sam` and `Tml_2605_24_reads_Tpr_ST_V1.sam`
+  - e.g. `Tms_2604_24_reads_Tdu_ST_V1.sam` and `Tms_2604_24_reads_Tpr_ST_V1.sam`
 
 Output:
   - e.g. `Tml_2605_24_reads_Tdu_ST_V1_uniq.sam` and `Tml_2605_24_reads_Tpr_ST_V1_uniq.sam`
   - e.g. `Tms_2604_24_reads_Tdu_ST_V1_uniq.sam` and `Tms_2604_24_reads_Tpr_ST_V1_uniq.sam`
 
-
-
-
-
-
+```
+14G Nov 19 11:43 Tml_2605_24_reads_Tdu_ST_V1.sam
+13G Nov 19 14:39 Tml_2605_24_reads_Tdu_ST_V1_uniq.sam
+14G Nov 19 13:51 Tml_2605_24_reads_Tpr_ST_V1.sam
+14G Nov 19 14:48 Tml_2605_24_reads_Tpr_ST_V1_uniq.sam
+13G Nov 19 12:03 Tml_2605_42_reads_Tdu_ST_V1.sam
+13G Nov 19 14:58 Tml_2605_42_reads_Tdu_ST_V1_uniq.sam
+14G Nov 19 14:12 Tml_2605_42_reads_Tpr_ST_V1.sam
+13G Nov 19 15:07 Tml_2605_42_reads_Tpr_ST_V1_uniq.sam
+15G Nov 19 11:22 Tml_2605_9_reads_Tdu_ST_V1.sam
+14G Nov 19 15:18 Tml_2605_9_reads_Tdu_ST_V1_uniq.sam
+15G Nov 19 13:30 Tml_2605_9_reads_Tpr_ST_V1.sam
+14G Nov 19 15:29 Tml_2605_9_reads_Tpr_ST_V1_uniq.sam
+14G Nov 19 10:19 Tms_2604_24_reads_Tdu_ST_V1.sam
+13G Nov 19 15:38 Tms_2604_24_reads_Tdu_ST_V1_uniq.sam
+14G Nov 19 12:25 Tms_2604_24_reads_Tpr_ST_V1.sam
+13G Nov 19 15:48 Tms_2604_24_reads_Tpr_ST_V1_uniq.sam
+13G Nov 19 10:39 Tms_2604_43_reads_Tdu_ST_V1.sam
+13G Nov 19 15:58 Tms_2604_43_reads_Tdu_ST_V1_uniq.sam
+13G Nov 19 12:45 Tms_2604_43_reads_Tpr_ST_V1.sam
+13G Nov 19 16:08 Tms_2604_43_reads_Tpr_ST_V1_uniq.sam
+15G Nov 19 11:00 Tms_2604_48_reads_Tdu_ST_V1.sam
+14G Nov 19 16:19 Tms_2604_48_reads_Tdu_ST_V1_uniq.sam
+15G Nov 19 13:07 Tms_2604_48_reads_Tpr_ST_V1.sam
+14G Nov 19 16:30 Tms_2604_48_reads_Tpr_ST_V1_uniq.sam
+```
