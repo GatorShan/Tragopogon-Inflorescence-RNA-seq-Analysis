@@ -79,6 +79,27 @@ Output:
 
 ### 3.2 Filter SAM files by using bed files including only those shared orthologs
 Script `SAM_filter_by_bed_V1.sh` was used
+```bash
+for FILE in `ls *_Tdu_ST_V1_uniq.sam`; do
+	echo "${FILE} is going to be processed"
+	# filter sam file of TDU/TPR reads aligned to TDU with TDU_tpr bed file
+	perl ${OUT}/sam-filter-by-bed.pl \
+		-b ${OUT}/TDU-tpr_overlaps_orthologs.bed \
+		-s ${FILE} \
+		> ${OUT}/${FILE%_reads_Tdu_ST_V1_uniq.*}_uniq_2_TDU_filter_for_Tms.sam		
+	echo -e "\t${FILE} has been filtered based on the TDU_tpr bed file"
+done
+
+for FILE in `ls *_Tpr_ST_V1_uniq.sam`; do
+	echo "$FILE is going to be processed"
+	# filter sam file of TDU/TPR reads aligned to TPR with TPR_tdu bed file
+	perl ${OUT}/sam-filter-by-bed.pl \
+		-b ${OUT}/TPR-tdu_overlaps_orthologs.bed \
+		-s ${FILE} \
+		> ${OUT}/${FILE%_reads_Tpr_ST_V1_uniq.*}_uniq_2_TPR_filter_for_Tms.sam		
+	echo -e "\t$FILE has been filtered based on the TPR_tdu bed file"
+done
+```
 
 Output (examples):
   - `Tdu_2613_11_uniq_2_TDU_filter_for_Tms.sam`
