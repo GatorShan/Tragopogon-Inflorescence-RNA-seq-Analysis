@@ -78,7 +78,7 @@ Output:
       ```
 
 ### 3.2 Filter SAM files by using bed files including only those shared orthologs
-Script `SAM_filter_by_bed_V1.sh` was used
+Script `SAM_filter_by_bed_V1.sh` and `sam-filter-by-bed.pl` was used
 ```bash
 for FILE in `ls *_Tdu_ST_V1_uniq.sam`; do
 	echo "${FILE} is going to be processed"
@@ -100,6 +100,10 @@ for FILE in `ls *_Tpr_ST_V1_uniq.sam`; do
 	echo -e "\t$FILE has been filtered based on the TPR_tdu bed file"
 done
 ```
+
+Input (examples):
+  - `Tdu_2613_11_reads_Tdu_ST_V1_uniq.sam`
+  - `Tdu_2613_11_reads_Tpr_ST_V1_uniq.sam`
 
 Output (examples):
   - `Tdu_2613_11_uniq_2_TDU_filter_for_Tms.sam`
