@@ -34,7 +34,22 @@ Output (e.g.):
 
 Input bed files are generated from script BLAST_COREs.py from section "WU-Blast_Analysis".
   - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed`
+    - ```
+      Tpr_TRINITY_DN31201_c0_g1       275     410     Tpr_TRINITY_DN31201_c0_g1,Tdu_TRINITY_DN10064_c0_g1     .       +
+      Tpr_TRINITY_DN11072_c2_g4       676     1023    Tpr_TRINITY_DN11072_c2_g4,Tdu_TRINITY_DN7930_c0_g1      .       +
+      Tpr_TRINITY_DN14318_c0_g1       1464    2057    Tpr_TRINITY_DN14318_c0_g1,Tdu_TRINITY_DN17012_c3_g3     .       +
+      Tpr_TRINITY_DN13887_c2_g2       0       243     Tpr_TRINITY_DN13887_c2_g2,Tdu_TRINITY_DN23704_c6_g3     .       +
+      Tpr_TRINITY_DN13887_c2_g3       0       2064    Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4     .       +
+      ...
+      ```
   - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed`
+    - ```
+      Tdu_TRINITY_DN10064_c0_g1       75      210     Tpr_TRINITY_DN31201_c0_g1,Tdu_TRINITY_DN10064_c0_g1     .       +
+      Tdu_TRINITY_DN7930_c0_g1        0       346     Tpr_TRINITY_DN11072_c2_g4,Tdu_TRINITY_DN7930_c0_g1      .       +
+      Tdu_TRINITY_DN17012_c3_g3       400     996     Tpr_TRINITY_DN14318_c0_g1,Tdu_TRINITY_DN17012_c3_g3     .       +
+      Tdu_TRINITY_DN23704_c6_g3       0       243     Tpr_TRINITY_DN13887_c2_g2,Tdu_TRINITY_DN23704_c6_g3     .       +
+      Tdu_TRINITY_DN23158_c1_g4       34      2093    Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4     .       +
+      ```
 
 The following scripts were used to filter bed files to include only those shared orthologous pairs
   - `FilterBedFile_V1.py`
