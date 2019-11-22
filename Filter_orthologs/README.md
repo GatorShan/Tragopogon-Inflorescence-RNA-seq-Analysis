@@ -208,7 +208,7 @@ We have to rename putatively orthologous pairs so that SAM compare is comparing 
 
 Scripts `submit_sas_program_add_commonID_parent_V2.sbatch` and `add_commonID_to_parent_sam_files_HPC.V2.sas` were used during this step.
 
-<mark>`add_commonID_to_parent_sam_files_HPC.V2.sas` was changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/894d236acb59e87d671a99d1149c434f3cb8d9b0/Filter_orthologs/add_commonID_to_parent_sam_files_HPC.V2.sas#L15-L33) and [there](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/894d236acb59e87d671a99d1149c434f3cb8d9b0/Filter_orthologs/add_commonID_to_parent_sam_files_HPC.V2.sas#L64-L78) to fit our own dataset.
+<mark>`add_commonID_to_parent_sam_files_HPC.V2.sas` was changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/894d236acb59e87d671a99d1149c434f3cb8d9b0/Filter_orthologs/add_commonID_to_parent_sam_files_HPC.V2.sas#L15-L33) and [there](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/894d236acb59e87d671a99d1149c434f3cb8d9b0/Filter_orthologs/add_commonID_to_parent_sam_files_HPC.V2.sas#L64-L78) to fit our own dataset.</mark>
   - data `TDU_ID_tdu_tpr` uses tdu as reference, which is the second part of the commonID `consensedID = scan(commonID,2,'|')`
   - data `TDU_ID_tpr_tdu` uses tpr as reference, which is the first part of the commonID `consensedID = scan(commonID,1,'|')`
   - For `s_VAR10` and `s_VAR11`, this is changed from 100 to 150, as the reads length in the current study is paired 150 bp
