@@ -208,7 +208,7 @@ We have to rename putatively orthologous pairs so that SAM compare is comparing 
 
 Scripts `submit_sas_program_add_commonID_parent_V1.sbatch` and `add_commonID_to_parent_sam_files_HPC.V1.sas` were used during this step.
 
-`add_commonID_to_parent_sam_files_HPC.V1.sas` was changed [here](Line https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/8f7565ef38f5a0a65fad3bb4bb16c1f1c6b09fe0/Filter_orthologs/add_commonID_to_parent_sam_files_HPC.V1.sas#L13) to fit our own dataset.
+`add_commonID_to_parent_sam_files_HPC.V1.sas` was changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/8f7565ef38f5a0a65fad3bb4bb16c1f1c6b09fe0/Filter_orthologs/add_commonID_to_parent_sam_files_HPC.V1.sas#L13) to fit our own dataset.
   - data `TDU_ID_tdu_tpr` uses tdu as reference, which is the second part of the commonID `consensedID = scan(commonID,2,'|')`
   - data `TDU_ID_tpr_tdu` uses tpr as reference, which is the first part of the commonID `consensedID = scan(commonID,1,'|')`
 
