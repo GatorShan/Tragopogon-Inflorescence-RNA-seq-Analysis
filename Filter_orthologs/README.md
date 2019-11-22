@@ -169,7 +169,21 @@ Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
         ```
 
 ### 4.2 Import BED files into SAS
-The scripts `submit_sas_programs_4_sam_compare.bash` and `import_bed_fix_coord_for_sam_compare_HPC.sas` was used.
+The scripts `submit_sas_programs_4_sam_compare.bash` and `import_bed_fix_coord_for_sam_compare_HPC.sas` was used. **The purpose of this step is to fix bed file coordinates**.
+
+Input:
+    - `TDU-tpr_overlaps_orthologs.csv`
+      - ```
+        Tdu_TRINITY_DN17012_c3_g3,400,996,Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3,.,+
+        Tdu_TRINITY_DN23158_c1_g4,34,2093,Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4,.,+
+        Tdu_TRINITY_DN24503_c1_g1,1384,2349,Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1,.,+
+        ```
+    - `TPR-tdu_overlaps_orthologs.csv`
+      - ```
+        Tpr_TRINITY_DN14318_c0_g1,1464,2057,Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3,.,+
+        Tpr_TRINITY_DN13887_c2_g3,0,2064,Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4,.,+
+        Tpr_TRINITY_DN13936_c2_g4,40,1005,Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1,.,+
+        ```
 
 Output:
   - `TDU_tpr_bed_for_sam_compare.bed`
@@ -186,8 +200,6 @@ Output:
       Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4	0	2064
       Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1	0	965
       ```
-  - `import_bed_fix_coord_for_sam_compare_HPC.log`
-  - `import_bed_fix_coord_for_sam_compare_HPC.prt`
 
 ## 5. Add commonID to all SAM files
 ### 
