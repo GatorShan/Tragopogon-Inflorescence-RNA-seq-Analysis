@@ -31,6 +31,7 @@ Output (e.g.):
 
 ### 3.1 Filter CORE_bed files to inlcude those only inlcuded in shared orthologs
 `Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered_2.0.txt` was used for downstream analysis. There are 11,863 shared orthologous pairs (P_VAL >= 1e-10 and Identity >= 0.8 and AlignmentLength >= 200), which is from section "Shared_COREs_wu-blast_OrthoFinder".
+  - There are 11,863 shared orthologs for downstream analysis
   - ```
     Tpr_TRINITY_DN14318_c0_g1       2973    Tdu_TRINITY_DN17012_c3_g3       2154    2798    0.      96.9    96.989966555184 598     2058    1465    401     997     -
     Tpr_TRINITY_DN13887_c2_g3       2065    Tdu_TRINITY_DN23158_c1_g4       2112    10072   0.      98.8    98.838334946757 2066    2065    1       35      2094    -
@@ -41,7 +42,7 @@ Output (e.g.):
     ```
 
 Input bed files are generated from script BLAST_COREs.py from section "WU-Blast_Analysis".
-  - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed`
+  - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed`, which includes 42,595 orthologous pairs.
     - ```
       Tpr_TRINITY_DN31201_c0_g1       275     410     Tpr_TRINITY_DN31201_c0_g1,Tdu_TRINITY_DN10064_c0_g1     .       +
       Tpr_TRINITY_DN11072_c2_g4       676     1023    Tpr_TRINITY_DN11072_c2_g4,Tdu_TRINITY_DN7930_c0_g1      .       +
@@ -50,13 +51,14 @@ Input bed files are generated from script BLAST_COREs.py from section "WU-Blast_
       Tpr_TRINITY_DN13887_c2_g3       0       2064    Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4     .       +
       ...
       ```
-  - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed`
+  - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed`, which includes 42,595 orthologous pairs.
     - ```
       Tdu_TRINITY_DN10064_c0_g1       75      210     Tpr_TRINITY_DN31201_c0_g1,Tdu_TRINITY_DN10064_c0_g1     .       +
       Tdu_TRINITY_DN7930_c0_g1        0       346     Tpr_TRINITY_DN11072_c2_g4,Tdu_TRINITY_DN7930_c0_g1      .       +
       Tdu_TRINITY_DN17012_c3_g3       400     996     Tpr_TRINITY_DN14318_c0_g1,Tdu_TRINITY_DN17012_c3_g3     .       +
       Tdu_TRINITY_DN23704_c6_g3       0       243     Tpr_TRINITY_DN13887_c2_g2,Tdu_TRINITY_DN23704_c6_g3     .       +
       Tdu_TRINITY_DN23158_c1_g4       34      2093    Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4     .       +
+      ...
       ```
 
 The following scripts were used to filter bed files to include only those shared orthologous pairs
@@ -64,13 +66,13 @@ The following scripts were used to filter bed files to include only those shared
   - `FilterBedFile_V2.py`
 
 Output:
-  - `TDU-tpr_overlaps_orthologs.bed`
+  - `TDU-tpr_overlaps_orthologs.bed`, which includes those shared 11,863 orthologs.
     - ```
       Tdu_TRINITY_DN17012_c3_g3	400	996	Tpr_TRINITY_DN14318_c0_g1,Tdu_TRINITY_DN17012_c3_g3	.	+
       Tdu_TRINITY_DN23158_c1_g4	34	2093	Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4	.	+
       Tdu_TRINITY_DN24503_c1_g1	1384	2349	Tpr_TRINITY_DN13936_c2_g4,Tdu_TRINITY_DN24503_c1_g1	.	+
       ```    
-  - `TPR-tdu_overlaps_orthologs.bed`
+  - `TPR-tdu_overlaps_orthologs.bed`, which includes those shared 11,863 orthologs.
     - ```
       Tpr_TRINITY_DN14318_c0_g1	1464	2057	Tpr_TRINITY_DN14318_c0_g1,Tdu_TRINITY_DN17012_c3_g3	.	+
       Tpr_TRINITY_DN13887_c2_g3	0	2064	Tpr_TRINITY_DN13887_c2_g3,Tdu_TRINITY_DN23158_c1_g4	.	+
@@ -155,13 +157,13 @@ Using terminal window: `tr "," "|" < orthologs.bed > orthologs.pipe.bed`
 Using terminal window: `tr '\t' ',' < orthologs.bed > orthologs.csv`
   - the purpose is to change tab to comma
   - Output:
-    - `TDU-tpr_overlaps_orthologs.csv`
+    - `TDU-tpr_overlaps_orthologs.csv`, which includes those shared 11,863 orthologs.
       - ```
         Tdu_TRINITY_DN17012_c3_g3,400,996,Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3,.,+
         Tdu_TRINITY_DN23158_c1_g4,34,2093,Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4,.,+
         Tdu_TRINITY_DN24503_c1_g1,1384,2349,Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1,.,+
         ```
-    - `TPR-tdu_overlaps_orthologs.csv`
+    - `TPR-tdu_overlaps_orthologs.csv`, which includes those shared 11,863 orthologs.
       - ```
         Tpr_TRINITY_DN14318_c0_g1,1464,2057,Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3,.,+
         Tpr_TRINITY_DN13887_c2_g3,0,2064,Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4,.,+
@@ -186,14 +188,14 @@ Input:
       ```
 
 Output:
-  - `TDU_tpr_bed_for_sam_compare.bed`
+  - `TDU_tpr_bed_for_sam_compare.bed`, which includes those shared 11,863 orthologs.
     - ```
       commonID	start	end
       Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3	0	596
       Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4	0	2059
       Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1	0	965
       ```
-  - `TPR_tdu_bed_for_sam_compare.bed`
+  - `TPR_tdu_bed_for_sam_compare.bed`, which includes those shared 11,863 orthologs.
     - ```
       commonID	start	end
       Tpr_TRINITY_DN14318_c0_g1|Tdu_TRINITY_DN17012_c3_g3	0	593
