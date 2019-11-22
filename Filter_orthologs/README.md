@@ -231,6 +231,22 @@ Output (examples):
       ...
       ```
   - `Tdu_2613_11_unq_2_TPR_4_Tms_commonID.sam`
+  
+## 6. SAM compare
+This step performs SAM compare to obtain couts for each reference. Scripts `sam_compare_parental_reads_V3.sbatch` and `sam_compare.shan.py` were used for analysis.
+
+**For script `sam_compare_parental_reads_V3.sbatch`, it has been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/9a66594bd121024c244b072490be783b1cf3f86d/Filter_orthologs/sam_compare_parental_reads_V3.sbatch#L40-L41) and [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/9a66594bd121024c244b072490be783b1cf3f86d/Filter_orthologs/sam_compare_parental_reads_V3.sbatch#L46) to fit our own dataset.**
+  - DO NOT REPLACE SAPCE WITH UNDERSCORE!!! DIFFERENT FROM LUCAS'S METHOD; I USED PAIRED READS FOR MAPPING
+  - The read length is 150, instead of 100 in Lucas's analysis
+
+**For script `sam_compare.shan.py`, it has been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/9a66594bd121024c244b072490be783b1cf3f86d/Filter_orthologs/sam_compare.shan.py#L93-L98) to fit our own dataset.**
+  - CUT -D' '; THIS WILL ONLY OUTPUT THE READS HEADER BEFORE THE WHITE SPACE
+
+
+
+
+
+
 
 
 
