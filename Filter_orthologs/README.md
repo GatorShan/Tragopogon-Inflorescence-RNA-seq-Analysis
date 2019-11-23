@@ -231,6 +231,10 @@ Output (examples):
       ...
       ```
   - `Tdu_2613_11_unq_2_TPR_4_Tms_commonID.sam`
+
+Output sas files, e.g.:
+  - `tdu_2613_11_unq_2_tdu_4_tms_id.sas7bdat`
+  - `tdu_2613_11_unq_2_tpr_4_tms_id.sas7bdat`
   
 ## 6. SAM compare
 This step performs SAM compare to obtain couts for each reference. Scripts `sam_compare_parental_reads_V3.sbatch` and `sam_compare.shan.py` were used for analysis.
@@ -279,9 +283,6 @@ Output:
         29:	a_multi_inexact_b_multi_exact	1916
         30:	total_count	7648759
         ```
-  - sas files, e.g.:
-    - `tdu_2613_11_unq_2_tdu_4_tms_id.sas7bdat`
-    - `tdu_2613_11_unq_2_tpr_4_tms_id.sas7bdat`
 
 
 
