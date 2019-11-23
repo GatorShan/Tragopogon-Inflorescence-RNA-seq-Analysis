@@ -241,6 +241,50 @@ This step performs SAM compare to obtain couts for each reference. Scripts `sam_
 
 **For script `sam_compare.shan.py`, it has been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/9a66594bd121024c244b072490be783b1cf3f86d/Filter_orthologs/sam_compare.shan.py#L93-L98) to fit our own dataset.**
   - CUT -D' '; THIS WILL ONLY OUTPUT THE READS HEADER BEFORE THE WHITE SPACE
+  
+Output:
+  - In csv format, e.g.:
+    - `ase_counts_Tdu_2613_11_2_Tdu_Tpr.csv`
+    - `ase_totals_Tdu_2613_11_2_Tdu_Tpr.csv`
+      - ```
+        Count totals:
+        1:	a_single_exact	192257
+        2:	a_single_inexact	95045
+        3:	a_multi_exact	227820
+        4:	a_multi_inexact	2343
+        5:	b_single_exact	199146
+        6:	b_single_inexact	78072
+        7:	b_multi_exact	189100
+        8:	b_multi_inexact	3328
+        9:	both_single_exact_same	0
+        10:	both_single_exact_diff	641939
+        11:	both_single_inexact_same	0
+        12:	both_single_inexact_diff	212797
+        13:	both_inexact_diff_equal	93359
+        14:	both_inexact_diff_a_better	61361
+        15:	both_inexact_diff_b_better	58077
+        16:	both_multi_exact	4717109
+        17:	both_multi_inexact	7463
+        18:	a_single_exact_b_single_inexact	77688
+        19:	a_single_inexact_b_single_exact	43801
+        20:	a_single_exact_b_multi_exact	202545
+        21:	a_multi_exact_b_single_exact	454175
+        22:	a_single_exact_b_multi_inexact	896
+        23:	a_multi_inexact_b_single_exact	355
+        24:	a_single_inexact_b_multi_exact	61303
+        25:	a_multi_exact_b_single_inexact	208417
+        26:	a_single_inexact_b_multi_inexact	2280
+        27:	a_multi_inexact_b_single_inexact	3499
+        28:	a_multi_exact_b_multi_inexact	25465
+        29:	a_multi_inexact_b_multi_exact	1916
+        30:	total_count	7648759
+        ```
+  - sas files, e.g.:
+    - `tdu_2613_11_unq_2_tdu_4_tms_id.sas7bdat`
+    - `tdu_2613_11_unq_2_tpr_4_tms_id.sas7bdat`
+
+
+
 
 
 
