@@ -284,7 +284,23 @@ Output:
         30:	total_count	7648759
         ```
 
+## 7. Import ASE counts into SAS
+### 7.1 Rename ase_counts*.csv files to fit the downstream analysis
+Script `Replicate_rename.sh` was used to rename csv files.
 
+| Original csv files | Renamed csv files |
+| -- | -- |
+| ase_counts_Tdu_2613_11_2_Tdu_Tpr.csv | ase_counts_Tdu_1_2_Tdu_Tpr.csv |
+| ase_counts_Tdu_2613_12_2_Tdu_Tpr.csv | ase_counts_Tdu_2_2_Tdu_Tpr.csv |
+| ase_counts_Tdu_2613_41_2_Tdu_Tpr.csv | ase_counts_Tdu_3_2_Tdu_Tpr.csv |
+| ase_counts_Tdu_2886_3_2_Tdu_Tpr.csv | ase_counts_Tdu_4_2_Tdu_Tpr.csv |
+| ase_counts_Tdu_2886_5_2_Tdu_Tpr.csv | ase_counts_Tdu_5_2_Tdu_Tpr.csv |
+| ase_counts_Tdu_2886_7_2_Tdu_Tpr.csv | ase_counts_Tdu_6_2_Tdu_Tpr.csv |
+| ase_counts_Tpr_2608_3_2_Tdu_Tpr.csv | ase_counts_Tpr_1_2_Tdu_Tpr.csv |
+| ase_counts_Tpr_2608_21_2_Tdu_Tpr.csv | ase_counts_Tpr_2_2_Tdu_Tpr.csv |
+| ase_counts_Tpr_2608_31_2_Tdu_Tpr.csv | ase_counts_Tpr_3_2_Tdu_Tpr.csv |
+
+Scripts `submit_import_ase_counts_parents.bash` and `import_ase_counts_parents.V3.sas` were used.
 
 
 
