@@ -1,0 +1,1011 @@
+1                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.96 seconds
+      cpu time            0.04 seconds
+      
+1          
+2          libname trago '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data';
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data
+3          
+4          %macro import_cnts (reads, rep, ref, alt) ;
+5          
+6          proc import OUT=WORK.&reads&rep._2_&ref._&alt
+7                      DATAFILE="/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/as
+7        ! e_counts_&reads._&rep._2_&ref._&alt..csv"
+8                      DBMS=CSV REPLACE;
+9               GETNAMES=YES;
+10              DATAROW=2;
+11              GUESSINGROWS=20;
+12         run;
+2                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+13         
+14         data ase_&reads&rep._&ref._&alt;
+15         retain fusion_ID rep total_count ase_count ase &ref._count &alt._count ;
+16         set &reads&rep._2_&ref._&alt;
+17         total_count= BOTH_EXACT + BOTH_INEXACT_EQUAL + SAM_A_EXACT_SAM_B_INEXACT +
+18         	SAM_A_INEXACT_BETTER +SAM_A_ONLY_EXACT +SAM_A_ONLY_SINGLE_INEXACT +
+19         	SAM_B_EXACT_SAM_A_INEXACT +SAM_B_INEXACT_BETTER +SAM_B_ONLY_EXACT +SAM_B_ONLY_SINGLE_INEXACT;
+20         &ref._count=SAM_A_EXACT_SAM_B_INEXACT + SAM_A_INEXACT_BETTER +
+21         	SAM_A_ONLY_EXACT +SAM_A_ONLY_SINGLE_INEXACT;
+22         &alt._count=SAM_B_EXACT_SAM_A_INEXACT +SAM_B_INEXACT_BETTER +
+23         	SAM_B_ONLY_EXACT + SAM_B_ONLY_SINGLE_INEXACT;
+24         ase_count=&ref._count+&alt._count;
+25         if ase_count>0 then ase=&ref._count/ase_count;
+26         	else ase=.;
+27         rep=&rep;
+28         hybrid="&reads";
+29         rename fusion_ID = commonID ;
+30                         drop BOTH_EXACT BOTH_INEXACT_EQUAL SAM_A_ONLY_EXACT SAM_B_ONLY_EXACT SAM_A_EXACT_SAM_B_INEXACT
+30       ! SAM_B_EXACT_SAM_A_INEXACT
+31                         SAM_A_ONLY_SINGLE_INEXACT SAM_B_ONLY_SINGLE_INEXACT SAM_A_INEXACT_BETTER SAM_B_INEXACT_BETTER;
+32         
+33         	run;
+34         
+35         %mend ;
+36         
+37         %import_cnts (Tdu, 1, Tdu, Tpr) ;
+
+38          /**********************************************************************
+39          *   PRODUCT:   SAS
+40          *   VERSION:   9.4
+41          *   CREATOR:   External File Interface
+42          *   DATE:      23NOV19
+43          *   DESC:      Generated SAS Datastep Code
+44          *   TEMPLATE SOURCE:  (None Specified.)
+45          ***********************************************************************/
+46             data WORK.TDU1_2_TDU_TPR    ;
+47             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+48             infile
+48       ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_1_2_Tdu_
+48       ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+49                informat FUSION_ID $52. ;
+50                informat BOTH_EXACT best32. ;
+51                informat BOTH_INEXACT_EQUAL best32. ;
+52                informat SAM_A_ONLY_EXACT best32. ;
+53                informat SAM_B_ONLY_EXACT best32. ;
+54                informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+55                informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+56                informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+57                informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+58                informat SAM_A_INEXACT_BETTER best32. ;
+59                informat SAM_B_INEXACT_BETTER best32. ;
+60                format FUSION_ID $52. ;
+61                format BOTH_EXACT best12. ;
+62                format BOTH_INEXACT_EQUAL best12. ;
+63                format SAM_A_ONLY_EXACT best12. ;
+64                format SAM_B_ONLY_EXACT best12. ;
+65                format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+66                format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+3                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+67                format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+68                format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+69                format SAM_A_INEXACT_BETTER best12. ;
+70                format SAM_B_INEXACT_BETTER best12. ;
+71             input
+72                         FUSION_ID $
+73                         BOTH_EXACT
+74                         BOTH_INEXACT_EQUAL
+75                         SAM_A_ONLY_EXACT
+76                         SAM_B_ONLY_EXACT
+77                         SAM_A_EXACT_SAM_B_INEXACT
+78                         SAM_B_EXACT_SAM_A_INEXACT
+79                         SAM_A_ONLY_SINGLE_INEXACT
+80                         SAM_B_ONLY_SINGLE_INEXACT
+81                         SAM_A_INEXACT_BETTER
+82                         SAM_B_INEXACT_BETTER
+83             ;
+84             if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+85             run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_1_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_1_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:13,
+      File Size (bytes)=878326
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_1_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 94.
+NOTE: The data set WORK.TDU1_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.17 seconds
+      cpu time            0.02 seconds
+      
+
+11864 rows created in WORK.TDU1_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_1_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TDU1_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TDU1_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           1.68 seconds
+      cpu time            0.09 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TDU1_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TDU1_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+4                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+      real time           0.20 seconds
+      cpu time            0.01 seconds
+      
+
+86         %import_cnts (Tdu, 2, Tdu, Tpr) ;
+
+87          /**********************************************************************
+88          *   PRODUCT:   SAS
+89          *   VERSION:   9.4
+90          *   CREATOR:   External File Interface
+91          *   DATE:      23NOV19
+92          *   DESC:      Generated SAS Datastep Code
+93          *   TEMPLATE SOURCE:  (None Specified.)
+94          ***********************************************************************/
+95             data WORK.TDU2_2_TDU_TPR    ;
+96             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+97             infile
+97       ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_2_2_Tdu_
+97       ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+98                informat FUSION_ID $52. ;
+99                informat BOTH_EXACT best32. ;
+100               informat BOTH_INEXACT_EQUAL best32. ;
+101               informat SAM_A_ONLY_EXACT best32. ;
+102               informat SAM_B_ONLY_EXACT best32. ;
+103               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+104               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+105               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+106               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+107               informat SAM_A_INEXACT_BETTER best32. ;
+108               informat SAM_B_INEXACT_BETTER best32. ;
+109               format FUSION_ID $52. ;
+110               format BOTH_EXACT best12. ;
+111               format BOTH_INEXACT_EQUAL best12. ;
+112               format SAM_A_ONLY_EXACT best12. ;
+113               format SAM_B_ONLY_EXACT best12. ;
+114               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+115               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+116               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+117               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+118               format SAM_A_INEXACT_BETTER best12. ;
+119               format SAM_B_INEXACT_BETTER best12. ;
+120            input
+121                        FUSION_ID $
+122                        BOTH_EXACT
+123                        BOTH_INEXACT_EQUAL
+124                        SAM_A_ONLY_EXACT
+125                        SAM_B_ONLY_EXACT
+126                        SAM_A_EXACT_SAM_B_INEXACT
+127                        SAM_B_EXACT_SAM_A_INEXACT
+128                        SAM_A_ONLY_SINGLE_INEXACT
+129                        SAM_B_ONLY_SINGLE_INEXACT
+130                        SAM_A_INEXACT_BETTER
+131                        SAM_B_INEXACT_BETTER
+132            ;
+133            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+134            run;
+
+NOTE: The infile 
+5                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_2_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_2_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:13,
+      File Size (bytes)=881784
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_2_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 96.
+NOTE: The data set WORK.TDU2_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.01 seconds
+      
+
+11864 rows created in WORK.TDU2_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_2_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TDU2_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TDU2_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.52 seconds
+      cpu time            0.05 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TDU2_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TDU2_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+135        %import_cnts (Tdu, 3, Tdu, Tpr) ;
+
+136         /**********************************************************************
+137         *   PRODUCT:   SAS
+138         *   VERSION:   9.4
+139         *   CREATOR:   External File Interface
+140         *   DATE:      23NOV19
+141         *   DESC:      Generated SAS Datastep Code
+142         *   TEMPLATE SOURCE:  (None Specified.)
+143         ***********************************************************************/
+144            data WORK.TDU3_2_TDU_TPR    ;
+145            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+146            infile
+146      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_3_2_Tdu_
+146      ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+147               informat FUSION_ID $52. ;
+148               informat BOTH_EXACT best32. ;
+6                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+149               informat BOTH_INEXACT_EQUAL best32. ;
+150               informat SAM_A_ONLY_EXACT best32. ;
+151               informat SAM_B_ONLY_EXACT best32. ;
+152               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+153               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+154               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+155               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+156               informat SAM_A_INEXACT_BETTER best32. ;
+157               informat SAM_B_INEXACT_BETTER best32. ;
+158               format FUSION_ID $52. ;
+159               format BOTH_EXACT best12. ;
+160               format BOTH_INEXACT_EQUAL best12. ;
+161               format SAM_A_ONLY_EXACT best12. ;
+162               format SAM_B_ONLY_EXACT best12. ;
+163               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+164               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+165               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+166               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+167               format SAM_A_INEXACT_BETTER best12. ;
+168               format SAM_B_INEXACT_BETTER best12. ;
+169            input
+170                        FUSION_ID $
+171                        BOTH_EXACT
+172                        BOTH_INEXACT_EQUAL
+173                        SAM_A_ONLY_EXACT
+174                        SAM_B_ONLY_EXACT
+175                        SAM_A_EXACT_SAM_B_INEXACT
+176                        SAM_B_EXACT_SAM_A_INEXACT
+177                        SAM_A_ONLY_SINGLE_INEXACT
+178                        SAM_B_ONLY_SINGLE_INEXACT
+179                        SAM_A_INEXACT_BETTER
+180                        SAM_B_INEXACT_BETTER
+181            ;
+182            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+183            run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_3_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_3_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:13,
+      File Size (bytes)=884284
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_3_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 97.
+NOTE: The data set WORK.TDU3_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+7                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+11864 rows created in WORK.TDU3_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_3_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TDU3_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TDU3_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.34 seconds
+      cpu time            0.05 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TDU3_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TDU3_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+184        %import_cnts (Tdu, 4, Tdu, Tpr) ;
+
+185         /**********************************************************************
+186         *   PRODUCT:   SAS
+187         *   VERSION:   9.4
+188         *   CREATOR:   External File Interface
+189         *   DATE:      23NOV19
+190         *   DESC:      Generated SAS Datastep Code
+191         *   TEMPLATE SOURCE:  (None Specified.)
+192         ***********************************************************************/
+193            data WORK.TDU4_2_TDU_TPR    ;
+194            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+195            infile
+195      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_4_2_Tdu_
+195      ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+196               informat FUSION_ID $52. ;
+197               informat BOTH_EXACT best32. ;
+198               informat BOTH_INEXACT_EQUAL best32. ;
+199               informat SAM_A_ONLY_EXACT best32. ;
+200               informat SAM_B_ONLY_EXACT best32. ;
+201               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+202               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+203               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+204               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+205               informat SAM_A_INEXACT_BETTER best32. ;
+206               informat SAM_B_INEXACT_BETTER best32. ;
+207               format FUSION_ID $52. ;
+208               format BOTH_EXACT best12. ;
+209               format BOTH_INEXACT_EQUAL best12. ;
+210               format SAM_A_ONLY_EXACT best12. ;
+211               format SAM_B_ONLY_EXACT best12. ;
+212               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+213               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+214               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+215               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+216               format SAM_A_INEXACT_BETTER best12. ;
+217               format SAM_B_INEXACT_BETTER best12. ;
+218            input
+8                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+219                        FUSION_ID $
+220                        BOTH_EXACT
+221                        BOTH_INEXACT_EQUAL
+222                        SAM_A_ONLY_EXACT
+223                        SAM_B_ONLY_EXACT
+224                        SAM_A_EXACT_SAM_B_INEXACT
+225                        SAM_B_EXACT_SAM_A_INEXACT
+226                        SAM_A_ONLY_SINGLE_INEXACT
+227                        SAM_B_ONLY_SINGLE_INEXACT
+228                        SAM_A_INEXACT_BETTER
+229                        SAM_B_INEXACT_BETTER
+230            ;
+231            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+232            run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_4_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_4_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:14,
+      File Size (bytes)=876575
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_4_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 94.
+NOTE: The data set WORK.TDU4_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+11864 rows created in WORK.TDU4_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_4_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TDU4_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TDU4_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.26 seconds
+      cpu time            0.06 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TDU4_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TDU4_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+233        %import_cnts (Tdu, 5, Tdu, Tpr) ;
+9                                                          The SAS System                          12:05 Saturday, November 23, 2019
+
+
+234         /**********************************************************************
+235         *   PRODUCT:   SAS
+236         *   VERSION:   9.4
+237         *   CREATOR:   External File Interface
+238         *   DATE:      23NOV19
+239         *   DESC:      Generated SAS Datastep Code
+240         *   TEMPLATE SOURCE:  (None Specified.)
+241         ***********************************************************************/
+242            data WORK.TDU5_2_TDU_TPR    ;
+243            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+244            infile
+244      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_5_2_Tdu_
+244      ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+245               informat FUSION_ID $52. ;
+246               informat BOTH_EXACT best32. ;
+247               informat BOTH_INEXACT_EQUAL best32. ;
+248               informat SAM_A_ONLY_EXACT best32. ;
+249               informat SAM_B_ONLY_EXACT best32. ;
+250               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+251               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+252               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+253               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+254               informat SAM_A_INEXACT_BETTER best32. ;
+255               informat SAM_B_INEXACT_BETTER best32. ;
+256               format FUSION_ID $52. ;
+257               format BOTH_EXACT best12. ;
+258               format BOTH_INEXACT_EQUAL best12. ;
+259               format SAM_A_ONLY_EXACT best12. ;
+260               format SAM_B_ONLY_EXACT best12. ;
+261               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+262               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+263               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+264               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+265               format SAM_A_INEXACT_BETTER best12. ;
+266               format SAM_B_INEXACT_BETTER best12. ;
+267            input
+268                        FUSION_ID $
+269                        BOTH_EXACT
+270                        BOTH_INEXACT_EQUAL
+271                        SAM_A_ONLY_EXACT
+272                        SAM_B_ONLY_EXACT
+273                        SAM_A_EXACT_SAM_B_INEXACT
+274                        SAM_B_EXACT_SAM_A_INEXACT
+275                        SAM_A_ONLY_SINGLE_INEXACT
+276                        SAM_B_ONLY_SINGLE_INEXACT
+277                        SAM_A_INEXACT_BETTER
+278                        SAM_B_INEXACT_BETTER
+279            ;
+280            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+281            run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_5_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_5_2_T
+      du_Tpr.csv,
+10                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:14,
+      File Size (bytes)=882124
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_5_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 99.
+NOTE: The data set WORK.TDU5_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+
+11864 rows created in WORK.TDU5_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_5_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TDU5_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TDU5_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.60 seconds
+      cpu time            0.05 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TDU5_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TDU5_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.18 seconds
+      cpu time            0.01 seconds
+      
+
+282        %import_cnts (Tdu, 6, Tdu, Tpr) ;
+
+283         /**********************************************************************
+284         *   PRODUCT:   SAS
+285         *   VERSION:   9.4
+286         *   CREATOR:   External File Interface
+287         *   DATE:      23NOV19
+288         *   DESC:      Generated SAS Datastep Code
+289         *   TEMPLATE SOURCE:  (None Specified.)
+290         ***********************************************************************/
+291            data WORK.TDU6_2_TDU_TPR    ;
+292            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+293            infile
+293      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_6_2_Tdu_
+293      ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+294               informat FUSION_ID $52. ;
+295               informat BOTH_EXACT best32. ;
+296               informat BOTH_INEXACT_EQUAL best32. ;
+297               informat SAM_A_ONLY_EXACT best32. ;
+298               informat SAM_B_ONLY_EXACT best32. ;
+299               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+300               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+11                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+301               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+302               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+303               informat SAM_A_INEXACT_BETTER best32. ;
+304               informat SAM_B_INEXACT_BETTER best32. ;
+305               format FUSION_ID $52. ;
+306               format BOTH_EXACT best12. ;
+307               format BOTH_INEXACT_EQUAL best12. ;
+308               format SAM_A_ONLY_EXACT best12. ;
+309               format SAM_B_ONLY_EXACT best12. ;
+310               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+311               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+312               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+313               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+314               format SAM_A_INEXACT_BETTER best12. ;
+315               format SAM_B_INEXACT_BETTER best12. ;
+316            input
+317                        FUSION_ID $
+318                        BOTH_EXACT
+319                        BOTH_INEXACT_EQUAL
+320                        SAM_A_ONLY_EXACT
+321                        SAM_B_ONLY_EXACT
+322                        SAM_A_EXACT_SAM_B_INEXACT
+323                        SAM_B_EXACT_SAM_A_INEXACT
+324                        SAM_A_ONLY_SINGLE_INEXACT
+325                        SAM_B_ONLY_SINGLE_INEXACT
+326                        SAM_A_INEXACT_BETTER
+327                        SAM_B_INEXACT_BETTER
+328            ;
+329            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+330            run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_6_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_6_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:14,
+      File Size (bytes)=878188
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_6_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 94.
+NOTE: The data set WORK.TDU6_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.02 seconds
+      
+
+11864 rows created in WORK.TDU6_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tdu_6_2_Tdu_Tpr.csv.
+  
+  
+  
+12                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+NOTE: WORK.TDU6_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TDU6_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.68 seconds
+      cpu time            0.05 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TDU6_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TDU6_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+331        
+332        %import_cnts (Tpr, 1, Tdu, Tpr) ;
+
+333         /**********************************************************************
+334         *   PRODUCT:   SAS
+335         *   VERSION:   9.4
+336         *   CREATOR:   External File Interface
+337         *   DATE:      23NOV19
+338         *   DESC:      Generated SAS Datastep Code
+339         *   TEMPLATE SOURCE:  (None Specified.)
+340         ***********************************************************************/
+341            data WORK.TPR1_2_TDU_TPR    ;
+342            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+343            infile
+343      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_1_2_Tdu_
+343      ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+344               informat FUSION_ID $52. ;
+345               informat BOTH_EXACT best32. ;
+346               informat BOTH_INEXACT_EQUAL best32. ;
+347               informat SAM_A_ONLY_EXACT best32. ;
+348               informat SAM_B_ONLY_EXACT best32. ;
+349               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+350               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+351               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+352               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+353               informat SAM_A_INEXACT_BETTER best32. ;
+354               informat SAM_B_INEXACT_BETTER best32. ;
+355               format FUSION_ID $52. ;
+356               format BOTH_EXACT best12. ;
+357               format BOTH_INEXACT_EQUAL best12. ;
+358               format SAM_A_ONLY_EXACT best12. ;
+359               format SAM_B_ONLY_EXACT best12. ;
+360               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+361               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+362               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+363               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+364               format SAM_A_INEXACT_BETTER best12. ;
+365               format SAM_B_INEXACT_BETTER best12. ;
+366            input
+367                        FUSION_ID $
+368                        BOTH_EXACT
+369                        BOTH_INEXACT_EQUAL
+370                        SAM_A_ONLY_EXACT
+13                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+371                        SAM_B_ONLY_EXACT
+372                        SAM_A_EXACT_SAM_B_INEXACT
+373                        SAM_B_EXACT_SAM_A_INEXACT
+374                        SAM_A_ONLY_SINGLE_INEXACT
+375                        SAM_B_ONLY_SINGLE_INEXACT
+376                        SAM_A_INEXACT_BETTER
+377                        SAM_B_INEXACT_BETTER
+378            ;
+379            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+380            run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_1_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_1_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:14,
+      File Size (bytes)=875046
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_1_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 97.
+NOTE: The data set WORK.TPR1_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.01 seconds
+      
+
+11864 rows created in WORK.TPR1_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_1_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TPR1_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TPR1_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.35 seconds
+      cpu time            0.05 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TPR1_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TPR1_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+381        %import_cnts (Tpr, 2, Tdu, Tpr) ;
+
+382         /**********************************************************************
+383         *   PRODUCT:   SAS
+384         *   VERSION:   9.4
+14                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+385         *   CREATOR:   External File Interface
+386         *   DATE:      23NOV19
+387         *   DESC:      Generated SAS Datastep Code
+388         *   TEMPLATE SOURCE:  (None Specified.)
+389         ***********************************************************************/
+390            data WORK.TPR2_2_TDU_TPR    ;
+391            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+392            infile
+392      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_2_2_Tdu_
+392      ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+393               informat FUSION_ID $52. ;
+394               informat BOTH_EXACT best32. ;
+395               informat BOTH_INEXACT_EQUAL best32. ;
+396               informat SAM_A_ONLY_EXACT best32. ;
+397               informat SAM_B_ONLY_EXACT best32. ;
+398               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+399               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+400               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+401               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+402               informat SAM_A_INEXACT_BETTER best32. ;
+403               informat SAM_B_INEXACT_BETTER best32. ;
+404               format FUSION_ID $52. ;
+405               format BOTH_EXACT best12. ;
+406               format BOTH_INEXACT_EQUAL best12. ;
+407               format SAM_A_ONLY_EXACT best12. ;
+408               format SAM_B_ONLY_EXACT best12. ;
+409               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+410               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+411               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+412               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+413               format SAM_A_INEXACT_BETTER best12. ;
+414               format SAM_B_INEXACT_BETTER best12. ;
+415            input
+416                        FUSION_ID $
+417                        BOTH_EXACT
+418                        BOTH_INEXACT_EQUAL
+419                        SAM_A_ONLY_EXACT
+420                        SAM_B_ONLY_EXACT
+421                        SAM_A_EXACT_SAM_B_INEXACT
+422                        SAM_B_EXACT_SAM_A_INEXACT
+423                        SAM_A_ONLY_SINGLE_INEXACT
+424                        SAM_B_ONLY_SINGLE_INEXACT
+425                        SAM_A_INEXACT_BETTER
+426                        SAM_B_INEXACT_BETTER
+427            ;
+428            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+429            run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_2_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_2_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:14,
+      File Size (bytes)=885245
+15                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_2_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 98.
+NOTE: The data set WORK.TPR2_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.03 seconds
+      
+
+11864 rows created in WORK.TPR2_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_2_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TPR2_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TPR2_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.62 seconds
+      cpu time            0.05 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TPR2_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TPR2_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+430        %import_cnts (Tpr, 3, Tdu, Tpr) ;
+
+431         /**********************************************************************
+432         *   PRODUCT:   SAS
+433         *   VERSION:   9.4
+434         *   CREATOR:   External File Interface
+435         *   DATE:      23NOV19
+436         *   DESC:      Generated SAS Datastep Code
+437         *   TEMPLATE SOURCE:  (None Specified.)
+438         ***********************************************************************/
+439            data WORK.TPR3_2_TDU_TPR    ;
+440            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+441            infile
+441      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_3_2_Tdu_
+441      ! Tpr.csv' delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+442               informat FUSION_ID $52. ;
+443               informat BOTH_EXACT best32. ;
+444               informat BOTH_INEXACT_EQUAL best32. ;
+445               informat SAM_A_ONLY_EXACT best32. ;
+446               informat SAM_B_ONLY_EXACT best32. ;
+447               informat SAM_A_EXACT_SAM_B_INEXACT best32. ;
+448               informat SAM_B_EXACT_SAM_A_INEXACT best32. ;
+449               informat SAM_A_ONLY_SINGLE_INEXACT best32. ;
+450               informat SAM_B_ONLY_SINGLE_INEXACT best32. ;
+451               informat SAM_A_INEXACT_BETTER best32. ;
+452               informat SAM_B_INEXACT_BETTER best32. ;
+16                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+453               format FUSION_ID $52. ;
+454               format BOTH_EXACT best12. ;
+455               format BOTH_INEXACT_EQUAL best12. ;
+456               format SAM_A_ONLY_EXACT best12. ;
+457               format SAM_B_ONLY_EXACT best12. ;
+458               format SAM_A_EXACT_SAM_B_INEXACT best12. ;
+459               format SAM_B_EXACT_SAM_A_INEXACT best12. ;
+460               format SAM_A_ONLY_SINGLE_INEXACT best12. ;
+461               format SAM_B_ONLY_SINGLE_INEXACT best12. ;
+462               format SAM_A_INEXACT_BETTER best12. ;
+463               format SAM_B_INEXACT_BETTER best12. ;
+464            input
+465                        FUSION_ID $
+466                        BOTH_EXACT
+467                        BOTH_INEXACT_EQUAL
+468                        SAM_A_ONLY_EXACT
+469                        SAM_B_ONLY_EXACT
+470                        SAM_A_EXACT_SAM_B_INEXACT
+471                        SAM_B_EXACT_SAM_A_INEXACT
+472                        SAM_A_ONLY_SINGLE_INEXACT
+473                        SAM_B_ONLY_SINGLE_INEXACT
+474                        SAM_A_INEXACT_BETTER
+475                        SAM_B_INEXACT_BETTER
+476            ;
+477            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+478            run;
+
+NOTE: The infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_3_2_Tdu_Tpr.c
+      sv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_3_2_T
+      du_Tpr.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=23Nov2019:11:49:14,
+      File Size (bytes)=873372
+
+NOTE: 11864 records were read from the infile 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_3_2_Tdu_Tpr.c
+      sv'.
+      The minimum record length was 28.
+      The maximum record length was 97.
+NOTE: The data set WORK.TPR3_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.28 seconds
+      cpu time            0.02 seconds
+      
+
+11864 rows created in WORK.TPR3_2_TDU_TPR from 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/Compare_SAM/ase_counts_rename/ase_counts_Tpr_3_2_Tdu_Tpr.csv.
+  
+  
+  
+NOTE: WORK.TPR3_2_TDU_TPR data set was successfully created.
+NOTE: The data set WORK.TPR3_2_TDU_TPR has 11864 observations and 11 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.90 seconds
+17                                                         The SAS System                          12:05 Saturday, November 23, 2019
+
+      cpu time            0.06 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.TPR3_2_TDU_TPR.
+NOTE: The data set WORK.ASE_TPR3_TDU_TPR has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+479        
+480        data trago.ase_4_bayes_Tdu_reads_Tdu_Tpr ;
+481        set ase_Tdu1_Tdu_Tpr ase_Tdu2_Tdu_Tpr ase_Tdu3_Tdu_Tpr ase_Tdu4_Tdu_Tpr ase_Tdu5_Tdu_Tpr ase_Tdu6_Tdu_Tpr;
+482        run ;
+
+NOTE: There were 11864 observations read from the data set WORK.ASE_TDU1_TDU_TPR.
+NOTE: There were 11864 observations read from the data set WORK.ASE_TDU2_TDU_TPR.
+NOTE: There were 11864 observations read from the data set WORK.ASE_TDU3_TDU_TPR.
+NOTE: There were 11864 observations read from the data set WORK.ASE_TDU4_TDU_TPR.
+NOTE: There were 11864 observations read from the data set WORK.ASE_TDU5_TDU_TPR.
+NOTE: There were 11864 observations read from the data set WORK.ASE_TDU6_TDU_TPR.
+NOTE: The data set TRAGO.ASE_4_BAYES_TDU_READS_TDU_TPR has 71184 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.16 seconds
+      cpu time            0.02 seconds
+      
+
+483        
+484        data trago.ase_4_bayes_Tpr_reads_Tdu_Tpr ;
+485        set ase_Tpr1_Tdu_Tpr ase_Tpr2_Tdu_Tpr ase_Tpr3_Tdu_Tpr;
+486        run ;
+
+NOTE: There were 11864 observations read from the data set WORK.ASE_TPR1_TDU_TPR.
+NOTE: There were 11864 observations read from the data set WORK.ASE_TPR2_TDU_TPR.
+NOTE: There were 11864 observations read from the data set WORK.ASE_TPR3_TDU_TPR.
+NOTE: The data set TRAGO.ASE_4_BAYES_TPR_READS_TDU_TPR has 35592 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.01 seconds
+      
+
+487        
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           8.24 seconds
+      cpu time            0.68 seconds
+      
