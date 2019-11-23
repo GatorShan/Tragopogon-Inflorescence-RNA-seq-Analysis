@@ -202,6 +202,9 @@ Output:
       Tpr_TRINITY_DN13887_c2_g3|Tdu_TRINITY_DN23158_c1_g4	0	2064
       Tpr_TRINITY_DN13936_c2_g4|Tdu_TRINITY_DN24503_c1_g1	0	965
       ```
+Output in SAS format:
+  - `tdu_tpr_bed_for_sam_compare.sas7bdat`
+  - `tpr_tdu_bed_for_sam_compare.sas7bdat`
 
 ## 5. Add commonID to all SAM files
 We have to rename putatively orthologous pairs so that SAM compare is comparing the correct sequence pairs.
@@ -300,8 +303,14 @@ Script `Replicate_rename.sh` was used to rename csv files.
 | ase_counts_Tpr_2608_21_2_Tdu_Tpr.csv | ase_counts_Tpr_2_2_Tdu_Tpr.csv |
 | ase_counts_Tpr_2608_31_2_Tdu_Tpr.csv | ase_counts_Tpr_3_2_Tdu_Tpr.csv |
 
+### 7.2 Import ASE counts into SAS
 Scripts `submit_import_ase_counts_parents.bash` and `import_ase_counts_parents.V3.sas` were used.
 
+Output in SAS format:
+  - `ase_4_bayes_tpr_reads_tdu_tpr.sas7bdat`
+  - `ase_4_bayes_tdu_reads_tdu_tpr.sas7bdat`
+
+Output log file: `import_ase_counts_parents.log`
 
 
 
