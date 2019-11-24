@@ -1,0 +1,177 @@
+1                                                          The SAS System                            10:44 Sunday, November 24, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.33 seconds
+      cpu time            0.04 seconds
+      
+1          libname trago '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data';
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data
+2          
+3          /* for parents */
+4          %macro make_sbys_parents (reads, alt) ;
+5          
+6          /* Transpose dataset so reps in column  */
+7              proc sort data=trago.ase_4_bayes_&reads._reads_tdu_&alt. ;
+8                  by commonID rep;
+9                  run;
+10         
+11             proc transpose data=trago.ase_4_bayes_&reads._reads_tdu_&alt. out=flip_total prefix=total_count_rep;
+12                 by commonID ;
+13                 var total_count;
+2                                                          The SAS System                            10:44 Sunday, November 24, 2019
+
+14                 id rep;
+15                 run;
+16             proc transpose data=trago.ase_4_bayes_&reads._reads_tdu_&alt. out=flip_tdu prefix=tdu_count_rep;
+17                 by commonID ;
+18                 var tdu_count;
+19                 id rep;
+20                 run;
+21             proc transpose data=trago.ase_4_bayes_&reads._reads_tdu_&alt. out=flip_&alt. prefix=&alt._count_rep;
+22                 by commonID ;
+23                 var &alt._count;
+24                 id rep;
+25                 run;
+26         
+27         data trago.ase_bayes_&reads._rds_tdu_&alt._sbys ;
+28         retain commonID ;
+29         merge flip_total flip_tdu flip_&alt. ;
+30         by commonID ;
+31         drop _NAME_ ;
+32         run ;
+33         %mend ;
+34         
+35         %make_sbys_parents (tdu, tpr);
+
+NOTE: There were 71184 observations read from the data set TRAGO.ASE_4_BAYES_TDU_READS_TDU_TPR.
+NOTE: The data set TRAGO.ASE_4_BAYES_TDU_READS_TDU_TPR has 71184 observations and 8 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.41 seconds
+      cpu time            0.06 seconds
+      
+
+
+NOTE: There were 71184 observations read from the data set TRAGO.ASE_4_BAYES_TDU_READS_TDU_TPR.
+NOTE: The data set WORK.FLIP_TOTAL has 11864 observations and 8 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.29 seconds
+      cpu time            0.25 seconds
+      
+
+
+NOTE: There were 71184 observations read from the data set TRAGO.ASE_4_BAYES_TDU_READS_TDU_TPR.
+NOTE: The data set WORK.FLIP_TDU has 11864 observations and 8 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.24 seconds
+      cpu time            0.24 seconds
+      
+
+
+NOTE: There were 71184 observations read from the data set TRAGO.ASE_4_BAYES_TDU_READS_TDU_TPR.
+NOTE: The data set WORK.FLIP_TPR has 11864 observations and 8 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.24 seconds
+      cpu time            0.22 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.FLIP_TOTAL.
+NOTE: There were 11864 observations read from the data set WORK.FLIP_TDU.
+NOTE: There were 11864 observations read from the data set WORK.FLIP_TPR.
+3                                                          The SAS System                            10:44 Sunday, November 24, 2019
+
+NOTE: The data set TRAGO.ASE_BAYES_TDU_RDS_TDU_TPR_SBYS has 11864 observations and 19 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.02 seconds
+      
+
+36         %make_sbys_parents (tpr, tpr);
+
+NOTE: There were 35592 observations read from the data set TRAGO.ASE_4_BAYES_TPR_READS_TDU_TPR.
+NOTE: The data set TRAGO.ASE_4_BAYES_TPR_READS_TDU_TPR has 35592 observations and 8 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.03 seconds
+      
+
+
+NOTE: There were 35592 observations read from the data set TRAGO.ASE_4_BAYES_TPR_READS_TDU_TPR.
+NOTE: The data set WORK.FLIP_TOTAL has 11864 observations and 5 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.13 seconds
+      
+
+
+NOTE: There were 35592 observations read from the data set TRAGO.ASE_4_BAYES_TPR_READS_TDU_TPR.
+NOTE: The data set WORK.FLIP_TDU has 11864 observations and 5 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.18 seconds
+      cpu time            0.13 seconds
+      
+
+
+NOTE: There were 35592 observations read from the data set TRAGO.ASE_4_BAYES_TPR_READS_TDU_TPR.
+NOTE: The data set WORK.FLIP_TPR has 11864 observations and 5 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.12 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set WORK.FLIP_TOTAL.
+NOTE: There were 11864 observations read from the data set WORK.FLIP_TDU.
+NOTE: There were 11864 observations read from the data set WORK.FLIP_TPR.
+NOTE: The data set TRAGO.ASE_BAYES_TPR_RDS_TDU_TPR_SBYS has 11864 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2.21 seconds
+      cpu time            1.26 seconds
+      
