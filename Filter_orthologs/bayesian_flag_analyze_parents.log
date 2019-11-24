@@ -1,0 +1,170 @@
+1                                                          The SAS System                            11:14 Sunday, November 24, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.13 seconds
+      cpu time            0.03 seconds
+      
+1          libname trago '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data';
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data
+2          
+3          /* Create flag_analyze -- lam (Tdu) has  5 (6) reps and croc (Tpr) has 3 reps */
+4          
+5          
+6          /* TDU-tdu-tpr reads */
+7              * A commonID is called analyzable if it has ASE information for at least one rep.;
+8              proc sort data=trago.ase_4_bayes_tdu_reads_tdu_tpr;
+9                  by  commonID;
+10                 run;
+
+NOTE: Input data set is already sorted, no sorting done.
+NOTE: PROCEDURE SORT used (Total process time):
+2                                                          The SAS System                            11:14 Sunday, November 24, 2019
+
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+11         
+12             proc means data=trago.ase_4_bayes_tdu_reads_tdu_tpr noprint;
+13                 by commonID;
+14                 output out=sums sum(ASE_count)=sums;
+15                 run;
+
+NOTE: There were 71184 observations read from the data set TRAGO.ASE_4_BAYES_TDU_READS_TDU_TPR.
+NOTE: The data set WORK.SUMS has 11864 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.03 seconds
+      
+
+16         
+17             * needed to add _freq_ requirement to ensure that there are 5 (6 for Tdu) reps.;
+18             data flag_analyze;
+19                 set sums;
+20                 if sums > 0 and _freq_ ge 6 then flag_analyze = 1; else flag_analyze = 0;
+21                 keep commonID flag_analyze;
+22                 run;
+
+NOTE: There were 11864 observations read from the data set WORK.SUMS.
+NOTE: The data set WORK.FLAG_ANALYZE has 11864 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+23         
+24         /* Make permanent dataset */
+25             data trago.bayes_flag_tdu_reads_tdu_tpr;
+26                 set flag_analyze;
+27                 run;
+
+NOTE: There were 11864 observations read from the data set WORK.FLAG_ANALYZE.
+NOTE: The data set TRAGO.BAYES_FLAG_TDU_READS_TDU_TPR has 11864 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+28         
+29                     	/*---------------------------------------*/
+30         
+31         /* TPR-tdu-tpr reads */
+32             * A commonID is called analyzable if it has ASE information for at least one rep.;
+33             proc sort data=trago.ase_4_bayes_tpr_reads_tdu_tpr;
+34                 by  commonID;
+35                 run;
+
+NOTE: Input data set is already sorted, no sorting done.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+3                                                          The SAS System                            11:14 Sunday, November 24, 2019
+
+      
+
+36         
+37             proc means data=trago.ase_4_bayes_tpr_reads_tdu_tpr noprint;
+38                 by commonID;
+39                 output out=sums sum(ASE_count)=sums;
+40                 run;
+
+NOTE: There were 35592 observations read from the data set TRAGO.ASE_4_BAYES_TPR_READS_TDU_TPR.
+NOTE: The data set WORK.SUMS has 11864 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.02 seconds
+      
+
+41         
+42             * needed to add _freq_ requirement to ensure that there are 3 reps. (for Tpr);
+43             data flag_analyze;
+44                 set sums;
+45                 if sums > 0 and _freq_ ge 3 then flag_analyze = 1; else flag_analyze = 0;
+46                 keep commonID flag_analyze;
+47                 run;
+
+NOTE: There were 11864 observations read from the data set WORK.SUMS.
+NOTE: The data set WORK.FLAG_ANALYZE has 11864 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.01 seconds
+      
+
+48         
+49         /* Make permanent dataset */
+50             data trago.bayes_flag_tpr_reads_tdu_tpr;
+51                 set flag_analyze;
+52                 run;
+
+NOTE: There were 11864 observations read from the data set WORK.FLAG_ANALYZE.
+NOTE: The data set TRAGO.BAYES_FLAG_TPR_READS_TDU_TPR has 11864 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.42 seconds
+      cpu time            0.13 seconds
+      
