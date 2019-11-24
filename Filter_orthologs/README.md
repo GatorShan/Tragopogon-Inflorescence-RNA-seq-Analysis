@@ -340,7 +340,7 @@ Output:
 ## 10. Export Bayesian Flag Data
 "Export those data which were flagged for analysis (1) so that we can run the PG analysis (Empirical Bayesian Machine)." -- Lucas
 
-Scripts `submit_bayesian_export_flagged_dataset_parents.bash` and `bayesian_export_flagged_dataset_parents.V1.sas`, which has been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/b391fe52e2b5ef5833f3d181434b7964e60617d9/Filter_orthologs/bayesian_export_flagged_dataset_parents.V1.sas#L30-L51) to fit the 6 replications for Tdu reads, were used.
+Scripts `submit_bayesian_export_flagged_dataset_parents.bash` and **`bayesian_export_flagged_dataset_parents.V1.sas`, which has been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/b391fe52e2b5ef5833f3d181434b7964e60617d9/Filter_orthologs/bayesian_export_flagged_dataset_parents.V1.sas#L30-L51) to fit the 6 replications for Tdu reads**, were used.
 
 Output:
   - `bayesian_export_flagged_dataset_parents.log`
@@ -348,6 +348,8 @@ Output:
   - `ase_bayes_tpr_tdu_tpr_flag.sas7bdat`
   - **`ase_bayes_tdu_tdu_tpr_flag.csv`**
   - **`ase_bayes_tpr_tdu_tpr_flag.csv`**
+
+
 
 
 
