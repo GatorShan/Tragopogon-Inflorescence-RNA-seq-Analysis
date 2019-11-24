@@ -1,0 +1,426 @@
+1                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.14 seconds
+      cpu time            0.03 seconds
+      
+1          libname trago '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data';
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data
+2          
+3          /*
+4          merge with flag
+5          export for bayesian
+6          */
+7          /* proc contents data = trago.ase_bayesian_Tm_sbys_with_flag;run ; */
+8          
+9          %macro add_flag (reads, alt) ;
+10         
+11         proc sort data = trago.Bayes_flag_&reads._reads_tdu_&alt. ;
+12         by commonID ;
+13         proc sort data = trago.Ase_bayes_&reads._rds_tdu_&alt._sbys ;
+2                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+14         by commonID ;
+15         run;
+16         
+17         data ase_bayes_&reads._tdu_&alt._flg;
+18         merge trago.Ase_bayes_&reads._rds_tdu_&alt._sbys (in=in1) trago.Bayes_flag_&reads._reads_tdu_&alt. (in=in2);
+19         by commonID ;
+20         if in1;
+21         run ;
+22         
+23         
+24         %mend ;
+25         
+26         %add_flag (tdu, tpr);
+
+NOTE: There were 11864 observations read from the data set TRAGO.BAYES_FLAG_TDU_READS_TDU_TPR.
+NOTE: The data set TRAGO.BAYES_FLAG_TDU_READS_TDU_TPR has 11864 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set TRAGO.ASE_BAYES_TDU_RDS_TDU_TPR_SBYS.
+NOTE: The data set TRAGO.ASE_BAYES_TDU_RDS_TDU_TPR_SBYS has 11864 observations and 19 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.02 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set TRAGO.ASE_BAYES_TDU_RDS_TDU_TPR_SBYS.
+NOTE: There were 11864 observations read from the data set TRAGO.BAYES_FLAG_TDU_READS_TDU_TPR.
+NOTE: The data set WORK.ASE_BAYES_TDU_TDU_TPR_FLG has 11864 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+27         %add_flag (tpr, tpr);
+
+NOTE: There were 11864 observations read from the data set TRAGO.BAYES_FLAG_TPR_READS_TDU_TPR.
+NOTE: The data set TRAGO.BAYES_FLAG_TPR_READS_TDU_TPR has 11864 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set TRAGO.ASE_BAYES_TPR_RDS_TDU_TPR_SBYS.
+NOTE: The data set TRAGO.ASE_BAYES_TPR_RDS_TDU_TPR_SBYS has 11864 observations and 10 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 11864 observations read from the data set TRAGO.ASE_BAYES_TPR_RDS_TDU_TPR_SBYS.
+NOTE: There were 11864 observations read from the data set TRAGO.BAYES_FLAG_TPR_READS_TDU_TPR.
+3                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+NOTE: The data set WORK.ASE_BAYES_TPR_TDU_TPR_FLG has 11864 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+28         
+29         
+30         data trago.ase_bayes_tdu_tdu_tpr_flag ;
+31         set ase_bayes_tdu_tdu_tpr_flg;
+32         rename
+33          tdu_count_rep1 = LINE_TOTAL_1
+34          tdu_count_rep2 = LINE_TOTAL_2
+35          tdu_count_rep3 = LINE_TOTAL_3
+36          tdu_count_rep4 = LINE_TOTAL_4
+37          tdu_count_rep5 = LINE_TOTAL_5
+38          tdu_count_rep6 = LINE_TOTAL_6
+39          tpr_count_rep1 = TESTER_TOTAL_1
+40          tpr_count_rep2 = TESTER_TOTAL_2
+41          tpr_count_rep3 = TESTER_TOTAL_3
+42          tpr_count_rep4 = TESTER_TOTAL_4
+43          tpr_count_rep5 = TESTER_TOTAL_5
+44          tpr_count_rep6 = TESTER_TOTAL_6 ;
+45         
+46          drop  total_count_rep1
+47                    total_count_rep2
+48                    total_count_rep3
+49                    total_count_rep4
+50                    total_count_rep5
+51                    total_count_rep6 ;
+52          run;
+
+NOTE: There were 11864 observations read from the data set WORK.ASE_BAYES_TDU_TDU_TPR_FLG.
+NOTE: The data set TRAGO.ASE_BAYES_TDU_TDU_TPR_FLAG has 11864 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+53         
+54         
+55         
+56         data trago.ase_bayes_tpr_tdu_tpr_flag ;
+57         set ase_bayes_tpr_tdu_tpr_flg;
+58         rename
+59          tdu_count_rep1 = LINE_TOTAL_1
+60          tdu_count_rep2 = LINE_TOTAL_2
+61          tdu_count_rep3 = LINE_TOTAL_3
+62          tpr_count_rep1 = TESTER_TOTAL_1
+63          tpr_count_rep2 = TESTER_TOTAL_2
+64          tpr_count_rep3 = TESTER_TOTAL_3 ;
+65         
+66          drop  total_count_rep1
+67                    total_count_rep2
+68                    total_count_rep3 ;
+69          run;
+
+NOTE: There were 11864 observations read from the data set WORK.ASE_BAYES_TPR_TDU_TPR_FLG.
+4                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+NOTE: The data set TRAGO.ASE_BAYES_TPR_TDU_TPR_FLAG has 11864 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+70         
+71         
+72         proc export data =trago.ase_bayes_tdu_tdu_tpr_flag
+73          outfile="/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_t
+73       ! du_tdu_tpr_flag.csv"
+74         DBMS = csv REPLACE;
+75         run;
+
+76          /**********************************************************************
+77          *   PRODUCT:   SAS
+78          *   VERSION:   9.4
+79          *   CREATOR:   External File Interface
+80          *   DATE:      24NOV19
+81          *   DESC:      Generated SAS Datastep Code
+82          *   TEMPLATE SOURCE:  (None Specified.)
+83          ***********************************************************************/
+84             data _null_;
+85             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+86             %let _EFIREC_ = 0;     /* clear export record count macro variable */
+87             file
+87       ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tdu_tdu_tp
+87       ! r_flag.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+88             if _n_ = 1 then        /* write column names or labels */
+89              do;
+90                put
+91                   "commonID"
+92                ','
+93                   "LINE_TOTAL_1"
+94                ','
+95                   "LINE_TOTAL_2"
+96                ','
+97                   "LINE_TOTAL_3"
+98                ','
+99                   "LINE_TOTAL_4"
+100               ','
+101                  "LINE_TOTAL_5"
+102               ','
+103                  "LINE_TOTAL_6"
+104               ','
+105                  "TESTER_TOTAL_1"
+106               ','
+107                  "TESTER_TOTAL_2"
+108               ','
+109                  "TESTER_TOTAL_3"
+110               ','
+111                  "TESTER_TOTAL_4"
+112               ','
+113                  "TESTER_TOTAL_5"
+114               ','
+115                  "TESTER_TOTAL_6"
+116               ','
+117                  "flag_analyze"
+5                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+118               ;
+119             end;
+120           set  TRAGO.ASE_BAYES_TDU_TDU_TPR_FLAG   end=EFIEOD;
+121               format commonID $52. ;
+122               format LINE_TOTAL_1 best12. ;
+123               format LINE_TOTAL_2 best12. ;
+124               format LINE_TOTAL_3 best12. ;
+125               format LINE_TOTAL_4 best12. ;
+126               format LINE_TOTAL_5 best12. ;
+127               format LINE_TOTAL_6 best12. ;
+128               format TESTER_TOTAL_1 best12. ;
+129               format TESTER_TOTAL_2 best12. ;
+130               format TESTER_TOTAL_3 best12. ;
+131               format TESTER_TOTAL_4 best12. ;
+132               format TESTER_TOTAL_5 best12. ;
+133               format TESTER_TOTAL_6 best12. ;
+134               format flag_analyze best12. ;
+135             do;
+136               EFIOUT + 1;
+137               put commonID $ @;
+138               put LINE_TOTAL_1 @;
+139               put LINE_TOTAL_2 @;
+140               put LINE_TOTAL_3 @;
+141               put LINE_TOTAL_4 @;
+142               put LINE_TOTAL_5 @;
+143               put LINE_TOTAL_6 @;
+144               put TESTER_TOTAL_1 @;
+145               put TESTER_TOTAL_2 @;
+146               put TESTER_TOTAL_3 @;
+147               put TESTER_TOTAL_4 @;
+148               put TESTER_TOTAL_5 @;
+149               put TESTER_TOTAL_6 @;
+150               put flag_analyze ;
+151               ;
+152             end;
+153            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+154            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+155            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tdu_tdu_tpr_fla
+      g.csv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tdu_tdu
+      _tpr_flag.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=24Nov2019:11:33:01
+
+NOTE: 11865 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tdu_tdu_tpr_fla
+      g.csv'.
+      The minimum record length was 34.
+      The maximum record length was 189.
+NOTE: There were 11864 observations read from the data set TRAGO.ASE_BAYES_TDU_TDU_TPR_FLAG.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.04 seconds
+6                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+      
+
+11864 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tdu_tdu_tpr_flag.csv 
+from TRAGO.ASE_BAYES_TDU_TDU_TPR_FLAG.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tdu_tdu_tpr_fla
+      g.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.45 seconds
+      cpu time            0.09 seconds
+      
+
+156        
+157        proc export data =trago.ase_bayes_tpr_tdu_tpr_flag
+158         outfile="/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_t
+158      ! pr_tdu_tpr_flag.csv"
+159        DBMS = csv REPLACE;
+160        run;
+
+161         /**********************************************************************
+162         *   PRODUCT:   SAS
+163         *   VERSION:   9.4
+164         *   CREATOR:   External File Interface
+165         *   DATE:      24NOV19
+166         *   DESC:      Generated SAS Datastep Code
+167         *   TEMPLATE SOURCE:  (None Specified.)
+168         ***********************************************************************/
+169            data _null_;
+170            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+171            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+172            file
+172      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tpr_tdu_tp
+172      ! r_flag.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+173            if _n_ = 1 then        /* write column names or labels */
+174             do;
+175               put
+176                  "commonID"
+177               ','
+178                  "LINE_TOTAL_1"
+179               ','
+180                  "LINE_TOTAL_2"
+181               ','
+182                  "LINE_TOTAL_3"
+183               ','
+184                  "TESTER_TOTAL_1"
+185               ','
+186                  "TESTER_TOTAL_2"
+187               ','
+188                  "TESTER_TOTAL_3"
+189               ','
+190                  "flag_analyze"
+191               ;
+192             end;
+193           set  TRAGO.ASE_BAYES_TPR_TDU_TPR_FLAG   end=EFIEOD;
+194               format commonID $52. ;
+195               format LINE_TOTAL_1 best12. ;
+7                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+196               format LINE_TOTAL_2 best12. ;
+197               format LINE_TOTAL_3 best12. ;
+198               format TESTER_TOTAL_1 best12. ;
+199               format TESTER_TOTAL_2 best12. ;
+200               format TESTER_TOTAL_3 best12. ;
+201               format flag_analyze best12. ;
+202             do;
+203               EFIOUT + 1;
+204               put commonID $ @;
+205               put LINE_TOTAL_1 @;
+206               put LINE_TOTAL_2 @;
+207               put LINE_TOTAL_3 @;
+208               put TESTER_TOTAL_1 @;
+209               put TESTER_TOTAL_2 @;
+210               put TESTER_TOTAL_3 @;
+211               put flag_analyze ;
+212               ;
+213             end;
+214            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+215            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+216            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tpr_tdu_tpr_fla
+      g.csv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tpr_tdu
+      _tpr_flag.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=24Nov2019:11:33:01
+
+NOTE: 11865 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tpr_tdu_tpr_fla
+      g.csv'.
+      The minimum record length was 22.
+      The maximum record length was 105.
+NOTE: There were 11864 observations read from the data set TRAGO.ASE_BAYES_TPR_TDU_TPR_FLAG.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.03 seconds
+      
+
+11864 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tpr_tdu_tpr_flag.csv 
+from TRAGO.ASE_BAYES_TPR_TDU_TPR_FLAG.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_input/ase_bayes_tpr_tdu_tpr_fla
+      g.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.21 seconds
+      cpu time            0.06 seconds
+      
+
+217        
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+8                                                          The SAS System                            11:33 Sunday, November 24, 2019
+
+NOTE: The SAS System used:
+      real time           1.11 seconds
+      cpu time            0.28 seconds
+      
