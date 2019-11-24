@@ -318,13 +318,26 @@ Output in SAS format:
 Output log file: `import_ase_counts_parents.log`
 
 ## 8. Prep for Bayesian analysis
-Script `submit_bayesian_make_sbys_reps_parents.bash` and `bayesian_make_sbys_reps_parents.sas` were used in this step.
+Scripts `submit_bayesian_make_sbys_reps_parents.bash` and `bayesian_make_sbys_reps_parents.sas` were used in this step.
 
 Output:
   - sorted `ase_4_bayes_tdu_reads_tdu_tpr.sas7bdat`
   - sorted `ase_4_bayes_tpr_reads_tdu_tpr.sas7bdat`
   - `ase_bayes_tdu_rds_tdu_tpr_sbys.sas7bdat`
   - `ase_bayes_tpr_rds_tdu_tpr_sbys.sas7bdat`
+  - `bayesian_make_sbys_reps_parents.log`
+
+## 9. Bayesian Flag Analyze
+"This step flags each feature (putative orthologous pair) for analysis (1) or not (0). Each feature MUST have at least one read and all reps should be present. This check for presence is important when running different rep counts." -- Lucas
+
+Scripts `submit_bayesian_flag_analyze_parents.bash` and **`bayesian_flag_analyze_parents.sas`, which have been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/17dd721720212ace4c6b1816a74e543dd53ba387/Filter_orthologs/bayesian_flag_analyze_parents.sas#L17-L22) to fit the 6 replications for Tdu**, were used.
+
+Output:
+  - `bayesian_flag_analyze_parents.log`
+  - `bayes_flag_tdu_reads_tdu_tpr.sas7bdat`
+  - `bayes_flag_tpr_reads_tdu_tpr.sas7bdat`
+
+
 
 
 
