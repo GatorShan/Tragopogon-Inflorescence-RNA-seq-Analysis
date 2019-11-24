@@ -1,6 +1,11 @@
 # Filtering orthologous pairs with biased mapping
 ## 1. Description
-Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu reads are biased mapping to a Tpr supertranscript, this Tpr supertranscript will be filtered out.
+Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu reads are biased mapping to a Tpr supertranscript, this Tpr supertranscript will be filtered out. The method is below is adapted from [Locuas's method](https://htmlpreview.github.io/?https://github.com/BBarbazukLab/papers/blob/master/Boatwright_et_al.,2018/New_World_PG_pipeline_documentation.html#Filter), with the following changes:
+  - SAM files were generated using paired-end reads in current study; Lucas used single-end reads for mapping
+  - Read length in current study is 150 bp; in Lucas's study, read length is 100 bp
+  - There are 6 and 3 replications for Tdu and Tpr, respectively in this study; Lucas's study has 3 replications for both Tdu and Tpr
+
+**All changed scripts to accommote above changes were shown in bold**
 
 ![Filtering orthologs](https://cdn1.imggmi.com/uploads/2019/11/1/a7814143cb5ebd1c8868877ba7a0d737-full.png)
 
@@ -311,6 +316,15 @@ Output in SAS format:
   - `ase_4_bayes_tdu_reads_tdu_tpr.sas7bdat`
 
 Output log file: `import_ase_counts_parents.log`
+
+## 8. Prep for Bayesian analysis
+Script `submit_bayesian_make_sbys_reps_parents.bash` and `bayesian_make_sbys_reps_parents.sas` were used in this step.
+
+Output:
+  - sorted `ase_4_bayes_tdu_reads_tdu_tpr.sas7bdat`
+  - sorted `ase_4_bayes_tpr_reads_tdu_tpr.sas7bdat`
+  - `ase_bayes_tdu_rds_tdu_tpr_sbys.sas7bdat`
+  - `ase_bayes_tpr_rds_tdu_tpr_sbys.sas7bdat`
 
 
 
