@@ -379,6 +379,32 @@ Tpr_TRINITY_DN10030_c0_g1|Tdu_TRINITY_DN13817_c0_g1,2,1,1,1,5,2,1
 ...
 ```
 
+## 11. Split ASE Table
+"This step is performed to speed up the analysis by separating the process into reasonably sized chunks" -- Lucas
+
+Scripts `split_emp_bayesian_ase_table.bash` and `splitTable.py` were used to splite the original csv files into 500 small files.
+
+Input:
+  - `ase_bayes_tdu_tdu_tpr_flag.csv`
+  - `ase_bayes_tpr_tdu_tpr_flag.csv`
+
+Output:
+  - `split_tdu_ur/split_(1-500).csv`
+  - `split_tpr_ur/split_(1-500).csv`
+
+## 12. Run Bayesian Possion-Gamma
+"Execute the Bayesian PG machine to identify expression bias between the orthologous pairs. For the parents, parental reads were mapped back to both references to identify loci that exhibit a mapping bias toward the wrong parental reference." -- Lucas
+
+Script: **`run_emp_bayesian_machine_parents.sbatch`, which has been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/6dce32b31000024165ef544ddfecd0e3a53ebddd/Filter_orthologs/run_emp_bayesian_machine_parents.sbatch#L22-L28)**; dependencies include:
+  - `PG_model_empirical_q456_3reps.r` for Tpr reads
+  - **`PG_model_empirical_q456_6reps.r` for Tdu reads, which has been changed [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/6dce32b31000024165ef544ddfecd0e3a53ebddd/Filter_orthologs/PG_model_empirical_q456_6reps.r#L36-L40)**
+  - `Subroutines_model2_experimental.R`
+  - `AI_poissongamma_functions.R`
+
+  
+  
+  
+
 
 
 
