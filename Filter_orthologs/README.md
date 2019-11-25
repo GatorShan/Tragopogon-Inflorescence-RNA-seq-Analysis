@@ -465,7 +465,52 @@ Output:
   - `bayes_flag_sig_tdu_for_tdu_tpr.sas7bdat` and `bayes_flag_sig_tpr_for_tdu_tpr.sas7bdat`
   - `bayesian_flag_sig_parents.log`
 
+## 16. Generate CSVs of Flagged Significant Bayesian Possion-Gamma Output
+"Export the flagged EBM results into a CSV for filtering." -- Lucas
 
+Scripts `execute_output_ase_bayesian_flagged_CSVs.bash` and `output_ase_bayesian_flagged_CSVs.sas` were used.
+
+Input:
+  - `bayes_flag_sig_tdu_for_tdu_tpr.sas7bdat`
+  - `bayes_flag_sig_tpr_for_tdu_tpr.sas7bdat`
+
+Output:
+  - `empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_UR.csv`
+  
+```
+commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tdu_tdu_tpr
+Tpr_TRINITY_DN11281_c1_g9|Tdu_TRINITY_DN15992_c0_g1,0.56,0.363,0.74,0.475,0.286,0.664,0.393,0.223,0.587,0,0,0,0
+Tpr_TRINITY_DN11282_c5_g4|Tdu_TRINITY_DN21715_c2_g2,0.033,0.018,0.052,0.022,0.012,0.034,0.015,0.008,0.024,1,1,1,1
+Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2,0.33,0.228,0.439,0.253,0.17,0.344,0.186,0.119,0.264,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g1|Tdu_TRINITY_DN18533_c6_g7,0.946,0.929,0.961,0.928,0.903,0.948,0.903,0.87,0.93,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g3|Tdu_TRINITY_DN19916_c2_g2,0.05,0.004,0.157,0.035,0.002,0.111,0.024,0.002,0.072,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g5|Tdu_TRINITY_DN23960_c3_g1,0.029,0.009,0.06,0.02,0.006,0.041,0.013,0.004,0.028,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g7|Tdu_TRINITY_DN21302_c2_g2,0.498,0.425,0.573,0.401,0.331,0.471,0.312,0.254,0.377,0,1,1,0
+Tpr_TRINITY_DN11284_c2_g11|Tdu_TRINITY_DN24630_c2_g7,0.92,0.868,0.953,0.905,0.845,0.949,0.891,0.811,0.943,1,1,1,1
+Tpr_TRINITY_DN11284_c2_g17|Tdu_TRINITY_DN18038_c1_g1,0.082,0,0.369,0.067,0,0.301,0.043,0,0.2,1,1,1,1
+Tpr_TRINITY_DN11284_c2_g18|Tdu_TRINITY_DN18953_c5_g5,0.906,0.879,0.93,0.873,0.836,0.905,0.827,0.779,0.872,1,1,1,1
+...
+```
+  - `empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_UR.csv`
+
+```
+commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tpr_tdu_tpr
+Tpr_TRINITY_DN11281_c1_g9|Tdu_TRINITY_DN15992_c0_g1,0.754,0.527,0.903,0.724,0.473,0.892,0.683,0.378,0.883,1,0,0,0
+Tpr_TRINITY_DN11282_c5_g4|Tdu_TRINITY_DN21715_c2_g2,0.088,0.057,0.125,0.06,0.039,0.084,0.041,0.027,0.06,1,1,1,1
+Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2,0.832,0.726,0.907,0.79,0.668,0.89,0.742,0.591,0.859,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g1|Tdu_TRINITY_DN18533_c6_g7,0.93,0.902,0.951,0.907,0.87,0.937,0.877,0.828,0.916,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g3|Tdu_TRINITY_DN19916_c2_g2,0.364,0.236,0.499,0.281,0.181,0.39,0.209,0.132,0.306,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g5|Tdu_TRINITY_DN23960_c3_g1,0.099,0.043,0.172,0.07,0.032,0.125,0.048,0.02,0.084,1,1,1,1
+Tpr_TRINITY_DN11283_c4_g7|Tdu_TRINITY_DN21302_c2_g2,0.393,0.285,0.507,0.304,0.208,0.404,0.228,0.141,0.318,0,1,1,0
+Tpr_TRINITY_DN11284_c2_g11|Tdu_TRINITY_DN24630_c2_g7,0.902,0.83,0.947,0.888,0.801,0.942,0.87,0.766,0.938,1,1,1,1
+Tpr_TRINITY_DN11284_c2_g18|Tdu_TRINITY_DN18953_c5_g5,0.94,0.912,0.961,0.926,0.886,0.956,0.909,0.854,0.948,1,1,1,1
+Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.821,0.665,0.921,0.791,0.613,0.909,0.757,0.54,0.892,1,1,1,1
+...
+```
+  - `output_ase_bayesian_flagged_CSVs.log`
+
+
+  
 
 
   
