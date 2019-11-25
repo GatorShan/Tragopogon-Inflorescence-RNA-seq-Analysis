@@ -480,7 +480,7 @@ Input:
   - `bayes_flag_sig_tpr_for_tdu_tpr.sas7bdat`
 
 Output:
-  - `empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_UR.csv`
+  - `empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_UR.csv`, which has 11,499 orthologous pairs
   
 ```
 commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tdu_tdu_tpr
@@ -496,7 +496,7 @@ Tpr_TRINITY_DN11284_c2_g17|Tdu_TRINITY_DN18038_c1_g1,0.082,0,0.369,0.067,0,0.301
 Tpr_TRINITY_DN11284_c2_g18|Tdu_TRINITY_DN18953_c5_g5,0.906,0.879,0.93,0.873,0.836,0.905,0.827,0.779,0.872,1,1,1,1
 ...
 ```
-  - `empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_UR.csv`
+  - `empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_UR.csv`, which has 11,222 orthologous pairs
 
 ```
 commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tpr_tdu_tpr
@@ -514,9 +514,64 @@ Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.821,0.665,0.921,0.791,0.6
 ```
   - `output_ase_bayesian_flagged_CSVs.log`
 
+## 17. Identify Unbiased Parental Reference Sequences
+"This step identifies parental sequences that biasedly mapped reads from the 'wrong' parent" -- Lucas
+
+Script `Identify_unbiased_parental_ref.V2.py` was used (adapted from Lucas's script).
+
+``` python
+#!/usr/bin/env python
+
+import sys
+import os
+import pandas as pd
+import numpy as np
+
+def filter_csv(file_name):
+    """Given flagged bayesian output in CSV format, isolate unbiased loci. 
+    This is only meant for the parents, as the parent data can biasedly map to its own reference or exhibit no bias."""
+##    import pandas as pd
+##    import numpy as np
+	## read a csv file into DataFrame; index_col: column to use as the row labels of the DataFrame
+    df = pd.read_csv(file_name, index_col = "commonID")
+    
+    ## df.columns: the column labels of the DataFrame
+    cols = list(df.columns)
+    
+    ## define the last column label as sig_col; e.g. flag_sig_tdu_tdu_tpr
+    sig_col = cols[-1]
+    
+    ## the third elements of sig_col, which is separated by "_"
+    reads=sig_col.split("_")[2]
+    
+    ## define an empty list unbiased_loci
+    unbiased_loci = []
+    
+    ## print out the number of orthologous pairs before filtering
+    print("\tDF pre-filter: " + str(len(df.index)))
+    if reads == "tdu":
+        # identify loci not biased toward Alt
+        ## not biased = mapped equally well to both refs?
+        not_biased = df[(df[sig_col] == 0) & (df["q5_mean_theta"] <= 0.75)]
+        print("\t\tNot biased: " + str(len(not_biased.index)))
+        ## including those biased to tdu
+        df = pd.concat([df[(df["q5_mean_theta"] <= 0.5) & (df[sig_col] == 1)],not_biased])
+    elif ((reads == "tpo") or (reads == "tpr")):
+        # identify loci not biased toward TDU
+        not_biased = df[(df[sig_col] == 0) & (df["q5_mean_theta"] >= 0.25)]
+        print("\t\tNot biased: " + str(len(not_biased.index)))
+        df = pd.concat([df[(df["q5_mean_theta"] >= 0.5) & (df[sig_col] == 1)], not_biased])
+    print("\tDF post-filter: " + str(len(df.index)))
+    
+    OutFileName = os.path.splitext(file_name)[0] + '_Filtered.csv'
+    
+    df.to_csv(OutFileName, float_format = '%.3f')
+    return df
+    
+filter_csv(sys.argv[1])
+```
 
 
-  
 
 
   
