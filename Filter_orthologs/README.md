@@ -442,8 +442,33 @@ Output:
       ...
       ```
 
+## 14. Import Bayesian Poisson-Gamma Results to SAS
+Scripts `execute_import_bayesian_flag_results.bash` and `import_bayesian_results.sas` will be used.
+
+Input:
+  - `PG_emp_bayesian_results_tdu_parents_UR.csv`
+  - `PG_emp_bayesian_results_tpr_parents_UR.csv`
+
+Output:
+  - `emp_tdu_for_tdu_tpr.sas7bdat`
+  - `emp_tpr_for_tdu_tpr.sas7bdat`
+  - `import_bayesian_results.log`
+
+## 15. Flag Significant Bayesian Poisson-Gamma Output
+"Flag those putative orthologous pairs that exhibit mapping bias. Flag significant if the credible interval [similar to 95% Highest posterior density interval (HPDI)] does not overlap 0.5 for each prior (q4,q5,q6). Then, flag significant for all three if q4 = q5 = q6 = 1" -- Lucas
+
+Scripts `execute_bayesian_flag_sig_results_parents.bash` and `bayesian_flag_sig_results_parents_pdf.sas` were used.
+
+Output:
+  - `SGPlot.png` and `SGPlot1.png`
+  - `bayes_flag_sig_tdu_for_tdu_tpr.pdf` and `bayes_flag_sig_tpr_for_tdu_tpr.pdf`
+  - `bayes_flag_sig_tdu_for_tdu_tpr.sas7bdat` and `bayes_flag_sig_tpr_for_tdu_tpr.sas7bdat`
+  - `bayesian_flag_sig_parents.log`
 
 
+
+
+  
 
   
   
