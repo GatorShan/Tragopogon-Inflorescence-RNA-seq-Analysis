@@ -680,7 +680,7 @@ Tpr_TRINITY_DN11307_c1_g1|Tdu_TRINITY_DN18676_c6_g2
 ...
 ```
 
-![Overlapped Filtered orthologs](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/Filtered_Overlapping_orthologs_Tdu_Tpr.png?raw=true | width=100)
+![Overlapped Filtered orthologs](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/Filtered_Overlapping_orthologs_Tdu_Tpr.png?raw=true)
 
 
   
