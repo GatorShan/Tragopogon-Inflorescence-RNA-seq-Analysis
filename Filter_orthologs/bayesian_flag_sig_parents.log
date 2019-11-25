@@ -1,0 +1,145 @@
+1                                                          The SAS System                            10:45 Monday, November 25, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.10 seconds
+      cpu time            0.02 seconds
+      
+1          
+2          libname trago "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data";
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data
+3          
+4          /* parents */
+5          %macro flag (reads, ref1, ref2) ; ;
+6          
+7          data trago.bayes_flag_sig_&reads._for_&ref1._&ref2;
+8              set trago.Emp_&reads._for_&ref1._&ref2 ;
+9          	if (q4_q025 ne " ") and (q4_q025 > 0.5 or q4_q975 < 0.5) then flag_q4_sig = 1;
+10         		else flag_q4_sig = 0;
+11         	if (q5_q025 ne " ") and (q5_q025 > 0.5 or q5_q975 < 0.5) then flag_q5_sig = 1;
+12         		else flag_q5_sig = 0;
+13             if (q6_q025 ne " ") and (q6_q025 > 0.5 or q6_q975 < 0.5) then flag_q6_sig = 1;
+2                                                          The SAS System                            10:45 Monday, November 25, 2019
+
+14         		else flag_q6_sig = 0;
+15         	if flag_q4_sig = 1 and flag_q5_sig=1 and flag_q6_sig = 1 then flag_sig_&reads._&ref1._&ref2 =1 ;
+16         		else flag_sig_&reads._&ref1._&ref2 =0;
+17         	*keep commonID flag_: ;
+18         	run ;
+19         
+20             run;
+21         %mend ;
+22         
+23         %flag (tdu, tdu, tpr) ;
+
+NOTE: Character values have been converted to numeric values at the places given by: (Line):(Column).
+      23:119   23:224   23:83    
+NOTE: There were 11499 observations read from the data set TRAGO.EMP_TDU_FOR_TDU_TPR.
+NOTE: The data set TRAGO.BAYES_FLAG_SIG_TDU_FOR_TDU_TPR has 11499 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+24         %flag (tpr, tdu, tpr) ;
+
+NOTE: Character values have been converted to numeric values at the places given by: (Line):(Column).
+      46:118   46:223   24:83    
+NOTE: There were 11222 observations read from the data set TRAGO.EMP_TPR_FOR_TDU_TPR.
+NOTE: The data set TRAGO.BAYES_FLAG_SIG_TPR_FOR_TDU_TPR has 11222 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.00 seconds
+      
+
+25         
+26         /* plot parents */
+27         %macro plots (reads, ref1, ref2) ;
+28         
+29         ods pdf file="/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data/bayes_flag_sig_&reads._for_&ref1._&ref2..pdf";
+30         
+31         title "Distribution of mean (*ESC*){unicode theta} for Emp_&reads._for_&ref1._&ref2";
+32         proc sgplot data =  trago.bayes_flag_sig_&reads._for_&ref1._&ref2. ;
+33         histogram q4_mean_theta / fillattrs=graphdata1 legendlabel="q = 0.4";
+34         density q4_mean_theta / lineattrs=graphdata1 legendlabel="q4 density";
+35         histogram q5_mean_theta / fillattrs=graphdata2 legendlabel="q = 0.5";
+36         density q5_mean_theta / lineattrs=graphdata2 legendlabel="q5 density";
+37         histogram q6_mean_theta / fillattrs=graphdata3 legendlabel="q = 0.6";
+38         density q6_mean_theta / lineattrs=graphdata3 legendlabel="q6 density";
+39         xaxis label="mean (*ESC*){unicode theta}";
+40         run ;
+41         
+42         ods pdf close ;
+43         %mend ;
+44         
+45         %plots (tdu, tdu, tpr) ;
+NOTE: Writing ODS PDF output to DISK destination 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data/bayes_flag_sig_tdu_for_tdu_tpr.pdf", printer "PDF".
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           4.55 seconds
+      cpu time            0.14 seconds
+3                                                          The SAS System                            10:45 Monday, November 25, 2019
+
+      
+NOTE: Listing image output written to SGPlot.png.
+NOTE: There were 11499 observations read from the data set TRAGO.BAYES_FLAG_SIG_TDU_FOR_TDU_TPR.
+
+NOTE: ODS PDF printed 1 page to /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data/bayes_flag_sig_tdu_for_tdu_tpr.pdf.
+46         %plots (tpr, tdu, tpr) ;
+NOTE: Writing ODS PDF output to DISK destination 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data/bayes_flag_sig_tpr_for_tdu_tpr.pdf", printer "PDF".
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           0.44 seconds
+      cpu time            0.09 seconds
+      
+NOTE: Listing image output written to SGPlot1.png.
+NOTE: There were 11222 observations read from the data set TRAGO.BAYES_FLAG_SIG_TPR_FOR_TDU_TPR.
+
+NOTE: ODS PDF printed 1 page to /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data/bayes_flag_sig_tpr_for_tdu_tpr.pdf.
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           5.79 seconds
+      cpu time            0.42 seconds
+      
