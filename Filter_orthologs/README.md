@@ -466,6 +466,7 @@ Output:
   - `bayesian_flag_sig_parents.log`
 
 Images:
+
 ![bayes_flag_sig_tdu_for_tdu_tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/SGPlot.png?raw=true)
 ![bayes_flag_sig_tdu_for_tdu_tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/SGPlot1.png?raw=true)
 
