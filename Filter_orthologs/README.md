@@ -1,9 +1,9 @@
 # Filtering orthologous pairs with biased mapping
 ## 1. Description
 Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu reads are biased mapping to a Tpr supertranscript, this Tpr supertranscript will be filtered out. The method is below is adapted from [Locuas's method](https://htmlpreview.github.io/?https://github.com/BBarbazukLab/papers/blob/master/Boatwright_et_al.,2018/New_World_PG_pipeline_documentation.html#Filter), with the following changes:
-  - SAM files were generated using paired-end reads in current study; Lucas used single-end reads for mapping
-  - Read length in current study is 150 bp; in Lucas's study, read length is 100 bp
-  - There are 6 and 3 replications for Tdu and Tpr, respectively in this study; Lucas's study has 3 replications for both Tdu and Tpr
+  - SAM files were generated using **paired-end reads in current study**; Lucas used single-end reads for mapping
+  - **Read length in current study is 150 bp**; in Lucas's study, read length is 100 bp
+  - There are **6 and 3 replications for Tdu and Tpr**, respectively in this study; Lucas's study has 3 replications for both Tdu and Tpr
 
 **All changed scripts to accommote above changes were shown in bold**
 
@@ -513,6 +513,7 @@ Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.821,0.665,0.921,0.791,0.6
 ...
 ```
   - `output_ase_bayesian_flagged_CSVs.log`
+
 
 
   
