@@ -616,9 +616,71 @@ Tpr_TRINITY_DN11294_c4_g2|Tdu_TRINITY_DN17625_c0_g2,0.889,0.823,0.937,0.863,0.78
 ...
 ```
 
+## 18. Identify OVERLAPPING Unbiased Parental Reference Sequences
+
+Identified those shared orthologous pairs that are not biased for both Tdu and Tpr reads.
+
+Script `Overlap_filtered_orthologs_V1.py` was used.
+
+```bash
+#!/usr/bin/env python3
+
+Usage = """
+Overlap_filtered_orthologs_V1
+Usage:
+	Overlap_filtered_orthologs_V1 bayes_flag_sig_TDU_for_UR_Filtered.csv bayes_flag_sig_TPR_for_UR_Filtered.csv 
+"""
+
+import sys,os,re
+
+InFileName1 = sys.argv[1]
+InFileName2 = sys.argv[2]
+OutFileName = 'bayes_flag_sig_Filtered_Tdu-Tpr_overlap.csv'
+OutFile = open(OutFileName, 'w')
+Delimiter = ','
+
+if len(sys.argv) < 2:
+	print(Usage)
+else:
+	InFile1 = open(InFileName1, 'r')
+	next(InFile1)
+	for Line1 in InFile1:
+		Line1 = Line1.strip('\n')
+		ElementList1 = Line1.split(Delimiter)
+		Tdu = ElementList1[0]
+		InFile2 = open(InFileName2, 'r')
+		next(InFile2)
+		for Line2 in InFile2:
+			Line2 = Line2.strip('\n')
+			ElementList2 = Line2.split(Delimiter)
+			Tpr = ElementList2[0]
+			if Tdu == Tpr:
+				OutFile.write(Tpr + "\n")
+		InFile2.close()
+	InFile1.close()
+OutFile.close()
+```
+
+Input:
+  - `bayes_flag_sig_TDU_for_UR_Filtered.csv`
+  - `bayes_flag_sig_TPR_for_UR_Filtered.csv`
+
+Output **`bayes_flag_sig_Filtered_Tdu-Tpr_overlap.csv`, which are filerted orthologs (5,400) for downstream analysis!!**
+```
+Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2
+Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3
+Tpr_TRINITY_DN11285_c1_g4|Tdu_TRINITY_DN17239_c2_g3
+Tpr_TRINITY_DN11295_c2_g2|Tdu_TRINITY_DN23322_c3_g3
+Tpr_TRINITY_DN11295_c2_g3|Tdu_TRINITY_DN12723_c0_g1
+Tpr_TRINITY_DN11301_c4_g1|Tdu_TRINITY_DN21600_c2_g2
+Tpr_TRINITY_DN11304_c2_g1|Tdu_TRINITY_DN19409_c1_g2
+Tpr_TRINITY_DN11305_c3_g1|Tdu_TRINITY_DN19745_c1_g3
+Tpr_TRINITY_DN11305_c3_g3|Tdu_TRINITY_DN19745_c1_g6
+Tpr_TRINITY_DN11307_c1_g1|Tdu_TRINITY_DN18676_c6_g2
+...
+```
 
 
-  
 
   
   
