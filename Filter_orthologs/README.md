@@ -7,7 +7,7 @@ Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu
 
 **All changed scripts to accommote above changes were shown in bold**
 
-![Filtering orthologs](https://cdn1.imggmi.com/uploads/2019/11/1/a7814143cb5ebd1c8868877ba7a0d737-full.png)
+![Filtering orthologs](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/Filter_orthologs_sample-1.png?raw=true)
 
 ## 2. Mapping diploid reads to Tdu and Tpr supertranscripts
 ### 2.1 Using Bowtie2 for reads mapping
