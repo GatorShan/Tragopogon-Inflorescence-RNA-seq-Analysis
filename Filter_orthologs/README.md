@@ -1,6 +1,6 @@
 # Filtering orthologous pairs with biased mapping
 ## 1. Description
-Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu reads are biased mapping to a Tpr supertranscript, this Tpr supertranscript will be filtered out. The method is below is adapted from [Locuas's method](https://htmlpreview.github.io/?https://github.com/BBarbazukLab/papers/blob/master/Boatwright_et_al.,2018/New_World_PG_pipeline_documentation.html#Filter), with the following changes:
+Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu reads are biased mapping to a Tpr supertranscript, this Tpr supertranscript will be filtered out. The method below is adapted from [Locuas's method](https://htmlpreview.github.io/?https://github.com/BBarbazukLab/papers/blob/master/Boatwright_et_al.,2018/New_World_PG_pipeline_documentation.html#Filter), with the following changes:
   - SAM files were generated using **paired-end reads in current study**; Lucas used single-end reads for mapping
   - **Read length in current study is 150 bp**; in Lucas's study, read length is 100 bp
   - There are **6 and 3 replications for Tdu and Tpr**, respectively in this study; Lucas's study has 3 replications for both Tdu and Tpr
