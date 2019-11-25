@@ -465,6 +465,10 @@ Output:
   - `bayes_flag_sig_tdu_for_tdu_tpr.sas7bdat` and `bayes_flag_sig_tpr_for_tdu_tpr.sas7bdat`
   - `bayesian_flag_sig_parents.log`
 
+Images:
+![bayes_flag_sig_tdu_for_tdu_tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/SGPlot.png?raw=true)
+![bayes_flag_sig_tdu_for_tdu_tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/SGPlot1.png?raw=true)
+
 ## 16. Generate CSVs of Flagged Significant Bayesian Possion-Gamma Output
 "Export the flagged EBM results into a CSV for filtering." -- Lucas
 
