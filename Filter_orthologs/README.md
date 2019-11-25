@@ -571,6 +571,48 @@ def filter_csv(file_name):
 filter_csv(sys.argv[1])
 ```
 
+Type the following commond:
+```bash
+module load python3
+Identify_unbiased_parental_ref.V2.py bayes_flag_sig_TDU_for_UR.csv
+```
+
+```bash
+module load python3
+Identify_unbiased_parental_ref.V2.py bayes_flag_sig_TPR_for_UR.csv
+```
+
+Output:
+  - **`bayes_flag_sig_TDU_for_UR_Filtered.csv`, which has 8,375 orthologous pairs**
+    -```
+     commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tdu_tdu_tpr
+     Tpr_TRINITY_DN11282_c5_g4|Tdu_TRINITY_DN21715_c2_g2,0.033,0.018,0.052,0.022,0.012,0.034,0.015,0.008,0.024,1,1,1,1
+     Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2,0.330,0.228,0.439,0.253,0.170,0.344,0.186,0.119,0.264,1,1,1,1
+     Tpr_TRINITY_DN11283_c4_g3|Tdu_TRINITY_DN19916_c2_g2,0.050,0.004,0.157,0.035,0.002,0.111,0.024,0.002,0.072,1,1,1,1
+     Tpr_TRINITY_DN11283_c4_g5|Tdu_TRINITY_DN23960_c3_g1,0.029,0.009,0.060,0.020,0.006,0.041,0.013,0.004,0.028,1,1,1,1
+     Tpr_TRINITY_DN11284_c2_g17|Tdu_TRINITY_DN18038_c1_g1,0.082,0.000,0.369,0.067,0.000,0.301,0.043,0.000,0.200,1,1,1,1
+     Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.331,0.183,0.492,0.249,0.127,0.404,0.188,0.088,0.323,1,1,1,1
+     Tpr_TRINITY_DN11284_c2_g9|Tdu_TRINITY_DN21538_c4_g1,0.194,0.039,0.427,0.150,0.029,0.338,0.106,0.018,0.257,1,1,1,1
+     Tpr_TRINITY_DN11285_c1_g4|Tdu_TRINITY_DN17239_c2_g3,0.100,0.059,0.149,0.070,0.038,0.107,0.049,0.027,0.077,1,1,1,1
+     Tpr_TRINITY_DN11285_c1_g5|Tdu_TRINITY_DN18199_c3_g3,0.022,0.011,0.038,0.015,0.007,0.024,0.010,0.005,0.017,1,1,1,1
+     Tpr_TRINITY_DN11288_c1_g3|Tdu_TRINITY_DN14112_c0_g1,0.018,0.004,0.039,0.012,0.003,0.026,0.008,0.002,0.018,1,1,1,1
+     ...
+     ```
+  - **`bayes_flag_sig_TPR_for_UR_Filtered.csv`, which has 8,654 orthologous pairs**
+    -```
+     commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tpr_tdu_tpr
+     Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2,0.832,0.726,0.907,0.790,0.668,0.890,0.742,0.591,0.859,1,1,1,1
+     Tpr_TRINITY_DN11283_c4_g1|Tdu_TRINITY_DN18533_c6_g7,0.930,0.902,0.951,0.907,0.870,0.937,0.877,0.828,0.916,1,1,1,1
+     Tpr_TRINITY_DN11284_c2_g11|Tdu_TRINITY_DN24630_c2_g7,0.902,0.830,0.947,0.888,0.801,0.942,0.870,0.766,0.938,1,1,1,1
+     Tpr_TRINITY_DN11284_c2_g18|Tdu_TRINITY_DN18953_c5_g5,0.940,0.912,0.961,0.926,0.886,0.956,0.909,0.854,0.948,1,1,1,1
+     Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.821,0.665,0.921,0.791,0.613,0.909,0.757,0.540,0.892,1,1,1,1
+     Tpr_TRINITY_DN11285_c1_g10|Tdu_TRINITY_DN23673_c2_g1,0.791,0.750,0.828,0.718,0.667,0.764,0.635,0.581,0.692,1,1,1,1
+     Tpr_TRINITY_DN11290_c2_g2|Tdu_TRINITY_DN19466_c5_g2,0.954,0.933,0.969,0.943,0.917,0.964,0.928,0.895,0.956,1,1,1,1
+     Tpr_TRINITY_DN11294_c2_g1|Tdu_TRINITY_DN21081_c1_g1,0.809,0.702,0.890,0.757,0.627,0.865,0.698,0.544,0.828,1,1,1,1
+     Tpr_TRINITY_DN11294_c4_g1|Tdu_TRINITY_DN22801_c5_g1,0.944,0.914,0.965,0.933,0.894,0.960,0.922,0.874,0.955,1,1,1,1
+     Tpr_TRINITY_DN11294_c4_g2|Tdu_TRINITY_DN17625_c0_g2,0.889,0.823,0.937,0.863,0.780,0.927,0.827,0.729,0.906,1,1,1,1
+     ...
+     ```
 
 
 
