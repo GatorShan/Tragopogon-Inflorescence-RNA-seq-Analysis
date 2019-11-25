@@ -1,11 +1,11 @@
 # Filtering orthologous pairs with biased mapping
 ## 1. Description
-Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu reads are biased mapping to a Tpr supertranscript, this Tpr supertranscript will be filtered out. The method below is adapted from [Locuas's method](https://htmlpreview.github.io/?https://github.com/BBarbazukLab/papers/blob/master/Boatwright_et_al.,2018/New_World_PG_pipeline_documentation.html#Filter), with the following changes:
+Tdu and Tpr reads were mapping back to the supertranscripts. For example, if Tdu reads are bias mapped to a Tpr supertranscript, this specific orthologous pair will be filtered out. The method below is adapted from [Locuas's method](https://htmlpreview.github.io/?https://github.com/BBarbazukLab/papers/blob/master/Boatwright_et_al.,2018/New_World_PG_pipeline_documentation.html#Filter), with the **following changes**:
   - SAM files were generated using **paired-end reads in current study**; Lucas used single-end reads for mapping
   - **Read length in current study is 150 bp**; in Lucas's study, read length is 100 bp
   - There are **6 and 3 replications for Tdu and Tpr**, respectively in this study; Lucas's study has 3 replications for both Tdu and Tpr
 
-**All changed scripts to accommote above changes were shown in bold**
+**All changed scripts accommodating above changes were shown in bold**
 
 ![Filtering orthologs](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/Filter_orthologs_sample-1.png?raw=true)
 
@@ -34,7 +34,7 @@ Output (e.g.):
 ## 3. Filter SAM files by bed files
 "In the previous step, we wanted to align to the entire transcriptome to prevent reads from mapping greedily to spurious locations in the transcriptome. Here, we isolate reads that map within our Common Orthologous REgions (COREs) so that we can make comparisons between reference mappings." -- Lucas
 
-### 3.1 Filter CORE_bed files to inlcude those only inlcuded in shared orthologs
+### 3.1 Filter CORE_bed files to inlcude those only included in shared orthologs
 `Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered_2.0.txt` was used for downstream analysis. There are 11,863 shared orthologous pairs (P_VAL >= 1e-10 and Identity >= 0.8 and AlignmentLength >= 200), which is from section "Shared_COREs_wu-blast_OrthoFinder".
   - There are 11,863 shared orthologs for downstream analysis
   - ```
@@ -680,6 +680,7 @@ Tpr_TRINITY_DN11307_c1_g1|Tdu_TRINITY_DN18676_c6_g2
 ...
 ```
 
+![Overlapped Filtered orthologs](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Filter_orthologs/Images/Filtered_Overlapping_orthologs_Tdu_Tpr.png?raw=true | width=100)
 
 
   
