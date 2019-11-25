@@ -1,0 +1,317 @@
+1                                                          The SAS System                            12:01 Monday, November 25, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.27 seconds
+      cpu time            0.04 seconds
+      
+1          
+2          libname trago "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data";
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data
+3          
+4          /*
+5          output ASE results
+6          */
+7          
+8          
+9          /* All parents */
+10         proc export data = trago.bayes_flag_sig_tdu_for_tdu_tpr
+11         outfile='/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_
+11       ! sig_TDU_for_UR.csv'
+12         dbms=csv replace ;
+2                                                          The SAS System                            12:01 Monday, November 25, 2019
+
+13         run;
+
+14          /**********************************************************************
+15          *   PRODUCT:   SAS
+16          *   VERSION:   9.4
+17          *   CREATOR:   External File Interface
+18          *   DATE:      25NOV19
+19          *   DESC:      Generated SAS Datastep Code
+20          *   TEMPLATE SOURCE:  (None Specified.)
+21          ***********************************************************************/
+22             data _null_;
+23             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+24             %let _EFIREC_ = 0;     /* clear export record count macro variable */
+25             file
+25       ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TDU_
+25       ! for_UR.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+26             if _n_ = 1 then        /* write column names or labels */
+27              do;
+28                put
+29                   "commonID"
+30                ','
+31                   "q4_mean_theta"
+32                ','
+33                   "q4_q025"
+34                ','
+35                   "q4_q975"
+36                ','
+37                   "q5_mean_theta"
+38                ','
+39                   "q5_q025"
+40                ','
+41                   "q5_q975"
+42                ','
+43                   "q6_mean_theta"
+44                ','
+45                   "q6_q025"
+46                ','
+47                   "q6_q975"
+48                ','
+49                   "flag_q4_sig"
+50                ','
+51                   "flag_q5_sig"
+52                ','
+53                   "flag_q6_sig"
+54                ','
+55                   "flag_sig_tdu_tdu_tpr"
+56                ;
+57              end;
+58            set  TRAGO.BAYES_FLAG_SIG_TDU_FOR_TDU_TPR   end=EFIEOD;
+59                format commonID $54. ;
+60                format q4_mean_theta best12. ;
+61                format q4_q025 best12. ;
+62                format q4_q975 best12. ;
+63                format q5_mean_theta best12. ;
+64                format q5_q025 best12. ;
+65                format q5_q975 best12. ;
+66                format q6_mean_theta best12. ;
+67                format q6_q025 best12. ;
+3                                                          The SAS System                            12:01 Monday, November 25, 2019
+
+68                format q6_q975 best12. ;
+69                format flag_q4_sig best12. ;
+70                format flag_q5_sig best12. ;
+71                format flag_q6_sig best12. ;
+72                format flag_sig_tdu_tdu_tpr best12. ;
+73              do;
+74                EFIOUT + 1;
+75                put commonID $ @;
+76                put q4_mean_theta @;
+77                put q4_q025 @;
+78                put q4_q975 @;
+79                put q5_mean_theta @;
+80                put q5_q025 @;
+81                put q5_q975 @;
+82                put q6_mean_theta @;
+83                put q6_q025 @;
+84                put q6_q975 @;
+85                put flag_q4_sig @;
+86                put flag_q5_sig @;
+87                put flag_q6_sig @;
+88                put flag_sig_tdu_tdu_tpr ;
+89                ;
+90              end;
+91             if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+92             if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+93             run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_U
+      R.csv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_T
+      DU_for_UR.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=25Nov2019:12:01:40
+
+NOTE: 11500 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_U
+      R.csv'.
+      The minimum record length was 95.
+      The maximum record length was 155.
+NOTE: There were 11499 observations read from the data set TRAGO.BAYES_FLAG_SIG_TDU_FOR_TDU_TPR.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.05 seconds
+      
+
+11499 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_UR.csv 
+from TRAGO.BAYES_FLAG_SIG_TDU_FOR_TDU_TPR.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_U
+      R.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.49 seconds
+      cpu time            0.12 seconds
+4                                                          The SAS System                            12:01 Monday, November 25, 2019
+
+      
+
+94         
+95         proc export data = trago.bayes_flag_sig_tpr_for_tdu_tpr
+96         outfile='/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_
+96       ! sig_TPR_for_UR.csv'
+97         dbms=csv replace ;
+98         run;
+
+99          /**********************************************************************
+100         *   PRODUCT:   SAS
+101         *   VERSION:   9.4
+102         *   CREATOR:   External File Interface
+103         *   DATE:      25NOV19
+104         *   DESC:      Generated SAS Datastep Code
+105         *   TEMPLATE SOURCE:  (None Specified.)
+106         ***********************************************************************/
+107            data _null_;
+108            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+109            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+110            file
+110      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TPR_
+110      ! for_UR.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+111            if _n_ = 1 then        /* write column names or labels */
+112             do;
+113               put
+114                  "commonID"
+115               ','
+116                  "q4_mean_theta"
+117               ','
+118                  "q4_q025"
+119               ','
+120                  "q4_q975"
+121               ','
+122                  "q5_mean_theta"
+123               ','
+124                  "q5_q025"
+125               ','
+126                  "q5_q975"
+127               ','
+128                  "q6_mean_theta"
+129               ','
+130                  "q6_q025"
+131               ','
+132                  "q6_q975"
+133               ','
+134                  "flag_q4_sig"
+135               ','
+136                  "flag_q5_sig"
+137               ','
+138                  "flag_q6_sig"
+139               ','
+140                  "flag_sig_tpr_tdu_tpr"
+141               ;
+142             end;
+143           set  TRAGO.BAYES_FLAG_SIG_TPR_FOR_TDU_TPR   end=EFIEOD;
+144               format commonID $54. ;
+145               format q4_mean_theta best12. ;
+5                                                          The SAS System                            12:01 Monday, November 25, 2019
+
+146               format q4_q025 best12. ;
+147               format q4_q975 best12. ;
+148               format q5_mean_theta best12. ;
+149               format q5_q025 best12. ;
+150               format q5_q975 best12. ;
+151               format q6_mean_theta best12. ;
+152               format q6_q025 best12. ;
+153               format q6_q975 best12. ;
+154               format flag_q4_sig best12. ;
+155               format flag_q5_sig best12. ;
+156               format flag_q6_sig best12. ;
+157               format flag_sig_tpr_tdu_tpr best12. ;
+158             do;
+159               EFIOUT + 1;
+160               put commonID $ @;
+161               put q4_mean_theta @;
+162               put q4_q025 @;
+163               put q4_q975 @;
+164               put q5_mean_theta @;
+165               put q5_q025 @;
+166               put q5_q975 @;
+167               put q6_mean_theta @;
+168               put q6_q025 @;
+169               put q6_q975 @;
+170               put flag_q4_sig @;
+171               put flag_q5_sig @;
+172               put flag_q6_sig @;
+173               put flag_sig_tpr_tdu_tpr ;
+174               ;
+175             end;
+176            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+177            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+178            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_U
+      R.csv' is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_T
+      PR_for_UR.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=25Nov2019:12:01:40
+
+NOTE: 11223 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_U
+      R.csv'.
+      The minimum record length was 97.
+      The maximum record length was 155.
+NOTE: There were 11222 observations read from the data set TRAGO.BAYES_FLAG_SIG_TPR_FOR_TDU_TPR.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+11222 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_UR.csv 
+from TRAGO.BAYES_FLAG_SIG_TPR_FOR_TDU_TPR.
+6                                                          The SAS System                            12:01 Monday, November 25, 2019
+
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Filter_orthologs/empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_U
+      R.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.19 seconds
+      cpu time            0.06 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.23 seconds
+      cpu time            0.23 seconds
+      
