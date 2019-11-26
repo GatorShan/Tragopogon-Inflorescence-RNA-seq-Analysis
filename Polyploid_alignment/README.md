@@ -80,19 +80,40 @@ In this step, SAM files will be filed by bed files, which are derived from filte
 Input files:
   - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed`, which is from section `WU-Blast_Analysis`; includes 42,595 orthologous pairs
   - `Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed`, which is from section `WU-Blast_Analysis`; includes 42,595 orthologous pairs
-  - `bayes_flag_sig_Filtered_Tdu-Tpr_overlap.csv`, which contains 5,400 filtered unbiased orthologous pairs (from section `Filter_orthologs`)
+  - `bayes_flag_sig_Filtered_Tdu-Tpr_overlap.V2.csv`, which contains 5,400 filtered unbiased orthologous pairs (from section `Filter_orthologs`)
 
 Scripts:
   - `FilterBedFile_Poly_V1.py`
+
 ```bash
-FilterBedFile_Poly_V1.py bayes_flag_sig_Filtered_Tdu-Tpr_overlap.csv Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed
+FilterBedFile_Poly_V1.py bayes_flag_sig_Filtered_Tdu-Tpr_overlap.V2.csv Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_S.bed
 ```
   - `FilterBedFile_Poly_V2.py`
 
+```bash
+FilterBedFile_Poly_V2.py bayes_flag_sig_Filtered_Tdu-Tpr_overlap.V2.csv Tdu_DB_Tpr_query_parser_single_hit_FullName.txt.filtered_Q.bed
+```
 
 Output:
-  - `Tdu-tpr_overlaps_orthologs_poly.bed`
-  
+  - `Tdu-tpr_overlaps_orthologs_poly.bed`, which contains 5,400 orthologous pairs.
+    - ```
+      Tdu_TRINITY_DN25596_c4_g2	1275	1917	Tpr_TRINITY_DN11283_c3_g1,Tdu_TRINITY_DN25596_c4_g2	.	+
+      Tdu_TRINITY_DN20652_c0_g3	232	2256	Tpr_TRINITY_DN11284_c2_g19,Tdu_TRINITY_DN20652_c0_g3	.	+
+      Tdu_TRINITY_DN17239_c2_g3	12	2819	Tpr_TRINITY_DN11285_c1_g4,Tdu_TRINITY_DN17239_c2_g3	.	+
+      Tdu_TRINITY_DN23322_c3_g3	3449	4111	Tpr_TRINITY_DN11295_c2_g2,Tdu_TRINITY_DN23322_c3_g3	.	+
+      Tdu_TRINITY_DN12723_c0_g1	400	1613	Tpr_TRINITY_DN11295_c2_g3,Tdu_TRINITY_DN12723_c0_g1	.	+
+      ...
+      ```
+  - `Tpr-tdu_overlaps_orthologs_poly.bed`, which contains 5,400 orthologous pairs.
+    - ```
+      Tpr_TRINITY_DN11283_c3_g1	0	639	Tpr_TRINITY_DN11283_c3_g1,Tdu_TRINITY_DN25596_c4_g2	.	+
+      Tpr_TRINITY_DN11284_c2_g19	0	2022	Tpr_TRINITY_DN11284_c2_g19,Tdu_TRINITY_DN20652_c0_g3	.	+
+      Tpr_TRINITY_DN11285_c1_g4	152	2957	Tpr_TRINITY_DN11285_c1_g4,Tdu_TRINITY_DN17239_c2_g3	.	+
+      Tpr_TRINITY_DN11295_c2_g2	247	914	Tpr_TRINITY_DN11295_c2_g2,Tdu_TRINITY_DN23322_c3_g3	.	+
+      Tpr_TRINITY_DN11295_c2_g3	139	1344	Tpr_TRINITY_DN11295_c2_g3,Tdu_TRINITY_DN12723_c0_g1	.	+
+      ...
+      ```
+
   
   
   
