@@ -256,7 +256,7 @@ This step performs SAM compare to obtain couts for each reference. Scripts `sam_
   
 Output:
   - In csv format, e.g.:
-    - `ase_counts_Tdu_2613_11_2_Tdu_Tpr.csv`
+    - `ase_counts_Tdu_2613_11_2_Tdu_Tpr.csv`, which includes 11,864 orthologous pairs.
     - `ase_totals_Tdu_2613_11_2_Tdu_Tpr.csv`
       - ```
         Count totals:
@@ -346,7 +346,7 @@ Output:
   - `bayesian_export_flagged_dataset_parents.log`
   - `ase_bayes_tdu_tdu_tpr_flag.sas7bdat`
   - `ase_bayes_tpr_tdu_tpr_flag.sas7bdat`
-  - **`ase_bayes_tdu_tdu_tpr_flag.csv`**
+  - **`ase_bayes_tdu_tdu_tpr_flag.csv`**, which has 11,863 orthologous paris.
   
 ```
 commonID,LINE_TOTAL_1,LINE_TOTAL_2,LINE_TOTAL_3,LINE_TOTAL_4,LINE_TOTAL_5,LINE_TOTAL_6,TESTER_TOTAL_1,TESTER_TOTAL_2,TESTER_TOTAL_3,TESTER_TOTAL_4,TESTER_TOTAL_5,TESTER_TOTAL_6,flag_analyze
@@ -362,7 +362,7 @@ Tpr_TRINITY_DN10022_c0_g1|Tdu_TRINITY_DN24419_c1_g5,6,11,14,4,17,5,0,2,2,2,2,0,1
 Tpr_TRINITY_DN10030_c0_g1|Tdu_TRINITY_DN13817_c0_g1,2,0,1,1,2,2,0,1,2,0,2,2,1
 ...
 ```
-  - **`ase_bayes_tpr_tdu_tpr_flag.csv`**
+  - **`ase_bayes_tpr_tdu_tpr_flag.csv`**, which has 11,863 orthologous paris.
 
 ```
 commonID,LINE_TOTAL_1,LINE_TOTAL_2,LINE_TOTAL_3,TESTER_TOTAL_1,TESTER_TOTAL_2,TESTER_TOTAL_3,flag_analyze
@@ -411,7 +411,7 @@ Output:
 Scripts `combine_emp_bayesian_ase_table_parents.bash` and `catTable.py` were used.
 
 Output:
-  - `empirical_bayesian_parents_output/PG_emp_bayesian_results_tdu_parents_UR.csv`
+  - `empirical_bayesian_parents_output/PG_emp_bayesian_results_tdu_parents_UR.csv`, which contains 11,499 orthologous pairs (those with flag=0 were filtered out).
     - ```
       commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975
       Tpr_TRINITY_DN11281_c1_g9|Tdu_TRINITY_DN15992_c0_g1,0.56,0.363,0.74,0.475,0.286,0.664,0.393,0.223,0.587
@@ -426,7 +426,7 @@ Output:
       Tpr_TRINITY_DN11284_c2_g18|Tdu_TRINITY_DN18953_c5_g5,0.906,0.879,0.93,0.873,0.836,0.905,0.827,0.779,0.872
       ...
       ```
-  - `empirical_bayesian_parents_output/PG_emp_bayesian_results_tpr_parents_UR.csv`
+  - `empirical_bayesian_parents_output/PG_emp_bayesian_results_tpr_parents_UR.csv`, which contains 11,222 orthologous pairs (those with flag=0 were filtered out).
     - ```
       commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975
       Tpr_TRINITY_DN11281_c1_g9|Tdu_TRINITY_DN15992_c0_g1,0.754,0.527,0.903,0.724,0.473,0.892,0.683,0.378,0.883
@@ -480,7 +480,7 @@ Input:
   - `bayes_flag_sig_tpr_for_tdu_tpr.sas7bdat`
 
 Output:
-  - `empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_UR.csv`, which has 11,499 orthologous pairs
+  - `empirical_bayesian_parents_output/bayes_flag_sig_TDU_for_UR.csv`, which has 11,499 orthologous pairs.
   
 ```
 commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tdu_tdu_tpr
@@ -496,7 +496,7 @@ Tpr_TRINITY_DN11284_c2_g17|Tdu_TRINITY_DN18038_c1_g1,0.082,0,0.369,0.067,0,0.301
 Tpr_TRINITY_DN11284_c2_g18|Tdu_TRINITY_DN18953_c5_g5,0.906,0.879,0.93,0.873,0.836,0.905,0.827,0.779,0.872,1,1,1,1
 ...
 ```
-  - `empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_UR.csv`, which has 11,222 orthologous pairs
+  - `empirical_bayesian_parents_output/bayes_flag_sig_TPR_for_UR.csv`, which has 11,222 orthologous pairs.
 
 ```
 commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_tpr_tdu_tpr
