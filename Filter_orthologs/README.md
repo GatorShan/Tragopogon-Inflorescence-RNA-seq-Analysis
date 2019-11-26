@@ -677,7 +677,14 @@ Input:
   - `bayes_flag_sig_TDU_for_UR_Filtered.csv`
   - `bayes_flag_sig_TPR_for_UR_Filtered.csv`
 
-Output **`bayes_flag_sig_Filtered_Tdu-Tpr_overlap.csv`, which contains filerted unbiasd orthologs (5,400) for downstream analysis!!**
+Output **`bayes_flag_sig_Filtered_Tdu-Tpr_overlap.csv`.**
+
+What's more, the truncated commonID is resorted as following:
+
+**`Tpr_TRINITY_DN11269_c3_g10|Tdu_TRINITY_DN20359_c12_g` is changed to `Tpr_TRINITY_DN11269_c3_g10|Tdu_TRINITY_DN20359_c12_g2`**
+
+New output **`bayes_flag_sig_Filtered_Tdu-Tpr_overlap.V2.csv` was generated, which contains filerted unbiasd orthologs (5,400) for downstream analysis!!**
+
 ```
 Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2
 Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3
