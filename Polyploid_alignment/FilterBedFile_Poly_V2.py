@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
 Usage = """
-FilterBedFile_Poly_V1
+FilterBedFile_Poly_V2.py
 Usage:
-	FilterBedFile_Poly_V1 bayes_flag_sig_Filtered_Tdu-Tpr_overlap.V2.csv *FullName.txt.filtered_S.bed 
+	FilterBedFile_Poly_V2.py bayes_flag_sig_Filtered_Tdu-Tpr_overlap.V2.csv *FullName.txt.filtered_Q.bed 
 """
 
 import sys,os,re
 
 InFileName1 = sys.argv[1]
 InFileName2 = sys.argv[2]
-OutFileName = 'Tdu-tpr_overlaps_orthologs_poly.bed'
+OutFileName = 'Tpr-tdu_overlaps_orthologs_poly.bed'
 OutFile = open(OutFileName, 'w')
 Delimiter1 = '|'
 Delimiter2 = '\t'
@@ -22,13 +22,13 @@ else:
 	for Line1 in InFile1:
 		Line1 = Line1.strip('\n')
 		ElementList1 = Line1.split(Delimiter1)
-		Tdu_1 = ElementList1[1]
+		Tpr_1 = ElementList1[0]
 		InFile2 = open(InFileName2, 'r')
 		for Line2 in InFile2:
 			Line2 = Line2.strip('\n')
 			ElementList2 = Line2.split(Delimiter2)
-			Tdu_2 = ElementList2[0]
-			if Tdu_1 == Tdu_2:
+			Tpr_2 = ElementList2[0]
+			if Tpr_1 == Tpr_2:
 				OutFile.write(Line2 + "\n")
 		InFile2.close()
 	InFile1.close()
