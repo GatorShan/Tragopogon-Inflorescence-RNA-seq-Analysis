@@ -366,6 +366,7 @@ Tpr_TRINITY_DN10030_c0_g1|Tdu_TRINITY_DN13817_c0_g1,2,0,1,1,2,2,0,1,2,0,2,2,1
 **The following commonID has been truncated by SAS (?), which should be known!**
 
 Full commonID; Truncated commonID
+
 `Tpr_TRINITY_DN15129_c10_g2|Tdu_TRINITY_DN18726_c10_g2`; `Tpr_TRINITY_DN15129_c10_g2|Tdu_TRINITY_DN18726_c10_g`
 
 `Tpr_TRINITY_DN10773_c11_g2|Tdu_TRINITY_DN20916_c10_g4`; `Tpr_TRINITY_DN10773_c11_g2|Tdu_TRINITY_DN20916_c10_g`
