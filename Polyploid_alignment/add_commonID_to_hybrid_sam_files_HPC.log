@@ -1,0 +1,1906 @@
+1                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-957.35.2.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-957.35.2.el7.x86_64 #1 SMP Wed Sep 18 05:51:28 EDT 2019 x86_64 Red Hat Enterprise Linux Server release 7.6 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           1.44 seconds
+      cpu time            0.03 seconds
+      
+1          libname trago '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly';
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly
+2          
+3          /*
+4          * create list of commonIDs
+5          * import filtered sam files
+6          * add commonID to sam file using consensedID
+7          */
+8          
+9          
+10         data Tms_ID_tdu_tpr ;
+11         set trago.Tdu_tpr_bed_for_sam_compare ;
+12         consensedID = scan(commonID,2,'|');
+13         drop start end ;
+2                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+14         run ;
+
+NOTE: There were 11863 observations read from the data set TRAGO.TDU_TPR_BED_FOR_SAM_COMPARE.
+NOTE: The data set WORK.TMS_ID_TDU_TPR has 11863 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.02 seconds
+      
+
+15         
+16         data Tms_ID_tpr_tdu ;
+17         set trago.Tpr_tdu_bed_for_sam_compare ;
+18         consensedID = scan(commonID,1,'|');
+19         drop start end ;
+20         run ;
+
+NOTE: There were 11863 observations read from the data set TRAGO.TPR_TDU_BED_FOR_SAM_COMPARE.
+NOTE: The data set WORK.TMS_ID_TPR_TDU has 11863 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.00 seconds
+      
+
+21         
+22         data Tml_ID_tdu_tpr ;
+23         set trago.Tdu_tpr_bed_for_sam_compare ;
+24         consensedID = scan(commonID,2,'|');
+25         drop start end ;
+26         run ;
+
+NOTE: There were 11863 observations read from the data set TRAGO.TDU_TPR_BED_FOR_SAM_COMPARE.
+NOTE: The data set WORK.TML_ID_TDU_TPR has 11863 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+27         
+28         data Tml_ID_tpr_tdu ;
+29         set trago.Tpr_tdu_bed_for_sam_compare ;
+30         consensedID = scan(commonID,1,'|');
+31         drop start end ;
+32         run ;
+
+NOTE: There were 11863 observations read from the data set TRAGO.TPR_TDU_BED_FOR_SAM_COMPARE.
+NOTE: The data set WORK.TML_ID_TPR_TDU has 11863 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+33         
+34         
+35         proc sort data = Tms_ID_tdu_tpr ;
+36         by consensedID ;
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TDU_TPR.
+NOTE: The data set WORK.TMS_ID_TDU_TPR has 11863 observations and 2 variables.
+3                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+37         proc sort data = Tms_ID_tpr_tdu ;
+38         by consensedID ;
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TPR_TDU.
+NOTE: The data set WORK.TMS_ID_TPR_TDU has 11863 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+39         proc sort data = Tml_ID_tdu_tpr ;
+40         by consensedID ;
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TDU_TPR.
+NOTE: The data set WORK.TML_ID_TDU_TPR has 11863 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+41         proc sort data = Tml_ID_tpr_tdu ;
+42         by consensedID ;
+43         run ;
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TPR_TDU.
+NOTE: The data set WORK.TML_ID_TPR_TDU has 11863 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+44         
+45         
+46         %macro add_commonid (reads, rep, ref, alt);
+47         
+48              data &reads._&rep._2_&ref._sam    ;
+49              %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+50              infile
+50       ! "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/&reads._&rep._uniq_2_&ref._filte
+50       ! r_for_Poly.sam"
+51          delimiter='09'x MISSOVER DSD lrecl=32767 ;
+52                 informat readID $100. ;
+53                 informat s_VAR2 best32. ;
+54                 informat consensedID $36. ;
+55                 informat pos best32. ;
+56                 informat s_VAR5 best32. ;
+57                 informat s_VAR6 $8. ;
+58                 informat s_VAR7 $1. ;
+59                 informat s_VAR8 best32. ;
+60                 informat s_VAR9 best32. ;
+61                 informat s_VAR10 $150. ;
+62                 informat s_VAR11 $150. ;
+63                 informat s_VAR12 $7. ;
+4                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+64                 informat s_VAR13 $8. ;
+65                 format readID $100. ;
+66                 format s_VAR2 best12. ;
+67                 format consensedID $36. ;
+68                 format pos best12. ;
+69                 format s_VAR5 best12. ;
+70                 format s_VAR6 $8. ;
+71                 format s_VAR7 $1. ;
+72                 format s_VAR8 best12. ;
+73                 format s_VAR9 best12. ;
+74                 format s_VAR10 $150. ;
+75                 format s_VAR11 $150. ;
+76                 format s_VAR12 $7. ;
+77                 format s_VAR13 $8. ;
+78              input
+79                          readID $
+80                          s_VAR2
+81                          consensedID $
+82                          pos
+83                          s_VAR5
+84                          s_VAR6 $
+85                          s_VAR7 $
+86                          s_VAR8
+87                          s_VAR9
+88                          s_VAR10 $
+89                          s_VAR11 $
+90                          s_VAR12 $
+91                          s_VAR13 $
+92              ;
+93              if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+94              run;
+95         
+96         
+97         proc sort data = &reads._&rep._2_&ref._sam  ;
+98         by consensedID ;
+99         run;
+100        
+101        data add_ID missingID other;
+102        merge &reads._ID_&ref._&alt (in=in1) &reads._&rep._2_&ref._sam  (in=in2);
+103        by consensedID ;
+104        if in1 and in2 then output add_ID ;
+105        else if in2  then output missingID ;
+106        else output other ;
+107        run ;
+108        
+109        data trago.&reads._&rep._unq_2_&ref._commonID ;
+110        retain readID s_VAR2 commonID pos s_VAR5-s_VAR13 ;
+111        set add_ID ;
+112        drop consensedID  ;
+113        run;
+114        
+115        proc export data = trago.&reads._&rep._unq_2_&ref._commonID
+116        outfile=
+116      ! "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/&reads._&rep._unq_2_&ref._common
+116      ! ID.sam"
+117        dbms=tab replace ;
+118        putnames = no ;
+119        run;
+5                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+120        %mend ;
+121        
+122        
+123        %add_commonID (Tms, 2604_24, TDU, tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_uniq_2_TDU_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_uniq_2_TDU_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:16:32:08,
+      File Size (bytes)=1615967057
+
+NOTE: 3781329 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_uniq_2_TDU_filter_for_Pol
+      y.sam".
+      The minimum record length was 264.
+      The maximum record length was 523.
+NOTE: The data set WORK.TMS_2604_24_2_TDU_SAM has 3781329 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           9.26 seconds
+      cpu time            8.95 seconds
+      
+
+
+NOTE: There were 3781329 observations read from the data set WORK.TMS_2604_24_2_TDU_SAM.
+NOTE: The data set WORK.TMS_2604_24_2_TDU_SAM has 3781329 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           17.49 seconds
+      cpu time            12.01 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TDU_TPR.
+NOTE: There were 3781329 observations read from the data set WORK.TMS_2604_24_2_TDU_SAM.
+NOTE: The data set WORK.ADD_ID has 3781329 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6611 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           12.10 seconds
+      cpu time            4.06 seconds
+      
+
+
+NOTE: There were 3781329 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TMS_2604_24_UNQ_2_TDU_COMMONID has 3781329 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           4.25 seconds
+      cpu time            4.08 seconds
+      
+
+
+124         /**********************************************************************
+125         *   PRODUCT:   SAS
+126         *   VERSION:   9.4
+6                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+127         *   CREATOR:   External File Interface
+128         *   DATE:      27NOV19
+129         *   DESC:      Generated SAS Datastep Code
+130         *   TEMPLATE SOURCE:  (None Specified.)
+131         ***********************************************************************/
+132            data _null_;
+133            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+134            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+135            file
+135      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TDU_commonID.s
+135      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+136           set  TRAGO.TMS_2604_24_UNQ_2_TDU_COMMONID   end=EFIEOD;
+137               format readID $100. ;
+138               format s_VAR2 best12. ;
+139               format commonID $54. ;
+140               format pos best12. ;
+141               format s_VAR5 best12. ;
+142               format s_VAR6 $8. ;
+143               format s_VAR7 $1. ;
+144               format s_VAR8 best12. ;
+145               format s_VAR9 best12. ;
+146               format s_VAR10 $150. ;
+147               format s_VAR11 $150. ;
+148               format s_VAR12 $7. ;
+149               format s_VAR13 $8. ;
+150             do;
+151               EFIOUT + 1;
+152               put readID $ @;
+153               put s_VAR2 @;
+154               put commonID $ @;
+155               put pos @;
+156               put s_VAR5 @;
+157               put s_VAR6 $ @;
+158               put s_VAR7 $ @;
+159               put s_VAR8 @;
+160               put s_VAR9 @;
+161               put s_VAR10 $ @;
+162               put s_VAR11 $ @;
+163               put s_VAR12 $ @;
+164               put s_VAR13 $ ;
+165               ;
+166             end;
+167            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+168            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+169            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TDU_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TDU_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:20:42
+
+NOTE: 3781329 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TDU_commonID.sam'.
+7                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+      The minimum record length was 244.
+      The maximum record length was 426.
+NOTE: There were 3781329 observations read from the data set TRAGO.TMS_2604_24_UNQ_2_TDU_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           18.77 seconds
+      cpu time            18.51 seconds
+      
+
+3781329 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TDU_commonID.sam from 
+TRAGO.TMS_2604_24_UNQ_2_TDU_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TDU_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           19.46 seconds
+      cpu time            18.60 seconds
+      
+
+170        %add_commonID (Tms, 2604_24, TPR, tdu) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_uniq_2_TPR_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_uniq_2_TPR_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:17:58:38,
+      File Size (bytes)=1616771221
+
+NOTE: 3788120 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_uniq_2_TPR_filter_for_Pol
+      y.sam".
+      The minimum record length was 266.
+      The maximum record length was 521.
+NOTE: The data set WORK.TMS_2604_24_2_TPR_SAM has 3788120 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           15.09 seconds
+      cpu time            10.26 seconds
+      
+
+
+NOTE: There were 3788120 observations read from the data set WORK.TMS_2604_24_2_TPR_SAM.
+NOTE: The data set WORK.TMS_2604_24_2_TPR_SAM has 3788120 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           18.38 seconds
+      cpu time            13.84 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TPR_TDU.
+NOTE: There were 3788120 observations read from the data set WORK.TMS_2604_24_2_TPR_SAM.
+NOTE: The data set WORK.ADD_ID has 3788120 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6613 observations and 14 variables.
+8                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+NOTE: DATA statement used (Total process time):
+      real time           9.71 seconds
+      cpu time            4.44 seconds
+      
+
+
+NOTE: There were 3788120 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TMS_2604_24_UNQ_2_TPR_COMMONID has 3788120 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.60 seconds
+      cpu time            4.44 seconds
+      
+
+
+171         /**********************************************************************
+172         *   PRODUCT:   SAS
+173         *   VERSION:   9.4
+174         *   CREATOR:   External File Interface
+175         *   DATE:      27NOV19
+176         *   DESC:      Generated SAS Datastep Code
+177         *   TEMPLATE SOURCE:  (None Specified.)
+178         ***********************************************************************/
+179            data _null_;
+180            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+181            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+182            file
+182      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TPR_commonID.s
+182      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+183           set  TRAGO.TMS_2604_24_UNQ_2_TPR_COMMONID   end=EFIEOD;
+184               format readID $100. ;
+185               format s_VAR2 best12. ;
+186               format commonID $54. ;
+187               format pos best12. ;
+188               format s_VAR5 best12. ;
+189               format s_VAR6 $8. ;
+190               format s_VAR7 $1. ;
+191               format s_VAR8 best12. ;
+192               format s_VAR9 best12. ;
+193               format s_VAR10 $150. ;
+194               format s_VAR11 $150. ;
+195               format s_VAR12 $7. ;
+196               format s_VAR13 $8. ;
+197             do;
+198               EFIOUT + 1;
+199               put readID $ @;
+200               put s_VAR2 @;
+201               put commonID $ @;
+202               put pos @;
+203               put s_VAR5 @;
+204               put s_VAR6 $ @;
+205               put s_VAR7 $ @;
+206               put s_VAR8 @;
+207               put s_VAR9 @;
+208               put s_VAR10 $ @;
+209               put s_VAR11 $ @;
+210               put s_VAR12 $ @;
+211               put s_VAR13 $ ;
+212               ;
+9                                                          The SAS System                         10:19 Wednesday, November 27, 2019
+
+213             end;
+214            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+215            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+216            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TPR_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TPR_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:21:58
+
+NOTE: 3788120 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TPR_commonID.sam'.
+      The minimum record length was 243.
+      The maximum record length was 427.
+NOTE: There were 3788120 observations read from the data set TRAGO.TMS_2604_24_UNQ_2_TPR_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           19.73 seconds
+      cpu time            18.63 seconds
+      
+
+3788120 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TPR_commonID.sam from 
+TRAGO.TMS_2604_24_UNQ_2_TPR_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_24_unq_2_TPR_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           19.98 seconds
+      cpu time            18.69 seconds
+      
+
+217        
+218        %add_commonID (Tms, 2604_43, TDU, tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_uniq_2_TDU_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_uniq_2_TDU_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:16:45:46,
+      File Size (bytes)=1595235822
+
+NOTE: 3759538 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_uniq_2_TDU_filter_for_Pol
+      y.sam".
+      The minimum record length was 267.
+      The maximum record length was 525.
+NOTE: The data set WORK.TMS_2604_43_2_TDU_SAM has 3759538 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+10                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      real time           11.66 seconds
+      cpu time            10.43 seconds
+      
+
+
+NOTE: There were 3759538 observations read from the data set WORK.TMS_2604_43_2_TDU_SAM.
+NOTE: The data set WORK.TMS_2604_43_2_TDU_SAM has 3759538 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           18.99 seconds
+      cpu time            14.28 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TDU_TPR.
+NOTE: There were 3759538 observations read from the data set WORK.TMS_2604_43_2_TDU_SAM.
+NOTE: The data set WORK.ADD_ID has 3759538 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6614 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           5.03 seconds
+      cpu time            4.37 seconds
+      
+
+
+NOTE: There were 3759538 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TMS_2604_43_UNQ_2_TDU_COMMONID has 3759538 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           4.96 seconds
+      cpu time            4.27 seconds
+      
+
+
+219         /**********************************************************************
+220         *   PRODUCT:   SAS
+221         *   VERSION:   9.4
+222         *   CREATOR:   External File Interface
+223         *   DATE:      27NOV19
+224         *   DESC:      Generated SAS Datastep Code
+225         *   TEMPLATE SOURCE:  (None Specified.)
+226         ***********************************************************************/
+227            data _null_;
+228            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+229            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+230            file
+230      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TDU_commonID.s
+230      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+231           set  TRAGO.TMS_2604_43_UNQ_2_TDU_COMMONID   end=EFIEOD;
+232               format readID $100. ;
+233               format s_VAR2 best12. ;
+234               format commonID $54. ;
+235               format pos best12. ;
+236               format s_VAR5 best12. ;
+237               format s_VAR6 $8. ;
+238               format s_VAR7 $1. ;
+239               format s_VAR8 best12. ;
+240               format s_VAR9 best12. ;
+241               format s_VAR10 $150. ;
+242               format s_VAR11 $150. ;
+11                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+243               format s_VAR12 $7. ;
+244               format s_VAR13 $8. ;
+245             do;
+246               EFIOUT + 1;
+247               put readID $ @;
+248               put s_VAR2 @;
+249               put commonID $ @;
+250               put pos @;
+251               put s_VAR5 @;
+252               put s_VAR6 $ @;
+253               put s_VAR7 $ @;
+254               put s_VAR8 @;
+255               put s_VAR9 @;
+256               put s_VAR10 $ @;
+257               put s_VAR11 $ @;
+258               put s_VAR12 $ @;
+259               put s_VAR13 $ ;
+260               ;
+261             end;
+262            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+263            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+264            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TDU_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TDU_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:22:59
+
+NOTE: 3759538 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TDU_commonID.sam'.
+      The minimum record length was 248.
+      The maximum record length was 426.
+NOTE: There were 3759538 observations read from the data set TRAGO.TMS_2604_43_UNQ_2_TDU_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           23.81 seconds
+      cpu time            18.48 seconds
+      
+
+3759538 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TDU_commonID.sam from 
+TRAGO.TMS_2604_43_UNQ_2_TDU_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TDU_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           24.78 seconds
+      cpu time            18.54 seconds
+      
+
+265        %add_commonID (Tms, 2604_43, TPR, tdu) ;
+
+NOTE: The infile 
+12                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_uniq_2_TPR_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_uniq_2_TPR_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:18:12:41,
+      File Size (bytes)=1597439401
+
+NOTE: 3772233 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_uniq_2_TPR_filter_for_Pol
+      y.sam".
+      The minimum record length was 266.
+      The maximum record length was 522.
+NOTE: The data set WORK.TMS_2604_43_2_TPR_SAM has 3772233 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.58 seconds
+      cpu time            10.45 seconds
+      
+
+
+NOTE: There were 3772233 observations read from the data set WORK.TMS_2604_43_2_TPR_SAM.
+NOTE: The data set WORK.TMS_2604_43_2_TPR_SAM has 3772233 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           21.89 seconds
+      cpu time            14.34 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TPR_TDU.
+NOTE: There were 3772233 observations read from the data set WORK.TMS_2604_43_2_TPR_SAM.
+NOTE: The data set WORK.ADD_ID has 3772233 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6614 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           9.72 seconds
+      cpu time            4.35 seconds
+      
+
+
+NOTE: There were 3772233 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TMS_2604_43_UNQ_2_TPR_COMMONID has 3772233 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           12.05 seconds
+      cpu time            4.39 seconds
+      
+
+
+266         /**********************************************************************
+267         *   PRODUCT:   SAS
+268         *   VERSION:   9.4
+269         *   CREATOR:   External File Interface
+270         *   DATE:      27NOV19
+271         *   DESC:      Generated SAS Datastep Code
+272         *   TEMPLATE SOURCE:  (None Specified.)
+273         ***********************************************************************/
+274            data _null_;
+13                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+275            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+276            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+277            file
+277      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TPR_commonID.s
+277      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+278           set  TRAGO.TMS_2604_43_UNQ_2_TPR_COMMONID   end=EFIEOD;
+279               format readID $100. ;
+280               format s_VAR2 best12. ;
+281               format commonID $54. ;
+282               format pos best12. ;
+283               format s_VAR5 best12. ;
+284               format s_VAR6 $8. ;
+285               format s_VAR7 $1. ;
+286               format s_VAR8 best12. ;
+287               format s_VAR9 best12. ;
+288               format s_VAR10 $150. ;
+289               format s_VAR11 $150. ;
+290               format s_VAR12 $7. ;
+291               format s_VAR13 $8. ;
+292             do;
+293               EFIOUT + 1;
+294               put readID $ @;
+295               put s_VAR2 @;
+296               put commonID $ @;
+297               put pos @;
+298               put s_VAR5 @;
+299               put s_VAR6 $ @;
+300               put s_VAR7 $ @;
+301               put s_VAR8 @;
+302               put s_VAR9 @;
+303               put s_VAR10 $ @;
+304               put s_VAR11 $ @;
+305               put s_VAR12 $ @;
+306               put s_VAR13 $ ;
+307               ;
+308             end;
+309            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+310            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+311            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TPR_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TPR_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:24:24
+
+NOTE: 3772233 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TPR_commonID.sam'.
+      The minimum record length was 247.
+      The maximum record length was 427.
+NOTE: There were 3772233 observations read from the data set TRAGO.TMS_2604_43_UNQ_2_TPR_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           19.16 seconds
+      cpu time            18.66 seconds
+14                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      
+
+3772233 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TPR_commonID.sam from 
+TRAGO.TMS_2604_43_UNQ_2_TPR_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_43_unq_2_TPR_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           22.48 seconds
+      cpu time            18.71 seconds
+      
+
+312        
+313        %add_commonID (Tms, 2604_48, TDU, tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_uniq_2_TDU_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_uniq_2_TDU_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:17:00:35,
+      File Size (bytes)=1779886212
+
+NOTE: 4077433 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_uniq_2_TDU_filter_for_Pol
+      y.sam".
+      The minimum record length was 265.
+      The maximum record length was 526.
+NOTE: The data set WORK.TMS_2604_48_2_TDU_SAM has 4077433 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.33 seconds
+      cpu time            11.35 seconds
+      
+
+
+NOTE: There were 4077433 observations read from the data set WORK.TMS_2604_48_2_TDU_SAM.
+NOTE: The data set WORK.TMS_2604_48_2_TDU_SAM has 4077433 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           27.20 seconds
+      cpu time            15.75 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TDU_TPR.
+NOTE: There were 4077433 observations read from the data set WORK.TMS_2604_48_2_TDU_SAM.
+NOTE: The data set WORK.ADD_ID has 4077433 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6633 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           6.50 seconds
+      cpu time            4.73 seconds
+      
+
+15                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+
+NOTE: There were 4077433 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TMS_2604_48_UNQ_2_TDU_COMMONID has 4077433 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           8.00 seconds
+      cpu time            5.26 seconds
+      
+
+
+314         /**********************************************************************
+315         *   PRODUCT:   SAS
+316         *   VERSION:   9.4
+317         *   CREATOR:   External File Interface
+318         *   DATE:      27NOV19
+319         *   DESC:      Generated SAS Datastep Code
+320         *   TEMPLATE SOURCE:  (None Specified.)
+321         ***********************************************************************/
+322            data _null_;
+323            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+324            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+325            file
+325      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TDU_commonID.s
+325      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+326           set  TRAGO.TMS_2604_48_UNQ_2_TDU_COMMONID   end=EFIEOD;
+327               format readID $100. ;
+328               format s_VAR2 best12. ;
+329               format commonID $54. ;
+330               format pos best12. ;
+331               format s_VAR5 best12. ;
+332               format s_VAR6 $8. ;
+333               format s_VAR7 $1. ;
+334               format s_VAR8 best12. ;
+335               format s_VAR9 best12. ;
+336               format s_VAR10 $150. ;
+337               format s_VAR11 $150. ;
+338               format s_VAR12 $7. ;
+339               format s_VAR13 $8. ;
+340             do;
+341               EFIOUT + 1;
+342               put readID $ @;
+343               put s_VAR2 @;
+344               put commonID $ @;
+345               put pos @;
+346               put s_VAR5 @;
+347               put s_VAR6 $ @;
+348               put s_VAR7 $ @;
+349               put s_VAR8 @;
+350               put s_VAR9 @;
+351               put s_VAR10 $ @;
+352               put s_VAR11 $ @;
+353               put s_VAR12 $ @;
+354               put s_VAR13 $ ;
+355               ;
+356             end;
+357            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+358            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+359            run;
+
+16                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TDU_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TDU_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:25:44
+
+NOTE: 4077433 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TDU_commonID.sam'.
+      The minimum record length was 247.
+      The maximum record length was 427.
+NOTE: There were 4077433 observations read from the data set TRAGO.TMS_2604_48_UNQ_2_TDU_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           22.02 seconds
+      cpu time            20.33 seconds
+      
+
+4077433 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TDU_commonID.sam from 
+TRAGO.TMS_2604_48_UNQ_2_TDU_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TDU_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           27.21 seconds
+      cpu time            20.39 seconds
+      
+
+360        %add_commonID (Tms, 2604_48, TPR, tdu) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_uniq_2_TPR_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_uniq_2_TPR_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:18:27:41,
+      File Size (bytes)=1776861786
+
+NOTE: 4067504 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_uniq_2_TPR_filter_for_Pol
+      y.sam".
+      The minimum record length was 266.
+      The maximum record length was 522.
+NOTE: The data set WORK.TMS_2604_48_2_TPR_SAM has 4067504 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           14.31 seconds
+      cpu time            11.27 seconds
+      
+
+
+NOTE: There were 4067504 observations read from the data set WORK.TMS_2604_48_2_TPR_SAM.
+17                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+NOTE: The data set WORK.TMS_2604_48_2_TPR_SAM has 4067504 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           27.68 seconds
+      cpu time            15.29 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TMS_ID_TPR_TDU.
+NOTE: There were 4067504 observations read from the data set WORK.TMS_2604_48_2_TPR_SAM.
+NOTE: The data set WORK.ADD_ID has 4067504 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6613 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           11.75 seconds
+      cpu time            4.70 seconds
+      
+
+
+NOTE: There were 4067504 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TMS_2604_48_UNQ_2_TPR_COMMONID has 4067504 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.92 seconds
+      cpu time            5.30 seconds
+      
+
+
+361         /**********************************************************************
+362         *   PRODUCT:   SAS
+363         *   VERSION:   9.4
+364         *   CREATOR:   External File Interface
+365         *   DATE:      27NOV19
+366         *   DESC:      Generated SAS Datastep Code
+367         *   TEMPLATE SOURCE:  (None Specified.)
+368         ***********************************************************************/
+369            data _null_;
+370            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+371            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+372            file
+372      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TPR_commonID.s
+372      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+373           set  TRAGO.TMS_2604_48_UNQ_2_TPR_COMMONID   end=EFIEOD;
+374               format readID $100. ;
+375               format s_VAR2 best12. ;
+376               format commonID $54. ;
+377               format pos best12. ;
+378               format s_VAR5 best12. ;
+379               format s_VAR6 $8. ;
+380               format s_VAR7 $1. ;
+381               format s_VAR8 best12. ;
+382               format s_VAR9 best12. ;
+383               format s_VAR10 $150. ;
+384               format s_VAR11 $150. ;
+385               format s_VAR12 $7. ;
+386               format s_VAR13 $8. ;
+387             do;
+388               EFIOUT + 1;
+389               put readID $ @;
+390               put s_VAR2 @;
+18                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+391               put commonID $ @;
+392               put pos @;
+393               put s_VAR5 @;
+394               put s_VAR6 $ @;
+395               put s_VAR7 $ @;
+396               put s_VAR8 @;
+397               put s_VAR9 @;
+398               put s_VAR10 $ @;
+399               put s_VAR11 $ @;
+400               put s_VAR12 $ @;
+401               put s_VAR13 $ ;
+402               ;
+403             end;
+404            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+405            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+406            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TPR_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TPR_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:27:16
+
+NOTE: 4067504 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TPR_commonID.sam'.
+      The minimum record length was 248.
+      The maximum record length was 428.
+NOTE: There were 4067504 observations read from the data set TRAGO.TMS_2604_48_UNQ_2_TPR_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           21.29 seconds
+      cpu time            20.11 seconds
+      
+
+4067504 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TPR_commonID.sam from 
+TRAGO.TMS_2604_48_UNQ_2_TPR_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tms_2604_48_unq_2_TPR_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           24.38 seconds
+      cpu time            20.16 seconds
+      
+
+407        
+408        %add_commonID (Tml, 2605_9, TDU, tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_uniq_2_TDU_filter_for_Poly
+      .sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_uniq_2_TDU_filter_
+      for_Poly.sam,
+19                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:16:18:09,
+      File Size (bytes)=1842489665
+
+NOTE: 4316996 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_uniq_2_TDU_filter_for_Poly
+      .sam".
+      The minimum record length was 267.
+      The maximum record length was 522.
+NOTE: The data set WORK.TML_2605_9_2_TDU_SAM has 4316996 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.75 seconds
+      cpu time            11.82 seconds
+      
+
+
+NOTE: There were 4316996 observations read from the data set WORK.TML_2605_9_2_TDU_SAM.
+NOTE: The data set WORK.TML_2605_9_2_TDU_SAM has 4316996 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           30.26 seconds
+      cpu time            15.96 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TDU_TPR.
+NOTE: There were 4316996 observations read from the data set WORK.TML_2605_9_2_TDU_SAM.
+NOTE: The data set WORK.ADD_ID has 4316996 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6629 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           6.63 seconds
+      cpu time            4.96 seconds
+      
+
+
+NOTE: There were 4316996 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TML_2605_9_UNQ_2_TDU_COMMONID has 4316996 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.33 seconds
+      cpu time            5.90 seconds
+      
+
+
+409         /**********************************************************************
+410         *   PRODUCT:   SAS
+411         *   VERSION:   9.4
+412         *   CREATOR:   External File Interface
+413         *   DATE:      27NOV19
+414         *   DESC:      Generated SAS Datastep Code
+415         *   TEMPLATE SOURCE:  (None Specified.)
+416         ***********************************************************************/
+417            data _null_;
+418            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+419            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+420            file
+420      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TDU_commonID.sa
+420      ! m' delimiter='09'x DSD DROPOVER lrecl=32767;
+20                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+421           set  TRAGO.TML_2605_9_UNQ_2_TDU_COMMONID   end=EFIEOD;
+422               format readID $100. ;
+423               format s_VAR2 best12. ;
+424               format commonID $54. ;
+425               format pos best12. ;
+426               format s_VAR5 best12. ;
+427               format s_VAR6 $8. ;
+428               format s_VAR7 $1. ;
+429               format s_VAR8 best12. ;
+430               format s_VAR9 best12. ;
+431               format s_VAR10 $150. ;
+432               format s_VAR11 $150. ;
+433               format s_VAR12 $7. ;
+434               format s_VAR13 $8. ;
+435             do;
+436               EFIOUT + 1;
+437               put readID $ @;
+438               put s_VAR2 @;
+439               put commonID $ @;
+440               put pos @;
+441               put s_VAR5 @;
+442               put s_VAR6 $ @;
+443               put s_VAR7 $ @;
+444               put s_VAR8 @;
+445               put s_VAR9 @;
+446               put s_VAR10 $ @;
+447               put s_VAR11 $ @;
+448               put s_VAR12 $ @;
+449               put s_VAR13 $ ;
+450               ;
+451             end;
+452            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+453            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+454            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TDU_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TDU_commonID
+      .sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:28:43
+
+NOTE: 4316996 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TDU_commonID.sam'.
+      The minimum record length was 248.
+      The maximum record length was 427.
+NOTE: There were 4316996 observations read from the data set TRAGO.TML_2605_9_UNQ_2_TDU_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           24.34 seconds
+      cpu time            21.28 seconds
+      
+
+4316996 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TDU_commonID.sam from 
+TRAGO.TML_2605_9_UNQ_2_TDU_COMMONID.
+21                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TDU_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           25.73 seconds
+      cpu time            21.35 seconds
+      
+
+455        %add_commonID (Tml, 2605_9, TPR, tdu) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_uniq_2_TPR_filter_for_Poly
+      .sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_uniq_2_TPR_filter_
+      for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:17:44:17,
+      File Size (bytes)=1843025172
+
+NOTE: 4323498 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_uniq_2_TPR_filter_for_Poly
+      .sam".
+      The minimum record length was 265.
+      The maximum record length was 522.
+NOTE: The data set WORK.TML_2605_9_2_TPR_SAM has 4323498 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           15.06 seconds
+      cpu time            11.89 seconds
+      
+
+
+NOTE: There were 4323498 observations read from the data set WORK.TML_2605_9_2_TPR_SAM.
+NOTE: The data set WORK.TML_2605_9_2_TPR_SAM has 4323498 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           19.95 seconds
+      cpu time            16.40 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TPR_TDU.
+NOTE: There were 4323498 observations read from the data set WORK.TML_2605_9_2_TPR_SAM.
+NOTE: The data set WORK.ADD_ID has 4323498 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6612 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           8.73 seconds
+      cpu time            5.03 seconds
+      
+
+
+NOTE: There were 4323498 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TML_2605_9_UNQ_2_TPR_COMMONID has 4323498 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           12.27 seconds
+      cpu time            5.87 seconds
+22                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      
+
+
+456         /**********************************************************************
+457         *   PRODUCT:   SAS
+458         *   VERSION:   9.4
+459         *   CREATOR:   External File Interface
+460         *   DATE:      27NOV19
+461         *   DESC:      Generated SAS Datastep Code
+462         *   TEMPLATE SOURCE:  (None Specified.)
+463         ***********************************************************************/
+464            data _null_;
+465            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+466            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+467            file
+467      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TPR_commonID.sa
+467      ! m' delimiter='09'x DSD DROPOVER lrecl=32767;
+468           set  TRAGO.TML_2605_9_UNQ_2_TPR_COMMONID   end=EFIEOD;
+469               format readID $100. ;
+470               format s_VAR2 best12. ;
+471               format commonID $54. ;
+472               format pos best12. ;
+473               format s_VAR5 best12. ;
+474               format s_VAR6 $8. ;
+475               format s_VAR7 $1. ;
+476               format s_VAR8 best12. ;
+477               format s_VAR9 best12. ;
+478               format s_VAR10 $150. ;
+479               format s_VAR11 $150. ;
+480               format s_VAR12 $7. ;
+481               format s_VAR13 $8. ;
+482             do;
+483               EFIOUT + 1;
+484               put readID $ @;
+485               put s_VAR2 @;
+486               put commonID $ @;
+487               put pos @;
+488               put s_VAR5 @;
+489               put s_VAR6 $ @;
+490               put s_VAR7 $ @;
+491               put s_VAR8 @;
+492               put s_VAR9 @;
+493               put s_VAR10 $ @;
+494               put s_VAR11 $ @;
+495               put s_VAR12 $ @;
+496               put s_VAR13 $ ;
+497               ;
+498             end;
+499            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+500            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+501            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TPR_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TPR_commonID
+      .sam,
+23                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:30:07
+
+NOTE: 4323498 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TPR_commonID.sam'.
+      The minimum record length was 247.
+      The maximum record length was 427.
+NOTE: There were 4323498 observations read from the data set TRAGO.TML_2605_9_UNQ_2_TPR_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           22.86 seconds
+      cpu time            21.34 seconds
+      
+
+4323498 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TPR_commonID.sam from 
+TRAGO.TML_2605_9_UNQ_2_TPR_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_9_unq_2_TPR_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           23.40 seconds
+      cpu time            21.40 seconds
+      
+
+502        
+503        %add_commonID (Tml, 2605_24, TDU, tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_uniq_2_TDU_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_uniq_2_TDU_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:15:49:21,
+      File Size (bytes)=1753467901
+
+NOTE: 4105287 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_uniq_2_TDU_filter_for_Pol
+      y.sam".
+      The minimum record length was 266.
+      The maximum record length was 522.
+NOTE: The data set WORK.TML_2605_24_2_TDU_SAM has 4105287 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           14.27 seconds
+      cpu time            11.32 seconds
+      
+
+
+NOTE: There were 4105287 observations read from the data set WORK.TML_2605_24_2_TDU_SAM.
+NOTE: The data set WORK.TML_2605_24_2_TDU_SAM has 4105287 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           27.56 seconds
+      cpu time            15.86 seconds
+      
+24                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TDU_TPR.
+NOTE: There were 4105287 observations read from the data set WORK.TML_2605_24_2_TDU_SAM.
+NOTE: The data set WORK.ADD_ID has 4105287 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6593 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           9.48 seconds
+      cpu time            4.84 seconds
+      
+
+
+NOTE: There were 4105287 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TML_2605_24_UNQ_2_TDU_COMMONID has 4105287 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.66 seconds
+      cpu time            5.44 seconds
+      
+
+
+504         /**********************************************************************
+505         *   PRODUCT:   SAS
+506         *   VERSION:   9.4
+507         *   CREATOR:   External File Interface
+508         *   DATE:      27NOV19
+509         *   DESC:      Generated SAS Datastep Code
+510         *   TEMPLATE SOURCE:  (None Specified.)
+511         ***********************************************************************/
+512            data _null_;
+513            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+514            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+515            file
+515      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TDU_commonID.s
+515      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+516           set  TRAGO.TML_2605_24_UNQ_2_TDU_COMMONID   end=EFIEOD;
+517               format readID $100. ;
+518               format s_VAR2 best12. ;
+519               format commonID $54. ;
+520               format pos best12. ;
+521               format s_VAR5 best12. ;
+522               format s_VAR6 $8. ;
+523               format s_VAR7 $1. ;
+524               format s_VAR8 best12. ;
+525               format s_VAR9 best12. ;
+526               format s_VAR10 $150. ;
+527               format s_VAR11 $150. ;
+528               format s_VAR12 $7. ;
+529               format s_VAR13 $8. ;
+530             do;
+531               EFIOUT + 1;
+532               put readID $ @;
+533               put s_VAR2 @;
+534               put commonID $ @;
+535               put pos @;
+536               put s_VAR5 @;
+537               put s_VAR6 $ @;
+538               put s_VAR7 $ @;
+25                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+539               put s_VAR8 @;
+540               put s_VAR9 @;
+541               put s_VAR10 $ @;
+542               put s_VAR11 $ @;
+543               put s_VAR12 $ @;
+544               put s_VAR13 $ ;
+545               ;
+546             end;
+547            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+548            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+549            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TDU_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TDU_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:31:35
+
+NOTE: 4105287 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TDU_commonID.sam'.
+      The minimum record length was 247.
+      The maximum record length was 426.
+NOTE: There were 4105287 observations read from the data set TRAGO.TML_2605_24_UNQ_2_TDU_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           20.91 seconds
+      cpu time            20.35 seconds
+      
+
+4105287 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TDU_commonID.sam from 
+TRAGO.TML_2605_24_UNQ_2_TDU_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TDU_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           21.64 seconds
+      cpu time            20.41 seconds
+      
+
+550        %add_commonID (Tml, 2605_24, TPR, tdu) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_uniq_2_TPR_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_uniq_2_TPR_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:17:15:05,
+      File Size (bytes)=1750126610
+
+NOTE: 4098824 records were read from the infile 
+26                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_uniq_2_TPR_filter_for_Pol
+      y.sam".
+      The minimum record length was 267.
+      The maximum record length was 522.
+NOTE: The data set WORK.TML_2605_24_2_TPR_SAM has 4098824 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           13.70 seconds
+      cpu time            11.34 seconds
+      
+
+
+NOTE: There were 4098824 observations read from the data set WORK.TML_2605_24_2_TPR_SAM.
+NOTE: The data set WORK.TML_2605_24_2_TPR_SAM has 4098824 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           32.43 seconds
+      cpu time            15.83 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TPR_TDU.
+NOTE: There were 4098824 observations read from the data set WORK.TML_2605_24_2_TPR_SAM.
+NOTE: The data set WORK.ADD_ID has 4098824 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6580 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           9.85 seconds
+      cpu time            4.85 seconds
+      
+
+
+NOTE: There were 4098824 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TML_2605_24_UNQ_2_TPR_COMMONID has 4098824 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           10.80 seconds
+      cpu time            5.39 seconds
+      
+
+
+551         /**********************************************************************
+552         *   PRODUCT:   SAS
+553         *   VERSION:   9.4
+554         *   CREATOR:   External File Interface
+555         *   DATE:      27NOV19
+556         *   DESC:      Generated SAS Datastep Code
+557         *   TEMPLATE SOURCE:  (None Specified.)
+558         ***********************************************************************/
+559            data _null_;
+560            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+561            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+562            file
+562      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TPR_commonID.s
+562      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+563           set  TRAGO.TML_2605_24_UNQ_2_TPR_COMMONID   end=EFIEOD;
+564               format readID $100. ;
+565               format s_VAR2 best12. ;
+566               format commonID $54. ;
+567               format pos best12. ;
+568               format s_VAR5 best12. ;
+27                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+569               format s_VAR6 $8. ;
+570               format s_VAR7 $1. ;
+571               format s_VAR8 best12. ;
+572               format s_VAR9 best12. ;
+573               format s_VAR10 $150. ;
+574               format s_VAR11 $150. ;
+575               format s_VAR12 $7. ;
+576               format s_VAR13 $8. ;
+577             do;
+578               EFIOUT + 1;
+579               put readID $ @;
+580               put s_VAR2 @;
+581               put commonID $ @;
+582               put pos @;
+583               put s_VAR5 @;
+584               put s_VAR6 $ @;
+585               put s_VAR7 $ @;
+586               put s_VAR8 @;
+587               put s_VAR9 @;
+588               put s_VAR10 $ @;
+589               put s_VAR11 $ @;
+590               put s_VAR12 $ @;
+591               put s_VAR13 $ ;
+592               ;
+593             end;
+594            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+595            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+596            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TPR_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TPR_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:33:06
+
+NOTE: 4098824 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TPR_commonID.sam'.
+      The minimum record length was 248.
+      The maximum record length was 427.
+NOTE: There were 4098824 observations read from the data set TRAGO.TML_2605_24_UNQ_2_TPR_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           20.97 seconds
+      cpu time            20.35 seconds
+      
+
+4098824 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TPR_commonID.sam from 
+TRAGO.TML_2605_24_UNQ_2_TPR_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_24_unq_2_TPR_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           22.91 seconds
+28                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      cpu time            20.39 seconds
+      
+
+597        
+598        %add_commonID (Tml, 2605_42, TDU, tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_uniq_2_TDU_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_uniq_2_TDU_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:16:03:15,
+      File Size (bytes)=1598218731
+
+NOTE: 3690815 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_uniq_2_TDU_filter_for_Pol
+      y.sam".
+      The minimum record length was 266.
+      The maximum record length was 521.
+NOTE: The data set WORK.TML_2605_42_2_TDU_SAM has 3690815 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           17.90 seconds
+      cpu time            10.26 seconds
+      
+
+
+NOTE: There were 3690815 observations read from the data set WORK.TML_2605_42_2_TDU_SAM.
+NOTE: The data set WORK.TML_2605_42_2_TDU_SAM has 3690815 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           36.41 seconds
+      cpu time            13.34 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TDU_TPR.
+NOTE: There were 3690815 observations read from the data set WORK.TML_2605_42_2_TDU_SAM.
+NOTE: The data set WORK.ADD_ID has 3690815 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+NOTE: The data set WORK.OTHER has 6607 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           9.42 seconds
+      cpu time            4.36 seconds
+      
+
+
+NOTE: There were 3690815 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TML_2605_42_UNQ_2_TDU_COMMONID has 3690815 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           3.90 seconds
+      cpu time            3.85 seconds
+      
+
+
+599         /**********************************************************************
+600         *   PRODUCT:   SAS
+29                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+601         *   VERSION:   9.4
+602         *   CREATOR:   External File Interface
+603         *   DATE:      27NOV19
+604         *   DESC:      Generated SAS Datastep Code
+605         *   TEMPLATE SOURCE:  (None Specified.)
+606         ***********************************************************************/
+607            data _null_;
+608            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+609            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+610            file
+610      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TDU_commonID.s
+610      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+611           set  TRAGO.TML_2605_42_UNQ_2_TDU_COMMONID   end=EFIEOD;
+612               format readID $100. ;
+613               format s_VAR2 best12. ;
+614               format commonID $54. ;
+615               format pos best12. ;
+616               format s_VAR5 best12. ;
+617               format s_VAR6 $8. ;
+618               format s_VAR7 $1. ;
+619               format s_VAR8 best12. ;
+620               format s_VAR9 best12. ;
+621               format s_VAR10 $150. ;
+622               format s_VAR11 $150. ;
+623               format s_VAR12 $7. ;
+624               format s_VAR13 $8. ;
+625             do;
+626               EFIOUT + 1;
+627               put readID $ @;
+628               put s_VAR2 @;
+629               put commonID $ @;
+630               put pos @;
+631               put s_VAR5 @;
+632               put s_VAR6 $ @;
+633               put s_VAR7 $ @;
+634               put s_VAR8 @;
+635               put s_VAR9 @;
+636               put s_VAR10 $ @;
+637               put s_VAR11 $ @;
+638               put s_VAR12 $ @;
+639               put s_VAR13 $ ;
+640               ;
+641             end;
+642            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+643            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+644            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TDU_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TDU_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:34:38
+
+NOTE: 3690815 records were written to the file 
+30                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TDU_commonID.sam'.
+      The minimum record length was 248.
+      The maximum record length was 426.
+NOTE: There were 3690815 observations read from the data set TRAGO.TML_2605_42_UNQ_2_TDU_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           19.28 seconds
+      cpu time            18.45 seconds
+      
+
+3690815 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TDU_commonID.sam from 
+TRAGO.TML_2605_42_UNQ_2_TDU_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TDU_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           22.16 seconds
+      cpu time            18.51 seconds
+      
+
+645        %add_commonID (Tml, 2605_42, TPR, tdu) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_uniq_2_TPR_filter_for_Pol
+      y.sam" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_uniq_2_TPR_filter
+      _for_Poly.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=26Nov2019:17:29:03,
+      File Size (bytes)=1599258761
+
+NOTE: 3700017 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_uniq_2_TPR_filter_for_Pol
+      y.sam".
+      The minimum record length was 267.
+      The maximum record length was 520.
+NOTE: The data set WORK.TML_2605_42_2_TPR_SAM has 3700017 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           20.29 seconds
+      cpu time            10.43 seconds
+      
+
+
+NOTE: There were 3700017 observations read from the data set WORK.TML_2605_42_2_TPR_SAM.
+NOTE: The data set WORK.TML_2605_42_2_TPR_SAM has 3700017 observations and 13 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           22.56 seconds
+      cpu time            14.36 seconds
+      
+
+
+NOTE: There were 11863 observations read from the data set WORK.TML_ID_TPR_TDU.
+NOTE: There were 3700017 observations read from the data set WORK.TML_2605_42_2_TPR_SAM.
+NOTE: The data set WORK.ADD_ID has 3700017 observations and 14 variables.
+NOTE: The data set WORK.MISSINGID has 0 observations and 14 variables.
+31                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+NOTE: The data set WORK.OTHER has 6604 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           10.64 seconds
+      cpu time            4.37 seconds
+      
+
+
+NOTE: There were 3700017 observations read from the data set WORK.ADD_ID.
+NOTE: The data set TRAGO.TML_2605_42_UNQ_2_TPR_COMMONID has 3700017 observations and 13 variables.
+NOTE: DATA statement used (Total process time):
+      real time           5.19 seconds
+      cpu time            3.90 seconds
+      
+
+
+646         /**********************************************************************
+647         *   PRODUCT:   SAS
+648         *   VERSION:   9.4
+649         *   CREATOR:   External File Interface
+650         *   DATE:      27NOV19
+651         *   DESC:      Generated SAS Datastep Code
+652         *   TEMPLATE SOURCE:  (None Specified.)
+653         ***********************************************************************/
+654            data _null_;
+655            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+656            %let _EFIREC_ = 0;     /* clear export record count macro variable */
+657            file
+657      ! '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TPR_commonID.s
+657      ! am' delimiter='09'x DSD DROPOVER lrecl=32767;
+658           set  TRAGO.TML_2605_42_UNQ_2_TPR_COMMONID   end=EFIEOD;
+659               format readID $100. ;
+660               format s_VAR2 best12. ;
+661               format commonID $54. ;
+662               format pos best12. ;
+663               format s_VAR5 best12. ;
+664               format s_VAR6 $8. ;
+665               format s_VAR7 $1. ;
+666               format s_VAR8 best12. ;
+667               format s_VAR9 best12. ;
+668               format s_VAR10 $150. ;
+669               format s_VAR11 $150. ;
+670               format s_VAR12 $7. ;
+671               format s_VAR13 $8. ;
+672             do;
+673               EFIOUT + 1;
+674               put readID $ @;
+675               put s_VAR2 @;
+676               put commonID $ @;
+677               put pos @;
+678               put s_VAR5 @;
+679               put s_VAR6 $ @;
+680               put s_VAR7 $ @;
+681               put s_VAR8 @;
+682               put s_VAR9 @;
+683               put s_VAR10 $ @;
+684               put s_VAR11 $ @;
+685               put s_VAR12 $ @;
+686               put s_VAR13 $ ;
+32                                                         The SAS System                         10:19 Wednesday, November 27, 2019
+
+687               ;
+688             end;
+689            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+690            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+691            run;
+
+NOTE: The file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TPR_commonID.sam' 
+      is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TPR_commonI
+      D.sam,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=27Nov2019:10:35:56
+
+NOTE: 3700017 records were written to the file 
+      '/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TPR_commonID.sam'.
+      The minimum record length was 248.
+      The maximum record length was 427.
+NOTE: There were 3700017 observations read from the data set TRAGO.TML_2605_42_UNQ_2_TPR_COMMONID.
+NOTE: DATA statement used (Total process time):
+      real time           24.18 seconds
+      cpu time            18.31 seconds
+      
+
+3700017 records created in 
+/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TPR_commonID.sam from 
+TRAGO.TML_2605_42_UNQ_2_TPR_COMMONID.
+  
+  
+NOTE: "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Filter_SAM_by_bed/Tml_2605_42_unq_2_TPR_commonID.sam" 
+      file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           24.38 seconds
+      cpu time            18.37 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           16:24.59
+      cpu time            10:55.94
+      
