@@ -319,6 +319,16 @@ Output:
   - `ase_4_bayes_tml_reads_tdu_tpr.sas7bdat`
   - `import_ase_counts_hybrid.log`
 
+## 7. Prep for Bayesian Analysis
+Scripts `submit_bayesian_make_sbys_reps_hybrid.bash` and `bayesian_make_sbys_reps_hybrid.sas` were used in this step.
+
+Output:
+  - sorted `ase_4_bayes_tms_reads_tdu_tpr.sas7bdat`
+  - sorted `ase_4_bayes_tml_reads_tdu_tpr.sas7bdat`
+  - `ase_bayes_tms_rds_tdu_tpr_sbys.sas7bdat`
+  - `ase_bayes_tml_rds_tdu_tpr_sbys.sas7bdat`
+  - `bayesian_make_sbys_reps_hybrid.log`
+
 
 
   
