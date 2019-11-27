@@ -301,8 +301,18 @@ Output, example:
       ```
 
 ## 6. Import ASE counts into SAS
+Script `Replicate_rename_poly.sh` was used to rename csv files, which is erquired for downstream analysis.
+```bash
+cp ${IN}/ase_counts_Tms_2604_24_2_tdu_tpr.csv ${OUT}/ase_counts_Tms_1_2_tdu_tpr.csv
+cp ${IN}/ase_counts_Tms_2604_43_2_tdu_tpr.csv ${OUT}/ase_counts_Tms_2_2_tdu_tpr.csv
+cp ${IN}/ase_counts_Tms_2604_48_2_tdu_tpr.csv ${OUT}/ase_counts_Tms_3_2_tdu_tpr.csv
 
+cp ${IN}/ase_counts_Tml_2605_9_2_tdu_tpr.csv ${OUT}/ase_counts_Tml_1_2_tdu_tpr.csv
+cp ${IN}/ase_counts_Tml_2605_24_2_tdu_tpr.csv ${OUT}/ase_counts_Tml_2_2_tdu_tpr.csv
+cp ${IN}/ase_counts_Tml_2605_42_2_tdu_tpr.csv ${OUT}/ase_counts_Tml_3_2_tdu_tpr.csv
+```
 
+Scripts were used to import ASE counts into SAS
   
   
   
