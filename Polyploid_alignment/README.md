@@ -312,7 +312,15 @@ cp ${IN}/ase_counts_Tml_2605_24_2_tdu_tpr.csv ${OUT}/ase_counts_Tml_2_2_tdu_tpr.
 cp ${IN}/ase_counts_Tml_2605_42_2_tdu_tpr.csv ${OUT}/ase_counts_Tml_3_2_tdu_tpr.csv
 ```
 
-Scripts were used to import ASE counts into SAS
+Scripts `submit_import_ase_counts_hybrid.bash` and `import_ase_counts_hybrid.sas` were used to import ASE counts into SAS.
+
+Output:
+  - `ase_4_bayes_tms_reads_tdu_tpr.sas7bdat`
+  - `ase_4_bayes_tml_reads_tdu_tpr.sas7bdat`
+  - `import_ase_counts_hybrid.log`
+
+
+
   
   
   
