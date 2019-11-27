@@ -183,6 +183,11 @@ Output (examples):
 ## 4. Add commonID to all SAM files
 Scripts `submit_add_commonID_hybrid.bash` and `add_commonID_to_hybrid_sam_files_HPC.sas` were used.
 
+`add_commonID_to_hybrid_sam_files_HPC.sas` was changed as listed below:
+  - `data Tms_ID_tdu_tpr` used tdu as ref, which is the second part of the commonID: `consensedID = scan(commonID,2,'|')`
+  - `data Tms_ID_tpr_tdu` used tpr as ref, which is the first part of the commonID: `consensedID = scan(commonID,1,'|')`
+  - For `s_VAR10` and `s_VAR11`, the value is 150, as the reads length is paired 150 bp
+
 Input:
   - `tdu_tpr_bed_for_sam_compare.sas7bdat` from section Filter_orthologs
   - `tpr_tdu_bed_for_sam_compare.sas7bdat` from section Filter_orthologs
@@ -224,6 +229,41 @@ Output:
     - `tms_2604_43_unq_2_tdu_commonid.sas7bdat`
     - `tms_2604_43_unq_2_tpr_commonid.sas7bdat`
   - SAS log file: `add_commonID_to_hybrid_sam_files_HPC.log`
+
+## 5. SAM Compare
+Scripts `sam_compare_hybrid_reads.sbatch` and `sam_compare.shan.py` (from Filter orthologs section) were used.
+
+`sam_compare_hybrid_reads.sbatch` has been changed as listed below:
+  - DO NOT REPLACE SAPCE WITH UNDERSCORE!!! DIFFERENT FROM LUCAS'S METHOD; I USED PAIRED READS FOR MAPPING
+  - The read length is 150, instead of 100 in Lucas's analysis
+
+```bash
+## Tms (short-liguled) reads to TDU and TPR
+for i in 2604_24 2604_43 2604_48
+do
+
+SAMA=${IN}/Tms_${i}_unq_2_TDU_commonID.sam
+SAMB=${IN}/Tms_${i}_unq_2_TPR_commonID.sam
+
+### Concatenate reads for use in sam-compare; sed 's/ /_/g': replace all (g, global) space with _
+# DO NOT REPLACE SAPCE WITH UNDERSCORE!!! DIFFERENT FROM LUCAS'S METHOD; I USED PAIRED READS FOR MAPPING
+cat ${READ}/Tms_${i}_*.fastq > ${TMPDIR}/Tms_${i}.fastq
+
+# LENGTH OF READS (-L) CHANGED TO 150
+python ${SCRIPTS}/sam_compare.shan.py \
+	-d \
+	-l 150 \
+	-f ${IN}/TDU_tpr_bed_for_sam_compare.bed \
+	-q ${TMPDIR}/Tms_${i}.fastq \
+	-A $SAMA \
+	-B $SAMB \
+	-c ${OUT}/ase_counts_Tms_${i}_2_tdu_tpr.csv \
+	-t ${OUT}/ase_totals_Tms_${i}_2_tdu_tpr.csv \
+	-g ${LOGS}/ase_counts_Tms_${i}_2_tdu_tpr.log
+done
+```
+
+Output:
 
 
 
