@@ -263,11 +263,42 @@ python ${SCRIPTS}/sam_compare.shan.py \
 done
 ```
 
-Output:
-
-
-
-
+Output, example:
+  - `ase_counts_Tml_2605_9_2_tdu_tpr.csv`, which contains 11,864 orthologs; but only those orthologs from SAM files have expression level displayed.
+  - `ase_totals_Tml_2605_9_2_tdu_tpr.csv`
+    - ```
+      Count totals:
+      1:	a_single_exact	22456
+      2:	a_single_inexact	16362
+      3:	a_multi_exact	51346
+      4:	a_multi_inexact	1090
+      5:	b_single_exact	20947
+      6:	b_single_inexact	15873
+      7:	b_multi_exact	56179
+      8:	b_multi_inexact	576
+      9:	both_single_exact_same	0
+      10:	both_single_exact_diff	158508
+      11:	both_single_inexact_same	0
+      12:	both_single_inexact_diff	60968
+      13:	both_inexact_diff_equal	28749
+      14:	both_inexact_diff_a_better	16128
+      15:	both_inexact_diff_b_better	16091
+      16:	both_multi_exact	1655741
+      17:	both_multi_inexact	4922
+      18:	a_single_exact_b_single_inexact	13966
+      19:	a_single_inexact_b_single_exact	14069
+      20:	a_single_exact_b_multi_exact	74196
+      21:	a_multi_exact_b_single_exact	66710
+      22:	a_single_exact_b_multi_inexact	255
+      23:	a_multi_inexact_b_single_exact	363
+      24:	a_single_inexact_b_multi_exact	46549
+      25:	a_multi_exact_b_single_inexact	41664
+      26:	a_single_inexact_b_multi_inexact	1279
+      27:	a_multi_inexact_b_single_inexact	1513
+      28:	a_multi_exact_b_multi_inexact	11791
+      29:	a_multi_inexact_b_multi_exact	14237
+      30:	total_count	2351560
+      ```
 
   
   
