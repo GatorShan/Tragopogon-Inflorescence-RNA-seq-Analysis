@@ -332,7 +332,7 @@ Output:
 ## 8. Bayesian Flag Analyze
 "This step flags each feature for analysis (1) or not (0).Each feature must have at least one read and all reps should be present. This check for presence is important when running different rep cunts" --Lucas
 
-Scripts `submit_bayesian_flag_analyze_hybrid.bash` and `bayesian_flag_analyze_hybrids.sas` were usded in this step.
+Scripts `submit_bayesian_flag_analyze_hybrid.bash` and `bayesian_flag_analyze_hybrids.sas` were usded in this step. There are 3 replicates for each polyploid species.
 
 Output:
   - `bayes_flag_tms_reads_tdu_tpr.sas7bdat`
@@ -340,6 +340,41 @@ Output:
   - `bayesian_flag_analyze_hybrids.log`
 
 ## 9. Export Bayesian Flag Data
+"Export those data which were flagged for analysis (1) so that we can run the PG analysis" -- Lucas
+
+Scripts `submit_bayesian_export_flagged_dataset_hybrid.bash` and `bayesian_export_flagged_dataset_hybrid.sas`, which has been modified [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/694e44098e567b8cab26bc523d6411874bb2b9ad/Polyploid_alignment/bayesian_export_flagged_dataset_hybrid.sas#L31-L34), were used in this step. There are 3 replicates for each species.
+
+Output:
+  - **`ase_bayes_Tms_tdu_tpr_flag.csv`**
+    - ```
+      commonID,LINE_TOTAL_1,LINE_TOTAL_2,LINE_TOTAL_3,TESTER_TOTAL_1,TESTER_TOTAL_2,TESTER_TOTAL_3,flag_analyze
+      Tpr_TRINITY_DN10005_c0_g2|Tdu_TRINITY_DN21586_c5_g2,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10006_c0_g1|Tdu_TRINITY_DN18006_c3_g3,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10008_c0_g2|Tdu_TRINITY_DN16267_c0_g1,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10008_c0_g5|Tdu_TRINITY_DN16267_c0_g4,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10010_c0_g1|Tdu_TRINITY_DN19621_c0_g1,21,28,22,45,35,49,1
+      Tpr_TRINITY_DN10012_c0_g1|Tdu_TRINITY_DN21718_c1_g1,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10017_c0_g1|Tdu_TRINITY_DN15873_c0_g1,5,5,6,1,2,3,1
+      Tpr_TRINITY_DN10018_c0_g1|Tdu_TRINITY_DN3659_c0_g1,1,2,0,1,2,1,1
+      ```
+  - **`ase_bayes_Tml_tdu_tpr_flag.csv`**
+    - ```
+      commonID,LINE_TOTAL_1,LINE_TOTAL_2,LINE_TOTAL_3,TESTER_TOTAL_1,TESTER_TOTAL_2,TESTER_TOTAL_3,flag_analyze
+      Tpr_TRINITY_DN10005_c0_g2|Tdu_TRINITY_DN21586_c5_g2,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10006_c0_g1|Tdu_TRINITY_DN18006_c3_g3,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10008_c0_g2|Tdu_TRINITY_DN16267_c0_g1,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10008_c0_g5|Tdu_TRINITY_DN16267_c0_g4,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10010_c0_g1|Tdu_TRINITY_DN19621_c0_g1,185,7,24,220,15,43,1
+      Tpr_TRINITY_DN10012_c0_g1|Tdu_TRINITY_DN21718_c1_g1,0,0,0,0,0,0,0
+      Tpr_TRINITY_DN10017_c0_g1|Tdu_TRINITY_DN15873_c0_g1,2,3,4,2,5,1,1
+      ```
+  - `ase_bayes_tms_tdu_tpr_flag.sas7bdat`
+  - `ase_bayes_tml_tdu_tpr_flag.sas7bdat`
+  - `bayesian_export_flagged_dataset_hybrid.log`
+
+
+
+
 
 
 
