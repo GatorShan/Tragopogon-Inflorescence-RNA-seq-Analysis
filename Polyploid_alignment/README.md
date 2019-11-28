@@ -329,6 +329,18 @@ Output:
   - `ase_bayes_tml_rds_tdu_tpr_sbys.sas7bdat`
   - `bayesian_make_sbys_reps_hybrid.log`
 
+## 8. Bayesian Flag Analyze
+"This step flags each feature for analysis (1) or not (0).Each feature must have at least one read and all reps should be present. This check for presence is important when running different rep cunts" --Lucas
+
+Scripts `submit_bayesian_flag_analyze_hybrid.bash` and `bayesian_flag_analyze_hybrids.sas` were usded in this step.
+
+Output:
+  - `bayes_flag_tms_reads_tdu_tpr.sas7bdat`
+  - `bayes_flag_tml_reads_tdu_tpr.sas7bdat`
+  - `bayesian_flag_analyze_hybrids.log`
+
+## 9. Export Bayesian Flag Data
+
 
 
   
