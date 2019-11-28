@@ -345,7 +345,7 @@ Output:
 Scripts `submit_bayesian_export_flagged_dataset_hybrid.bash` and `bayesian_export_flagged_dataset_hybrid.sas`, which has been modified [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/694e44098e567b8cab26bc523d6411874bb2b9ad/Polyploid_alignment/bayesian_export_flagged_dataset_hybrid.sas#L31-L34), were used in this step. There are 3 replicates for each species.
 
 Output:
-  - **`ase_bayes_Tms_tdu_tpr_flag.csv`**
+  - **`ase_bayes_Tms_tdu_tpr_flag.csv`**; the two csv files have truncated commonID for 3 orthologs; but all commonIDs are uniq even after truncation.
     - ```
       commonID,LINE_TOTAL_1,LINE_TOTAL_2,LINE_TOTAL_3,TESTER_TOTAL_1,TESTER_TOTAL_2,TESTER_TOTAL_3,flag_analyze
       Tpr_TRINITY_DN10005_c0_g2|Tdu_TRINITY_DN21586_c5_g2,0,0,0,0,0,0,0
@@ -371,6 +371,21 @@ Output:
   - `ase_bayes_tms_tdu_tpr_flag.sas7bdat`
   - `ase_bayes_tml_tdu_tpr_flag.sas7bdat`
   - `bayesian_export_flagged_dataset_hybrid.log`
+
+## 10. Split ASE Table
+"This step is performed to speed up the analysis by separating the process into reasonably sized chunks" -- Lucas
+
+Script `split_emp_bayesian_ase_table_hybrids.bash` was used.
+
+Input:
+  - `ase_bayes_Tms_tdu_tpr_flag.csv`
+  - `ase_bayes_Tml_tdu_tpr_flag.csv`
+
+Output:
+  - `split_Tms_tdu_tpr/split_(1-500).csv`
+  - `split_Tml_tdu_tpr/split_(1-500).csv`
+
+## 11. Run Bayesian Possion-Gamma
 
 
 
