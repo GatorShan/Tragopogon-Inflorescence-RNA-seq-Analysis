@@ -386,6 +386,10 @@ Output:
   - `split_Tml_tdu_tpr/split_(1-500).csv`
 
 ## 11. Run Bayesian Possion-Gamma
+"Execute the Bayesian PG machine to identify expression bias between the orthologous pairs. For the hybrid, reads were mapped back to both references to identify loci that exhibit an expression bias toward each parental reference. This was done using all loci and is later filtered (keeping loci that do not exhibit mapping bias -- derived from the parent PG pipe)." -- Lucas
+
+Script `run_emp_bayesian_machine_hybrids.sbatch` was used.
+
 
 
 
