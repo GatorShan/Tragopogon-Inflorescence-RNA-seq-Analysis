@@ -415,8 +415,17 @@ Output:
       ...
       ```
 
+## 13. Import Bayesian Poisson-Gamma Results to SAS
+Scripts `import_bayesian_results_hybrid.sas` and `execute_import_bayesian_flag_results_hybrid.bash` were used in this step.
 
+Input:
+  - `PG_emp_bayesian_results_Tms_tdu_tpr_hybrid.csv`
+  - `PG_emp_bayesian_results_Tml_tdu_tpr_hybrid.csv`
 
+Output:
+  - `emp_tms_tdu_tpr.sas7bdat`
+  - `emp_tml_tdu_tpr.sas7bdat`
+  - `import_bayesian_results_hybrid.log`
 
 
 
