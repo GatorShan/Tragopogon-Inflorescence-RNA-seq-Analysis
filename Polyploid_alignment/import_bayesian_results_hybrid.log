@@ -1,0 +1,231 @@
+1                                                          The SAS System                            12:54 Friday, November 29, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.89 seconds
+      cpu time            0.02 seconds
+      
+1          /********************************************************************************
+2          * This script imports the output from the Bayesian Machine
+3          ********************************************************************************/
+4          
+5          libname trago "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly";
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly
+6          
+7          %macro import_bayesian (hybrid) ;
+8          
+9               data WORK.Emp_&hybrid   ;
+10              %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+11              infile
+11       ! "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/empirical_bayesian_hybrids_output/PG_emp_bayesian_
+11       ! results_&hybrid._hybrid.csv"
+2                                                          The SAS System                            12:54 Friday, November 29, 2019
+
+12         	delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+13                 informat commonID $54. ;
+14                 informat q4_mean_theta best32. ;
+15                 informat q4_q025 best32. ;
+16                 informat q4_q975 best32. ;
+17                 informat q5_mean_theta best32. ;
+18                 informat q5_q025 best32. ;
+19                 informat q5_q975 best32. ;
+20                 informat q6_mean_theta best32. ;
+21                 informat q6_q025 best32. ;
+22                 informat q6_q975 best32. ;
+23                 format commonID $54. ;
+24                 format q4_mean_theta best12. ;
+25                 format q4_q025 best12. ;
+26                 format q4_q975 best12. ;
+27                 format q5_mean_theta best12. ;
+28                 format q5_q025 best12. ;
+29                 format q5_q975 best12. ;
+30                 format q6_mean_theta best12. ;
+31                 format q6_q025 best12. ;
+32                 format q6_q975 best12. ;
+33              input
+34                          commonID $
+35                          q4_mean_theta
+36                          q4_q025
+37                          q4_q975
+38                          q5_mean_theta
+39                          q5_q025
+40                          q5_q975
+41                          q6_mean_theta
+42                          q6_q025
+43                          q6_q975
+44              ;
+45              if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+46              run;
+47         %mend ;
+48         
+49         /*
+50         %macro import_bayesian (reads, ref1, ref2) ;
+51         
+52              data WORK.Emp_&reads._for_&ref1._&ref2   ;
+53              %let _EFIERR_ = 0;
+54              infile
+54       ! "/ufrc/barbazuk/lboat/T.lamottei_T.crocifolius/Complete_data_set/align_reads_for_samcompare/empirical_bayesian_parents_ou
+54       ! tput/PG_emp_bayesian_results_&reads._parents.csv"
+55         	delimiter = ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+56                 informat commonID $54. ;
+57                 informat q4_mean_theta best32. ;
+58                 informat q4_q025 best32. ;
+59                 informat q4_q975 best32. ;
+60                 informat q5_mean_theta best32. ;
+61                 informat q5_q025 best32. ;
+62                 informat q5_q975 best32. ;
+63                 informat q6_mean_theta best32. ;
+64                 informat q6_q025 best32. ;
+65                 informat q6_q975 best32. ;
+66                 format commonID $54. ;
+67                 format q4_mean_theta best12. ;
+3                                                          The SAS System                            12:54 Friday, November 29, 2019
+
+68                 format q4_q025 best12. ;
+69                 format q4_q975 best12. ;
+70                 format q5_mean_theta best12. ;
+71                 format q5_q025 best12. ;
+72                 format q5_q975 best12. ;
+73                 format q6_mean_theta best12. ;
+74                 format q6_q025 best12. ;
+75                 format q6_q975 best12. ;
+76              input
+77                          commonID $
+78                          q4_mean_theta
+79                          q4_q025
+80                          q4_q975
+81                          q5_mean_theta
+82                          q5_q025
+83                          q5_q975
+84                          q6_mean_theta
+85                          q6_q025
+86                          q6_q975
+87              ;
+88              if _ERROR_ then call symputx('_EFIERR_',1);
+89              output WORK.Emp_&reads._for_&ref1._&ref2;
+90              run;
+91         %mend ;
+92         */
+93         
+94         %import_bayesian (Tms_tdu_tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/empirical_bayesian_hybrids_output/PG_emp_bayesian_resul
+      ts_Tms_tdu_tpr_hybrid.csv" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/empirical_bayesian_hybrids_output/PG_emp_bayesi
+      an_results_Tms_tdu_tpr_hybrid.csv,
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=29Nov2019:12:00:54,
+      File Size (bytes)=534253
+
+NOTE: 5118 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/empirical_bayesian_hybrids_output/PG_emp_bayesian_resul
+      ts_Tms_tdu_tpr_hybrid.csv".
+      The minimum record length was 88.
+      The maximum record length was 106.
+NOTE: The data set WORK.EMP_TMS_TDU_TPR has 5118 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.02 seconds
+      
+
+95         %import_bayesian (Tml_tdu_tpr) ;
+
+NOTE: The infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/empirical_bayesian_hybrids_output/PG_emp_bayesian_resul
+      ts_Tml_tdu_tpr_hybrid.csv" is:
+      
+      Filename=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/empirical_bayesian_hybrids_output/PG_emp_bayesi
+      an_results_Tml_tdu_tpr_hybrid.csv,
+4                                                          The SAS System                            12:54 Friday, November 29, 2019
+
+      Owner Name=shan158538,Group Name=soltis,
+      Access Permission=-rw-r--r--,
+      Last Modified=29Nov2019:12:01:14,
+      File Size (bytes)=536007
+
+NOTE: 5137 records were read from the infile 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/empirical_bayesian_hybrids_output/PG_emp_bayesian_resul
+      ts_Tml_tdu_tpr_hybrid.csv".
+      The minimum record length was 89.
+      The maximum record length was 106.
+NOTE: The data set WORK.EMP_TML_TDU_TPR has 5137 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+96         
+97         %macro setdata (hybrid) ;
+98         
+99         data trago.Emp_&hybrid;
+100             set Emp_&hybrid;
+101        run;
+102        
+103        %mend ;
+104        
+105        %setdata (Tms_tdu_tpr) ;
+
+NOTE: There were 5118 observations read from the data set WORK.EMP_TMS_TDU_TPR.
+NOTE: The data set TRAGO.EMP_TMS_TDU_TPR has 5118 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+106        %setdata (Tml_tdu_tpr) ;
+
+NOTE: There were 5137 observations read from the data set WORK.EMP_TML_TDU_TPR.
+NOTE: The data set TRAGO.EMP_TML_TDU_TPR has 5137 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1.38 seconds
+      cpu time            0.07 seconds
+      
