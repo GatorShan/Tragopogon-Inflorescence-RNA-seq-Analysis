@@ -427,6 +427,25 @@ Output:
   - `emp_tml_tdu_tpr.sas7bdat`
   - `import_bayesian_results_hybrid.log`
 
+## 14. Flag Significant Bayesian Poisson-Gamma Output
+Flag those putative orthologous pairs that exhibit mapping bias?
+
+Scripts `execute_bayesian_flag_sig_results_hybrid.bash` and `bayesian_flag_sig_results_hybrid_pdf.sas` were used in this step.
+
+Output:
+  - `bayes_flag_sig_tms_tdu_tpr.sas7bdat`
+  - `bayes_flag_sig_tml_tdu_tpr.sas7bdat`
+  - `bayes_flag_sig_Tms_tdu_tpr.pdf`
+  - `bayes_flag_sig_Tml_tdu_tpr.pdf`
+  - `bayesian_flag_sig_hybrid.log`
+
+![tms_tdu_tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Polyploid_alignment/images/emp_tms_tdu_tpr.png)
+
+![tms_tdu_tpr_sig](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Polyploid_alignment/images/emp_tms_tdu_tpr_sig.png)
+
+![tml_tdu_tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Polyploid_alignment/images/emp_tml_tdu_tpr.png)
+
+![tml_tdu_tpr_sig](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Polyploid_alignment/images/emp_tml_tdu_tpr_sig.png)
 
 
   
