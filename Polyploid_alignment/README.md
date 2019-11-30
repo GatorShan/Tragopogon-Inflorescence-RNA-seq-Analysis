@@ -447,6 +447,32 @@ Output:
 
 ![tml_tdu_tpr_sig](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Polyploid_alignment/images/emp_tml_tdu_tpr_sig.png)
 
+## 15. Generate CSVs of Flagged Significant Bayesian Possion-Gamma Output
+Scripts `execute_output_ase_bayesian_flagged_CSVs.bash` and `output_ase_bayesian_flagged_hybrids_CSVs.sas` have been used in this step.
+
+Output:
+  - `bayes_flag_sig_Tms_for_UR.csv`
+
+```
+commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_Tms_tdu_tpr
+Tpr_TRINITY_DN11281_c1_g9|Tdu_TRINITY_DN15992_c0_g1,0.712,0.406,0.896,0.669,0.304,0.893,0.645,0.271,0.879,0,0,0,0
+Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2,0.608,0.418,0.786,0.529,0.333,0.708,0.446,0.259,0.637,0,0,0,0
+Tpr_TRINITY_DN11283_c4_g7|Tdu_TRINITY_DN21302_c2_g2,0.297,0.122,0.491,0.229,0.092,0.406,0.168,0.06,0.317,1,1,1,1
+Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.527,0.284,0.758,0.447,0.202,0.699,0.384,0.169,0.62,0,0,0,0
+Tpr_TRINITY_DN11285_c1_g4|Tdu_TRINITY_DN17239_c2_g3,0.187,0.093,0.299,0.136,0.065,0.224,0.096,0.048,0.169,1,1,1,1    
+```
+  - `bayes_flag_sig_Tml_for_UR.csv`
+  
+```
+commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_Tml_tdu_tpr
+Tpr_TRINITY_DN11281_c1_g9|Tdu_TRINITY_DN15992_c0_g1,0.734,0.519,0.878,0.686,0.445,0.861,0.637,0.377,0.828,1,0,0,0
+Tpr_TRINITY_DN11283_c3_g1|Tdu_TRINITY_DN25596_c4_g2,0.603,0.36,0.796,0.524,0.298,0.746,0.452,0.231,0.691,0,0,0,0
+Tpr_TRINITY_DN11283_c4_g7|Tdu_TRINITY_DN21302_c2_g2,0.573,0.411,0.724,0.484,0.31,0.64,0.398,0.248,0.545,0,0,0,0
+Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.527,0.266,0.749,0.462,0.231,0.703,0.379,0.142,0.638,0,0,0,0
+Tpr_TRINITY_DN11285_c1_g4|Tdu_TRINITY_DN17239_c2_g3,0.163,0.055,0.3,0.121,0.037,0.238,0.086,0.025,0.171,1,1,1,1
+```
+  - `output_ase_bayesian_flagged_CSVs.log`
+
 
   
   
