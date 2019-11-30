@@ -451,7 +451,7 @@ Output:
 Scripts `execute_output_ase_bayesian_flagged_CSVs.bash` and `output_ase_bayesian_flagged_hybrids_CSVs.sas` have been used in this step.
 
 Output:
-  - `bayes_flag_sig_Tms_for_UR.csv`
+  - `bayes_flag_sig_Tms_for_UR.csv`, which contains 5,118 orthologous pairs.
 
 ```
 commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_Tms_tdu_tpr
@@ -461,7 +461,7 @@ Tpr_TRINITY_DN11283_c4_g7|Tdu_TRINITY_DN21302_c2_g2,0.297,0.122,0.491,0.229,0.09
 Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.527,0.284,0.758,0.447,0.202,0.699,0.384,0.169,0.62,0,0,0,0
 Tpr_TRINITY_DN11285_c1_g4|Tdu_TRINITY_DN17239_c2_g3,0.187,0.093,0.299,0.136,0.065,0.224,0.096,0.048,0.169,1,1,1,1    
 ```
-  - `bayes_flag_sig_Tml_for_UR.csv`
+  - `bayes_flag_sig_Tml_for_UR.csv`, which contains 5,137 orthologous pairs.
   
 ```
 commonID,q4_mean_theta,q4_q025,q4_q975,q5_mean_theta,q5_q025,q5_q975,q6_mean_theta,q6_q025,q6_q975,flag_q4_sig,flag_q5_sig,flag_q6_sig,flag_sig_Tml_tdu_tpr
