@@ -1,0 +1,193 @@
+1                                                          The SAS System                            18:00 Friday, November 29, 2019
+
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M1 MBCS3170) 
+      Licensed to UNIVERSITY OF FLORIDA - SFA T&R, Site 70095659.
+NOTE: This session is executing on the Linux 3.10.0-862.9.1.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 13.1
+      SAS/ETS 13.1
+      SAS/OR 13.1
+      SAS/IML 13.1
+      SAS/QC 13.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-862.9.1.el7.x86_64 #1 SMP Wed Jun 27 04:30:39 EDT 2018 x86_64 Red Hat Enterprise Linux Server release 7.5 
+      (Maipo) 
+
+You are running SAS 9. Some SAS 8 files will be automatically converted 
+by the V9 engine; others are incompatible.  Please see 
+http://support.sas.com/rnd/migration/planning/platform/64bit.html
+
+PROC MIGRATE will preserve current SAS file attributes and is 
+recommended for converting all your SAS libraries from any 
+SAS 8 release to SAS 9.  For details and examples, please see
+http://support.sas.com/rnd/migration/index.html
+
+
+This message is contained in the SAS news file, and is presented upon
+initialization.  Edit the file "news" in the "misc/base" directory to
+display site-specific news and information in the program log.
+The command line option "-nonews" will prevent this display.
+
+
+
+
+NOTE: SAS initialization used:
+      real time           0.63 seconds
+      cpu time            0.03 seconds
+      
+1          
+2          libname trago "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly";
+NOTE: Libref TRAGO was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly
+3          
+4          ods listing ;
+5          /* hybrids */
+6          %macro flag (hybrid) ;
+7          
+8          data trago.bayes_flag_sig_&hybrid;
+9              set trago.emp_&hybrid;
+10         	if (q4_q025 ne " ") and (q4_q025 > 0.5 or q4_q975 < 0.5) then flag_q4_sig = 1;
+11         		else flag_q4_sig = 0;
+12         	if (q5_q025 ne " ") and (q5_q025 > 0.5 or q5_q975 < 0.5) then flag_q5_sig = 1;
+13         		else flag_q5_sig = 0;
+2                                                          The SAS System                            18:00 Friday, November 29, 2019
+
+14             if (q6_q025 ne " ") and (q6_q025 > 0.5 or q6_q975 < 0.5) then flag_q6_sig = 1;
+15         		else flag_q6_sig = 0;
+16         	if flag_q4_sig = 1 and flag_q5_sig=1 and flag_q6_sig = 1 then flag_sig_&hybrid =1 ;
+17         		else flag_sig_&hybrid =0;
+18         	*keep commonID flag_: ;
+19         	run ;
+20         
+21         
+22             run;
+23         %mend ;
+24         
+25         %flag (Tms_tdu_tpr) ;
+
+NOTE: Character values have been converted to numeric values at the places given by: (Line):(Column).
+      25:81    25:186   25:46    
+NOTE: There were 5118 observations read from the data set TRAGO.EMP_TMS_TDU_TPR.
+NOTE: The data set TRAGO.BAYES_FLAG_SIG_TMS_TDU_TPR has 5118 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.02 seconds
+      
+
+26         %flag (Tml_tdu_tpr) ;
+
+NOTE: Character values have been converted to numeric values at the places given by: (Line):(Column).
+      49:80    49:185   26:46    
+NOTE: There were 5137 observations read from the data set TRAGO.EMP_TML_TDU_TPR.
+NOTE: The data set TRAGO.BAYES_FLAG_SIG_TML_TDU_TPR has 5137 observations and 14 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.39 seconds
+      cpu time            0.00 seconds
+      
+
+27         
+28         /* plot hybrids */
+29         %macro plots (hybrid) ;
+30         
+31         ods pdf file="/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly/bayes_flag_sig_&hybrid..pdf";
+32         
+33         title "Distribution of mean (*ESC*){unicode theta} for Emp_&hybrid";
+34         proc sgplot data = trago.bayes_flag_sig_&hybrid ;
+35         histogram q4_mean_theta / fillattrs=graphdata1 transparency=0.5;
+36         density q4_mean_theta / lineattrs=graphdata1;
+37         histogram q5_mean_theta / fillattrs=graphdata2 transparency=0.5;
+38         density q5_mean_theta / lineattrs=graphdata2;
+39         histogram q6_mean_theta / fillattrs=graphdata3 transparency=0.5;
+40         density q6_mean_theta / lineattrs=graphdata3;
+41         xaxis label="mean (*ESC*){unicode theta}";
+42         run ;
+43         
+44         ods pdf close ;
+45         
+46         %mend ;
+47         
+48         %plots (Tms_tdu_tpr) ;
+NOTE: Writing ODS PDF output to DISK destination 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly/bayes_flag_sig_Tms_tdu_tpr.pdf", printer "PDF".
+
+3                                                          The SAS System                            18:00 Friday, November 29, 2019
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           4.61 seconds
+      cpu time            0.12 seconds
+      
+NOTE: Listing image output written to SGPlot.png.
+NOTE: There were 5118 observations read from the data set TRAGO.BAYES_FLAG_SIG_TMS_TDU_TPR.
+
+NOTE: ODS PDF printed 1 page to /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly/bayes_flag_sig_Tms_tdu_tpr.pdf.
+49         %plots (Tml_tdu_tpr) ;
+NOTE: Writing ODS PDF output to DISK destination 
+      "/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly/bayes_flag_sig_Tml_tdu_tpr.pdf", printer "PDF".
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           1.69 seconds
+      cpu time            0.08 seconds
+      
+NOTE: Listing image output written to SGPlot1.png.
+NOTE: There were 5137 observations read from the data set TRAGO.BAYES_FLAG_SIG_TML_TDU_TPR.
+
+NOTE: ODS PDF printed 1 page to /ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/sas_data_poly/bayes_flag_sig_Tml_tdu_tpr.pdf.
+50         
+51         /* plot hybrids */
+52         %macro plots (hybrid) ;
+53         
+54         
+55         title "Distribution of mean (*ESC*){unicode theta} for Emp_&hybrid Sig all 3";
+56         proc sgplot data =  trago.bayes_flag_sig_&hybrid ;
+57         where flag_sig_&hybrid =1 ;
+58         histogram q4_mean_theta / fillattrs=graphdata1 transparency=0.5;
+59         density q4_mean_theta / lineattrs=graphdata1;
+60         histogram q5_mean_theta / fillattrs=graphdata2 transparency=0.5;
+61         density q5_mean_theta / lineattrs=graphdata2;
+62         histogram q6_mean_theta / fillattrs=graphdata3 transparency=0.5;
+63         density q6_mean_theta / lineattrs=graphdata3;
+64         xaxis label="mean (*ESC*){unicode theta}";
+65         run ;
+66         
+67         
+68         %mend ;
+69         
+70         %plots (Tms_tdu_tpr) ;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           0.23 seconds
+      cpu time            0.04 seconds
+      
+NOTE: Listing image output written to SGPlot2.png.
+NOTE: There were 1018 observations read from the data set TRAGO.BAYES_FLAG_SIG_TMS_TDU_TPR.
+      WHERE flag_sig_Tms_tdu_tpr=1;
+
+71         %plots (Tml_tdu_tpr) ;
+
+NOTE: PROCEDURE SGPLOT used (Total process time):
+      real time           0.26 seconds
+      cpu time            0.04 seconds
+      
+NOTE: Listing image output written to SGPlot3.png.
+NOTE: There were 949 observations read from the data set TRAGO.BAYES_FLAG_SIG_TML_TDU_TPR.
+4                                                          The SAS System                            18:00 Friday, November 29, 2019
+
+      WHERE flag_sig_Tml_tdu_tpr=1;
+
+72         
+73         
+74         
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           8.84 seconds
+      cpu time            0.49 seconds
+      
