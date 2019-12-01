@@ -428,7 +428,7 @@ Output:
   - `import_bayesian_results_hybrid.log`
 
 ## 14. Flag Significant Bayesian Poisson-Gamma Output
-Flag those putative orthologous pairs that exhibit mapping bias?
+**The ortholog was considered to have homeologous expression bias if the credible interval did not overlap 0.5 for all priors. This approach has been shown to conservatively control type I error.** -- Boatwright et al., 2018
 
 Scripts `execute_bayesian_flag_sig_results_hybrid.bash` and `bayesian_flag_sig_results_hybrid_pdf.sas` were used in this step.
 
@@ -472,6 +472,78 @@ Tpr_TRINITY_DN11284_c2_g19|Tdu_TRINITY_DN20652_c0_g3,0.527,0.266,0.749,0.462,0.2
 Tpr_TRINITY_DN11285_c1_g4|Tdu_TRINITY_DN17239_c2_g3,0.163,0.055,0.3,0.121,0.037,0.238,0.086,0.025,0.171,1,1,1,1
 ```
   - `output_ase_bayesian_flagged_CSVs.log`
+
+## 16. Extract homeolog-specific expression orthologs
+
+Script `Extract_homeolog_expression_biased_orthologs.py` was used.
+
+```python
+Usage = """
+Extract_homeolog_expression_biased_orthologs.py
+Usage:
+	Extract_homeolog_expression_biased_orthologs.py bayes_flag_sig_Tms_for_UR.csv bayes_flag_sig_Tml_for_UR.csv
+"""
+
+import sys,os
+
+InFileName1 = sys.argv[1]
+InFileName2 = sys.argv[2]
+
+# These two outfiles are for Tms
+OutFileName1_1 = os.path.splitext(InFileName1)[0] + '_bias_Tdu.csv'
+OutFileName1_2 = os.path.splitext(InFileName1)[0] + '_bias_Tpr.csv'
+
+# These two outfiles are for Tml
+OutFileName2_1 = os.path.splitext(InFileName2)[0] + '_bias_Tdu.csv'
+OutFileName2_2 = os.path.splitext(InFileName2)[0] + '_bias_Tpr.csv'
+
+# open these files at the same time
+OutFile1_1 = open(OutFileName1_1, 'w')
+OutFile1_2 = open(OutFileName1_2, 'w')
+OutFile2_1 = open(OutFileName2_1, 'w')
+OutFile2_2 = open(OutFileName2_2, 'w')
+Delimiter = ","
+
+if len(sys.argv) < 3:
+	print(Usage)
+else:
+	InFile1 = open(InFileName1, 'r')
+	next(InFile1)
+	for Line1 in InFile1:
+		Line1 = Line1.strip('\n')
+		ElementList1 = Line1.split(Delimiter)
+		Sig1 = int(ElementList1[13])
+		q5_theta1 = float(ElementList1[4])
+		if Sig1 == 1 and q5_theta1 < 0.5:
+			OutFile1_1.write(Line1 + "\n")
+		elif Sig1 == 1 and q5_theta1 > 0.5:
+			OutFile1_2.write(Line1 + "\n")
+				
+	InFile2 = open(InFileName2, 'r')
+	next(InFile2)
+	for Line2 in InFile2:
+		Line2 = Line2.strip('\n')
+		ElementList2 = Line2.split(Delimiter)
+		Sig2 = int(ElementList2[13])
+		q5_theta2 = float(ElementList2[4])
+		if Sig2 == 1 and q5_theta2 < 0.5:
+			OutFile2_1.write(Line2 + "\n")
+		elif Sig2 == 1 and q5_theta2 > 0.5:
+			OutFile2_2.write(Line2 + "\n")
+```
+
+Input:
+  - `bayes_flag_sig_Tms_for_UR.csv`
+  - `bayes_flag_sig_Tml_for_UR.csv`
+
+Output:
+  - `bayes_flag_sig_Tms_for_UR_bias_Tpr.csv`, which contains 568 orthologs.
+  - `bayes_flag_sig_Tms_for_UR_bias_Tdu.csv`, which contains 450 orthologs.
+  - `bayes_flag_sig_Tml_for_UR_bias_Tpr.csv`, which contains 528 orthologs.
+  - `bayes_flag_sig_Tml_for_UR_bias_Tdu.csv`, which contains 421 orthologs.
+
+
+
 
 
   
