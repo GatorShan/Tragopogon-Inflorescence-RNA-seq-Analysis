@@ -236,3 +236,47 @@ Description of this analysis can be found [here](https://github.com/trinityrnase
       - 85% identity; 
       - E-value: 1E-10;
       - At least 50% of the query sequence has to align against the PacBio long reads
+
+## 5. Remove redundancy of Trinity de novo assembly
+"A SuperTranscript is constructed by collapsing unique and common sequence regions among splicing isoforms into a single linear sequence." This function is provided in the Trinity toolkit. More information could be found [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki/SuperTranscripts). [Lace](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1284-1) is the software used in this step.
+
+Inputs are de novo Trinity assemblies for Tdu and Tpr from step 3.
+  - For Tdu: `Tdu_trinity_norm_concat_denovo.Trinity.fasta`
+  - For Tpr: `Tpr_trinity_crop_separately_norm_1.Trinity.fasta`
+
+Scripts used are listed below:
+  - `SuperTranscript_Tdu_2.0.sh`
+  - `SuperTranscript_Tpr_1.0.sh`
+
+Output:
+  - **`SuperTranscript_Tdu.fasta`**
+  - `SuperTranscript_Tdu.gtf`
+  - `SuperTranscript_Tdu.malign`
+  - **`SuperTranscript_Tpr.fasta`**
+  - `SuperTranscript_Tpr.gtf`
+  - `SuperTranscript_Tpr.malign`
+
+Statistics of the Supertranscripts were evaluated using `bbmap` and script `AverageLengthMinLength.py`.
+
+Example:
+```bash
+module load bbmap/38.44
+stats.sh in=SuperTranscript_Tdu.fasta > SuperTranscript_Tdu.fasta.statistics
+```
+```bash
+module load python3
+python AverageLengthMinLength.py SuperTranscript_Tdu.fasta >SuperTranscript_Tdu.fasta.statistics2
+```
+
+**Statistics of the SuperTranscripts**
+
+| Species | Count | N50 | Mean length | Max contig length | Min contig length |
+| -- | -- | -- | -- | -- | -- |
+| Tdu | 126,278 | 1,904 bp | 921.8 bp | 15.517 Kb | 201 bp |
+| Tpr | 99,228 | 1,954 bp | 981.7 bp | 24.325 kb | 201 bp |
+
+
+
+
+
+
