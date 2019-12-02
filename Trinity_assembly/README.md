@@ -154,7 +154,7 @@ Script `Trinity_Tdu_norm_concat_denovo_1.0.sh` was used; the output files are:
     - Contig N50: 1347 (based on longest isoform per 'gene')
 
 #### 3.1.4 Assembly evaluation -- BUSCO analysis (using all transcripts)
-Script `BUSCO_ALL_Tdu_norm_concat_denovo_1.0.sh` was used; the output results are:
+Description of this analysis is described [here](https://busco.ezlab.org/). Script `BUSCO_ALL_Tdu_norm_concat_denovo_1.0.sh` was used; the output results are:
   - **C:95.3%[S:29.2%,D:66.1%],F:3.4%,M:1.3%,n:1375**
     - 1311	Complete BUSCOs (C)
     - 402 Complete and single-copy BUSCOs (S)
@@ -164,17 +164,18 @@ Script `BUSCO_ALL_Tdu_norm_concat_denovo_1.0.sh` was used; the output results ar
 	- 1375 Total BUSCO groups searched
 
 #### 3.1.5 Assembly evaluation -- Read representation
-Script `ReadRepresent_Tdu_norm_concat_denovo_1.0.sh` was used; the output results are:
+Description of this analysis can be found [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki/RNA-Seq-Read-Representation-by-Trinity-Assembly). Script `ReadRepresent_Tdu_norm_concat_denovo_1.0.sh` was used; the output results are:
   - **96.78% overall alignment rate**
   - more info: align_stats.txt
 
 #### 3.1.6 Assembly evaluation -- ExN50 analysis
-Script `AbundanceEstimation_Tdu_trinity_norm_concat_denovo_1.0.sh` was used; results:
+[Here](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Transcriptome-Contig-Nx-and-ExN50-stats) is the description of the analysis. Script `AbundanceEstimation_Tdu_trinity_norm_concat_denovo_1.0.sh` was used; results:
   - **E90N50: 1802**
+  - **Tdu_norm_concat_denovo_ExN50.stats**
   - kallisto.isoform.TMM.EXPR.matrix
   - ExN50.stats
   - ExN50.stats.plot.pdf
-  - ![ExN50](https://cdn1.imggmi.com/uploads/2019/10/29/9438cff3d5cb728b280f1d562a7e5d28-full.png)
+  - ![ExN50](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Trinity_assembly/Images/Tdu_norm_concat_denovo_ExN50.stats.plot-1.png)
 
 ### 3.2 Tpr transcriptome assembly
 #### 3.2.1 Read normalization
@@ -194,7 +195,7 @@ Script `Trinity_Tpr_crop_separately_norm_2.0.sh` was used. Outputs are:
     - Contig N50: 1389 (based on longest isoform per 'gene')
 
 #### 3.2.3 Assembly evaluation -- BUSCO analysis (using all transcripts)
-Script `BUSCO_Tpr_crop_trinity_separatly_norm_1.0.sh` was used; results:
+Description of this analysis is described [here](https://busco.ezlab.org/). Script `BUSCO_Tpr_crop_trinity_separatly_norm_1.0.sh` was used; results:
   - **C:92.5%[S:34.5%,D:58.0%],F:6.0%,M:1.5%,n:1375**
     - 1272 Complete BUSCOs (C)
     - 474 Complete and single-copy BUSCOs (S)
@@ -204,21 +205,21 @@ Script `BUSCO_Tpr_crop_trinity_separatly_norm_1.0.sh` was used; results:
     - 1375 Total BUSCO groups searched
 
 #### 3.2.4 Assembly evaluation -- Read representation
-Script `ReadRepresent_Tpr_crop_trinity_separately_norm_1.0.sh` was used; **96.80%** overall alignment rate
+Description of this analysis can be found [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki/RNA-Seq-Read-Representation-by-Trinity-Assembly). Script `ReadRepresent_Tpr_crop_trinity_separately_norm_1.0.sh` was used; **96.80%** overall alignment rate
 
 #### 3.2.5 Assembly evaluation -- ExN50 analysis
-Script `AbundanceEstimation_Tpr_trinity_denovo_2.0.sh` was used; results:
+[Here](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Transcriptome-Contig-Nx-and-ExN50-stats) is the description of the analysis. Script `AbundanceEstimation_Tpr_trinity_denovo_2.0.sh` was used; results:
   - **E90N50: 1663 bp**
-  - ![Tpr ExN50](https://cdn1.imggmi.com/uploads/2019/10/30/4973424bdea6d52f0cfb4acee4bbd9a9-full.png)
+  - ![Tpr ExN50](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Trinity_assembly/Images/Tpr_denovo_ExN50.stats.plot-1.png)
 
 ## 4. Comparing different Trinity assembly approaches
 ### 4.1 Tdu assembly
 **The best assembly results have been shown in Step 3**. Different assembly methods have been tested, including in the presence of Tdu draft reference genome, and PacBio long reads. The table summrized the results:
-![Tdu_diff_assembly](https://cdn1.imggmi.com/uploads/2019/10/31/920c6b8f44eba87d6b875ff049ecbef3-full.png)
+![Tdu_diff_assembly](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Trinity_assembly/Images/Assembly_compare_Tdu-1.png)
 
 ### 4.2 Tpr assembly
 **The best assembly results have been shown in Step 3**.
-![Tpr_diff_assembly](https://cdn1.imggmi.com/uploads/2019/10/31/ccbcdcb8e6ccfa05b67ca2e74239e2ad-full.png)
+![Tpr_diff_assembly](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Trinity_assembly/Images/Assembly_compare_Tpr-1.png)
 
 ### 4.3 PacBio long reads have been well-represented by Trinity de novo assemblies
   - Tdu:
