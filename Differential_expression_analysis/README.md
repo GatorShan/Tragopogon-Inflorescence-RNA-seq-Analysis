@@ -33,3 +33,11 @@ Output:
   - `both_counts_Tpr_1_2_Tdu_Tpr.csv`
   - `both_counts_Tpr_2_2_Tdu_Tpr.csv`
   - `both_counts_Tpr_3_2_Tdu_Tpr.csv`
+
+### 2.2 Merge "both_counts" files
+The process of the analysis is shown in Jupyter notebook `merge_both_files.ipynb`.
+
+Output:
+  - `both_count_Tdu_Tpr_all_reps_for_Tms.csv`
+  - `both_count_Tdu_Tpr_all_reps_for_Tml.csv`
+
