@@ -65,5 +65,15 @@ Output:
       Tpr_TRINITY_DN38363_c0_g1|Tdu_TRINITY_DN14954_c0_g1,2,1,1,0,0,0
       ```
 
+## 3. Additive expression analysis
+### 3.1 Count reads in polyploids
+Jupyther Notebook `count_reads_both_poly.ipynb` was used.
 
+Output, example:
+  - `both_counts_Tms_1_2_tdu_tpr.csv`
+  - `both_counts_Tms_2_2_tdu_tpr.csv`
+  - `both_counts_Tms_3_2_tdu_tpr.csv`
+  - `both_counts_Tml_1_2_tdu_tpr.csv`
+  - `both_counts_Tml_2_2_tdu_tpr.csv`
+  - `both_counts_Tml_3_2_tdu_tpr.csv`
 
