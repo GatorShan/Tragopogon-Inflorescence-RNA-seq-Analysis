@@ -67,6 +67,14 @@ Output:
 
 ### 2.3 Identify DE between T.dubius and T. pratensis at Moscow (parents of short-liguled T. miscellus)
 The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_Tms.ipynb`.**
+  - 1) use voom to transform count data to log2(counts per million reads) (a.k.a. logCPM)
+  - 2) Fit logCPM to a linear model using function lmFit
+  - 3) Empirical Bayes Statistics For Differential Expression (eBayes), given a linear model fit ==> overall_model
+    - `fit=lmFit(voom, design)` and `overall_model <- eBayes(fit)`
+    - output: `DE_overall_model.txt`
+  - 4) contrast.fit: given a linear model fit to microarray data, compute estimated coefficients and standard errors for a given set of contrasts
+    - `fit2 = contrasts.fit(fit, contrast.matrix)` and `fit2 = eBayes(fit2)`
+    - output: `DE_Tdu_Tpr.txt`
 
 Input:
 ```
