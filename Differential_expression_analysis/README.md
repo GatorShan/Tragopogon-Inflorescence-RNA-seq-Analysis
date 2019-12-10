@@ -65,6 +65,27 @@ Output:
       Tpr_TRINITY_DN38363_c0_g1|Tdu_TRINITY_DN14954_c0_g1,2,1,1,0,0,0
       ```
 
+### 2.3 Identify DE between T.dubius and T. pratensis at Moscow (parents of short-liguled T. miscellus)
+The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_Tms.ipynb`.**
+
+Input:
+```
+both_counts_Tdu_4_2_Tdu_Tpr.csv   Tdu       Tdu_4
+both_counts_Tdu_5_2_Tdu_Tpr.csv   Tdu       Tdu_5
+both_counts_Tdu_6_2_Tdu_Tpr.csv   Tdu       Tdu_6
+both_counts_Tpr_1_2_Tdu_Tpr.csv   Tpr       Tpr_1
+both_counts_Tpr_2_2_Tdu_Tpr.csv   Tpr       Tpr_2
+both_counts_Tpr_3_2_Tdu_Tpr.csv   Tpr       Tpr_3
+```
+
+Output:
+  - `boxplot_log-CPM.pdf` in `voom_Tdu_Tpr_for_Tms.ipynb`
+  - `voom_expression_values.txt`
+  - `residual_std_dev.pdf` in `voom_Tdu_Tpr_for_Tms.ipynb`
+  - `DE_overall_model.txt`
+  - `DE_Tdu_Tpr.txt`
+
+
 ## 3. Additive expression analysis
 ### 3.1 Count reads in polyploids
 Jupyther Notebook `count_reads_both_poly.ipynb` was used.
