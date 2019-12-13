@@ -66,7 +66,7 @@ Output:
       ```
 
 ### 2.3 Identify DE between T.dubius and T. pratensis at Moscow (parents of short-liguled T. miscellus)
-The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_Tms.ipynb`.**
+The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_Tms_min10_3_rep.ipynb`.**
   - Use voom to transform count data to log2(counts per million reads) (a.k.a. logCPM)
   - Fit logCPM to a linear model using function lmFit
   - Empirical Bayes Statistics For Differential Expression (eBayes), given a linear model fit ==> overall_model
@@ -87,11 +87,20 @@ both_counts_Tpr_3_2_Tdu_Tpr.csv   Tpr       Tpr_3
 ```
 
 Output:
-  - `boxplot_log-CPM.pdf` in `voom_Tdu_Tpr_for_Tms.ipynb`
-  - `voom_expression_values.txt`
-  - `residual_std_dev.pdf` in `voom_Tdu_Tpr_for_Tms.ipynb`
-  - `DE_overall_model.txt`
-  - `DE_Tdu_Tpr.txt`
+  - `boxplot_log-CPM.pdf` in `voom_Tdu_Tpr_for_Tms_min10_3_rep.ipynb`
+  - `voom_expression_values_min10_3rep.txt`
+  - `residual_std_dev.pdf` in `voom_Tdu_Tpr_for_Tms_min10_3_rep.ipynb`
+  - `DE_overall_model_min10_3rep.txt`
+  - `DE_Tdu_Tpr_min10_3rep.txt`
+  
+Different filtering methods have been compared
+
+| Filtering methods | DE orthologs remained | DE orthologs with unbiased mapping |
+| -- | -- | -- |
+| keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 3 | 8,021 | |
+| keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 6 | 6,142 | 2,804 |
+| keep <- rowSums(cpm(d) > cpm(5,mean(d$samples$lib.size))[1]) >= 6 | 7,366 | 3,360 |
+
 
 
 ## 3. Additive expression analysis
