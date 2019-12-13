@@ -71,10 +71,10 @@ The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_T
   - Fit logCPM to a linear model using function lmFit
   - Empirical Bayes Statistics For Differential Expression (eBayes), given a linear model fit ==> overall_model
     - `fit=lmFit(voom, design)` and `overall_model <- eBayes(fit)`
-    - output: `DE_overall_model.txt`
+    - output: `DE_overall_model_min10_3rep.txt`
   - contrast.fit: given a linear model fit to microarray data, compute estimated coefficients and standard errors for a given set of contrasts
     - `fit2 = contrasts.fit(fit, contrast.matrix)` and `fit2 = eBayes(fit2)`
-    - output: `DE_Tdu_Tpr.txt`
+    - output: `DE_Tdu_Tpr_min10_3rep.txt`
 
 Input:
 ```
