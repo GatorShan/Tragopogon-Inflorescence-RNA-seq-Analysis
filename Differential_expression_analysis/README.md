@@ -74,7 +74,7 @@ The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_T
     - output: `DE_overall_model_min10_3rep.txt`
   - contrast.fit: given a linear model fit to microarray data, compute estimated coefficients and standard errors for a given set of contrasts
     - `fit2 = contrasts.fit(fit, contrast.matrix)` and `fit2 = eBayes(fit2)`
-    - output: `DE_Tdu_Tpr_min10_3rep.txt`
+    - output: **`DE_Tdu_Tpr_min10_3rep.txt`**
 
 Input:
 ```
@@ -91,35 +91,36 @@ Output:
   - `voom_expression_values_min10_3rep.txt`
   - `residual_std_dev.pdf` in `voom_Tdu_Tpr_for_Tms_min10_3_rep.ipynb`
   - `DE_overall_model_min10_3rep.txt`
-  - `DE_Tdu_Tpr_min10_3rep.txt`
+  - **`DE_Tdu_Tpr_min10_3rep.txt`**
   
 Different filtering methods have been compared
 
-| Filtering methods | DE orthologs remained | DE orthologs with unbiased mapping |
-| -- | -- | -- |
-| keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 3 | 8,021 | 3,732 |
-| keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 6 | 6,142 | 2,804 |
-| keep <- rowSums(cpm(d) > cpm(5,mean(d$samples$lib.size))[1]) >= 6 | 7,366 | 3,360 |
+| Filtering methods | DE orthologs remained |
+| -- | -- |
+| keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 3 | 8,021 |
+| keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 6 | 6,142 |
+| keep <- rowSums(cpm(d) > cpm(5,mean(d$samples$lib.size))[1]) >= 6 | 7,366 |
 
-### 3.1 Filtering and classifing `DE_Tdu_Tpr_min10_3rep.txt`
+### 3.1 Reanalyze homeolog-specific expression in Tms (short-liguled T. miscellus), taking parental expression into consideration!
+
 Among the 8,021 orthologs with differential expression profiles, not all of them showed unbiased mapping; in addition, how many of them are equally expressed in two diploid parents? How many showed higher expression in Tdu? And how about higher expression in Tpr?
 
 Scripts are in Jupyter notebook **`Tdu_Tpr_voom_Tms/filter_DE_Tdu_Tpr_for_Tms.ipynb`**.
 
-Input: `DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,021 orthologs. Among these orthologs, 3,732 showed unbiased mapping.
+Input: `DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,021 orthologs. Among these, **3,704 orthologs showed unbiased mapping and have homeolog-specific expression profiles**.
 
 Output:
-  - `DE_Tdu_Tpr_filtered.txt`, contains 3,732 unbiased mapping othologs
-  - `DE_Tdu_Tpr_filtered_not_sig_loci.txt`, contains 3,212 orthologs that showed no expression difference betweeen Tdu and Tpr
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`, contains 243 orthologs with higher expression in Tdu
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`, contains 277 orthologs with higher expression in Tpr
+  - `DE_Tdu_Tpr_filtered.txt`, contains 3,704 unbiased mapping othologs and have homeolog-specific expression profiles
+  - `DE_Tdu_Tpr_filtered_not_sig_loci.txt`, contains **3,185 orthologs that showed no expression difference betweeen Tdu and Tpr**
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`, contains **242 orthologs with higher expression in Tdu**
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`, contains **277 orthologs with higher expression in Tpr**
 
 | Orthologs in DE analysis | number of orthologs |
 | -- | -- |
-| Tdu = Tpr | 3,212 |
-| Tdu > Tpr | 243 |
+| Tdu = Tpr | 3,185 |
+| Tdu > Tpr | 242 |
 | Tdu < Tpr | 277 |
-| Sum | 3,732 |
+| Sum | 3,704 |
 
 ### 3.2 Reanalyze homeolog-specific expression in Tms (short-liguled T. miscellus), taking parental expression into consideration!
 
