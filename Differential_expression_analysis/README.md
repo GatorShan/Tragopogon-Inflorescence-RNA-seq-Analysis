@@ -104,7 +104,7 @@ Different filtering methods have been compared
 ### 3.1 Filtering and classifing `DE_Tdu_Tpr_min10_3rep.txt`
 Among the 8,021 orthologs with differential expression profiles, not all of them showed unbiased mapping; in addition, how many of them are equally expressed in two diploid parents? How many showed higher expression in Tdu? And how about higher expression in Tpr?
 
-Scripts are in Jupyter notebook `filter_DE_Tdu_Tpr_for_Tms.ipynb`.
+Scripts are in Jupyter notebook **`Tdu_Tpr_voom_Tms/filter_DE_Tdu_Tpr_for_Tms.ipynb`**.
 
 Input: `DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,021 orthologs. Among these orthologs, 3,732 showed unbiased mapping.
 
@@ -114,15 +114,16 @@ Output:
   - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`, contains 243 orthologs with higher expression in Tdu
   - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`, contains 277 orthologs with higher expression in Tpr
 
-| Types | number of orthologs |
+| Orthologs in DE analysis | number of orthologs |
 | -- | -- |
-| Sum | 3,732 |
 | Tdu = Tpr | 3,212 |
 | Tdu > Tpr | 243 |
 | Tdu < Tpr | 277 |
+| Sum | 3,732 |
 
-### 3.2
+### 3.2 Reanalyze homeolog-specific expression in Tms (short-liguled T. miscellus), taking parental expression into consideration!
 
+Script `***` was used.
 
 |    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
 | -- | -- | -- | -- | -- |
