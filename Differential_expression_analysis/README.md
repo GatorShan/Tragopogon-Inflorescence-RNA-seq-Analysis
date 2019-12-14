@@ -65,7 +65,7 @@ Output:
       Tpr_TRINITY_DN38363_c0_g1|Tdu_TRINITY_DN14954_c0_g1,2,1,1,0,0,0
       ```
 
-### 2.3 Identify DE between T.dubius and T. pratensis at Moscow (parents of short-liguled T. miscellus)
+## 3 Identify DE between T.dubius and T. pratensis at Moscow (parents of short-liguled T. miscellus)
 The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_Tms_min10_3_rep.ipynb`.**
   - Use voom to transform count data to log2(counts per million reads) (a.k.a. logCPM)
   - Fit logCPM to a linear model using function lmFit
@@ -101,7 +101,7 @@ Different filtering methods have been compared
 | keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 6 | 6,142 | 2,804 |
 | keep <- rowSums(cpm(d) > cpm(5,mean(d$samples$lib.size))[1]) >= 6 | 7,366 | 3,360 |
 
-### 2.4 Filtering and classifing `DE_Tdu_Tpr_min10_3rep.txt`
+### 3.1 Filtering and classifing `DE_Tdu_Tpr_min10_3rep.txt`
 Among the 8,021 orthologs with differential expression profiles, not all of them showed unbiased mapping; in addition, how many of them are equally expressed in two diploid parents? How many showed higher expression in Tdu? And how about higher expression in Tpr?
 
 Scripts are in Jupyter notebook `filter_DE_Tdu_Tpr_for_Tms.ipynb`.
@@ -121,7 +121,7 @@ Output:
 | Tdu > Tpr | 243 |
 | Tdu < Tpr | 277 |
 
-### 2.5 
+### 3.2
 
 
 |    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
@@ -135,8 +135,8 @@ Output:
 
 
 
-## 3. Additive expression analysis
-### 3.1 Count reads in polyploids
+## 4. Additive expression analysis
+### 4.1 Count reads in polyploids
 Jupyther Notebook `count_reads_both_poly.ipynb` was used.
 
 Output, example:
