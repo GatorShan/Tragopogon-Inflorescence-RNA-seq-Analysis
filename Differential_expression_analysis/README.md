@@ -128,10 +128,9 @@ Script `***` was used.
 
 |    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
 | -- | -- | -- | -- | -- |
-| Tdu = Tpr | | | | 3,212 |
-| Tdu > Tpr | | | | 243 |
-| Tdu < Tpr | | | | 277 |
-| Sum | | | | |
+| Tdu = Tpr | 2506 | 304 | 375 | 3,185 |
+| Tdu > Tpr | 182 | 31 | 29 | 242 |
+| Tdu < Tpr | 189| 25 | 63 | 277 |
 
 
 
