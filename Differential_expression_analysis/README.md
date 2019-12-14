@@ -185,35 +185,35 @@ Output:
 
 ### 6.2 Classify DE orthologs into different homeolog-specific expression categories
 
-Script **`Tdu_Tpr_voom_Tms/DE_Tdu_Tpr_for_Tms_homeolog-bias_exp.ipynb`** was used.
+Script **`Tdu_Tpr_voom_Tml/DE_Tdu_Tpr_for_Tml_homeolog-bias_exp.ipynb`** was used.
 
 Input1: `DE_Tdu_Tpr_filtered_not_sig_loci.txt`
 
 Output1:
-  - `DE_Tdu_Tpr_filtered_not_sig_loci_unbias.txt`, contains 2,506 orthologs
-  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTdu.txt`, contains 304 orthologs
-  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTpr.txt`, contains 375 orthologs
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_unbias.txt`, contains 2,531 orthologs
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTdu.txt`, contains 281 orthologs
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTpr.txt`, contains 350 orthologs
 
 Input2: `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`
 
 Output2:
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_unbias.txt`, contains 182 orthologs
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTdu.txt`, contains 31 orthologs
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTpr.txt`, contains 29 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_unbias.txt`, contains 214 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTdu.txt`, contains 33 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTpr.txt`, contains 31 orthologs
   
 Input3: `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`
 
 Output3:
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_unbias.txt`, contains 189 orthologs
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTdu.txt`, contains 25 orthologs
-  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTpr.txt`, contains 63 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_unbias.txt`, contains 274 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTdu.txt`, contains 27 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTpr.txt`, contains 76 orthologs
 
 
 |    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
 | -- | -- | -- | -- | -- |
-| Tdu = Tpr | 2506 | 304 | 375 | 3,185 |
-| Tdu > Tpr | 182 | 31 | 29 | 242 |
-| Tdu < Tpr | 189| 25 | 63 | 277 |
+| Tdu = Tpr | 2506 | 304 | 375 | 3,162 |
+| Tdu > Tpr | 214 | 33 | 31 | 278 |
+| Tdu < Tpr | 274 | 27 | 76 | 377 |
 
 ## 7. Additive expression analysis
 ### 7.1 Count reads in polyploids
