@@ -148,12 +148,75 @@ Output3:
 | Tdu > Tpr | 182 | 31 | 29 | 242 |
 | Tdu < Tpr | 189| 25 | 63 | 277 |
 
+## 5. Identify DE between T.dubius (Pullman) and T. pratensis (Moscow) (parents of long-liguled T. miscellus)
+The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tml/voom_Tdu_Tpr_for_Tml_min10_3_rep.ipynb`.**
+
+Input:
+```
+both_counts_Tdu_1_2_Tdu_Tpr.csv   Tdu       Tdu_1
+both_counts_Tdu_2_2_Tdu_Tpr.csv   Tdu       Tdu_2
+both_counts_Tdu_3_2_Tdu_Tpr.csv   Tdu       Tdu_3
+both_counts_Tpr_1_2_Tdu_Tpr.csv   Tpr       Tpr_1
+both_counts_Tpr_2_2_Tdu_Tpr.csv   Tpr       Tpr_2
+both_counts_Tpr_3_2_Tdu_Tpr.csv   Tpr       Tpr_3
+```
+
+Output:
+  - `boxplot_log-CPM.pdf` in `voom_Tdu_Tpr_for_Tml_min10_3_rep.ipynb`
+  - `voom_expression_values_min10_3rep.txt`
+  - `residual_std_dev.pdf` in `voom_Tdu_Tpr_for_Tml_min10_3_rep.ipynb`
+  - `DE_overall_model_min10_3rep.txt`
+  - **`DE_Tdu_Tpr_min10_3rep.txt`, which contains 8248 orthologs**
+
+## 6. Taking parental diploids' expression level into consideration, re-analyze homeolog-specific expression in Tml (long-liguled T. miscellus)
+
+### 6.1 Isolate DE orthologs showing unbiased mapping and compare Tdu and Tpr expression in those orthologs
+Among the 8,248 orthologs with differential expression profiles, not all of them showed unbiased mapping; in addition, how many of them are equally expressed in two diploid parents? How many showed higher expression in Tdu? And how about higher expression in Tpr?
+
+Scripts are in Jupyter notebook **`Tdu_Tpr_voom_Tml/filter_DE_Tdu_Tpr_for_Tml.ipynb`**.
+
+Input: `DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,248 orthologs. Among these, **3,817 orthologs showed unbiased mapping and have homeolog-specific expression profiles**.
+
+Output:
+  - `DE_Tdu_Tpr_filtered.txt`, contains 3,817 unbiased mapping othologs and have homeolog-specific expression profiles
+  - `DE_Tdu_Tpr_filtered_not_sig_loci.txt`, contains **3,162 orthologs that showed no expression difference betweeen Tdu and Tpr**
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`, contains **278 orthologs with higher expression in Tdu**
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`, contains **377 orthologs with higher expression in Tpr**
+
+### 6.2 Classify DE orthologs into different homeolog-specific expression categories
+
+Script **`Tdu_Tpr_voom_Tms/DE_Tdu_Tpr_for_Tms_homeolog-bias_exp.ipynb`** was used.
+
+Input1: `DE_Tdu_Tpr_filtered_not_sig_loci.txt`
+
+Output1:
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_unbias.txt`, contains 2,506 orthologs
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTdu.txt`, contains 304 orthologs
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTpr.txt`, contains 375 orthologs
+
+Input2: `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`
+
+Output2:
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_unbias.txt`, contains 182 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTdu.txt`, contains 31 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTpr.txt`, contains 29 orthologs
+  
+Input3: `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`
+
+Output3:
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_unbias.txt`, contains 189 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTdu.txt`, contains 25 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTpr.txt`, contains 63 orthologs
 
 
+|    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
+| -- | -- | -- | -- | -- |
+| Tdu = Tpr | 2506 | 304 | 375 | 3,185 |
+| Tdu > Tpr | 182 | 31 | 29 | 242 |
+| Tdu < Tpr | 189| 25 | 63 | 277 |
 
-
-## 5. Additive expression analysis
-### 5.1 Count reads in polyploids
+## 7. Additive expression analysis
+### 7.1 Count reads in polyploids
 Jupyther Notebook `count_reads_both_poly.ipynb` was used.
 
 Output, example:
