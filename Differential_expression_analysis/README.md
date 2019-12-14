@@ -118,7 +118,7 @@ Output:
 
 ### 4.2 Classify DE orthologs into different homeolog-specific expression categories
 
-Script `Tdu_Tpr_voom_Tms/DE_Tdu_Tpr_for_Tms_homeolog-bias_exp.ipynb` was used.
+Script **`Tdu_Tpr_voom_Tms/DE_Tdu_Tpr_for_Tms_homeolog-bias_exp.ipynb`** was used.
 
 Input1: `DE_Tdu_Tpr_filtered_not_sig_loci.txt`
 
