@@ -101,7 +101,7 @@ Different filtering methods have been compared
 | keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 6 | 6,142 |
 | keep <- rowSums(cpm(d) > cpm(5,mean(d$samples$lib.size))[1]) >= 6 | 7,366 |
 
-## 4. Taking parental diploids' expression level into consideration, reanalyze homeolog-specific expression in Tms
+## 4. Taking parental diploids' expression level into consideration, reanalyze homeolog-specific expression in Tms (short-liguled T. miscellus)
 
 ### 4.1 Isolate DE orthologs showing unbiased mapping and compare Tdu and Tpr expression in those orthologs
 Among the 8,021 orthologs with differential expression profiles, not all of them showed unbiased mapping; in addition, how many of them are equally expressed in two diploid parents? How many showed higher expression in Tdu? And how about higher expression in Tpr?
