@@ -211,7 +211,7 @@ Output3:
 
 |    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
 | -- | -- | -- | -- | -- |
-| Tdu = Tpr | 2506 | 304 | 375 | 3,162 |
+| Tdu = Tpr | 2,531 | 281 | 350 | 3,162 |
 | Tdu > Tpr | 214 | 33 | 31 | 278 |
 | Tdu < Tpr | 274 | 27 | 76 | 377 |
 
