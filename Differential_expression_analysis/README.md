@@ -101,7 +101,9 @@ Different filtering methods have been compared
 | keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 6 | 6,142 | 2,804 |
 | keep <- rowSums(cpm(d) > cpm(5,mean(d$samples$lib.size))[1]) >= 6 | 7,366 | 3,360 |
 
-### 2.4 Filtering `DE_Tdu_Tpr_min10_3rep.txt`
+### 2.4 Filtering and classifing `DE_Tdu_Tpr_min10_3rep.txt`
+Among the 8,021 orthologs with differential expression profiles, not all of them showed unbiased mapping; in addition, how many of them are equally expressed in two diploid parents? How many showed higher expression in Tdu? And how about higher expression in Tpr?
+
 Scripts are in Jupyter notebook `filter_DE_Tdu_Tpr_for_Tms.ipynb`.
 
 Input: `DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,021 orthologs. Among these orthologs, 3,732 showed unbiased mapping.
@@ -111,6 +113,25 @@ Output:
   - `DE_Tdu_Tpr_filtered_not_sig_loci.txt`, contains 3,212 orthologs that showed no expression difference betweeen Tdu and Tpr
   - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`, contains 243 orthologs with higher expression in Tdu
   - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`, contains 277 orthologs with higher expression in Tpr
+
+| Types | number of orthologs |
+| -- | -- |
+| Sum | 3,732 |
+| Tdu = Tpr | 3,212 |
+| Tdu > Tpr | 243 |
+| Tdu < Tpr | 277 |
+
+### 2.5 
+
+
+|    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
+| -- | -- | -- | -- | -- |
+| Tdu = Tpr | | | | |
+| Tdu > Tpr | | | | |
+| Tdu < Tpr | | | | |
+| Sum | | | | |
+
+
 
 
 
