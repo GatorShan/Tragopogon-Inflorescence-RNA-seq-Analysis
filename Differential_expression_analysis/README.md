@@ -65,7 +65,7 @@ Output:
       Tpr_TRINITY_DN38363_c0_g1|Tdu_TRINITY_DN14954_c0_g1,2,1,1,0,0,0
       ```
 
-## 3 Identify DE between T.dubius and T. pratensis at Moscow (parents of short-liguled T. miscellus)
+## 3. Identify DE between T.dubius and T. pratensis at Moscow (parents of short-liguled T. miscellus)
 The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_Tms_min10_3_rep.ipynb`.**
   - Use voom to transform count data to log2(counts per million reads) (a.k.a. logCPM)
   - Fit logCPM to a linear model using function lmFit
@@ -74,7 +74,7 @@ The script is shown in a Jupyter notebook **`Tdu_Tpr_voom_Tms/voom_Tdu_Tpr_for_T
     - output: `DE_overall_model_min10_3rep.txt`
   - contrast.fit: given a linear model fit to microarray data, compute estimated coefficients and standard errors for a given set of contrasts
     - `fit2 = contrasts.fit(fit, contrast.matrix)` and `fit2 = eBayes(fit2)`
-    - output: **`DE_Tdu_Tpr_min10_3rep.txt`**
+    - output: **`DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,021 orthologs**
 
 Input:
 ```
@@ -91,7 +91,7 @@ Output:
   - `voom_expression_values_min10_3rep.txt`
   - `residual_std_dev.pdf` in `voom_Tdu_Tpr_for_Tms_min10_3_rep.ipynb`
   - `DE_overall_model_min10_3rep.txt`
-  - **`DE_Tdu_Tpr_min10_3rep.txt`**
+  - **`DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,021 orthologs**
   
 Different filtering methods have been compared
 
@@ -101,8 +101,9 @@ Different filtering methods have been compared
 | keep <- rowSums(cpm(d) > cpm(10,mean(d$samples$lib.size))[1]) >= 6 | 6,142 |
 | keep <- rowSums(cpm(d) > cpm(5,mean(d$samples$lib.size))[1]) >= 6 | 7,366 |
 
-### 3.1 Reanalyze homeolog-specific expression in Tms (short-liguled T. miscellus), taking parental expression into consideration!
+## 4. Taking parental diploids' expression level into consideration, reanalyze homeolog-specific expression in Tms
 
+### 4.1 Isolate DE orthologs showing unbiased mapping and compare Tdu and Tpr expression in those orthologs
 Among the 8,021 orthologs with differential expression profiles, not all of them showed unbiased mapping; in addition, how many of them are equally expressed in two diploid parents? How many showed higher expression in Tdu? And how about higher expression in Tpr?
 
 Scripts are in Jupyter notebook **`Tdu_Tpr_voom_Tms/filter_DE_Tdu_Tpr_for_Tms.ipynb`**.
@@ -115,16 +116,31 @@ Output:
   - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`, contains **242 orthologs with higher expression in Tdu**
   - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`, contains **277 orthologs with higher expression in Tpr**
 
-| Orthologs in DE analysis | number of orthologs |
-| -- | -- |
-| Tdu = Tpr | 3,185 |
-| Tdu > Tpr | 242 |
-| Tdu < Tpr | 277 |
-| Sum | 3,704 |
+### 4.2 Classify DE orthologs into different homeolog-specific expression categories
 
-### 3.2 Reanalyze homeolog-specific expression in Tms (short-liguled T. miscellus), taking parental expression into consideration!
+Script `Tdu_Tpr_voom_Tms/DE_Tdu_Tpr_for_Tms_homeolog-bias_exp.ipynb` was used.
 
-Script `***` was used.
+Input1: `DE_Tdu_Tpr_filtered_not_sig_loci.txt`
+
+Output1:
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_unbias.txt`, contains 2,506 orthologs
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTdu.txt`, contains 304 orthologs
+  - `DE_Tdu_Tpr_filtered_not_sig_loci_biasTpr.txt`, contains 375 orthologs
+
+Input2: `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher.txt`
+
+Output2:
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_unbias.txt`, contains 182 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTdu.txt`, contains 31 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tdu_higher_biasTpr.txt`, contains 29 orthologs
+  
+Input3: `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher.txt`
+
+Output3:
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_unbias.txt`, contains 189 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTdu.txt`, contains 25 orthologs
+  - `DE_Tdu_Tpr_filtered_sig_loci_Tpr_higher_biasTpr.txt`, contains 63 orthologs
+
 
 |    | No homeolog expression bias | Homeolog expression bias to Tdu | Homeolog expression bias to Tpr | Sum |
 | -- | -- | -- | -- | -- |
@@ -136,8 +152,8 @@ Script `***` was used.
 
 
 
-## 4. Additive expression analysis
-### 4.1 Count reads in polyploids
+## 5. Additive expression analysis
+### 5.1 Count reads in polyploids
 Jupyther Notebook `count_reads_both_poly.ipynb` was used.
 
 Output, example:
