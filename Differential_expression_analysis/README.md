@@ -114,6 +114,7 @@ Different filtering methods have been compared
 Input: `DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,021 loci
 
 Output_1: **`Tdu_Tpr_voom_Tms/DE_Tdu_Tpr_not_sig_loci.txt`, which contains 6,938 loci**
+
 Output_2: **`Tdu_Tpr_voom_Tms/DE_Tdu_Tpr_sig_loci.txt`, which contains 1,083 loci**
 
 ## 4. Taking parental diploids' expression level into consideration, re-analyze homeolog-specific expression in Tms (short-liguled T. miscellus)
@@ -188,6 +189,7 @@ Output:
 Input: `DE_Tdu_Tpr_min10_3rep.txt`, which contains 8,248 loci
 
 Output_1: **`Tdu_Tpr_voom_Tml/DE_Tdu_Tpr_not_sig_loci.txt`, which contains 6,886 loci**
+
 Output_2: **`Tdu_Tpr_voom_Tml/DE_Tdu_Tpr_sig_loci.txt`, which contains 1,362 loci**
 
 ## 6. Taking parental diploids' expression level into consideration, re-analyze homeolog-specific expression in Tml (long-liguled T. miscellus)
