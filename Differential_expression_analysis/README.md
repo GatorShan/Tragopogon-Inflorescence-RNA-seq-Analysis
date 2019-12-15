@@ -1,8 +1,16 @@
 # Differential expression (DE) analysis
 ## 1. Description
-"Counts were taken from reads mapped to both of the COREs between orthologous pairs" -- Boatwright et al., 2018
+This step is used to identify DE loci between two diploid parents.
 
-## 2. Identify DE loci between diploid parents
+Two rounds of comparison between Tdu and Tpr were performed:
+  - Between Tdu (2613, Pullman) and Tpr (2608, Moscow)*, which are parents of long-liguled T. miscellus
+  - Between Tdu (2886, Moscow) and Tpr (2608, Moscow), which are parents of short-liguled T. miscellus
+  - *: Tpr from Pullman are not available (maybe extinct)
+
+## 2. Generate files containing reads counts data
+
+"Counts were taken from reads mapped to both of the COREs between orthologous pairs. Thus counts are taken from hihgly similar regions of the orthologs to account for differences in length between orthologous pairs resulting from incompletely reconstructed orthologs" -- Boatwright et al., 2018
+
 ### 2.1 Count reads
 
 Input:
