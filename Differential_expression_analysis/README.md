@@ -239,17 +239,6 @@ Output3:
 | Tdu > Tpr | 214 | 33 | 31 | 278 |
 | Tdu < Tpr | 274 | 27 | 76 | 377 |
 
-## 7. Additive expression analysis
-### 7.1 Count reads in polyploids
-Jupyther Notebook `count_reads_both_poly.ipynb` was used.
-
-Output, example:
-  - `both_counts_Tms_1_2_tdu_tpr.csv`
-  - `both_counts_Tms_2_2_tdu_tpr.csv`
-  - `both_counts_Tms_3_2_tdu_tpr.csv`
-  - `both_counts_Tml_1_2_tdu_tpr.csv`
-  - `both_counts_Tml_2_2_tdu_tpr.csv`
-  - `both_counts_Tml_3_2_tdu_tpr.csv`
 
 
 

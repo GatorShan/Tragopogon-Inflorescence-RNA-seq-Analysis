@@ -155,3 +155,17 @@ cp ${IN}/ase_counts_new_Tml_2605_9_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tml_1_2_t
 cp ${IN}/ase_counts_new_Tml_2605_24_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tml_2_2_tdu_tpr.csv
 cp ${IN}/ase_counts_new_Tml_2605_42_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tml_3_2_tdu_tpr.csv
 ```
+
+## 6. Count reads in polyploids for additive expression analysis
+
+"Counts were taken from reads mapped to both of the COREs between orthologous pairs. Thus counts are taken from hihgly similar regions of the orthologs to account for differences in length between orthologous pairs resulting from incompletely reconstructed orthologs" -- Boatwright et al., 2018
+
+Jupyther Notebook `count_reads_both_poly.ipynb` was used.
+
+Output, example:
+  - `both_counts_new_Tms_1_2_tdu_tpr.csv`
+  - `both_counts_new_Tms_2_2_tdu_tpr.csv`
+  - `both_counts_new_Tms_3_2_tdu_tpr.csv`
+  - `both_counts_new_Tml_1_2_tdu_tpr.csv`
+  - `both_counts_new_Tml_2_2_tdu_tpr.csv`
+  - `both_counts_new_Tml_3_2_tdu_tpr.csv`
