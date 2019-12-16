@@ -144,8 +144,6 @@ Output, examples:
 Following script is used:
 
 ```bash
-#!/bin/bash
-
 IN=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Compare_SAM_newASE
 OUT=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Compare_SAM_newASE/ase_counts_new_rename
 
