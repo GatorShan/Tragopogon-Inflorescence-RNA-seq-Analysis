@@ -103,22 +103,57 @@ done
 ```
 
 Output, examples:
+  - `ase_counts_new_Tml_2605_9_2_tdu_tpr.csv`, which contains 11,863 orthologs
+  - `ase_totals_new_Tml_2605_9_2_tdu_tpr.csv`
+    - ```
+      Count totals:
+      1:	a_single_exact	90966
+      2:	a_single_inexact	45304
+      3:	a_multi_exact	177619
+      4:	a_multi_inexact	2970
+      5:	b_single_exact	99843
+      6:	b_single_inexact	47224
+      7:	b_multi_exact	192140
+      8:	b_multi_inexact	2266
+      9:	both_single_exact_same	0
+      10:	both_single_exact_diff	301669
+      11:	both_single_inexact_same	0
+      12:	both_single_inexact_diff	117506
+      13:	both_inexact_diff_equal	52503
+      14:	both_inexact_diff_a_better	32060
+      15:	both_inexact_diff_b_better	32943
+      16:	both_multi_exact	3090872
+      17:	both_multi_inexact	9166
+      18:	a_single_exact_b_single_inexact	28849
+      19:	a_single_inexact_b_single_exact	27504
+      20:	a_single_exact_b_multi_exact	162607
+      21:	a_multi_exact_b_single_exact	144975
+      22:	a_single_exact_b_multi_inexact	677
+      23:	a_multi_inexact_b_single_exact	609
+      24:	a_single_inexact_b_multi_exact	88748
+      25:	a_multi_exact_b_single_inexact	82537
+      26:	a_single_inexact_b_multi_inexact	2479
+      27:	a_multi_inexact_b_single_inexact	2919
+      28:	a_multi_exact_b_multi_inexact	18853
+      29:	a_multi_inexact_b_multi_exact	20012
+      30:	total_count	4758314
+      ```
 
+## 5. Rename new ase files
 
+Following script is used:
 
+```bash
+#!/bin/bash
 
+IN=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Compare_SAM_newASE
+OUT=/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/Polyploid_alignment/Compare_SAM_newASE/ase_counts_new_rename
 
+cp ${IN}/ase_counts_new_Tms_2604_24_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tms_1_2_tdu_tpr.csv
+cp ${IN}/ase_counts_new_Tms_2604_43_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tms_2_2_tdu_tpr.csv
+cp ${IN}/ase_counts_new_Tms_2604_48_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tms_3_2_tdu_tpr.csv
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+cp ${IN}/ase_counts_new_Tml_2605_9_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tml_1_2_tdu_tpr.csv
+cp ${IN}/ase_counts_new_Tml_2605_24_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tml_2_2_tdu_tpr.csv
+cp ${IN}/ase_counts_new_Tml_2605_42_2_tdu_tpr.csv ${OUT}/ase_counts_new_Tml_3_2_tdu_tpr.csv
+```
