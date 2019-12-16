@@ -1,1 +1,33 @@
+# Additive expression analysis in short-liguled T. miscellus (Tms)
 
+## 1. Description
+The expression level between Tdu (4,5,6), Tpr (1,2,3), and Tms (1,2,3) is compared.
+
+For additivity analysis, the mean of Tdu and Tpr is campared to Tms.
+
+## 2. Additive expression analysis
+Scripts could be found in `voom_additivity_Tms.ipynb`. **After removing low counts orthologs, there are 8,327 loci left**.
+
+Input:
+  - `both_counts_Tdu_4_2_Tdu_Tpr.csv`
+  - `both_counts_Tdu_5_2_Tdu_Tpr.csv`
+  - `both_counts_Tdu_6_2_Tdu_Tpr.csv`
+  - `both_counts_Tpr_1_2_Tdu_Tpr.csv`
+  - `both_counts_Tpr_2_2_Tdu_Tpr.csv`
+  - `both_counts_Tpr_3_2_Tdu_Tpr.csv`
+  - `both_counts_new_Tms_1_2_tdu_tpr.csv`
+  - `both_counts_new_Tms_2_2_tdu_tpr.csv`
+  - `both_counts_new_Tms_3_2_tdu_tpr.csv`
+
+Output:
+  - `all_samples.csv`
+  - `additive_boxplot_log-CPM.pdf` in Jupyter notebook
+  - `additive_voom_plot.pdf` in Jupyter notebook
+  - `additive_residual_std_dev.pdf` in Jupyter notebook
+  - `additive_DE_overall_model.txt`
+  - `DE_Tdu_Tpr.txt`, in which expression level between Tdu and Tpr is compared; results are relative to Tdu
+  - `DE_additive_Tdu_Tpr-Tms.txt`, in which expression level between (Tdu+Tpr)/2 and Tms is compared; results are relative to Tms
+  - `additive_MDS_plot.pdf` in Jupyter notebook
+  
+  
+  
