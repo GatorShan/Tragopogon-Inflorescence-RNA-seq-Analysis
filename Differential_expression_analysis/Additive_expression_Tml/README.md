@@ -3,7 +3,7 @@
 ## 1. Description
 The expression level between Tdu (1,2,3), Tpr (1,2,3), and Tml (1,2,3) is compared.
 
-For additivity analysis, the mean of Tdu and Tpr is campared to Tms.
+For additivity analysis, the mean of Tdu and Tpr is campared to Tml.
 
 ## 2. Voom additive expression analysis
 Scripts could be found in `voom_additivity_Tml.ipynb`. **After removing low counts orthologs, there are ??? loci left**.
@@ -26,7 +26,7 @@ Output:
   - `additive_residual_std_dev.pdf` in Jupyter notebook
   - `additive_DE_overall_model.txt`
   - `DE_Tdu_Tpr.txt`, in which expression level between Tdu and Tpr is compared; results are relative to Tdu
-  - `DE_additive_Tdu_Tpr-Tml.txt`, in which expression level between (Tdu+Tpr)/2 and Tms is compared; results are relative to Tml
+  - `DE_additive_Tdu_Tpr-Tml.txt`, in which expression level between (Tdu+Tpr)/2 and Tml is compared; results are relative to Tml
   - `additive_MDS_plot.pdf` in Jupyter notebook
   
 ## 3. Filter DE files
@@ -60,7 +60,7 @@ Output:
 
 |    | Additive exp in Tml | Non-additive exp in Tml |
 | -- | -- | -- |
-| Tdu = Tpr | 6,107 | 1,092 |
-| Tdu ≠ Tpr | 825 | 193 |
+| Tdu = Tpr |  |  |
+| Tdu ≠ Tpr |  |  |
 
 
