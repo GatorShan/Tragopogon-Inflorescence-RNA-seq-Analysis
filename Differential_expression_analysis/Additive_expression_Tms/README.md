@@ -41,11 +41,13 @@ Input:
 
 Output:
   - `additive_DE_overall_model_sig_loci.txt`
-  - `additive_DE_overall_model_not_sig_loci.txt`
-  - `DE_Tdu_Tpr_sig_loci.txt`
-  - `DE_Tdu_Tpr_not_sig_loci.txt`
-  - `DE_additive_Tdu_Tpr-Tms_sig_loci.txt`
-  - `DE_additive_Tdu_Tpr-Tms_not_sig_loci.txt`
+  - `additive_DE_overall_model_not_sig_loci.txt`, which contains 110 loci
+  - `DE_Tdu_Tpr_sig_loci.txt`, which contains 1,024 loci
+  - `DE_Tdu_Tpr_not_sig_loci.txt`, which contains 7,303 loci
+  - `DE_additive_Tdu_Tpr-Tms_sig_loci.txt`, which contains 1,312 loci
+  - `DE_additive_Tdu_Tpr-Tms_not_sig_loci.txt`, which contains 7,015 loci
+
+
 
 
 
