@@ -53,14 +53,14 @@ In this step, loci will be classified into two catogories: have same expression 
 Scripts could be found in `Assess_additivity_Tml.ipynb`.
 
 Output:
-  - `Tml_not_sig_parents_same.csv`, which contains ??? loci
-  - `Tml_not_sig_parents_diff.csv`, which contains ??? loci
-  - `Tml_sig_loci_parents_same.csv`, which contains ??? loci
-  - `Tml_sig_loci_parents_diff.csv`, which contains ??? loci
+  - `Tml_not_sig_parents_same.csv`, which contains 7,525 loci
+  - `Tml_not_sig_parents_diff.csv`, which contains 683 loci
+  - `Tml_sig_loci_parents_same.csv`, which contains 41 loci
+  - `Tml_sig_loci_parents_diff.csv`, which contains 10 loci
 
 |    | Additive exp in Tml | Non-additive exp in Tml |
 | -- | -- | -- |
-| Tdu = Tpr |  |  |
-| Tdu ≠ Tpr |  |  |
+| Tdu = Tpr | 7,525 | 41 |
+| Tdu ≠ Tpr | 683 | 10 |
 
 
