@@ -47,6 +47,23 @@ Output:
   - `DE_additive_Tdu_Tpr-Tms_sig_loci.txt`, which contains 1,312 loci
   - `DE_additive_Tdu_Tpr-Tms_not_sig_loci.txt`, which contains 7,015 loci
 
+## 4. Test for additivity in Tms based on parental expression level
+In this step, loci will be classified into two catogories: have same expression between parents or differentially expressed; then, additivity in Tms is assessed separately in each catogory.
+
+Scripts could be found in `Assess_additivity_Tms.ipynb`.
+
+Output:
+  - `Tms_not_sig_parents_same.csv`, which contains 6,107 loci
+  - `Tms_not_sig_parents_diff.csv`, which contains 825 loci
+  - `Tms_sig_loci_parents_same.csv`, which contains 1,092 loci
+  - `Tms_sig_loci_parents_diff.csv`, which contains 193 loci
+
+|    | Additive exp in Tms | Non-additive exp in Tms |
+| -- | -- | -- |
+| Tdu = Tpr | 6,107 | 1,092 |
+| Tdu ≠ Tpr | 825 | 193 |
+
+
 
 
 
