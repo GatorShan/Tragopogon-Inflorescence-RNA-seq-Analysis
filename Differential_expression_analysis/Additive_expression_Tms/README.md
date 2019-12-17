@@ -5,7 +5,7 @@ The expression level between Tdu (4,5,6), Tpr (1,2,3), and Tms (1,2,3) is compar
 
 For additivity analysis, the mean of Tdu and Tpr is campared to Tms.
 
-## 2. Additive expression analysis
+## 2. Voom additive expression analysis
 Scripts could be found in `voom_additivity_Tms.ipynb`. **After removing low counts orthologs, there are 8,327 loci left**.
 
 Input:
@@ -29,5 +29,24 @@ Output:
   - `DE_additive_Tdu_Tpr-Tms.txt`, in which expression level between (Tdu+Tpr)/2 and Tms is compared; results are relative to Tms
   - `additive_MDS_plot.pdf` in Jupyter notebook
   
-  
+## 3. Filter DE files
+In this step, significantly different and not significantly different (FDR 0.05) loci were isolated.
+
+Scripts could be found in `filter_DE_additive_Tms.ipynb`.
+
+Input:
+  - `additive_DE_overall_model.txt`
+  - `DE_Tdu_Tpr.txt`
+  - `DE_additive_Tdu_Tpr-Tms.txt`
+
+Output:
+  - `additive_DE_overall_model_sig_loci.txt`
+  - `additive_DE_overall_model_not_sig_loci.txt`
+  - `DE_Tdu_Tpr_sig_loci.txt`
+  - `DE_Tdu_Tpr_not_sig_loci.txt`
+  - `DE_additive_Tdu_Tpr-Tms_sig_loci.txt`
+  - `DE_additive_Tdu_Tpr-Tms_not_sig_loci.txt`
+
+
+
   
