@@ -6,7 +6,7 @@ The expression level between Tdu (1,2,3), Tpr (1,2,3), and Tml (1,2,3) is compar
 For additivity analysis, the mean of Tdu and Tpr is campared to Tml.
 
 ## 2. Voom additive expression analysis
-Scripts could be found in `voom_additivity_Tml.ipynb`. **After removing low counts orthologs, there are ??? loci left**.
+Scripts could be found in `voom_additivity_Tml.ipynb`. **After removing low counts orthologs, there are 8,376 loci left**.
 
 Input:
   - `both_counts_Tdu_1_2_Tdu_Tpr.csv`
