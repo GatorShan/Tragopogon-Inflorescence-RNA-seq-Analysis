@@ -41,11 +41,11 @@ Input:
 
 Output:
   - `additive_DE_overall_model_sig_loci.txt`
-  - `additive_DE_overall_model_not_sig_loci.txt`, which contains ??? loci
-  - `DE_Tdu_Tpr_sig_loci.txt`, which contains ??? loci
-  - `DE_Tdu_Tpr_not_sig_loci.txt`, which contains ??? loci
-  - `DE_additive_Tdu_Tpr-Tml_sig_loci.txt`, which contains ??? loci
-  - `DE_additive_Tdu_Tpr-Tml_not_sig_loci.txt`, which contains ??? loci
+  - `additive_DE_overall_model_not_sig_loci.txt`, which contains 117 loci
+  - `DE_Tdu_Tpr_sig_loci.txt`, which contains 702 loci
+  - `DE_Tdu_Tpr_not_sig_loci.txt`, which contains 7,674 loci
+  - `DE_additive_Tdu_Tpr-Tml_sig_loci.txt`, which contains 51 loci
+  - `DE_additive_Tdu_Tpr-Tml_not_sig_loci.txt`, which contains 8,325 loci
 
 ## 4. Test for additivity in Tml based on parental expression level
 In this step, loci will be classified into two catogories: have same expression between parents or differentially expressed; then, additivity in Tml is assessed separately in each catogory.
