@@ -22,7 +22,8 @@ The scripts is in `DESeq2_Tml_Tms_Part1.ipynb`. Based on PCA and hierarchical cl
 
 ![Hierarchical clustering](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tms_Tml/Images/Tms_Tml_correlation_DESeq2.png?raw=true)
 
+## 3. DE analysis
+The script for DE analysis is in Jupyter notebook `DESeq2_Tml_Tms_Part2.ipynb`. Log2 fold change uses Tms as the baseline: logFC > 0 means Tml expression is larger than Tms; logFC < 0 indicates Tms expression is higher than Tml. In total, **41 DE loci were identified** (padj cutoff 0.05; 39 expressed higher in Tml; 2 expressed higher in Tms). The results of DE loci was summarized in file **`DESeq2_DE_Tms_Tml.txt`**.
 
-
-
+![MA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tms_Tml/Images/Tms_Tml_MAplot.png?raw=true)
 
