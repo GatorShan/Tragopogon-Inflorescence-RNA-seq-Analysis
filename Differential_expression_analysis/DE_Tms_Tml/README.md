@@ -1,7 +1,7 @@
 # Identify DE genes between long-liguled T. miscellus (Tml) and short-liguled T. miscellus (Tms)
 
 ## 1. Description
-Limma-voom was used to identify DE loci between Tms and Tml. However, no DE locus was identified! After disccusing with Lucas, we decided to use DESeq2 for DE analysis. Using PCA analsis, Tml_1 was found as a outlier. 2 and 41 DE loci were identified between two forms of T. miscellus with and without Tml_1, respectively.
+At the beginning, Limma-voom was used to identify DE loci between Tms and Tml. However, no DE locus was identified! After disccusing with Lucas, we decided to use DESeq2 for DE analysis. Using PCA analsis, Tml_1 was found as a outlier. 2 and 41 DE loci were identified between two forms of T. miscellus with and without Tml_1, respectively.
 
 Finally, we used those 41 DE loci for downstream analysis.
 
