@@ -24,7 +24,7 @@ The scripts could be found in Jupyter notebook `DESeq2_Tdu_Tpr_DEanalysis.ipynb`
 
 Bases on the above results, we performed **only one batch of DE analysis between Tdu and Tpr**.
 
-![Tdu_Tpr_PCA|50%](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_PCA_DESeq2.png)
+![Tdu_Tpr_PCA](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_PCA_DESeq2.png)
 
-![Tdu_Tpr_correlation](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_correlation_DESeq2.png | width=100)
+![Tdu_Tpr_correlation](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_correlation_DESeq2.png)
   
