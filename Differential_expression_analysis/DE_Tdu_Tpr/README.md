@@ -32,7 +32,7 @@ Here is the **results of DE analysis (padj < 0.05) between Tdu and Tpr**:
 
 | Classes | Number |
 | -- | -- |
-| Total loci | 11,863 |
+| Total loci | 11,864 (11,863 loci + one called "commonID") |
 | Nonzero total read count | 11,661 |
 | DE loci with LFC > 0 (Tdu > Tpr) | 987 |
 | DE loci with LFC < 0 (Tdu < Tpr) | 1,030 |
@@ -41,4 +41,12 @@ Here is the **results of DE analysis (padj < 0.05) between Tdu and Tpr**:
 
 ![MA_plot_Tdu_Tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_MAplot.png)
 
-  
+**OUTPUT**
+
+1) **`DESeq2_DE_Tdu_Tpr.txt`** contains 2,017 DE loci between Tdu and Tpr
+
+2) **`DESeq2_DE_higher_Tdu.txt`** contains 987 DE loci with higher expression in Tdu
+
+3) **`DESeq2_DE_higher_Tpr.txt`** contains 1,030 DE loci with higher expression in Tpr
+
+4) **`DESeq2_none-DE_Tdu_Tpr.txt`** contains 8,729 DE loci with none-DE expression between Tdu and Tpr
