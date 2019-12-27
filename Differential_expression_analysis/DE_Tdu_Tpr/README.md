@@ -24,9 +24,21 @@ The scripts could be found in Jupyter notebook `DESeq2_Tdu_Tpr_DEanalysis.ipynb`
 
 Bases on the above results, we performed **only one batch of DE analysis between Tdu and Tpr**.
 
-![Tdu_Tpr_PCA | 100x100](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_PCA_DESeq2.png)
+![Tdu_Tpr_PCA](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_PCA_DESeq2.png)
 
 ![Tdu_Tpr_correlation](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_correlation_DESeq2.png)
 
+Here is the **results of DE analysis (padj < 0.05) between Tdu and Tpr**:
+
+| Classes | Number |
+| -- | -- |
+| Total loci | 11,863 |
+| Nonzero total read count | 11,661 |
+| DE loci with LFC > 0 (Tdu > Tpr) | 987 |
+| DE loci with LFC < 0 (Tdu < Tpr) | 1,030 |
+| Outliers | 11 |
+| Low counts | 904 |
+
+![MA_plot_Tdu_Tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_MAplot.png)
 
   
