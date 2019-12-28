@@ -16,7 +16,10 @@ Tpr_2	Tpr	Tpr_moscow
 Tpr_3	Tpr	Tpr_moscow
 ```
 
-## 2. DE analysis
+## 2. Generate count matrix
+Script `DESeq2_Tdu_Tpr_count_matrix.ipynb` was used to generate count matrix of Tdu and Tpr, which is the input for DESeq2 analysis.
+
+## 3. DE analysis
 The scripts could be found in Jupyter notebook `DESeq2_Tdu_Tpr_DEanalysis.ipynb`. When performing sample-level quality control, based on PCA and hierarchical clustering results:
   - Tdu samples and Tpr samples were well-separated
   - All six samples of Tdu were clustered together
