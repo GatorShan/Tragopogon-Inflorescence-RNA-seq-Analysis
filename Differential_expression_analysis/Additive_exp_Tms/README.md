@@ -3,7 +3,7 @@
 Script `DESeq2_Tms_additive_count_matrix.ipynb` was used to generate the count matrix
 
 ## 2. DESeq2 analysis
-Script `*` was used for DESeq2 analysis.
+Script `DESeq2_Tms_additive_analysis.ipynb` was used for DESeq2 analysis.
 
 For additive analysis, the expression value of Tms was compared with MPV (average of Tdu and Tpr) following the method described [here](https://support.bioconductor.org/p/69104/). If the expression of Tms is not significantly different from MPV in a locus, that locus is considered as additive; if the expression of Tms is significantly different (FDR 0.05) from MPV at a locus, that locus is considered as non-additive.
 
