@@ -23,3 +23,17 @@ Script `Tms_additive_analysis_methods_compare.ipynb` was used for the comparison
   - DESeq2 identified 1,768 non-additive loci
   - Limma identified 1,312 non-additive loci
   - 1,013 loci were identified by both methods
+
+## 4. Classify additive and non-additive Tms loci based on parental expression profiles
+Script `DESeq2_Tms_additive_loci_classification.ipynb` was used for this analysis.
+
+Output:
+  - `Tms_Additive_nonDE.txt`
+  - `Tms_Additive_DE.txt`
+  - `Tms_nonAdditive_nonDE.txt`
+  - `Tms_nonAdditive_DE.txt`
+
+| | Tms additive loci | Tms non-additive loci |
+| -- | -- | -- |
+| Tdu = Tpr | 6,823 | 1,364 |
+| Tdu ≠ Tpr | 1,513 | 404 |
