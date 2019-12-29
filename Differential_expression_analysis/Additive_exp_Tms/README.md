@@ -7,6 +7,12 @@ Script `DESeq2_Tms_additive_analysis.ipynb` was used for DESeq2 analysis.
 
 For additive analysis, the expression value of Tms was compared with MPV (average of Tdu and Tpr) following the method described [here](https://support.bioconductor.org/p/69104/). If the expression of Tms is not significantly different from MPV in a locus, that locus is considered as additive; if the expression of Tms is significantly different (FDR 0.05) from MPV at a locus, that locus is considered as non-additive.
 
+![PCA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tms/images/Tms_additive_PCA.png)
+
+![Clustering](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tms/images/Tms_additive_clustering.png)
+
+![MA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tms/images/Tms_additive_MA.png)
+
 Output:
   - `DESeq2_Tms_nonAdditive_loci.txt`, contains 1,768 loci that showed non-additive expression
   - `DESeq2_Tms_Additive_loci.txt`, contains 8,336 loci showed additive expression
