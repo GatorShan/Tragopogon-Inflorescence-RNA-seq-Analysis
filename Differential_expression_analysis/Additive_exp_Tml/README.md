@@ -5,7 +5,7 @@ Script `DESeq2_Tml_additive_count_matrix.ipynb` was used to generate the count m
 ## 2. DESeq2 analysis
 Script `DESeq2_Tml_additive_analysis.ipynb` was used for DESeq2 analysis.
 
-Based on PCA and clustering results, Tml_1 is a outlier (see notes in `DESeq2_Tml_additive_analysis.ipynb`), and is removed. Then, the PCA and clustering results showed samples from the same species were clustered togeterh.
+Based on PCA and clustering results, Tml_1 is a outlier (see notes in `DESeq2_Tml_additive_analysis.ipynb`), and is removed. Then, the PCA and clustering results showed samples from the same species were clustered together.
 
 ![PCA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tml/images/Tml_additive_PCA.png)
 
