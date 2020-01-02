@@ -71,13 +71,10 @@ ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
 Output: `GoSeq_DE_Tml_higher.txt.GOseq.enriched` and `GoSeq_DE_Tml_higher.txt.GOseq.depleted`. The first few lines of enriched file:
 ```
 category        over_represented_pvalue under_represented_pvalue        numDEInCat      numInCat        term    ontology        over_represented_FDR    go_term gene_ids
-GO:0045490      4.11472657411315e-09    0.999999999942372       6       42      pectin catabolic process        BP      2.9638375513337e-05     BP pectin catabolic process
-     TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0045490      4.11472657411315e-09    0.999999999942372       6       42      pectin catabolic process        BP      2.9638375513337e-05     BP pectin catabolic process TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
 GO:0030599      1.94019972469179e-06    0.999999972429355       4       28      pectinesterase activity MF      0.00349381465423874     MF pectinesterase activity      TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
 GO:0042545      1.94019972469179e-06    0.999999972429355       4       28      cell wall modification  BP      0.00349381465423874     BP cell wall modification       TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
-GO:0045330      1.94019972469179e-06    0.999999972429355       4       28      aspartyl esterase activity      MF      0.00349381465423874     MF aspartyl esterase activity
-   TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
-GO:0004857      0.000339941580386272    0.999990001835974       3       42      enzyme inhibitor activity       MF      0.381650622185932       MF enzyme inhibitor activity
-    TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1
+GO:0045330      1.94019972469179e-06    0.999999972429355       4       28      aspartyl esterase activity      MF      0.00349381465423874     MF aspartyl esterase activity   TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0004857      0.000339941580386272    0.999990001835974       3       42      enzyme inhibitor activity       MF      0.381650622185932       MF enzyme inhibitor activity    TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1
 ```
 
