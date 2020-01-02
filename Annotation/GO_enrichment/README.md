@@ -4,7 +4,7 @@ We used the [pipeline](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Runni
 
 ## 2. Prepare files
 ### 2.1 Extract GO assignment
-Annocation results from **Tdu** was used. **Ancestral terms are not included**, which is different from the pipeline, which includes `--include_ancestral_terms`.
+Annocation results from **Tdu** was used. **Ancestral terms (which introduces lots of redundancy) are not included** -- this is different from the pipeline, which includes `--include_ancestral_terms`.
 ```bash
 module load gcc/5.2.0
 module load trinity/r20180213-2.6.5
