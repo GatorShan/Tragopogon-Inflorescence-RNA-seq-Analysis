@@ -100,3 +100,14 @@ ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
 ```
 Output `GOSeq_DE_Tdu_higher.txt.GOseq.enriched` and `GOSeq_DE_Tdu_higher.txt.GOseq.depleted`.
 
+**For those 1,030 DE genes up-regulated in Tpr**
+```
+DE_Tdu_Tpr_analysis]$ ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
+> --genes_single_factor GOSeq_DE_Tpr_higher.txt \
+> --GO_assignments ../Tdu_go_annotation_no_ancestral.txt \
+> --lengths ../Tdu_supertranscript_length.txt \
+> --background ../Orthologs_TduID_11863.txt
+```
+
+Output `GOSeq_DE_Tpr_higher.txt.GOseq.enriched` and `GOSeq_DE_Tpr_higher.txt.GOseq.depleted`.
+
