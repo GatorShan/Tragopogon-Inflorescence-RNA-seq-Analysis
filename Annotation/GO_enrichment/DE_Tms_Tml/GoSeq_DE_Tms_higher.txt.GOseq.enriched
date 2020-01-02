@@ -1,0 +1,25 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	go_term	gene_ids
+GO:2000068	0.000158966505603301	1	1	1	regulation of defense response to insect	BP	0.9999999999	BP regulation of defense response to insect	TRINITY_DN16113_c0_g2
+GO:1900457	0.000479223975933672	0.999999961715059	1	3	regulation of brassinosteroid mediated signaling pathway	BP	0.9999999999	BP regulation of brassinosteroid mediated signaling pathway	TRINITY_DN16113_c0_g2
+GO:0002215	0.000517295104573352	0.999999955389337	1	3	defense response to nematode	BP	0.9999999999	BP defense response to nematode	TRINITY_DN16113_c0_g2
+GO:0010104	0.000633289138377826	0.999999924778728	1	4	regulation of ethylene-activated signaling pathway	BP	0.9999999999	BP regulation of ethylene-activated signaling pathway	TRINITY_DN16113_c0_g2
+GO:1900056	0.00150178787492865	0.999999498431097	1	9	negative regulation of leaf senescence	BP	0.9999999999	BP negative regulation of leaf senescence	TRINITY_DN16113_c0_g2
+GO:2000070	0.00163193025147961	0.999999400292984	1	10	regulation of response to water deprivation	BP	0.9999999999	BP regulation of response to water deprivation	TRINITY_DN16113_c0_g2
+GO:0009625	0.0016548679064015	0.99999938330831	1	10	response to insect	BP	0.9999999999	BP response to insect	TRINITY_DN16113_c0_g2
+GO:0047484	0.00195571734758956	0.99999912262065	1	12	regulation of response to osmotic stress	BP	0.9999999999	BP regulation of response to osmotic stress	TRINITY_DN16113_c0_g2
+GO:2000031	0.00254050727724818	0.999998485385017	1	16	regulation of salicylic acid mediated signaling pathway	BP	0.9999999999	BP regulation of salicylic acid mediated signaling pathway	TRINITY_DN16113_c0_g2
+GO:0000302	0.0029078349734825	0.999998007569146	1	17	response to reactive oxygen species	BP	0.9999999999	BP response to reactive oxygen species	TRINITY_DN16113_c0_g2
+GO:0090333	0.00332845309705495	0.999997357852302	1	21	regulation of stomatal closure	BP	0.9999999999	BP regulation of stomatal closure	TRINITY_DN16113_c0_g2
+GO:2000022	0.00387533184775643	0.999996394914047	1	24	regulation of jasmonic acid mediated signaling pathway	BP	0.9999999999	BP regulation of jasmonic acid mediated signaling pathway	TRINITY_DN16113_c0_g2
+GO:0009742	0.00503212366836109	0.999993858200443	1	31	brassinosteroid mediated signaling pathway	BP	0.9999999999	BP brassinosteroid mediated signaling pathway	TRINITY_DN16113_c0_g2
+GO:0031347	0.00510463856549782	0.999993679676047	1	31	regulation of defense response	BP	0.9999999999	BP regulation of defense response	TRINITY_DN16113_c0_g2
+GO:0009624	0.0064654562310991	0.999989777693746	1	40	response to nematode	BP	0.9999999999	BP response to nematode	TRINITY_DN16113_c0_g2
+GO:0006869	0.00844373425858225	0.999982480933744	1	47	lipid transport	BP	0.9999999999	BP lipid transport	TRINITY_DN30406_c0_g1
+GO:0009753	0.010776692642935	0.999971250585695	1	66	response to jasmonic acid	BP	0.9999999999	BP response to jasmonic acid	TRINITY_DN16113_c0_g2
+GO:0008289	0.0114269649779087	0.999967673243252	1	65	lipid binding	MF	0.9999999999	MF lipid binding	TRINITY_DN30406_c0_g1
+GO:0009751	0.0130905514107809	0.99995742951505	1	78	response to salicylic acid	BP	0.9999999999	BP response to salicylic acid	TRINITY_DN16113_c0_g2
+GO:0006970	0.0161249703570035	0.999935135715514	1	98	response to osmotic stress	BP	0.9999999999	BP response to osmotic stress	TRINITY_DN16113_c0_g2
+GO:0050832	0.0223312237053952	0.999874837955442	1	137	defense response to fungus	BP	0.9999999999	BP defense response to fungus	TRINITY_DN16113_c0_g2
+GO:0009873	0.0228513783389709	0.999868940481152	1	132	ethylene-activated signaling pathway	BP	0.9999999999	BP ethylene-activated signaling pathway	TRINITY_DN16113_c0_g2
+GO:0044212	0.0260878646310198	0.999828733472298	1	152	transcription regulatory region DNA binding	MF	0.9999999999	MF transcription regulatory region DNA binding	TRINITY_DN16113_c0_g2
+GO:0042742	0.0304465230763965	0.999765921479569	1	186	defense response to bacterium	BP	0.9999999999	BP defense response to bacterium	TRINITY_DN16113_c0_g2
