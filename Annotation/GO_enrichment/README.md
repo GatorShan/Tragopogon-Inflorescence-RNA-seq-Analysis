@@ -88,3 +88,15 @@ ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
 ```
 
 Output `GoSeq_DE_Tms_higher.txt.GOseq.enriched` and `GoSeq_DE_Tms_higher.txt.GOseq.depleted`.
+
+### 3.2 Analysis on DE genes between Tdu and Tpr
+**For those 987 DE genes up-regulated in Tdu**
+```
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
+> --genes_single_factor GOSeq_DE_Tdu_higher.txt \
+> --GO_assignments ../Tdu_go_annotation_no_ancestral.txt \
+> --lengths ../Tdu_supertranscript_length.txt \
+> --background ../Orthologs_TduID_11863.txt
+```
+Output `GOSeq_DE_Tdu_higher.txt.GOseq.enriched` and `GOSeq_DE_Tdu_higher.txt.GOseq.depleted`.
+
