@@ -64,16 +64,20 @@ For those 39 DE genes upregulated in Tml
 ```
 ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
     --genes_single_factor GoSeq_DE_Tml_higher.txt \
-    --GO_assignments Tdu_go_annotation.txt \
+    --GO_assignments Tdu_go_annotation_no_ancestral.txt \
     --lengths Tdu_supertranscript_length.txt \
     --background Orthologs_TduID_11863.txt
 ```
 Output: `GoSeq_DE_Tml_higher.txt.GOseq.enriched` and `GoSeq_DE_Tml_higher.txt.GOseq.depleted`. The first few lines of enriched file:
 ```
-category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	go_term	gene_ids
-GO:0045490	4.11472657411315e-09	0.999999999942372	6	42	pectin catabolic process	BP	4.35379218806912e-05	BP pectin catabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
-GO:0045488	1.25382160387178e-08	0.999999999657674	7	88	pectin metabolic process	BP	4.5361374949337e-05	BP pectin metabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17180_c3_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
-GO:0010393	1.46758911900281e-08	0.999999999589492	7	90	galacturonan metabolic process	BP	4.5361374949337e-05	BP galacturonan metabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17180_c3_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
-GO:0000272	1.71482373875199e-08	0.999999999508106	7	92	polysaccharide catabolic process	BP	4.5361374949337e-05	BP polysaccharide catabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN24596_c3_g2, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+category        over_represented_pvalue under_represented_pvalue        numDEInCat      numInCat        term    ontology        over_represented_FDR    go_term gene_ids
+GO:0045490      4.11472657411315e-09    0.999999999942372       6       42      pectin catabolic process        BP      2.9638375513337e-05     BP pectin catabolic process
+     TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0030599      1.94019972469179e-06    0.999999972429355       4       28      pectinesterase activity MF      0.00349381465423874     MF pectinesterase activity      TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0042545      1.94019972469179e-06    0.999999972429355       4       28      cell wall modification  BP      0.00349381465423874     BP cell wall modification       TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0045330      1.94019972469179e-06    0.999999972429355       4       28      aspartyl esterase activity      MF      0.00349381465423874     MF aspartyl esterase activity
+   TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0004857      0.000339941580386272    0.999990001835974       3       42      enzyme inhibitor activity       MF      0.381650622185932       MF enzyme inhibitor activity
+    TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1
 ```
 
