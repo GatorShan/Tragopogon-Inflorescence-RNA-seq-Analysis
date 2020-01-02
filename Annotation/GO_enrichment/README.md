@@ -60,7 +60,7 @@ module load R/3.6
 ```
 
 ### 3.1 Analysis on DE genes between Tms and Tml
-For those 39 DE genes upregulated in Tml
+**For those 39 DE genes up-regulated in Tml**
 ```
 ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
     --genes_single_factor GoSeq_DE_Tml_higher.txt \
@@ -78,3 +78,13 @@ GO:0045330      1.94019972469179e-06    0.999999972429355       4       28      
 GO:0004857      0.000339941580386272    0.999990001835974       3       42      enzyme inhibitor activity       MF      0.381650622185932       MF enzyme inhibitor activity    TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN4208_c0_g1
 ```
 
+**For those 2 DE genes up-regulated in Tms**
+```
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
+> --genes_single_factor GoSeq_DE_Tms_higher.txt \
+> --GO_assignments Tdu_go_annotation_no_ancestral.txt \
+> --lengths Tdu_supertranscript_length.txt \
+> --background Orthologs_TduID_11863.txt
+```
+
+Output `GoSeq_DE_Tms_higher.txt.GOseq.enriched` and `GoSeq_DE_Tms_higher.txt.GOseq.depleted`.
