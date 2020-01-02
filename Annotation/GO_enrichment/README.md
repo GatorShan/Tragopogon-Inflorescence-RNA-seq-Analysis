@@ -50,5 +50,30 @@ TRINITY_DN24503_c1_g1
 TRINITY_DN22881_c5_g1
 TRINITY_DN20656_c5_g1
 ```
- 
- 
+
+## 3. GO enrichment analysis
+**It is important to change R to version 3.6!**
+```
+module load gcc/5.2.0
+module load trinity/r20180213-2.6.5
+module load R/3.6
+```
+
+### 3.1 Analysis on DE genes between Tms and Tml
+For those 39 DE genes upregulated in Tml
+```
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl \
+    --genes_single_factor GoSeq_DE_Tml_higher.txt \
+    --GO_assignments Tdu_go_annotation.txt \
+    --lengths Tdu_supertranscript_length.txt \
+    --background Orthologs_TduID_11863.txt
+```
+Output: `GoSeq_DE_Tml_higher.txt.GOseq.enriched` and `GoSeq_DE_Tml_higher.txt.GOseq.depleted`. The first few lines of enriched file:
+```
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	go_term	gene_ids
+GO:0045490	4.11472657411315e-09	0.999999999942372	6	42	pectin catabolic process	BP	4.35379218806912e-05	BP pectin catabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0045488	1.25382160387178e-08	0.999999999657674	7	88	pectin metabolic process	BP	4.5361374949337e-05	BP pectin metabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17180_c3_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0010393	1.46758911900281e-08	0.999999999589492	7	90	galacturonan metabolic process	BP	4.5361374949337e-05	BP galacturonan metabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17180_c3_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+GO:0000272	1.71482373875199e-08	0.999999999508106	7	92	polysaccharide catabolic process	BP	4.5361374949337e-05	BP polysaccharide catabolic process	TRINITY_DN14723_c0_g1, TRINITY_DN17458_c2_g1, TRINITY_DN21504_c0_g1, TRINITY_DN22246_c1_g1, TRINITY_DN24596_c3_g2, TRINITY_DN4208_c0_g1, TRINITY_DN9625_c0_g1
+```
+
