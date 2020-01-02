@@ -1,0 +1,4 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0005634	0.996583766296119	0.0137448515316588	3	2677	nucleus	CC	0.9999999999	0.9999999999	CC nucleus
+GO:0005829	1	0.0331172446575593	0	988	cytosol	CC	0.9999999999	0.9999999999	CC cytosol
+GO:0003677	1	0.0426375582957045	0	919	DNA binding	MF	0.9999999999	0.9999999999	MF DNA binding
