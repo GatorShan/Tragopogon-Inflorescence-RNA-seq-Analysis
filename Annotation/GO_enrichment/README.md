@@ -1,6 +1,6 @@
 # Gene ontology enrichment analysis
 ## 1. Description
-We used the [pipeline](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Running-GOSeq) provided by Trinity for GO enrichment analysis. The pipeline used [GOseq](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-2-r14), which takes the gene length into consideration.
+We used the [pipeline](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Running-GOSeq) provided by Trinity for GO enrichment analysis. The pipeline used [GOseq](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-2-r14), which takes gene length into consideration.
 
 ## 2. Prepare files
 ### 2.1 Extract GO assignment
