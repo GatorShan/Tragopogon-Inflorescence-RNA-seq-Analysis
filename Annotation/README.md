@@ -41,7 +41,10 @@ $HPC_TRINOTATE_DIR/admin/Build_Trinotate_Boilerplate_SQLite_db.pl  Trinotate &
 ```bash
 tmhmm --short SuperTranscript_Tdu.fasta.transdecoder.pep > ../tmhmm/Tdu_tmhmm.out
 ```
+
+
 **Capturing BLAST Homologies**
+
 Script `Trinotate_Blast_Tdu_3.0.sh` was used (takes 21 h; 16 CPU; 2 Gb mem).
   - Search Trinity transcripts
   - Search Transdecoder-predicted proteins
