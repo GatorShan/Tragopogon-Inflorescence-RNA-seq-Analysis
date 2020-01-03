@@ -51,6 +51,8 @@ TRINITY_DN22881_c5_g1
 TRINITY_DN20656_c5_g1
 ```
 
+`Orthologs_TduID_5400.txt`, which contains 5,400 orthologous pairs is used as background gene list for homeolog-specific expression analysis.
+
 ## 3. GO enrichment analysis on differentially expressed (DE) genes
 **It is important to change R to version 3.6!**
 ```
