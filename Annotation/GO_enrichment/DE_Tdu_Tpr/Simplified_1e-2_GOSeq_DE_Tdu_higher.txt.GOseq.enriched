@@ -1,0 +1,17 @@
+GO:0031408	0.0007193945468075	oxylipin biosynthetic process	BP
+GO:0005789	0.000743208351379955	endoplasmic reticulum membrane	CC
+GO:0015081	0.00113395966530801	sodium ion transmembrane transporter activity	MF
+GO:0016491	0.0017338126301062	oxidoreductase activity	MF
+GO:0016702	0.00232999668728932	oxidoreductase activity, acting on single donors with incorporation of molecular oxygen, incorporation of two atoms of oxygen	MF
+GO:0055114	0.00263274887321352	oxidation-reduction process	BP
+GO:0008324	0.00428388390650479	cation transmembrane transporter activity	MF
+GO:0010328	0.0048442896832382	auxin influx transmembrane transporter activity	MF
+GO:2000033	0.00702779715287142	regulation of seed dormancy process	BP
+GO:0071368	0.00707061825892987	cellular response to cytokinin stimulus	BP
+GO:0016747	0.00734941814091212	transferase activity, transferring acyl groups other than amino-acyl groups	MF
+GO:0016740	0.00776878544720605	transferase activity	MF
+GO:0046246	0.00903169960697742	terpene biosynthetic process	BP
+GO:0090263	0.00919880187573247	positive regulation of canonical Wnt signaling pathway	BP
+GO:0004412	0.0092001303275969	homoserine dehydrogenase activity	MF
+GO:0016799	0.00977125608502054	hydrolase activity, hydrolyzing N-glycosyl compounds	MF
+GO:0006090	0.00980941719192937	pyruvate metabolic process	BP

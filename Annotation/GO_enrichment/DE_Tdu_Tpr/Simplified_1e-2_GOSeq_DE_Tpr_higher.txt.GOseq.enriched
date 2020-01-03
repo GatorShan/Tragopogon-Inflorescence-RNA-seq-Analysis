@@ -1,0 +1,35 @@
+GO:0006744	3.3386480451445e-05	ubiquinone biosynthetic process	BP
+GO:0000786	0.000692461158476247	nucleosome	CC
+GO:0005849	0.00248367219688803	mRNA cleavage factor complex	CC
+GO:0090558	0.00271122614911254	plant epidermis development	BP
+GO:2000280	0.00422559238121257	regulation of root development	BP
+GO:0080043	0.00453652566187004	quercetin 3-O-glucosyltransferase activity	MF
+GO:0080044	0.00453652566187004	quercetin 7-O-glucosyltransferase activity	MF
+GO:0016117	0.00489125096339154	carotenoid biosynthetic process	BP
+GO:0000381	0.00491470771248293	regulation of alternative mRNA splicing, via spliceosome	BP
+GO:0031492	0.0053723683817131	nucleosomal DNA binding	MF
+GO:0009902	0.00567454086521137	chloroplast relocation	BP
+GO:0042659	0.0060876300984625	regulation of cell fate specification	BP
+GO:0019200	0.00630656553669725	carbohydrate kinase activity	MF
+GO:0090708	0.00632399262269383	specification of plant organ axis polarity	BP
+GO:0016627	0.00695725094006821	oxidoreductase activity, acting on the CH-CH group of donors	MF
+GO:0047751	0.00747523966447527	cholestenone 5-alpha-reductase activity	MF
+GO:0050213	0.00747523966447527	progesterone 5-alpha-reductase activity	MF
+GO:0090377	0.00747523966447527	seed trichome initiation	BP
+GO:0006998	0.0079572649072664	nuclear envelope organization	BP
+GO:0051291	0.0079572649072664	protein heterooligomerization	BP
+GO:0070197	0.0079572649072664	meiotic attachment of telomere to nuclear envelope	BP
+GO:0090435	0.0079572649072664	protein localization to nuclear envelope	BP
+GO:0010360	0.00808922616203181	negative regulation of anion channel activity	BP
+GO:0015186	0.00809025203145384	L-glutamine transmembrane transporter activity	MF
+GO:0017046	0.00809025203145384	peptide hormone binding	MF
+GO:0022843	0.00809025203145384	voltage-gated cation channel activity	MF
+GO:0030795	0.00809025203145384	jasmonate O-methyltransferase activity	MF
+GO:0034426	0.00809025203145384	etioplast membrane	CC
+GO:0035197	0.00809025203145384	siRNA binding	MF
+GO:0047746	0.00809025203145384	chlorophyllase activity	MF
+GO:0098712	0.00809025203145384	L-glutamate import across plasma membrane	BP
+GO:0102078	0.00809025203145384	methyl jasmonate methylesterase activity	MF
+GO:1902025	0.00809025203145384	nitrate import	BP
+GO:0003824	0.00842601771259295	catalytic activity	MF
+GO:0055114	0.0086737362189077	oxidation-reduction process	BP
