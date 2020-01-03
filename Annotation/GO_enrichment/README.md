@@ -2,6 +2,13 @@
 ## 1. Description
 We used the [pipeline](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Running-GOSeq) provided by Trinity for GO enrichment analysis. The pipeline used [GOseq](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-2-r14), which takes gene length into consideration.
 
+**It is important to change R to version 3.6** before performing GO enrichment analysis.
+```
+module load gcc/5.2.0
+module load trinity/r20180213-2.6.5
+module load R/3.6
+```
+
 ## 2. Prepare files
 ### 2.1 Extract GO assignment
 Annocation results from **Tdu** was used. **Ancestral terms (which introduces lots of redundancy) are not included** -- this is different from the pipeline, which includes `--include_ancestral_terms`.
@@ -52,13 +59,6 @@ TRINITY_DN20656_c5_g1
 ```
 
 ## 3. GO enrichment analysis on differentially expressed (DE) genes
-**It is important to change R to version 3.6!**
-```
-module load gcc/5.2.0
-module load trinity/r20180213-2.6.5
-module load R/3.6
-```
-
 ### 3.1 Analysis on DE genes between Tms and Tml
 **For those 39 DE genes up-regulated in Tml**
 ```
@@ -110,4 +110,16 @@ DE_Tdu_Tpr_analysis]$ ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.
 ```
 
 Output `GOSeq_DE_Tpr_higher.txt.GOseq.enriched` and `GOSeq_DE_Tpr_higher.txt.GOseq.depleted`.
+
+## 4. GO enrichment analysis on homeolog-specific expression genes
+The following scripts were used in terminal:
+```bash
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tml-homeolog_biasTdu.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_5400.txt
+
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tml-homeolog_biasTpr.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_5400.txt
+
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tms-homeolog_biasTdu.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_5400.txt
+
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tms-homeolog_biasTpr.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_5400.txt
+```
 
