@@ -37,18 +37,26 @@ $HPC_TRINOTATE_DIR/admin/Build_Trinotate_Boilerplate_SQLite_db.pl  Trinotate &
   - Output: `Trinotate.sqlite`, `uniprot_sprot.pep`, and `Pfam-A.hmm.gz`
 
 ### 2.3 Running sequence analysis
-**tmHMM** to predict transmembrane regions
+**Running tmHMM to predict transmembrane regions**
 ```bash
 tmhmm --short SuperTranscript_Tdu.fasta.transdecoder.pep > ../tmhmm/Tdu_tmhmm.out
 ```
 
-
 **Capturing BLAST Homologies**
+  - Script `Trinotate_Blast_Tdu_3.0.sh` was used (takes 21 h; 16 CPU; 2 Gb mem).
+    - Database `uniprot_sprot.pep`
+    - Search Trinity transcripts
+    - Search Transdecoder-predicted proteins
 
-Script `Trinotate_Blast_Tdu_3.0.sh` was used (takes 21 h; 16 CPU; 2 Gb mem).
-  - Search Trinity transcripts
-  - Search Transdecoder-predicted proteins
+**Running signalP to predict signal peptides**
+  - Script `Trinotate_SignalP_Tdu_1.0.sh` was used (takes 1.5 h; 1 CPU; 3 Gb mem).
 
+**Running HMMER to identify protein domains**
+  - Script `Trinotate_HMMER_Tdu_1.0.sh` was used (takes 9 h; 12 CPU).
+    - Database `Pfam-A.hmm`
+
+**Running RNAMMER to identify rRNA transcripts**
+  - Script `Trinotate_RNAmmer_Tdu_1.0.sh` was used (takes 0.5 h; require 10 CPU).
 
 
 
