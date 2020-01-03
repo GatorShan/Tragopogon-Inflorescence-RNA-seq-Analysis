@@ -28,4 +28,26 @@ TransDecoder.Predict \
 
   - Output: we care about the most is **`SuperTranscript_Tdu.fasta.transdecoder.pep`**
 
+### 2.2 Obtain protein database files
+This step will download several data resources including the latest version of swissprot, pfam, and other companion resources.
+```
+module load trinotate/3.0.1
+$HPC_TRINOTATE_DIR/admin/Build_Trinotate_Boilerplate_SQLite_db.pl  Trinotate &
+```
+  - Output: `Trinotate.sqlite`, `uniprot_sprot.pep`, and `Pfam-A.hmm.gz`
+
+### 2.3 Running sequence analysis
+**tmHMM** to predict transmembrane regions
+```bash
+tmhmm --short SuperTranscript_Tdu.fasta.transdecoder.pep > ../tmhmm/Tdu_tmhmm.out
+```
+**Capturing BLAST Homologies**
+Script `Trinotate_Blast_Tdu_3.0.sh` was used (takes 21 h; 16 CPU; 2 Gb mem).
+  - Search Trinity transcripts
+  - Search Transdecoder-predicted proteins
+
+
+
+
+
 
