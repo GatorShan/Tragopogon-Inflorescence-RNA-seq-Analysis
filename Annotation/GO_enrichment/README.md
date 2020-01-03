@@ -125,3 +125,16 @@ ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_fact
 ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tms-homeolog_biasTpr.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_5400.txt
 ```
 
+Output:
+  - Tms
+    - `GOSeq_Tms-homeolog_biasTdu.txt.GOseq.enriched`
+    - `GOSeq_Tms-homeolog_biasTpr.txt.GOseq.enriched`
+    - `Simplified_1e-2_GOSeq_Tms-homeolog_biasTdu.txt.GOseq.enriched`
+    - `Simplified_1e-2_GOSeq_Tms-homeolog_biasTpr.txt.GOseq.enriched`
+  - Tml
+    - `GOSeq_Tml-homeolog_biasTdu.txt.GOseq.enriched`
+    - `GOSeq_Tml-homeolog_biasTpr.txt.GOseq.enriched`
+    - `Simplified_1e-2_GOSeq_Tml-homeolog_biasTdu.txt.GOseq.enriched`
+    - `Simplified_1e-2_GOSeq_Tml-homeolog_biasTpr.txt.GOseq.enriched`
+
+
