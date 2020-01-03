@@ -26,6 +26,6 @@ TransDecoder.Predict \
   -O .
 ```
 
-  - Output: we care about the most is `SuperTranscript_Tdu.fasta.transdecoder.pep`
+  - Output: we care about the most is **`SuperTranscript_Tdu.fasta.transdecoder.pep`**
 
 
