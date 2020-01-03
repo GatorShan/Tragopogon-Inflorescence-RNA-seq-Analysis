@@ -1,0 +1,4 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0009451	0.999267268391743	0.00326571055210066	3	129	RNA modification	BP	0.9999999999	0.9999999999	BP RNA modification
+GO:0009536	1	0.00545919950882381	0	58	plastid	CC	0.9999999999	0.9999999999	CC plastid
+GO:0005774	0.988743830622187	0.0447193056346668	2	72	vacuolar membrane	CC	0.9999999999	0.9999999999	CC vacuolar membrane

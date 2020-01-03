@@ -1,0 +1,12 @@
+GO:0000166	0.00248848171018872	nucleotide binding	MF
+GO:0005741	0.00254798687022497	mitochondrial outer membrane	CC
+GO:0009693	0.00284513808080081	ethylene biosynthetic process	BP
+GO:0009736	0.00533815803346049	cytokinin-activated signaling pathway	BP
+GO:0005762	0.00562041014439316	mitochondrial large ribosomal subunit	CC
+GO:0044212	0.0067248709668165	transcription regulatory region DNA binding	MF
+GO:0006535	0.00693740974939762	cysteine biosynthetic process from serine	BP
+GO:0031261	0.00808606334080143	DNA replication preinitiation complex	CC
+GO:0034613	0.00813683911063269	cellular protein localization	BP
+GO:0043388	0.0085834373846803	positive regulation of DNA binding	BP
+GO:0015031	0.00899174504873356	protein transport	BP
+GO:0006364	0.00903433966024234	rRNA processing	BP
