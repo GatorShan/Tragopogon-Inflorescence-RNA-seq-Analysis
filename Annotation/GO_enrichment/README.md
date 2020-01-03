@@ -51,7 +51,7 @@ TRINITY_DN22881_c5_g1
 TRINITY_DN20656_c5_g1
 ```
 
-## 3. GO enrichment analysis
+## 3. GO enrichment analysis on differentially expressed (DE) genes
 **It is important to change R to version 3.6!**
 ```
 module load gcc/5.2.0
