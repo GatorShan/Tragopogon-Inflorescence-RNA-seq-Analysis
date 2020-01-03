@@ -1,0 +1,5 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0009451	0.999322118781085	0.00237278701689918	5	129	RNA modification	BP	0.9999999999	0.9999999999	BP RNA modification
+GO:0006979	1	0.0335473190282663	0	30	response to oxidative stress	BP	0.9999999999	0.9999999999	BP response to oxidative stress
+GO:0005887	1	0.0335931313385507	0	27	integral component of plasma membrane	CC	0.9999999999	0.9999999999	CC integral component of plasma membrane
+GO:0006310	0.99465177434258	0.0353289657334436	1	41	DNA recombination	BP	0.9999999999	0.9999999999	BP DNA recombination
