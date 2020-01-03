@@ -59,7 +59,7 @@ tmhmm --short SuperTranscript_Tdu.fasta.transdecoder.pep > ../tmhmm/Tdu_tmhmm.ou
   - Script `Trinotate_RNAmmer_Tdu_1.0.sh` was used (takes 0.5 h; require 10 CPU).
 
 ### 2.4 Loading generated results into a Trinotate SQLite Database
-Generate generate gene_trans_map file using script `ExtractHeader.py`.
+Generate gene_trans_map file using script `ExtractHeader.py`.
 
 ```bash
 module load trinotate/3.0.1
@@ -80,6 +80,7 @@ Trinotate Trinotate.sqlite LOAD_tmhmm ../tmhmm/Tdu_tmhmm.out
 Trinotate Trinotate.sqlite LOAD_signalp ../SignalP/SuperTranscript_Tdu.fasta.transdecoder_summary.signalp5
 
 ## Output an Annotation Report
+## default threshold: 1e-5
 Trinotate Trinotate.sqlite report > Tdu_trinotate_annotation_report.xls
 ```
 
