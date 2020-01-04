@@ -142,4 +142,13 @@ Output:
 The following scripts were used in terminal:
 ```
 ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tms_transgressive_lower.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt 
+
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tms_transgressive_higher.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
 ```
+
+Output:
+  - `GOSeq_Tms_transgressive_lower.txt.GOseq.enriched`
+  - `GOSeq_Tms_transgressive_lower.txt.GOseq.depleted`
+  - `GOSeq_Tms_transgressive_higher.txt.GOseq.enriched`
+  - `GOSeq_Tms_transgressive_higher.txt.GOseq.depleted`
+
