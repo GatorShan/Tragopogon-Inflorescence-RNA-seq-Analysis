@@ -1,0 +1,5 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0009451	1	0.00446685653649878	0	234	RNA modification	BP	0.9999999999	0.9999999999	BP RNA modification
+GO:0006468	0.98202671707836	0.0369497597954992	9	506	protein phosphorylation	BP	0.9999999999	0.9999999999	BP protein phosphorylation
+GO:0008270	0.977403551991479	0.0469294654597242	8	517	zinc ion binding	MF	0.9999999999	0.9999999999	MF zinc ion binding
+GO:0020037	1	0.0499970249981467	0	120	heme binding	MF	0.9999999999	0.9999999999	MF heme binding
