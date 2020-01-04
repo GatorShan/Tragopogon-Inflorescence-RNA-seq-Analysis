@@ -69,9 +69,3 @@ Output:
 | ELD of Tpr; Tpr is higher than Tdu | 85 |
 
 
-
-
-
-
-
-
