@@ -37,3 +37,19 @@ Output:
 | -- | -- | -- |
 | Tdu = Tpr | 6,823 | 1,364 |
 | Tdu ≠ Tpr | 1,513 | 404 |
+
+## 5. Expression-level dominant and transgressive expression analysis
+Scirpt `DESeq2_Tms_additive_analysis_v2.ipynb` was used, and generate the following output files:
+  - `DESeq2_DE_loci_Tdu_higher.txt`, contains DE loci between Tdu and Tpr with higher expression in Tdu
+  - `DESeq2_DE_loci_Tpr_higher.txt`, contains DE loci between Tdu and Tpr with higher expression in Tpr
+  - `DESeq2_DE_loci_Tms_higher_than_Tdu.txt`, contains DE loci between Tms and Tdu with higher expression in Tms
+  - `DESeq2_DE_loci_Tdu_higher_than_Tms.txt`, contains DE loci between Tms and Tdu with higher expression in Tdu
+  - `DESeq2_noneDE_loci_Tms_Tdu.txt`, contains nonDE loci between Tms and Tdu
+  - `DESeq2_DE_loci_Tms_higher_than_Tpr.txt`, contains DE loci between Tms and Tpr with higher expression in Tms
+  - `DESeq2_DE_loci_Tpr_higher_than_Tms.txt`, contains DE loci between Tms and Tpr with higher expression in Tpr
+  - `DESeq2_noneDE_loci_Tms_Tpr.txt`, contains nonDE loci between Tms and Tpr
+
+
+
+
+
