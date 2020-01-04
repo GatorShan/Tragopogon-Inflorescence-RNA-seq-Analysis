@@ -137,4 +137,9 @@ Output:
     - `Simplified_1e-2_GOSeq_Tml-homeolog_biasTdu.txt.GOseq.enriched`
     - `Simplified_1e-2_GOSeq_Tml-homeolog_biasTpr.txt.GOseq.enriched`
 
-
+## 5. GO enrichment analysis on transgressive express genes
+### 5.1 In short-liguled T.miscellus
+The following scripts were used in terminal:
+```
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor GOSeq_Tms_transgressive_lower.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt 
+```
