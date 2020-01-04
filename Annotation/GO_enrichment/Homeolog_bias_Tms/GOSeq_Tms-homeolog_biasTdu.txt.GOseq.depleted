@@ -1,0 +1,6 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0009409	1	0.00512289244743689	0	58	response to cold	BP	0.9999999999	0.9999999999	BP response to cold
+GO:0009451	0.998277774096287	0.00613573182559297	4	129	RNA modification	BP	0.9999999999	0.9999999999	BP RNA modification
+GO:0055085	0.996295811727224	0.0122579189695478	4	111	transmembrane transport	BP	0.9999999999	0.9999999999	BP transmembrane transport
+GO:0000398	1	0.040443388981209	0	32	mRNA splicing, via spliceosome	BP	0.9999999999	0.9999999999	BP mRNA splicing, via spliceosome
+GO:0016021	0.964851387748704	0.0470806084604233	65	881	integral component of membrane	CC	0.9999999999	0.9999999999	CC integral component of membrane

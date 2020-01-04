@@ -1,0 +1,26 @@
+GO:0045490	4.11472657411315e-09	pectin catabolic process	BP
+GO:0030599	1.94019972469179e-06	pectinesterase activity	MF
+GO:0042545	1.94019972469179e-06	cell wall modification	BP
+GO:0045330	1.94019972469179e-06	aspartyl esterase activity	MF
+GO:0004857	0.000339941580386272	enzyme inhibitor activity	MF
+GO:0005618	0.000367816182071308	cell wall	CC
+GO:0015629	0.000370894676565532	actin cytoskeleton	CC
+GO:0030570	0.00047027247749797	pectate lyase activity	MF
+GO:0046910	0.00275656248677455	pectinesterase inhibitor activity	MF
+GO:0090406	0.00303933573513983	pollen tube	CC
+GO:0005576	0.00305880035298453	extracellular region	CC
+GO:0009650	0.00330478520927036	UV protection	BP
+GO:0032973	0.0033078307891687	amino acid export across plasma membrane	BP
+GO:0034639	0.0033078307891687	L-amino acid efflux transmembrane transporter activity	MF
+GO:0008987	0.0033078537813996	quinolinate synthetase A activity	MF
+GO:0034628	0.0033078537813996	'de novo' NAD biosynthetic process from aspartate	BP
+GO:0046942	0.00330785378140061	carboxylic acid transport	BP
+GO:0005788	0.00351647523198411	endoplasmic reticulum lumen	CC
+GO:0008234	0.00463962854686769	cysteine-type peptidase activity	MF
+GO:0071493	0.00645016893001195	cellular response to UV-B	BP
+GO:0047911	0.00656693535545103	galacturan 1,4-alpha-galacturonidase activity	MF
+GO:0043090	0.00660502239963941	amino acid import	BP
+GO:0018996	0.00979586915247211	molting cycle, collagen and cuticulin-based cuticle	BP
+GO:0040039	0.00979586915247211	inductive cell migration	BP
+GO:0055002	0.00979586915247211	striated muscle cell development	BP
+GO:0030042	0.00985852768022346	actin filament depolymerization	BP

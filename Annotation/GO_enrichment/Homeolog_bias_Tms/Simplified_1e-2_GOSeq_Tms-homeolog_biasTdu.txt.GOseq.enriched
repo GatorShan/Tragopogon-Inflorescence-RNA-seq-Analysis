@@ -1,0 +1,13 @@
+GO:0042742	0.00113913254153435	defense response to bacterium	BP
+GO:0006383	0.00218230453585794	transcription by RNA polymerase III	BP
+GO:0005666	0.00332985797909743	RNA polymerase III complex	CC
+GO:0045944	0.00370254702133927	positive regulation of transcription by RNA polymerase II	BP
+GO:0000166	0.0038571964606308	nucleotide binding	MF
+GO:0016458	0.00454962585084234	gene silencing	BP
+GO:0005737	0.00470044913253888	cytoplasm	CC
+GO:2000022	0.00481312664278069	regulation of jasmonic acid mediated signaling pathway	BP
+GO:0090263	0.0055327122597699	positive regulation of canonical Wnt signaling pathway	BP
+GO:0009682	0.00564772581826938	induced systemic resistance	BP
+GO:0008962	0.0079912470540279	phosphatidylglycerophosphatase activity	MF
+GO:0006535	0.0081177919649818	cysteine biosynthetic process from serine	BP
+GO:0003950	0.00821078250031794	NAD+ ADP-ribosyltransferase activity	MF

@@ -1,0 +1,16 @@
+GO:2000068	0.000158966505603301	regulation of defense response to insect	BP
+GO:1900457	0.000479223975933672	regulation of brassinosteroid mediated signaling pathway	BP
+GO:0002215	0.000517295104573352	defense response to nematode	BP
+GO:0010104	0.000633289138377826	regulation of ethylene-activated signaling pathway	BP
+GO:1900056	0.00150178787492865	negative regulation of leaf senescence	BP
+GO:2000070	0.00163193025147961	regulation of response to water deprivation	BP
+GO:0009625	0.0016548679064015	response to insect	BP
+GO:0047484	0.00195571734758956	regulation of response to osmotic stress	BP
+GO:2000031	0.00254050727724818	regulation of salicylic acid mediated signaling pathway	BP
+GO:0000302	0.0029078349734825	response to reactive oxygen species	BP
+GO:0090333	0.00332845309705495	regulation of stomatal closure	BP
+GO:2000022	0.00387533184775643	regulation of jasmonic acid mediated signaling pathway	BP
+GO:0009742	0.00503212366836109	brassinosteroid mediated signaling pathway	BP
+GO:0031347	0.00510463856549782	regulation of defense response	BP
+GO:0009624	0.0064654562310991	response to nematode	BP
+GO:0006869	0.00844373425858225	lipid transport	BP

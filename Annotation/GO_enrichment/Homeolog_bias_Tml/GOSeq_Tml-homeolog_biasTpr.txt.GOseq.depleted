@@ -1,0 +1,8 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0016567	0.999726375347632	0.000874327540806676	7	186	protein ubiquitination	BP	0.9999999999	0.9999999999	BP protein ubiquitination
+GO:0009451	0.999586546394791	0.00167642740793732	4	129	RNA modification	BP	0.9999999999	0.9999999999	BP RNA modification
+GO:0006355	0.986718581758677	0.0216506964677589	26	390	regulation of transcription, DNA-templated	BP	0.9999999999	0.9999999999	BP regulation of transcription, DNA-templated
+GO:0009658	0.996306843290532	0.0255896069028908	1	55	chloroplast organization	BP	0.9999999999	0.9999999999	BP chloroplast organization
+GO:0009617	1	0.0342855945925111	0	31	response to bacterium	BP	0.9999999999	0.9999999999	BP response to bacterium
+GO:0005515	0.973307746661968	0.0393292811081315	36	445	protein binding	MF	0.9999999999	0.9999999999	MF protein binding
+GO:0009793	0.987783376910624	0.0400101670955595	3	72	embryo development ending in seed dormancy	BP	0.9999999999	0.9999999999	BP embryo development ending in seed dormancy

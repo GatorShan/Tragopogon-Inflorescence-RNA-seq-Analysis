@@ -1,0 +1,11 @@
+GO:0051087	0.000442443696499339	chaperone binding	MF
+GO:0000922	0.00149710879661489	spindle pole	CC
+GO:0031936	0.00303704572764947	negative regulation of chromatin silencing	BP
+GO:0003729	0.00372463878262759	mRNA binding	MF
+GO:0005459	0.0066816183150076	UDP-galactose transmembrane transporter activity	MF
+GO:0043531	0.00673678232241372	ADP binding	MF
+GO:0031122	0.00799873418262254	cytoplasmic microtubule organization	BP
+GO:0016032	0.00851467712985584	viral process	BP
+GO:0000103	0.00920887023165144	sulfate assimilation	BP
+GO:0019344	0.00920887023165144	cysteine biosynthetic process	BP
+GO:0009574	0.00972126905099835	preprophase band	CC
