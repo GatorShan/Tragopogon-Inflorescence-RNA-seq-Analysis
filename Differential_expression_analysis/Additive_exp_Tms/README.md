@@ -38,7 +38,7 @@ Output:
 | Tdu = Tpr | 6,823 | 1,364 |
 | Tdu ≠ Tpr | 1,513 | 404 |
 
-## 5. Expression-level dominant and transgressive expression analysis
+## 5. Expression-level dominant (ELD) and transgressive expression analysis
 Scirpt `DESeq2_Tms_additive_analysis_v2.ipynb` was used, and generate the following output files:
   - `DESeq2_DE_loci_Tdu_higher.txt`, contains DE loci between Tdu and Tpr with higher expression in Tdu
   - `DESeq2_DE_loci_Tpr_higher.txt`, contains DE loci between Tdu and Tpr with higher expression in Tpr
@@ -48,6 +48,28 @@ Scirpt `DESeq2_Tms_additive_analysis_v2.ipynb` was used, and generate the follow
   - `DESeq2_DE_loci_Tms_higher_than_Tpr.txt`, contains DE loci between Tms and Tpr with higher expression in Tms
   - `DESeq2_DE_loci_Tpr_higher_than_Tms.txt`, contains DE loci between Tms and Tpr with higher expression in Tpr
   - `DESeq2_noneDE_loci_Tms_Tpr.txt`, contains nonDE loci between Tms and Tpr
+
+Script `DESeq2_Tms_ELD_transgressiveExp.ipynb` was used to assess ELD and transgressive expression
+
+Output:
+  - `Tms_transgressive_higher.txt`
+  - `Tms_transgressive_lower.txt`
+  - `Tms_ELDofTdu_TduHigher.txt`
+  - `Tms_ELDofTdu_TprHigher.txt`
+  - `Tms_ELDofTpr_TduHigher.txt`
+  - `Tms_ELDofTpr_TprHigher.txt`
+
+| Type | Numuber of loci |
+| -- | -- |
+| Transgressive expression higher than both Tdu and Tpr | 273 |
+| Transgressive expression lower than both Tdu and Tpr | 480 |
+| ELD of Tdu; Tdu is higher than Tpr | 88 |
+| ELD of Tdu; Tpr is higher than Tdu | 92 |
+| ELD of Tpr; Tdu is higher than Tpr | 72 |
+| ELD of Tpr; Tpr is higher than Tdu | 85 |
+
+
+
 
 
 
