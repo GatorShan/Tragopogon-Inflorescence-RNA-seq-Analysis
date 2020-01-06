@@ -45,6 +45,17 @@ Example output (`/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/rRNA_Filter/C
   - `Tdu_2613_11_R1_crop_clean.fastq`
   - `Tdu_2613_11_R2_crop_clean.fastq`
 
+### 2.5 Concatenate reads from different biological replicates
+Script `CatFiles_2.0.sh` was used.
+
+Output (`/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/CatCleanReads/Crop`):
+  - 40G `Tdu_2613_R1_crop_clean_cat.fastq`
+  - 39G `Tdu_2613_R2_crop_clean_cat.fastq`
+  - 36G `Tdu_2886_R1_crop_clean_cat.fastq`
+  - 35G `Tdu_2886_R2_crop_clean_cat.fastq`
+  - 36G `Tpr_2608_R1_crop_clean_cat.fastq`
+  - 36G `Tpr_2608_R2_crop_clean_cat.fastq`
+
 ## 3. Trimming reads from polyploids
 ### 3.1 Statistics of the raw reads
 
