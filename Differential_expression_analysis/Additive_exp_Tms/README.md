@@ -5,7 +5,15 @@ Script `DESeq2_Tms_additive_count_matrix.ipynb` was used to generate the count m
 ## 2. DESeq2 analysis
 Script `DESeq2_Tms_additive_analysis.ipynb` was used for DESeq2 analysis.
 
-For additive analysis, the expression value of Tms was compared with MPV (average of Tdu and Tpr) following the method described [here](https://support.bioconductor.org/p/69104/). If the expression of Tms is not significantly different from MPV in a locus, that locus is considered as additive; if the expression of Tms is significantly different (FDR 0.05) from MPV at a locus, that locus is considered as non-additive.
+For additive analysis, the expression value of Tms was compared with MPV (average of Tdu and Tpr) following the method described [here](https://support.bioconductor.org/p/69104/).
+```r
+## Contrast MPV and polyploid; cutoff of adjusted p-value (FDR) is set as 0.05; MPV is the baseline for logFC
+## contrast: a list of 2 character vectors: the names of the fold changes for the numerator, and the names of the fold changes for the denominator; these names should be elements of resultNames(object)
+## listvalues: a numeric of length two: the log2 fold changes in the list are multiplied by these values (only used if a list is provided to contrast)
+res_additive_analysis <- results(dds, contrast=list("speciesTms", c("speciesTdu","speciesTpr")), listValues=c(1, -1/2), alpha = 0.05)
+```
+
+If the expression of Tms is not significantly different from MPV in a locus, that locus is considered as additive; if the expression of Tms is significantly different (FDR 0.05) from MPV at a locus, that locus is considered as non-additive.
 
 ![PCA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tms/images/Tms_additive_PCA.png)
 
