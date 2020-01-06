@@ -1,4 +1,4 @@
-# Raw reads were cleaned before used for downstream analysis
+# Raw reads were cleaned before performing downstream analysis
 ## 1. Description
 This section includes the following steps:
   - change the name of the raw fastq files
@@ -7,6 +7,43 @@ This section includes the following steps:
   - Remove rRNA reads (only reads from mRNA is supposed to be remained)
 
 ## 2. Trimming reads from diploids
+### 2.1 Rename fastq files
+Script `NameChange.py` was used.
+
+Example input:
+  - `Sample1-2608-3-bc2-L03_S17_L003_R1_001.fastq`
+  - `Sample4-2613-11-bc6-L03_S20_L003_R1_001.fastq`
+
+Example output:
+  - `Tpr_2608_3_R1.fastq`
+  - `Tdu_2613_11_R1.fastq`
+
+### 2.2 Remove adaptor sequences
+Cutadapt/2.1 was used with scripts `AdaptorTrimming_R1_1.0.sh` and `AdaptorTrimming_R2_1.0.sh`. About **3%** reads have adapter(s) and about 99% of basepairs were left after filtering.
+
+Example input:
+  - `Tpr_2608_3_R1.fastq`
+  - `Tdu_2613_11_R1.fastq`
+
+Example output (`/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/AdapterTrim`):
+  - `Tpr_2608_3_R1_adapter_trimmed.fastq`
+  - `Tdu_2613_11_R1_adapter_trimmed.fastq `
+
+### 2.3 Remove low quality bases by using Trimmomatic
+Trimmomatic/0.36 was used with script `TrimmomaticCrop_1.0.sh`. **About 93%** read pairs have both R1 and R2 survived.
+
+Example output (`/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/TrimmomaticCrop`):
+  - `Tpr_2608_3_R1_trimmomatic-crop_paired.fastq`
+  - `Tpr_2608_3_R1_trimmomatic-crop_unpaired.fastq`
+  - `Tpr_2608_3_R2_trimmomatic-crop_paired.fastq`
+  - `Tpr_2608_3_R2_trimmomatic-crop_unpaired.fastq`
+
+### 2.4 Remove rRNA reads
+sortmerna/2.1 was used with script `Remove_rRNA.2.1.sh`. **About 1%** reads are rRNA-originated, which have been filtered out.
+
+Example output (`/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/rRNA_Filter/Crop_clean`):
+  - `Tdu_2613_11_R1_crop_clean.fastq`
+  - `Tdu_2613_11_R2_crop_clean.fastq`
 
 ## 3. Trimming reads from polyploids
 ### 3.1 Statistics of the raw reads
