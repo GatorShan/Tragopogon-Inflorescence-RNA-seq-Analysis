@@ -26,7 +26,7 @@ Example input:
   - `Sample1-2608-3-bc2-L03_S17_L003_R1_001.fastq`
   - `Sample4-2613-11-bc6-L03_S20_L003_R1_001.fastq`
 
-Example output:
+Example output (`/orange/soltis/shan158538/NS230_Shan_120916/00_Raw_Data`):
   - `Tpr_2608_3_R1.fastq`
   - `Tdu_2613_11_R1.fastq`
 
