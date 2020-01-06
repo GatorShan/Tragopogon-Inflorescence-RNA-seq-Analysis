@@ -7,6 +7,18 @@ This section includes the following steps:
   - Remove rRNA reads (only reads from mRNA is supposed to be remained)
 
 ## 2. Trimming reads from diploids
+| Sample ID while sequencing | Population ID | Description | Index primer No. |
+| -- | -- | -- | -- |
+| 1 | 2608-3 | T. pratensis from Moscow | 2 |
+| 2 | 2608-21 | T. pratensis from Moscow | 4 |
+| 3 | 2608-31 | T. pratensis from Moscow | 5 |
+| 4 | 2613-11 | T. dubius from Pullman | 6 |
+| 5 | 2613-12 | T. dubius from Pullman | 7 |
+| 6 | 2613-41 | T. dubius from Pullman | 12 |
+| 7 | 2886-3 | T. dubius from Moscow | 13 |
+| 8 | 2886-5 | T. dubius from Moscow | 18 |
+| 9 | 2886-7 | T. dubius from Moscow | 23 |
+
 ### 2.1 Rename fastq files
 Script `NameChange.py` was used.
 
