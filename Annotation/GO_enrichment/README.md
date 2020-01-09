@@ -152,3 +152,11 @@ Output:
   - `GOSeq_Tms_transgressive_higher.txt.GOseq.enriched`
   - `GOSeq_Tms_transgressive_higher.txt.GOseq.depleted`
 
+### 5.2 In long-liguled T. miscellus
+Output:
+  - `GOSeq_Tml_transgressive_lower.txt.GOseq.enriched`
+  - `GOSeq_Tml_transgressive_lower.txt.GOseq.depleted`
+  - `GOSeq_Tml_transgressive_higher.txt.GOseq.enriched`
+  - `GOSeq_Tml_transgressive_higher.txt.GOseq.depleted`
+
+
