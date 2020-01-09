@@ -1,0 +1,5 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0009451	1	0.005365125270209	0	234	RNA modification	BP	0.9999999999	0.9999999999	BP RNA modification
+GO:0016021	0.995348589469332	0.00791269638449817	29	2011	integral component of membrane	CC	0.9999999999	0.9999999999	CC integral component of membrane
+GO:0003700	0.987385830047861	0.0277858543656632	8	747	DNA-binding transcription factor activity	MF	0.9999999999	0.9999999999	MF DNA-binding transcription factor activity
+GO:0005794	0.985488999311546	0.0402117019987816	4	427	Golgi apparatus	CC	0.9999999999	0.9999999999	CC Golgi apparatus

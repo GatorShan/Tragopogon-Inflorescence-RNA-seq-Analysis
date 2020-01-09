@@ -1,0 +1,5 @@
+category	over_represented_pvalue	under_represented_pvalue	numDEInCat	numInCat	term	ontology	over_represented_FDR	under_represented_FDR	go_term
+GO:0009451	1	0.0266280249368208	0	234	RNA modification	BP	0.9999999999	0.9999999999	BP RNA modification
+GO:0016021	0.979628749056125	0.0329316605800566	25	2011	integral component of membrane	CC	0.9999999999	0.9999999999	CC integral component of membrane
+GO:0005730	0.993088064525683	0.0420993104475396	1	270	nucleolus	CC	0.9999999999	0.9999999999	CC nucleolus
+GO:0006468	0.980083620263818	0.0490494628695946	5	506	protein phosphorylation	BP	0.9999999999	0.9999999999	BP protein phosphorylation
