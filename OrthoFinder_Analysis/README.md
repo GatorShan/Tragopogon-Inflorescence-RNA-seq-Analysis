@@ -2,7 +2,7 @@
 ## Description
 Single-copy orthogroups were considered as orthologs, and will be used for downstream gene expression analysis
 ### Input files
-The following two amino acid FASTA files were used as input files for orthofinder analysis
+The following two amino acid FASTA files (generated from section **Annotation**) were used as input files for orthofinder analysis
 `Tdu_SuperTranscript_transdecoder.fasta`
 `Tpr_SuperTranscript_transdecoder.fasta`
 ### Script
