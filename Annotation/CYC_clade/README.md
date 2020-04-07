@@ -1,5 +1,5 @@
-# Orthologs of CYC/TB1 clade genes in supertranscript
-We are using the 13 putative CYC/TB1 clade genes from Liu et al., (2020) as query to identify orthologs in Tdu supertranscripts; then we will assess those genes' expression profiles in polyploids and diploids.
+# Homologs of CYC/TB1 clade genes in supertranscript
+We are using the 13 putative CYC/TB1 clade genes from Liu et al., (2020) as query to identify homologs in Tdu supertranscripts; then we will assess those genes' expression profiles in polyploids and diploids.
 
 ## 1. Extract SuperTranscript fasta files (from Tdu) for those 11,863 orthologous pairs used in gene expression analysis
 Script `Extract_fasta_seq_V1.ipynb` was used.
@@ -22,7 +22,7 @@ TragDub15759    TRINITY_DN9954_c0_g1    99.907  1072    1       0       70      
 TragDub29017    TRINITY_DN18324_c0_g2   100.000 644     0       0       1       644     4129    3486    0.0     1190
 ```
 
-Unique orthologs of CYC/TB1 clade genes (output `TduST_CYC_ortholog.txt`):
+Unique homologs of CYC/TB1 clade genes (output `TduST_CYC_ortholog.txt`):
 ```
 TRINITY_DN19548_c1_g2
 TRINITY_DN18324_c0_g2
@@ -34,6 +34,20 @@ TRINITY_DN9954_c0_g1
 
 ## 3. Expression profiles of those SuperTranscript orthologs
 ### 3.1 DE analysis between Tdu and Tpr
+
+**Expression profiles of those CYC2 homologs ** extracted from file `DESeq2_count_matrix_Tdu_Tpr.csv`.
+```
+FUSION_ID,Tdu_1,Tdu_2,Tdu_3,Tdu_4,Tdu_5,Tdu_6,Tpr_1,Tpr_2,Tpr_3
+
+Tpr_TRINITY_DN30478_c0_g1|Tdu_TRINITY_DN19548_c1_g2,3,1,2,1,10,3,2,6,1
+Tpr_TRINITY_DN10225_c1_g2|Tdu_TRINITY_DN18324_c0_g2,8,9,17,4,7,3,4,5,5
+Tpr_TRINITY_DN10615_c2_g5|Tdu_TRINITY_DN18324_c0_g4,12,32,46,18,43,24,62,100,45
+Tpr_TRINITY_DN10418_c1_g5|Tdu_TRINITY_DN25185_c2_g1,15,19,22,32,36,20,43,73,60
+Tpr_TRINITY_DN10615_c2_g2|Tdu_TRINITY_DN19040_c6_g3,2,6,2,2,4,0,2,2,9
+Tpr_TRINITY_DN8293_c0_g1|Tdu_TRINITY_DN9954_c0_g1,0,0,0,1,0,0,4,1,0
+```
+
+
 **Two supertranscripts were highly expressed in Tpr**; from file `DESeq2_DE_higher_Tpr.txt`
 ```
 Tpr_TRINITY_DN10615_c2_g5|Tdu_TRINITY_DN18324_c0_g4	41.3422228500312	-1.37404748450446	0.29782163086959	-4.61407803773289	3.94844061798986e-06	7.56326967574314e-05
