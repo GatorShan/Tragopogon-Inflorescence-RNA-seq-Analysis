@@ -41,6 +41,7 @@ Here is the **results of DE analysis (padj < 0.05) between Tdu and Tpr**:
 | DE loci with LFC < 0 (Tdu < Tpr) | 1,030 |
 | Outliers | 11 |
 | Low counts | 904 |
+| Total number of loci with results | 10,746 (=11,661 - 11 - 904) |
 
 ![MA_plot_Tdu_Tpr](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/Tdu_Tpr_MAplot.png)
 
