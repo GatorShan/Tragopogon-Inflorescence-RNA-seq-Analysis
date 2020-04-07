@@ -35,7 +35,7 @@ TRINITY_DN9954_c0_g1
 ## 3. Expression profiles of those SuperTranscript orthologs
 ### 3.1 DE analysis between Tdu and Tpr
 
-**Expression profiles of those CYC2 homologs ** extracted from file `DESeq2_count_matrix_Tdu_Tpr.csv`.
+**Expression profiles of those CYC2 homologs** extracted from file `DESeq2_count_matrix_Tdu_Tpr.csv`.
 ```
 FUSION_ID,Tdu_1,Tdu_2,Tdu_3,Tdu_4,Tdu_5,Tdu_6,Tpr_1,Tpr_2,Tpr_3
 
@@ -62,3 +62,18 @@ Tpr_TRINITY_DN10615_c2_g2|Tdu_TRINITY_DN19040_c6_g3	3.46816116463934	-0.74508888
 ```
 
 **No supertranscript was highly expressed in Tdu**
+
+### 3.2 DE analysis between Tms and Tml
+**Expression profiles of those CYC2 homologs** extracted from file `DESeq2_count_matrix_Tml_Tms.csv`.
+```
+FUSION_ID,Tml_1,Tml_2,Tml_3,Tms_1,Tms_2,Tms_3
+
+Tpr_TRINITY_DN10615_c2_g5|Tdu_TRINITY_DN18324_c0_g4,29,20,26,18,32,39
+Tpr_TRINITY_DN10225_c1_g2|Tdu_TRINITY_DN18324_c0_g2,3,0,1,1,1,0
+Tpr_TRINITY_DN30478_c0_g1|Tdu_TRINITY_DN19548_c1_g2,0,4,3,0,0,4
+Tpr_TRINITY_DN8293_c0_g1|Tdu_TRINITY_DN9954_c0_g1,0,0,0,0,1,3
+Tpr_TRINITY_DN10615_c2_g2|Tdu_TRINITY_DN19040_c6_g3,4,0,3,2,7,3
+Tpr_TRINITY_DN10418_c1_g5|Tdu_TRINITY_DN25185_c2_g1,48,23,25,18,34,37
+```
+
+**No supertranscript was differentially expressed between Tms and Tml**
