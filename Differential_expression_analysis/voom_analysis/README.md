@@ -9,7 +9,7 @@ Two rounds of comparison between Tdu and Tpr were performed:
 
 ## 2. Generate files containing reads counts data
 
-"Counts were taken from reads mapped to both of the COREs between orthologous pairs. Thus counts are taken from hihgly similar regions of the orthologs to account for differences in length between orthologous pairs resulting from incompletely reconstructed orthologs" -- Boatwright et al., 2018
+"Counts were taken from reads mapped to both of the COREs between orthologous pairs. Thus counts are taken from highly similar regions of the orthologs to account for differences in length between orthologous pairs resulting from incompletely reconstructed orthologs" -- Boatwright et al., 2018
 
 ### 2.1 Count reads
 
