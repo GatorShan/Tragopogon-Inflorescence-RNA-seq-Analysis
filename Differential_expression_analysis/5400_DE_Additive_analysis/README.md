@@ -13,6 +13,10 @@ Output: `DESeq2_count_matrix_Tdu_Tpr_5400.csv`
 ### 1.2 DE analysis
 Script `DESeq2_Tdu_Tpr_DEanalysis_5400.r` was used.
 
+![PCA](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/5400_DE_Additive_analysis/images/Pic_3_PCA_Tdu_Tpr.png)
+![Tree](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/5400_DE_Additive_analysis/images/Pic_4_Tree_Tdu_Tpr.png)
+![DE](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/5400_DE_Additive_analysis/images/Pic_6_DE_analysis_Tdu_Tpr.png)
+
 Results:
 
 | Expression pattern | No. of loci |
