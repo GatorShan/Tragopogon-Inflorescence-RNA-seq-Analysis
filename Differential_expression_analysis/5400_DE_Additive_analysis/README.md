@@ -1,4 +1,4 @@
-# Perform additive gene expression analysis for filtered 5,400 loci
+# Perform additive gene expression analysis using the 5,400 loci without mapping bias
 These analyses were performed to answer Pam's question during my PhD defense
 
 ## 1. DE analysis of 5,400 loci between Tdu and Tpr
