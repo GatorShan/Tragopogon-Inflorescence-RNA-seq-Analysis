@@ -24,3 +24,29 @@ Results:
 | DE | 960 |
 | non-DE | 4,095 |
 | Total | 5,055 |
+
+## 2. Additive expression analysis in Tms (short-liguled T. miscellus)
+Script `DESeq2_Tms_additive_analysis_5400.r` was used.
+
+![DE](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/5400_DE_Additive_analysis/images/Pic_4_DE_Tms_MPV.png)
+
+Results:
+
+| Expression pattern | No. of loci |
+| -- | -- |
+| Additive | 4,122 (84.9%) |
+| non-Additive | 731 (15.1%) |
+| Total | 4,853 |
+
+## 3. Additive expression analysis in Tml (long-liguled T. miscellus)
+Script `DESeq2_Tml_additive_analysis_5400.r` was used.
+
+![DE](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/5400_DE_Additive_analysis/images/Pic_6_DE_Tml_MPV.png)
+
+Results:
+
+| Expression pattern | No. of loci |
+| -- | -- |
+| Additive | 4,062 (91.6%) |
+| non-Additive | 372 (8.4%) |
+| Total | 4,434 |
