@@ -14,4 +14,20 @@ Script `DESeq2_Tms_additive_analysis_v3.ipynb` was used to compare the expressio
   - 9072 `DESeq2_noneDE_loci_Tdu_Tpr.txt`
   - 8430 `DESeq2_noneDE_loci_Tms_Tdu.txt`
   - 8153 `DESeq2_noneDE_loci_Tms_Tpr.txt`
-  
+
+
+## 2. Analysis in long-liguled T. miscellus (Tml)
+### 2.1 Input files
+Script `DESeq2_Tml_additive_analysis_v3.ipynb` was used to compare the expression levels among Tdu, Tpr, and Tml.
+
+  - 765 `DESeq2_DE_loci_Tdu_higher_than_Tml.txt`
+  - 960 `DESeq2_DE_loci_Tdu_higher.txt`: Tdu > Tpr
+  - 718 `DESeq2_DE_loci_Tml_higher_than_Tdu.txt`
+  - 537 `DESeq2_DE_loci_Tml_higher_than_Tpr.txt`
+  - 568 `DESeq2_DE_loci_Tpr_higher_than_Tml.txt`
+  - 986 `DESeq2_DE_loci_Tpr_higher.txt`: Tdu < Tpr
+  - 8822 `DESeq2_noneDE_loci_Tdu_Tpr.txt`
+  - 8380 `DESeq2_noneDE_loci_Tml_Tdu.txt`
+  - 8758 `DESeq2_noneDE_loci_Tml_Tpr.txt`
+
+
