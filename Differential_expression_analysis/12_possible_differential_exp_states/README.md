@@ -14,7 +14,26 @@ Script `DESeq2_Tms_additive_analysis_v3.ipynb` was used to compare the expressio
   - 9072 `DESeq2_noneDE_loci_Tdu_Tpr.txt`
   - 8430 `DESeq2_noneDE_loci_Tms_Tdu.txt`
   - 8153 `DESeq2_noneDE_loci_Tms_Tpr.txt`
+### 1.2 Parse genes
+Script `DESeq2_Tms_12_categories_v1.ipynb` was used to parse genes into the 12 categories.
 
+Output:
+```
+6243 Tdu_equal_Tpr_AND_Tms_equal_Tdu_AND_Tms_equal_Tpr.txt
+ 260 Tdu_equal_Tpr_AND_Tms_high_Tdu_AND_Tms_high_Tpr.txt
+ 433 Tdu_equal_Tpr_AND_Tms_low_Tdu_AND_Tms_low_Tpr.txt
+ 261 Tdu_high_Tpr_AND_Tms_equal_Tdu_AND_Tms_high_Tpr.txt
+   7 Tdu_high_Tpr_AND_Tms_high_Tdu_AND_Tms_high_Tpr.txt
+ 297 Tdu_high_Tpr_AND_Tms_low_Tdu_AND_Tms_equal_Tpr.txt
+  50 Tdu_high_Tpr_AND_Tms_low_Tdu_AND_Tms_high_Tpr.txt
+  14 Tdu_high_Tpr_AND_Tms_low_Tdu_AND_Tms_low_Tpr.txt
+ 293 Tpr_high_Tdu_AND_Tms_equal_Tpr_AND_Tms_high_Tdu.txt
+   6 Tpr_high_Tdu_AND_Tms_high_Tpr_AND_Tms_high_Tdu.txt
+ 245 Tpr_high_Tdu_AND_Tms_low_Tpr_AND_Tms_equal_Tdu.txt
+  43 Tpr_high_Tdu_AND_Tms_low_Tpr_AND_Tms_high_Tdu.txt
+  33 Tpr_high_Tdu_AND_Tms_low_Tpr_AND_Tms_low_Tdu.txt
+8185 total
+```
 
 ## 2. Analysis in long-liguled T. miscellus (Tml)
 ### 2.1 Input files
