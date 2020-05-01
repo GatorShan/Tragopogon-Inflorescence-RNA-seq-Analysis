@@ -35,7 +35,7 @@ Output:
 
 
 ## 4. Expression-level dominant (ELD) and transgressive expression analysis
-Scirpt `DESeq2_Tms_additive_analysis_v2.ipynb` was used, and generate the following output files:
+Scirpt `DESeq2_Tml_additive_analysis_v2.ipynb` was used, and generate the following output files:
   - `DESeq2_DE_loci_Tdu_higher.txt`, contains DE loci between Tdu and Tpr with higher expression in Tdu
   - `DESeq2_DE_loci_Tpr_higher.txt`, contains DE loci between Tdu and Tpr with higher expression in Tpr
   - `DESeq2_DE_loci_Tml_higher_than_Tdu.txt`, contains DE loci between Tml and Tdu with higher expression in Tml
