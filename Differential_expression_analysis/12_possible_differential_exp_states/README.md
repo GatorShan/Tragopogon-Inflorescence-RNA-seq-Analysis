@@ -69,3 +69,4 @@ Output:
     22 Tpr_high_Tdu_AND_Tml_low_Tpr_AND_Tml_low_Tdu.txt
   8288 total
 ```
+![Comparison](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/12_possible_differential_exp_states/images/Picture1.png)
