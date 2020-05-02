@@ -49,4 +49,23 @@ Script `DESeq2_Tml_additive_analysis_v3.ipynb` was used to compare the expressio
   - 8380 `DESeq2_noneDE_loci_Tml_Tdu.txt`
   - 8758 `DESeq2_noneDE_loci_Tml_Tpr.txt`
 
+### 2.2 Parse genes
+Script `DESeq2_Tml_12_categories_v1.ipynb` was used.
 
+Output:
+```
+  6883 Tdu_equal_Tpr_AND_Tml_equal_Tdu_AND_Tml_equal_Tpr.txt
+   173 Tdu_equal_Tpr_AND_Tml_high_Tdu_AND_Tml_high_Tpr.txt
+   219 Tdu_equal_Tpr_AND_Tml_low_Tdu_AND_Tml_low_Tpr.txt
+   203 Tdu_high_Tpr_AND_Tml_equal_Tdu_AND_Tml_high_Tpr.txt
+     7 Tdu_high_Tpr_AND_Tml_high_Tdu_AND_Tml_high_Tpr.txt
+   252 Tdu_high_Tpr_AND_Tml_low_Tdu_AND_Tml_equal_Tpr.txt
+    32 Tdu_high_Tpr_AND_Tml_low_Tdu_AND_Tml_high_Tpr.txt
+     6 Tdu_high_Tpr_AND_Tml_low_Tdu_AND_Tml_low_Tpr.txt
+   267 Tpr_high_Tdu_AND_Tml_equal_Tpr_AND_Tml_high_Tdu.txt
+     4 Tpr_high_Tdu_AND_Tml_high_Tpr_AND_Tml_high_Tdu.txt
+   191 Tpr_high_Tdu_AND_Tml_low_Tpr_AND_Tml_equal_Tdu.txt
+    29 Tpr_high_Tdu_AND_Tml_low_Tpr_AND_Tml_high_Tdu.txt
+    22 Tpr_high_Tdu_AND_Tml_low_Tpr_AND_Tml_low_Tdu.txt
+  8288 total
+```
