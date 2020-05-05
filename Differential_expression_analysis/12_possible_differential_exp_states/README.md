@@ -70,3 +70,9 @@ Output:
   8288 total
 ```
 ![Comparison](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/12_possible_differential_exp_states/images/Picture1.png)
+
+## 3. Identify common loci between Tms and Tml
+Script `Compare_Tms_Tml_12_categories.ipynb` was used to compare the loci within each category between Tms and Tml.
+
+The results are shown below:
+![common_loci]()
