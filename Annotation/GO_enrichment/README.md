@@ -159,7 +159,7 @@ Output:
   - `GOSeq_Tml_transgressive_higher.txt.GOseq.enriched`
   - `GOSeq_Tml_transgressive_higher.txt.GOseq.depleted`
 
-## 6. GO enrichment analysis on the 12 categories of loci
+## 6. GO enrichment analysis of the 12 categories of loci
 The loci could be found at `/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/DE_analysis/12_possible_differential_exp_states`.
 
 ### 6.1 Transgressive expression
