@@ -172,6 +172,12 @@ ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_fact
 ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor Tms_trans-up_loci.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
 ```
 
+```
+cut -f 1,2,6,7 Tms_trans-down_loci.txt.GOseq.enriched | awk '$2<1e-2' > simplified_1e-2_Tms_trans-down_loci.txt.GOseq.enriched
+
+cut -f 1,2,6,7 Tms_trans-up_loci.txt.GOseq.enriched | awk '$2<1e-2' > simplified_1e-2_Tms_trans-up_loci.txt.GOseq.enriched
+```
+
 **Tml:**
 
 The following code were used:
@@ -179,4 +185,10 @@ The following code were used:
 ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor Tml_trans-down_loci.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
 
 ${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor Tml_trans-up_loci.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
+```
+
+```
+cut -f 1,2,6,7 Tml_trans-down_loci.txt.GOseq.enriched | awk '$2<1e-2' > simplified_1e-2_Tml_trans-down_loci.txt.GOseq.enriched
+
+cut -f 1,2,6,7 Tml_trans-up_loci.txt.GOseq.enriched | awk '$2<1e-2' > simplified_1e-2_Tml_trans-up_loci.txt.GOseq.enriched
 ```
