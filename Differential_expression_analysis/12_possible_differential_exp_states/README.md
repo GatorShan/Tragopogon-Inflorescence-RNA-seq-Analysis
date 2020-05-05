@@ -75,4 +75,4 @@ Output:
 Script `Compare_Tms_Tml_12_categories.ipynb` was used to compare the loci within each category between Tms and Tml.
 
 The results are shown below:
-![common_loci]()
+![common_loci](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/12_possible_differential_exp_states/images/Picture2.png)
