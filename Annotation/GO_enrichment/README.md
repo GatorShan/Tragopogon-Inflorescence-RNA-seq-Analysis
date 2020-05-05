@@ -159,4 +159,24 @@ Output:
   - `GOSeq_Tml_transgressive_higher.txt.GOseq.enriched`
   - `GOSeq_Tml_transgressive_higher.txt.GOseq.depleted`
 
+## 6. GO enrichment analysis on the 12 categories of loci
+The loci could be found at `/ufrc/soltis/shan158538/TragFL_NewAnalysis/OutPut/DE_analysis/12_possible_differential_exp_states`.
 
+### 6.1 Transgressive expression
+**Tms:**
+
+The following code were used:
+```
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor Tms_trans-down_loci.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
+
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor Tms_trans-up_loci.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
+```
+
+**Tml:**
+
+The following code were used:
+```
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor Tml_trans-down_loci.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
+
+${TRINITY_HOME}/Analysis/DifferentialExpression/run_GOseq.pl --genes_single_factor Tml_trans-up_loci.txt --GO_assignments ../Tdu_go_annotation_no_ancestral.txt --lengths ../Tdu_supertranscript_length.txt --background ../Orthologs_TduID_11863.txt
+```
