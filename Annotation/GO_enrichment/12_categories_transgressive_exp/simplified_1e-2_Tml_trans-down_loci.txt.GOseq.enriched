@@ -1,0 +1,25 @@
+GO:0005622	5.17746618247213e-05	intracellular	CC
+GO:0048833	0.000488445087485308	specification of floral organ number	BP
+GO:0000349	0.00051176609839952	generation of catalytic spliceosome for first transesterification step	BP
+GO:0005840	0.000562881291388916	ribosome	CC
+GO:0003735	0.00103307798829181	structural constituent of ribosome	MF
+GO:0071007	0.00119752991904298	U2-type catalytic step 2 spliceosome	CC
+GO:0006412	0.00130951962285879	translation	BP
+GO:0009944	0.00254227658606726	polarity specification of adaxial/abaxial axis	BP
+GO:0010393	0.00269011904050491	galacturonan metabolic process	BP
+GO:0004784	0.00357149470583219	superoxide dismutase activity	MF
+GO:0006801	0.00357149470583219	superoxide metabolic process	BP
+GO:0000226	0.00416957745867347	microtubule cytoskeleton organization	BP
+GO:0003680	0.00430960666288844	AT DNA binding	MF
+GO:0010272	0.00453406113079908	response to silver ion	BP
+GO:0071217	0.00453406113079908	cellular response to external biotic stimulus	BP
+GO:0071006	0.00471499428989651	U2-type catalytic step 1 spliceosome	CC
+GO:0048442	0.00516571001279108	sepal development	BP
+GO:0005730	0.00518386877312649	nucleolus	CC
+GO:0071013	0.00519801539658143	catalytic step 2 spliceosome	CC
+GO:0009579	0.00659980164229147	thylakoid	CC
+GO:0009706	0.00676973674288613	chloroplast inner membrane	CC
+GO:0046898	0.00680718794045649	response to cycloheximide	BP
+GO:0048359	0.00681437149554872	mucilage metabolic process involved in seed coat development	BP
+GO:0000398	0.00720138799543565	mRNA splicing, via spliceosome	BP
+GO:1902183	0.00916867721563205	regulation of shoot apical meristem development	BP

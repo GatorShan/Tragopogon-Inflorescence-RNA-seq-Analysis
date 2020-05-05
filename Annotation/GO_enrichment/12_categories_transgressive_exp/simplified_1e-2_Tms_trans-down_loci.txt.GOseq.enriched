@@ -1,0 +1,31 @@
+GO:0045490	8.38582395683026e-09	pectin catabolic process	BP
+GO:0030599	1.18554122936476e-05	pectinesterase activity	MF
+GO:0042545	1.18554122936476e-05	cell wall modification	BP
+GO:0045330	1.18554122936476e-05	aspartyl esterase activity	MF
+GO:0004857	2.05103619533805e-05	enzyme inhibitor activity	MF
+GO:0046910	2.30531365090739e-05	pectinesterase inhibitor activity	MF
+GO:0030570	3.01333155720195e-05	pectate lyase activity	MF
+GO:0071006	0.000737227337540369	U2-type catalytic step 1 spliceosome	CC
+GO:0010005	0.000945087662144542	cortical microtubule, transverse to long axis	CC
+GO:0005618	0.00151339255883244	cell wall	CC
+GO:0017144	0.00170840139743849	drug metabolic process	BP
+GO:0042373	0.00170840139743849	vitamin K metabolic process	BP
+GO:0047021	0.00170840139743849	15-hydroxyprostaglandin dehydrogenase (NADP+) activity	MF
+GO:0050221	0.00170840139743849	prostaglandin-E2 9-reductase activity	MF
+GO:0005730	0.00184239103866772	nucleolus	CC
+GO:0071339	0.00192054762511587	MLL1 complex	CC
+GO:0005622	0.00297493246255202	intracellular	CC
+GO:0004365	0.00309833448939778	glyceraldehyde-3-phosphate dehydrogenase (NAD+) (phosphorylating) activity	MF
+GO:0004090	0.00345643243786489	carbonyl reductase (NADPH) activity	MF
+GO:0090406	0.00374822815578665	pollen tube	CC
+GO:0015629	0.00397530346246415	actin cytoskeleton	CC
+GO:0009943	0.00459002740923647	adaxial/abaxial axis specification	BP
+GO:0004089	0.00510365547225983	carbonate dehydratase activity	MF
+GO:1901672	0.00559381235744959	positive regulation of systemic acquired resistance	BP
+GO:0009693	0.00641359510593965	ethylene biosynthetic process	BP
+GO:0031011	0.00735125981460733	Ino80 complex	CC
+GO:0043693	0.00814171553590599	monoterpene biosynthetic process	BP
+GO:0003712	0.00874715692258103	transcription coregulator activity	MF
+GO:0016655	0.00913350939645009	oxidoreductase activity, acting on NAD(P)H, quinone or similar compound as acceptor	MF
+GO:0048440	0.00934666955257312	carpel development	BP
+GO:0016324	0.0097074315320181	apical plasma membrane	CC

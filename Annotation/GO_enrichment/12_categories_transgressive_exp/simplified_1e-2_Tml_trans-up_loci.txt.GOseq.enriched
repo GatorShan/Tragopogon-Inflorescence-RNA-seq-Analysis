@@ -1,0 +1,33 @@
+GO:0009927	6.09174091490539e-05	histidine phosphotransfer kinase activity	MF
+GO:0046713	6.18489651389399e-05	borate transport	BP
+GO:0048364	0.000148061386744926	root development	BP
+GO:0015292	0.000203616683600775	uniporter activity	MF
+GO:0046715	0.000500084691380766	active borate transmembrane transporter activity	MF
+GO:0051015	0.000620956048347923	actin filament binding	MF
+GO:0000303	0.000787305331951644	response to superoxide	BP
+GO:0015267	0.000877244780605417	channel activity	MF
+GO:0045931	0.000918033984043699	positive regulation of mitotic cell cycle	BP
+GO:0009736	0.00103220931682431	cytokinin-activated signaling pathway	BP
+GO:0051560	0.0013291598891129	mitochondrial calcium ion homeostasis	BP
+GO:0010105	0.00175623251344069	negative regulation of ethylene-activated signaling pathway	BP
+GO:0080029	0.00180162303659591	cellular response to boron-containing substance levels	BP
+GO:0006807	0.00186885884817856	nitrogen compound metabolic process	BP
+GO:0048467	0.00208747621550338	gynoecium development	BP
+GO:0009816	0.00219564848461818	defense response to bacterium, incompatible interaction	BP
+GO:0060090	0.00259945278949534	molecular adaptor activity	MF
+GO:0015031	0.00404388801342593	protein transport	BP
+GO:0015930	0.00446303598457229	glutamate synthase activity	MF
+GO:0016638	0.00446303598457229	oxidoreductase activity, acting on the CH-NH2 group of donors	MF
+GO:0097054	0.00446303598457229	L-glutamate biosynthetic process	BP
+GO:0051538	0.00606772169354451	3 iron, 4 sulfur cluster binding	MF
+GO:0015250	0.00611611498823482	water channel activity	MF
+GO:0006809	0.00743330420280252	nitric oxide biosynthetic process	BP
+GO:0006537	0.00764321734329538	glutamate biosynthetic process	BP
+GO:0051014	0.00785025078987699	actin filament severing	BP
+GO:0000221	0.00791091759476769	vacuolar proton-transporting V-type ATPase, V1 domain	CC
+GO:2000377	0.00800237243798436	regulation of reactive oxygen species metabolic process	BP
+GO:0003950	0.00834618807066308	NAD+ ADP-ribosyltransferase activity	MF
+GO:0032973	0.00844853349483804	amino acid export across plasma membrane	BP
+GO:0034639	0.00844853349483804	L-amino acid efflux transmembrane transporter activity	MF
+GO:0019905	0.0087398351073793	syntaxin binding	MF
+GO:0010193	0.00977955554015894	response to ozone	BP

@@ -1,0 +1,36 @@
+GO:0060090	0.00013780911273803	molecular adaptor activity	MF
+GO:0009816	0.000161992168132231	defense response to bacterium, incompatible interaction	BP
+GO:0051010	0.00119009572139237	microtubule plus-end binding	MF
+GO:0000502	0.00193918073061421	proteasome complex	CC
+GO:0000303	0.00204604608503272	response to superoxide	BP
+GO:0045931	0.00204785748994882	positive regulation of mitotic cell cycle	BP
+GO:0005262	0.00238443913556542	calcium channel activity	MF
+GO:0070601	0.00264913697792563	centromeric sister chromatid cohesion	BP
+GO:0042578	0.00277577064004977	phosphoric ester hydrolase activity	MF
+GO:0010072	0.00298724185990701	primary shoot apical meristem specification	BP
+GO:0005911	0.00311174378075584	cell-cell junction	CC
+GO:0009630	0.00320200249807515	gravitropism	BP
+GO:0070013	0.00333986583688292	intracellular organelle lumen	CC
+GO:0005546	0.00408263611803948	phosphatidylinositol-4,5-bisphosphate binding	MF
+GO:0000380	0.00425205937595155	alternative mRNA splicing, via spliceosome	BP
+GO:0051015	0.00437071266771599	actin filament binding	MF
+GO:0010364	0.0044255194446988	regulation of ethylene biosynthetic process	BP
+GO:0010102	0.00564477124239187	lateral root morphogenesis	BP
+GO:0007026	0.00585231701769388	negative regulation of microtubule depolymerization	BP
+GO:0009733	0.00652705504088663	response to auxin	BP
+GO:0005774	0.00698567576000254	vacuolar membrane	CC
+GO:0048467	0.00732325052803298	gynoecium development	BP
+GO:0005938	0.00732877591598221	cell cortex	CC
+GO:0000155	0.00766974873906857	phosphorelay sensor kinase activity	MF
+GO:0080187	0.00768989332507396	floral organ senescence	BP
+GO:0090400	0.00768989332507396	stress-induced premature senescence	BP
+GO:1904250	0.00768989332507396	positive regulation of age-related resistance	BP
+GO:0031155	0.0077241658686534	regulation of reproductive fruiting body development	BP
+GO:0038199	0.00786291508741671	ethylene receptor activity	MF
+GO:0051740	0.00786291508741671	ethylene binding	MF
+GO:0005923	0.0085804793039235	bicellular tight junction	CC
+GO:0007062	0.00879103652509364	sister chromatid cohesion	BP
+GO:0030027	0.00943644559618223	lamellipodium	CC
+GO:0032433	0.00943644559618223	filopodium tip	CC
+GO:0009506	0.00951123232434686	plasmodesma	CC
+GO:0016532	0.00985898923608025	superoxide dismutase copper chaperone activity	MF
