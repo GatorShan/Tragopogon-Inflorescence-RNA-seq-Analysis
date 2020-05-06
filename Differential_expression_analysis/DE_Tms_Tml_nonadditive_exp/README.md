@@ -1,5 +1,5 @@
 ## Description
-This section is to assess the nonadditive expression profiles of DE loci between Tms and Tml, especially those 39 loci that are highly expressed in Tml
+This section is to assess the nonadditive expression profiles of DE loci between Tms and Tml, especially those **39 loci that are highly expressed in Tml**
 
 ## Result
 **Most of the DE loci were transgressively down regulated in Tms**
