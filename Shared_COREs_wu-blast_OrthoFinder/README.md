@@ -46,9 +46,11 @@ The script `Filter_V2.0.py` is used, and generate a file
   - **11,863 shared orthologous pairs**
   - **P_VAL <= 1e-10 and Identity >= 0.8 and AlignmentLength >= 200**
 
+## 7. Fasta files of the 11,863 orthologous pairs
 
+For T. dubius: `SuperTranscript_Tdu_11863.fasta.gz`; for T. pratensis: `SuperTranscript_Tpr_11863.fasta.gz`.
 
-
+The pairing of the supertranscripts between the two species can be found here `Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered_2.0.txt`.
 
 
 
