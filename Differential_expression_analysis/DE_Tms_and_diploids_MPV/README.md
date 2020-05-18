@@ -15,11 +15,11 @@ res_additive_analysis <- results(dds, contrast=list("speciesTms", c("speciesTdu"
 
 If the expression of Tms is not significantly different from MPV in a locus, that locus is considered as additive; if the expression of Tms is significantly different (FDR 0.05) from MPV at a locus, that locus is considered as non-additive.
 
-![PCA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tms/images/Tms_additive_PCA.png)
+![PCA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tms_and_diploids_MPV/images/Tms_additive_PCA.png)
 
-![Clustering](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tms/images/Tms_additive_clustering.png)
+![Clustering](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tms_and_diploids_MPV/images/Tms_additive_clustering.png)
 
-![MA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/Additive_exp_Tms/images/Tms_additive_MA.png)
+![MA plot](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tms_and_diploids_MPV/images/Tms_additive_MA.png)
 
 Output:
   - `DESeq2_Tms_nonAdditive_loci.txt`, contains 1,768 loci that showed non-additive expression
