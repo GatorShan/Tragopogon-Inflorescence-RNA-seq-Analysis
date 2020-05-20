@@ -41,7 +41,8 @@ GO:0045330      1.94019972469179e-06    0.999999972429355       4       28      
 
 ```
 
-
+### 9. 449 loci with lineage-specific biased homeolog expression toward the maternal parent
+No enriched GO terms
 
 
 
