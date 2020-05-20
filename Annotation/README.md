@@ -36,6 +36,8 @@ $HPC_TRINOTATE_DIR/admin/Build_Trinotate_Boilerplate_SQLite_db.pl  Trinotate &
 ```
   - Output: `Trinotate.sqlite`, `uniprot_sprot.pep`, and `Pfam-A.hmm.gz`
 
+The release hisotry of [UniProt](ftp://ftp.uniprot.org/pub/databases/uniprot/previous_releases) and [Pfam](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/).
+
 ### 2.3 Running sequence analysis
 **Running tmHMM to predict transmembrane regions**
 ```bash
