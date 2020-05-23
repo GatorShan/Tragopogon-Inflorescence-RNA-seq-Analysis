@@ -1,5 +1,7 @@
 # A summary table of the pairwise DE analysis between species of Tragopogon
 
+![Figure 3 in the ms](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/images/Picture1.png)
+
   - Tdu = T. dubius (2x)
   - Tpr = T. pratensis (2x)
   - Tms = short-liguled T. miscellus (4x)
