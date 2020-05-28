@@ -20,8 +20,8 @@ The process of identifying reciprocal best-hits can be found in the directory [W
 ### 4. Identify orthologous bias without mapping bias
 5,400 orthologous pairs without mapping bias are found through the process described in the directory [Filter_orthologs](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Filter_orthologs). These loci are used in the homeolog-specific expression analysis.
 ### 5. Homeolog-specific expression analysis
-Directory [Polyploid_alignment](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Polyploid_alignment) describes the process of performing homeolog-specific expression analysis.
-### 6. Differential genee expression analysis
+Directory [Polyploid_alignment](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Polyploid_alignment) describes the process of homeolog-specific expression analysis.
+### 6. Differential gene expression analysis
 Directory [Differential_expression_analysis](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Differential_expression_analysis) includes the process of the following analysis:
   - DE analysis between any two species
   - Effect of paretal expression level on homeolog-specific expression
