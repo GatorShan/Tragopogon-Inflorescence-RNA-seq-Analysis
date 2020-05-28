@@ -5,3 +5,7 @@
   - T. dubius fasta file of the 11,863 orthologous pairs can be found [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Shared_COREs_wu-blast_OrthoFinder/SuperTranscript_Tdu_11863.fasta.gz)
   - T. pratensis fasta file of the 11,863 orthologous pairs can be found [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Shared_COREs_wu-blast_OrthoFinder/SuperTranscript_Tpr_11863.fasta.gz)
   - The pairing information of the orthologous pairs could be found [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Shared_COREs_wu-blast_OrthoFinder/Shared_reciprocated_blast_hits_SingleCopyOrthogroups_parser_FullDescription_filtered_2.0.txt)
+
+## Annotation
+  - Annotation of the Supertranscripts from T. dubius can be found [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Annotation/Trinotate_Functional_Annotation/Tdu_trinotate_annotation_report.xls.gz)
+  - Annotation of the Supertranscripts from T. pratensis can be found [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Annotation/Trinotate_Functional_Annotation/Tpr_trinotate_annotation_report.xls.gz)
