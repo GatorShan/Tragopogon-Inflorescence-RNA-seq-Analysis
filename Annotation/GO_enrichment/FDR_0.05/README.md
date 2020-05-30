@@ -45,7 +45,7 @@ GO:0045330      1.94019972469179e-06    0.999999972429355       4       28      
 No enriched GO terms
 
 ### 10. Effect of parental gene expression on homeolog-specific expression
-No enriched Go terms in both Tms and Tml (including parental legacy, absense of homeolog expression bias, and novel homeolog expression bias).
+No enriched GO terms in both Tms and Tml (including parental legacy, absense of homeolog expression bias, and novel homeolog expression bias).
 
 
 
