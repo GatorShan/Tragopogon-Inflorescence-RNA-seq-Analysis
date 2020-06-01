@@ -14,7 +14,7 @@
 ### 1. Reads trimming
 The process of reads trimming can be found in the directory [Reads_Trimming](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Reads_Trimming)
 ### 2. De novo assembly
-The process of Trinity de novo assembly can be found in the directory [Trinity_assembly](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Trinity_assembly). The output are SuperTranscripts.
+The process of Trinity de novo assembly can be found in the directory [Trinity_assembly](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Trinity_assembly). The output is SuperTranscripts.
 ### 3. Identify orthologous pairs between T. dubius and T. pratensis
 The process of identifying reciprocal best-hits can be found in the directory [WU-Blast_Analysis](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/WU-Blast_Analysis). The process of performing OrthoFinder analysis can be found in the directory [OrthoFinder_Analysis](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/OrthoFinder_Analysis). 11,863 overlapped orthologous pairs derived from the previous two approaches are found through the process described in the directory [Shared_COREs_wu-blast_OrthoFinder](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Shared_COREs_wu-blast_OrthoFinder).
 ### 4. Identify orthologous pairs without mapping bias
@@ -22,11 +22,11 @@ The process of identifying reciprocal best-hits can be found in the directory [W
 ### 5. Homeolog-specific expression analysis
 Directory [Polyploid_alignment](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Polyploid_alignment) describes the process of homeolog-specific expression analysis.
 ### 6. Differential gene expression analysis
-Directory [Differential_expression_analysis](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Differential_expression_analysis) includes the process of the following analysis:
+Directory [Differential_expression_analysis](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Differential_expression_analysis) includes the process of the following analyses:
   - DE analysis between any two species
-  - Effect of paretal expression level on homeolog-specific expression
+  - Effect of paretal gene expression on homeolog-specific expression
   - Nonadditive expression analysis: expression level dominance and transgressive expression
 ### 7. Annotation
 The process of GO enrichement analysis can be found in the directory [Annotation](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Annotation).
 ### 8. Statistics
-Fisher's exact test and chi-square goodness-of-fit test are performed in the directory [Statistics](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Statistics).
+Fisher's exact test and chi-square goodness-of-fit test have been performed in the directory [Statistics](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Statistics).
