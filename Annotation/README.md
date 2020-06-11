@@ -63,7 +63,7 @@ tmhmm --short SuperTranscript_Tdu.fasta.transdecoder.pep > ../tmhmm/Tdu_tmhmm.ou
   - Script `Trinotate_RNAmmer_Tdu_1.0.sh` was used (takes 0.5 h; require 10 CPU).
 
 ### 2.4 Loading generated results into a Trinotate SQLite Database
-Generate gene_trans_map file (contains two columns: 1) gene ID, 2) gene ID; more info can be found [here](https://github.com/Trinotate/Trinotate.github.io/wiki/Loading-generated-results-into-a-Trinotate-SQLite-Database-and-Looking-the-Output-Annotation-Report)) using script [ExtractHeader.py](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Annotation/Trinotate_Functional_Annotation/ExtractHeader.py).
+Generate gene_trans_map file [contains two columns: 1) gene ID, 2) gene ID; more info can be found [here](https://github.com/Trinotate/Trinotate.github.io/wiki/Loading-generated-results-into-a-Trinotate-SQLite-Database-and-Looking-the-Output-Annotation-Report)] using script [ExtractHeader.py](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Annotation/Trinotate_Functional_Annotation/ExtractHeader.py).
 
 ```bash
 module load trinotate/3.0.1
