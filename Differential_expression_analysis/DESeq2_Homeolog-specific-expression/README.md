@@ -22,3 +22,7 @@ Scripts `DESeq2_Homeolog-specific-expression_Tms.ipynb` and `DESeq2_Homeolog-spe
 | Tdu = Tpr | 3,251 | 323 | 373 |
 | Tdu > Tpr | 342 | 55 | 46 |
 | Tdu < Tpr | 387 | 38 | 96 |
+
+## 3. Comparing the expression patterns (category 1-9 in Figure 2) between Tms and Tml
+script 'DESeq2_Homeolog-specific-expression_Tms-Tml_Compare.ipynb' was used.
+
