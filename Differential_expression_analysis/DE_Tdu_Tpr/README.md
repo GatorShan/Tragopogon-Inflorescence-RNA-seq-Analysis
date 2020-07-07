@@ -54,3 +54,21 @@ Here is the **results of DE analysis (padj < 0.05) between Tdu and Tpr**:
 3) **`DESeq2_DE_higher_Tpr.txt`** contains 1,030 DE loci with higher expression in Tpr
 
 4) **`DESeq2_none-DE_Tdu_Tpr.txt`** contains 8,729 DE loci with none-DE expression between Tdu and Tpr
+
+## 4. DE analysis between the two populations of Tdu: Pullman vs. Moscow
+Script `DESeq2_Tdu_count_matrix.ipynb` was used to construct the count matrix, and `DESeq2_Tdu_DEanalysis.ipynb` was used to perform the DE analysis.
+
+There is only **one DE gene** between Tdu_pullman and Tdu_moscow. This gene is **not differentially expressed** between Tdu (combining data from two populations) and Tpr.
+
+Here is the **results of DE analysis (padj < 0.05) between Tdu_pullman and Tdu_moscow**:
+
+| Classes | Number |
+| -- | -- |
+| Nonzero total read count | 11,502 |
+| DE loci with LFC > 0 (Tdu_pullman > Tdu_moscow) | 0 |
+| DE loci with LFC < 0 (Tdu_pullman < Tdu_moscow) | 1 |
+| Outliers | 3 |
+| Low counts | 0 |
+| Total number of loci with results | 11,499 (=11,502 - 3 - 0) |
+
+![DE_Tdu_two_pop](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DE_Tdu_Tpr/Images/DE_Tdu_two_pop.png)
