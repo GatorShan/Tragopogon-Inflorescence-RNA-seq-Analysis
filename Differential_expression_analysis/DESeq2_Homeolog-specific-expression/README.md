@@ -24,5 +24,5 @@ Scripts `DESeq2_Homeolog-specific-expression_Tms.ipynb` and `DESeq2_Homeolog-spe
 | Tdu < Tpr | 387 | 38 | 96 |
 
 ## 3. Comparing the expression patterns (category 1-9 in Figure 2) between Tms and Tml
-script 'DESeq2_Homeolog-specific-expression_Tms-Tml_Compare.ipynb' was used.
+script `DESeq2_Homeolog-specific-expression_Tms-Tml_Compare.ipynb` was used.
 ![comp_Tms_Tml](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Differential_expression_analysis/DESeq2_Homeolog-specific-expression/images/Supplimentary_figure_comp_Tms_Tml.png)
