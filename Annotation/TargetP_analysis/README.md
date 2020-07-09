@@ -9,5 +9,7 @@ The information of the analyzed loci can be found [here](https://github.com/Gato
 
 The amino acid sequences were extracted from file `SuperTranscript_Tdu.fasta.transdecoder.pep`.
 
+`sed 's/*//' Lineage_specific_maternal_bias.fasta > Lineage_specific_maternal_bias_reformatted.fasta` was used to remove * (terminator) from the fasta file
+
 We have **`Lineage_specific_maternal_bias_reformatted.fasta`** and **`Total_homeolog_compare_loci_reformatted.fasta`**.
 
