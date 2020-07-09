@@ -1,6 +1,6 @@
 # TargetP analysis of the 449 loci showing lineage-specific biased homeolog expression toward the maternal parent
 
-TargetP-2.0 tool predicts the presence of N-terminal presequences: signal peptide (SP), mitochondrial transit peptide (mTP), chloroplast transit peptide (cTP) or thylakoid luminal transit peptide (luTP).
+[TargetP-2.0](http://www.cbs.dtu.dk/services/TargetP/index.php) tool predicts the presence of N-terminal presequences: signal peptide (SP), mitochondrial transit peptide (mTP), chloroplast transit peptide (cTP) or thylakoid luminal transit peptide (luTP).
 
 ## 1. Extract the amino acid sequences
 The information of the analyzed loci can be found [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Polyploid_alignment/Homeolog-specific-expression_Tms-Tml_Compare)
