@@ -24,3 +24,4 @@ The results are (tabular file containing 1. the protein prediction SP / mTP/ cTP
 | Organelle-targeted (mTp + cTP) | 32 (7.1%) | 458 (9.2%) |
 | Overall | 449 | 4,975 |
 
+![summary_figure](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Annotation/TargetP_analysis/images/Summary.png)
