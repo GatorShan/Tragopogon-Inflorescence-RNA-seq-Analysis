@@ -25,3 +25,5 @@ The results are (tabular file containing 1. the protein prediction SP / mTP/ cTP
 | Overall | 449 | 4,975 |
 
 ![summary_figure](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/blob/master/Annotation/TargetP_analysis/images/Summary.png)
+
+Statistical test showed that the proportions are **not significantly different (p-value = 0.1684)**. Script can be found in `Statistical_analysis.V2.ipynb`.
