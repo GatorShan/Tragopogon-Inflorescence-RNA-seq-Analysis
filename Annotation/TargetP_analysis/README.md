@@ -18,5 +18,9 @@ The results are (tabular file containing 1. the protein prediction SP / mTP/ cTP
   - `Lineage_specific_maternal_bias_reformatted_summary.targetp2`
   - `Total_homeolog_compare_loci_reformatted_summary.targetp2`
 
-
+## 3. Interpret the result
+| Category | Lineage-specific biased homeolog expression toward the maternal parent | Background loci |
+| -- | -- | -- |
+| Organelle-targeted (mTp + cTP) | 32 (7.1%) | 458 (9.2%) |
+| Overall | 449 | 4,975 |
 
