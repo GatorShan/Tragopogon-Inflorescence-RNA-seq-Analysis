@@ -13,3 +13,10 @@ The amino acid sequences were extracted from file `SuperTranscript_Tdu.fasta.tra
 
 We have **`Lineage_specific_maternal_bias_reformatted.fasta`** and **`Total_homeolog_compare_loci_reformatted.fasta`**.
 
+## 2. Run TargetP
+The results are (tabular file containing 1. the protein prediction SP / mTP/ cTP / luTP / noTP and the associated likelihood probability and 2. the cleavage site position and associated likelihood probability):
+  - `Lineage_specific_maternal_bias_reformatted_summary.targetp2`
+  - `Total_homeolog_compare_loci_reformatted_summary.targetp2`
+
+
+
