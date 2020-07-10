@@ -1,15 +1,15 @@
-## Identify orthologous pairs that are organelle-targeted and have direct cytonuclear interactions
+# Identify orthologous pairs that are organelle-targeted and have direct cytonuclear interactions
 
 [CyMIRA](http://cymira.colostate.edu/) is a detailed classification of genes involved in cytonuclear interactions in Arabidopsis thaliana. The AGI identifier of certain groups of genes (either organelle-targeting or showing direct cytonuclear interaction) are download from the [here](http://cymira.colostate.edu/). The associated fasta files are obtained through bulk download on [TAIR](https://www.arabidopsis.org/tools/bulk/sequences/index.jsp) (Dataset: Araport 11 transcripts; get one sequence per locus).
 
-### 1. Extract SuperTranscript fasta files (from Tdu) for those 4,957 (typo: should be 4,975) orthologous pairs used in homeolog-specific expression comparison between Tms and Tml
+## 1. Extract SuperTranscript fasta files (from Tdu) for those 4,957 (typo: should be 4,975) orthologous pairs used in homeolog-specific expression comparison between Tms and Tml
 
 The information of those orthologous pairs can be found [here](https://github.com/GatorShan/Tragopogon-Inflorescence-RNA-seq-Analysis/tree/master/Polyploid_alignment/Homeolog-specific-expression_Tms-Tml_Compare)
 
 Script `Extract_fasta_seq_V2.ipynb` was used. Output: `SuperTranscript_Tdu_4957.fasta`.
 
-### 2. Blastn analysis
-#### 2.1 Mitochondria interaction
+## 2. Blastn analysis
+### 2.1 Mitochondria interaction
 
   - Query: 534* At mito-interaction genes from Forsythe et al. (2019). * for unknown reason there is only 534, instead of 535, genes
   - DB: `SuperTranscript_Tdu_4957.fasta`
@@ -28,7 +28,7 @@ AT2G17210.1     TRINITY_DN23916_c7_g1   100.000 33      0       0       598     
 AT2G41080.1     TRINITY_DN25045_c0_g4   84.615  52      8       0       392     443     1687    1636    3.00e-06        52.8
 ```
 
-#### 2.2 Plastid interaction
+### 2.2 Plastid interaction
 
   - Query: 293 At plastid-interaction genes from Forsythe et al. (2019).
   - DB: `SuperTranscript_Tdu_4957.fasta`
@@ -39,7 +39,7 @@ Script `blastn_plastid-interaction_Tdu_4957.V2.sh`. Output: `blastn_Plastid-inte
 
 Script `blastn_plastid-interaction_Tdu_4957.V3.sh`. Output: `blastn_Plastid-interaction_TduSuperTranscripts_E10_I85.txt`. **No output**
 
-#### 2.3 Organelle-targeting
+### 2.3 Organelle-targeting
 
   - Query: 4,267* At organelle-targeting genes from Forsythe et al. (2019). * for unknown reason there is only 4,267, instead of 4,268, genes
   - DB: `SuperTranscript_Tdu_4957.fasta`
