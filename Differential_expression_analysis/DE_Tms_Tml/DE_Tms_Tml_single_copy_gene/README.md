@@ -14,3 +14,5 @@ Based on the gene ID from Arabidopsis, a fasta file `959_single_copy_gene_At.fas
 Query: `DESeq2_Tms_Tml.fasta`; Database: `959_single_copy_gene_At.fasta`.
 
 Script `blastn_DE_Tms_Tml_single_copy_gene.V1.sh`. Output: `blastn_DE_Tms_Tml_single_copy_gene_E10_I85.txt`.
+
+**No Output**
