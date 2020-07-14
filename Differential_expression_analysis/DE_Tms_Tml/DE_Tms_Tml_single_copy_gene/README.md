@@ -6,7 +6,7 @@ Script `Extract_fasta_seq_V3.ipynb` was used. Output: `DESeq2_Tms_Tml.fasta`.
 
 ## 2. Generate a fasta file containing 959 conserved single copy genes
 
-[Duarte et al., 2010](https://link.springer.com/article/10.1186/1471-2148-10-61#Sec18) identified 959 single copy genes found in various plant species.
+[Duarte et al., 2010](https://link.springer.com/article/10.1186/1471-2148-10-61#Sec18) identified 959 shared single copy genes across various plant species.
 
 Based on the gene ID from Arabidopsis, a fasta file `959_single_copy_gene_At.fasta` was generated. The associated fasta files are obtained through bulk download on [TAIR](https://www.arabidopsis.org/tools/bulk/sequences/index.jsp) (Dataset: Araport 11 transcripts; get one sequence per locus)
 
